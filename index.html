@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifat Ahmed | Personal Website</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #222;
+}
+
+.site-header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #071d35;
+    line-height: 0;
+    border-bottom: 5px solid #f0c040;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.20);
+}
+
+.header-banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, #f0c040, #ffe08a);
+    color: #102a43;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.logo-text h1 {
+    font-size: 34px;
+    margin: 0 0 8px;
+    letter-spacing: 2px;
+}
+
+.logo-text p {
+    font-size: 16px;
+    margin: 0;
+    color: #e0f2fe;
+    letter-spacing: 1px;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header p {
+    font-size: 19px;
+    letter-spacing: 1.5px;
+    color: #e0f2fe;
+    font-weight: 500;
+}
+
+nav {
+    background: linear-gradient(90deg, #1769aa, #102a43);
+    text-align: center;
+    padding: 18px 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+nav a:hover {
+    background: #f0c040;
+    color: #102a43;
+}
+
+background: linear-gradient(135deg, #ffffff, #e0f2fe);
+    border-bottom: 1px solid #dbeafe;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #102a43;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #475569;
+    max-width: 750px;
+    margin: 0 auto 25px;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #1769aa, #102a43);
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #f0c040;
+    color: #102a43;
+    transform: translateY(-3px);
+}
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+    border-bottom-color: #f0c040;
+}
+
+.card h3 {
+    color: #102a43;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.card a {
+    display: inline-block;
+    background: #1769aa;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.card a:hover {
+    background: #f0c040;
+    color: #102a43;
+    transform: translateY(-3px);
+}
+.hero h2 {
+    color: #1769aa;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #00000012;
+}
+
+.card h3 {
+    color: #1769aa;
+    margin-bottom: 12px;
+}
+
+footer {
+    background: linear-gradient(135deg, #102a43, #1769aa);
+    color: white;
+    text-align: center;
+    padding: 45px 20px 25px;
+    margin-top: 40px;
+    border-top: 5px solid #f0c040;
+}
+
+footer h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+footer p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    color: #e0f2fe;
+}
+
+.footer-links {
+    margin: 22px 0;
+}
+
+.footer-links a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 6px 12px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #f0c040;
+}
+
+footer .copyright {
+    border-top: 1px solid rgba(255,255,255,0.25);
+    padding-top: 18px;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 900px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        padding: 35px 10px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    nav {
+        padding: 12px 5px;
+    }
+
+    nav a {
+        margin: 5px;
+        padding: 9px 10px;
+        font-size: 14px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 18px;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    .hero {
+        padding: 55px 15px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .hero h3 {
+        font-size: 18px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
+.section-title {
+    text-align: center;
+    margin: 50px 15px 20px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    color: #102a43;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.section-title p {
+    font-size: 17px;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 25px 15px;
+    background: #eaf2f8;
+}
+
+.search-box input {
+    width: 60%;
+    max-width: 500px;
+    padding: 14px 18px;
+    border: 2px solid #1769aa;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 14px 25px;
+    background: #1769aa;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: #f0c040;
+    color: #102a43;
+}
+/* Professional Search Results Design */
+
+#searchResults {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 20px;
+    background: #f0f7ff;
+    border-radius: 15px;
+}
+
+#searchResults h3 {
+    background: linear-gradient(135deg, #071d35, #1769aa);
+    color: white;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+
+#searchResults a:hover {
+    background: #e1f1ff;
+    border-left-color: #f0c040;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+@media screen and (max-width: 600px) {
+    #searchResults {
+        margin: 15px 10px;
+        padding: 12px;
+    }
+
+    #searchResults h3 {
+        font-size: 18px;
+    }
+
+    #searchResults a {
+        font-size: 16px;
+        padding: 16px;
+    }
+}
+/* Search Results Card Layout */
+
+#searchResults {
+    max-width: 1150px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #f0f7ff;
+    border-radius: 15px;
+}
+
+#searchResults h3 {
+    background: linear-gradient(135deg, #071d35, #1769aa);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+#searchResults .search-card {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    margin: 1%;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+}
+
+.search-card-image {
+    height: 160px;
+    overflow: hidden;
+    background: #eaf2f8;
+}
+
+.search-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.search-card-content {
+    padding: 22px;
+    background: #ffffff;
+}
+
+.search-card-content h4 {
+    color: #102a43;
+    font-size: 19px;
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+.search-card-content p {
+    color: #526579;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+.search-card-content h4 {
+    color: #102a43;
+    font-size: 19px;
+}
+
+.search-card-content p {
+    color: #64748b;
+    line-height: 1.7;
+    min-height: 75px;
+}
+
+.search-card .read-more {
+    display: inline-block;
+    background: linear-gradient(135deg, #1769aa, #071d35);
+    color: white;
+    padding: 11px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(23,105,170,0.25);
+}
+
+.search-card .read-more:hover {
+    background: linear-gradient(135deg, #f0c040, #e09b00);
+    color: #071d35;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(0,0,0,0.18);
+}
+.search-card .read-more:hover {
+    background: #f0c040;
+    color: #102a43;
+}
+.search-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
+}
+
+.search-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
+}
+
+@media screen and (max-width: 700px) {
+    #searchResults .search-card {
+        width: 100%;
+        margin: 12px 0;
+    }
+}
+
+.publish-date {
+    color: #64748b;
+    font-size: 12px;
+    margin: 12px 0 15px;
+    font-style: normal;
+    font-weight: 500;
+    display: inline-block;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border-left: 3px solid #1769aa;
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <img src="header-banner.png"
+         alt="Rifat Ahmed - Personal & Online Business"
+         class="header-banner">
+
+</header>
+
+<div class="search-box">
+    <input type="text" id="searchInput"
+           placeholder="আপনার পছন্দের বিষয় খুঁজুন...">
+    <button onclick="searchWebsite()">Search</button>
+</div>
+
+<div id="searchResults"></div>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="services.html">Services</a>
+	<a href="photo-editing.html">Photo Editing</a>
+	<a href="contact.html">Contact</a>
+</nav>
+
+<h3>Welcome to Rifat Ahmed's Website</h3>
+
+    <p>
+        শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।
+        অনলাইন আয়, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং,
+        প্রযুক্তি ও ব্যবসার নতুন তথ্য জানুন।
+    </p>
+
+    <p>
+        Learn new skills, explore online opportunities,
+        and grow your knowledge with us.
+    </p>
+
+    <a href="services.html" class="hero-btn">
+        Explore More | আরও জানুন
+    </a>
+</section>
+
+<section class="section-title">
+    <h2>আমাদের বিষয়সমূহ</h2>
+    <p>Explore Our Topics & Services</p>
+</section>
+
+<section class="content" id="services">
+
+    <div class="card">
+        <h3>অনলাইন আয় (Online Income)</h3>
+        <p>ঘরে বসে অনলাইনে আয় করার বিভিন্ন পদ্ধতি সম্পর্কে জানুন।</p>
+        <a href="online-income.html">বিস্তারিত পড়ুন | Read More →</a>
+    </div>
+
+    <div class="card">
+        <h3>ফ্রিল্যান্সিং (Freelancing)</h3>
+        <p>ফ্রিল্যান্সিং শেখা এবং অনলাইনে কাজ শুরু করার নির্দেশনা।</p>
+        <a href="freelancing.html">বিস্তারিত পড়ুন | Read More →</a>
+    </div>
+
+    <div class="card">
+        <h3>ডিজিটাল মার্কেটিং (Digital Marketing)</h3>
+        <p>ডিজিটাল মার্কেটিং ও অনলাইন প্রচার সম্পর্কে জানুন।</p>
+        <a href="digital-marketing.html">বিস্তারিত পড়ুন | Read More →</a>
+    </div>
+
+    <div class="card">
+        <h3>প্রযুক্তি বিষয়ক তথ্য (Technology Tips)</h3>
+        <p>মোবাইল, কম্পিউটার ও ইন্টারনেট ব্যবহারের সহজ টিপস।</p>
+        <a href="technology.html">বিস্তারিত পড়ুন | Read More →</a>
+    </div>
+
+    <div class="card">
+        <h3>অনলাইন ব্যবসা (Online Business)</h3>
+        <p>অনলাইন ব্যবসা শুরু ও পরিচালনা সম্পর্কে পরামর্শ।</p>
+        <a href="online-business.html">বিস্তারিত পড়ুন | Read More →</a>
+    </div>
+
+    <div class="card">
+        <h3>শিক্ষামূলক কনটেন্ট (Educational Content)</h3>
+        <p>নতুন দক্ষতা শেখার জন্য প্রয়োজনীয় তথ্য ও নির্দেশনা।</p>
+        <a href="education.html">বিস্তারিত পড়ুন | Read More →</a>
+    </div>
+
+</section>
+
+<footer id="contact">
+
+    <h2>RIFAT AHMED</h2>
+
+    <p>Personal & Online Business</p>
+
+    <p>
+        অনলাইন আয়, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং,
+        প্রযুক্তি ও ব্যবসা সম্পর্কে জানুন।
+    </p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <p>
+        Email: rifatahmedbogra@gmail.com
+    </p>
+
+    <p class="copyright">
+        © 2026 Rifat Ahmed. All Rights Reserved.
+    </p>
+
+</footer>
+<script>
+function searchWebsite() {
+
+    let input = document.getElementById("searchInput").value.toLowerCase().trim();
+
+    let pages = [
+    {
+        title: "অনলাইন আয় | Online Income",
+        url: "online-income.html",
+        keywords: [
+            "অনলাইন আয়", "আয়", "income", "online income",
+            "ফ্রিল্যান্সিং", "freelancing", "ইউটিউব", "youtube",
+            "ফেসবুক", "facebook", "ব্লগিং", "blogging",
+            "ডাটা এন্ট্রি", "data entry", "গ্রাফিক ডিজাইন",
+            "graphic design", "অ্যাফিলিয়েট মার্কেটিং",
+            "affiliate marketing", "অনলাইন শিক্ষা", "online teaching",
+            "নতুনদের শুরু", "beginners", "প্রতারণা", "online scams"
+        ]
+    },
+   {
+    title: "ফ্রিল্যান্সিং | Freelancing",
+    url: "freelancing.html",
+    keywords: [
+        "ফ্রিল্যান্সিং", "freelancing", "ফ্রিল্যান্সার",
+        "freelancer", "ক্লায়েন্ট", "client",
+        "ডাটা এন্ট্রি", "data entry",
+        "গ্রাফিক ডিজাইন", "graphic design",
+        "ওয়েব ডিজাইন", "web design",
+        "লেখালেখি", "writing",
+        "অনলাইন কাজ", "online work",
+        "ফাইভার", "fiverr",
+        "আপওয়ার্ক", "upwork",
+        "দক্ষতা", "skill",
+        "আয়", "earning"
+    ]
+},
+    {
+    title: "ডিজিটাল মার্কেটিং | Digital Marketing",
+    url: "digital-marketing.html",
+    keywords: [
+        "ডিজিটাল মার্কেটিং", "digital marketing",
+        "marketing", "বিজ্ঞাপন", "advertising",
+        "ফেসবুক মার্কেটিং", "facebook marketing",
+        "গুগল বিজ্ঞাপন", "google ads",
+        "সোশ্যাল মিডিয়া", "social media",
+        "এসইও", "seo",
+        "কনটেন্ট মার্কেটিং", "content marketing",
+        "ইমেইল মার্কেটিং", "email marketing",
+        "অনলাইন প্রচার", "online promotion",
+        "ব্র্যান্ডিং", "branding"
+    ]
+},
+    {
+    title: "প্রযুক্তি বিষয়ক তথ্য | Technology Tips",
+    url: "technology.html",
+    keywords: [
+        "প্রযুক্তি", "technology", "মোবাইল", "mobile",
+        "কম্পিউটার", "computer", "টিপস", "tips",
+        "ইন্টারনেট", "internet",
+        "সফটওয়্যার", "software",
+        "হার্ডওয়্যার", "hardware",
+        "উইন্ডোজ", "windows",
+        "অ্যান্ড্রয়েড", "android",
+        "ওয়েবসাইট", "website",
+        "এআই", "ai", "কৃত্রিম বুদ্ধিমত্তা",
+        "নিরাপত্তা", "security"
+    ]
+},
+    {
+    title: "অনলাইন ব্যবসা | Online Business",
+    url: "online-business.html",
+    keywords: [
+        "অনলাইন ব্যবসা", "online business",
+        "ব্যবসা", "business", "পণ্য", "product",
+        "বিক্রি", "selling", "ক্রয়", "buying",
+        "ই-কমার্স", "e-commerce",
+        "অনলাইন শপ", "online shop",
+        "ই-কমার্স ওয়েবসাইট", "ecommerce website",
+        "ডিজিটাল পণ্য", "digital products",
+        "গ্রাহক", "customer",
+        "মার্কেটপ্লেস", "marketplace",
+        "উদ্যোক্তা", "entrepreneur"
+    ]
+},
+    {
+    title: "শিক্ষামূলক কনটেন্ট | Educational Content",
+    url: "education.html",
+    keywords: [
+        "শিক্ষা", "শিক্ষামূলক", "education",
+        "educational", "শেখা", "learning",
+        "অনলাইন শিক্ষা", "online education",
+        "প্রশিক্ষণ", "training",
+        "কোর্স", "course",
+        "দক্ষতা উন্নয়ন", "skill development",
+        "কম্পিউটার শিক্ষা", "computer learning",
+        "ইংরেজি শিক্ষা", "english learning",
+        "টিউটোরিয়াল", "tutorial",
+        "গাইড", "guide",
+        "জ্ঞান", "knowledge"
+    ]
+}
+];
+
+    let results = pages.filter(page =>
+        page.title.toLowerCase().includes(input) ||
+        page.keywords.some(word => word.toLowerCase().includes(input))
+    );
+
+    let output = document.getElementById("searchResults");
+
+    if (!input) {
+        output.innerHTML = "অনুগ্রহ করে কিছু লিখুন।";
+        return;
+    }
+
+    if (results.length === 0) {
+        output.innerHTML = "দুঃখিত! কোনো বিষয় পাওয়া যায়নি।";
+        return;
+    }
+
+    output.innerHTML = "<h3>সার্চের ফলাফল:</h3>";
+
+   output.innerHTML = `
+    <h3>সার্চের ফলাফল: ${results.length} টি বিষয় পাওয়া গেছে</h3>
+`;
+const publishDate = {
+    "online-income.html": "04 November 2026",
+    "freelancing.html": "04 November 2026",
+    "digital-marketing.html": "04 November 2026",
+    "technology.html": "04 November 2026",
+    "online-business.html": "04 November 2026",
+    "education.html": "04 November 2026"
+};
+const descriptions = {
+    "online-income.html": "ঘরে বসে অনলাইনে আয় করার বিভিন্ন পদ্ধতি ও সুযোগ সম্পর্কে জানুন।",
+    "freelancing.html": "ফ্রিল্যান্সিং শিখুন, দক্ষতা বাড়ান এবং অনলাইনে কাজ শুরু করুন।",
+    "digital-marketing.html": "ডিজিটাল মার্কেটিংয়ের কার্যকর কৌশল ও অনলাইন প্রচার সম্পর্কে জানুন।",
+    "technology.html": "মোবাইল, কম্পিউটার, ইন্টারনেট ও প্রযুক্তির নতুন তথ্য জানুন।",
+    "online-business.html": "অনলাইন ব্যবসা শুরু, পরিচালনা ও উন্নয়নের উপায় জানুন।",
+    "education.html": "নতুন দক্ষতা, শিক্ষা ও প্রশিক্ষণ সম্পর্কে জানুন।"
+};
+
+const icons = {
+    "online-income.html": "💰",
+    "freelancing.html": "💻",
+    "digital-marketing.html": "📢",
+    "technology.html": "⚙️",
+    "online-business.html": "🛒",
+    "education.html": "🎓"
+};
+
+results.forEach(page => {
+    let card = document.createElement("div");
+    card.className = "search-card";
+
+    card.innerHTML = `
+        <div class="search-card-image">
+    <img src="${page.url.replace('.html', '.jpg')}"
+         alt="${page.title}">
+</div>
+        <div class="search-card-content">
+            <h4>${page.title}</h4>
+            <p>${descriptions[page.url]}</p>
+			<p class="publish-date">📅 প্রকাশিত: ${publishDate[page.url]}</p>
+            <a href="${page.url}" class="read-more">
+                Read More →
+            </a>
+        </div>
+    `;
+
+    output.appendChild(card);
+});
+}
+</script>
+
+
+</body>
+</html>

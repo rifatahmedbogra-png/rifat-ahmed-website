@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Photo Editing Tools | Rifat Ahmed</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #102a43;
+        }
+
+        header {
+            background: linear-gradient(135deg, #071d35, #1769aa);
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+            border-bottom: 5px solid #f0c040;
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #1769aa;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+		.tool-image {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+			object-position: center;
+			border-radius: 12px;
+			display: block;
+			margin-bottom: 18px;
+			transition: transform 0.4s ease;
+		}
+
+			.tool-card:hover .tool-image {
+			transform: scale(1.04);
+		}
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.14);
+        }
+
+        .tool-card .emoji {
+            font-size: 45px;
+        }
+
+        .tool-card h3 {
+            color: #1769aa;
+        }
+
+        .tool-card p {
+            color: #526579;
+            line-height: 1.7;
+        }
+
+       .tool-btn {
+			display: inline-block;
+			background: linear-gradient(135deg, #1769aa, #071d35);
+			color: white;
+			padding: 12px 25px;
+			border-radius: 30px;
+			text-decoration: none;
+			font-weight: bold;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+			transition: all 0.3s ease;
+			margin-top: 8px;
+		}
+		.tool-btn:hover {
+			background: #f0c040;
+			color: #071d35;
+			transform: translateY(-4px);
+			box-shadow: 0 7px 15px rgba(0,0,0,0.20);
+		}
+        footer {
+            background: #102a43;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+			nav a {
+			display: inline-block;
+			margin: 7px;
+		}
+
+		.steps {
+			grid-template-columns: 1fr;
+		}	
+
+		.how-to-use {
+			padding: 25px 15px;
+			margin: 25px 10px;
+		
+			}
+        }
+		.how-to-use {
+			background: white;
+			padding: 35px 25px;
+			margin: 40px auto;
+			border-radius: 16px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+			text-align: center;
+		}
+
+		.how-to-use h2 {
+			color: #1769aa;
+			margin-bottom: 12px;
+		}
+
+		.how-to-use > p {
+			color: #526579;
+			line-height: 1.7;
+		}
+
+		.steps {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 20px;
+			margin-top: 25px;
+		}
+
+	.steps div {
+		background: #f1f5f9;
+		padding: 22px 15px;
+		border-radius: 12px;
+		border-bottom: 4px solid #1769aa;
+		transition: 0.3s;
+	}
+
+	.steps div:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 6px 15px rgba(0,0,0,0.10);
+	}
+
+	.steps h3 {
+		color: #1769aa;
+	}
+
+	.steps p {
+		color: #526579;
+		line-height: 1.7;
+	}
+	.privacy-notice {
+		background: #fff8e6;
+		border-left: 5px solid #f0c040;
+		padding: 25px;
+		margin: 35px auto;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+	}
+
+	.privacy-notice h2 {
+		color: #102a43;
+		text-align: center;
+	}
+
+	.privacy-notice > p {
+		text-align: center;
+		color: #526579;
+	}
+
+	.privacy-notice ul {
+		line-height: 2;
+		color: #334e68;
+		padding-left: 25px;
+	}
+
+	.privacy-message {
+		font-weight: bold;
+		color: #1769aa !important;
+		margin-top: 20px;
+	}
+	.photo-header {
+		background: none;
+		padding: 0;
+		border-bottom: none;
+		line-height: 0;
+	}	
+
+	.photo-header img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+   
+	.welcome-section {
+		background: white;
+		text-align: center;
+		padding: 35px 25px;
+		margin: 30px auto;
+		border-radius: 16px;
+		box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+	}
+
+	.welcome-section h2 {
+		color: #1769aa;
+		margin-bottom: 12px;
+	}
+
+	.welcome-section h3 {
+		color: #102a43;
+		margin-bottom: 18px;
+	}
+
+		.welcome-section p {
+		color: #526579;
+		line-height: 1.8;
+		max-width: 850px;
+		margin: 12px auto;
+	}
+	.why-section {
+    background: #eaf4fc;
+    padding: 35px 25px;
+    margin: 35px auto;
+    border-radius: 16px;
+    max-width: 1150px;
+    text-align: center;
+	}
+
+	.why-section h2 {
+		color: #1769aa;
+		margin-bottom: 10px;
+	}
+
+	.why-section h3 {
+		color: #102a43;
+	}
+
+	.why-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 20px;
+		margin-top: 25px;
+	}
+
+	.why-card {
+		background: white;
+		padding: 25px 15px;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+		transition: 0.3s;
+	}
+
+	.why-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+	}
+
+	.why-card h3 {
+		color: #1769aa;
+		margin-bottom: 10px;
+	}
+
+.	why-card p {
+		color: #526579;
+	}
+</style>
+
+</head>
+
+<body>
+
+<header class="photo-header">
+    <img src="photo-editing-banner.png"
+         alt="Photo Editing Tools Cover">
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="photo-editing.html">Photo Editing</a>
+</nav>
+
+<section class="welcome-section">
+
+    <h2>Welcome to Rifat Ahmed Photo Editing Tools</h2>
+
+    <h3>রিফাত আহমেদ ফটো এডিটিং টুলসে আপনাকে স্বাগতম</h3>
+
+    <p>
+        Edit your photos online with easy and powerful tools.
+        Remove backgrounds, resize images, improve photo quality
+        and create beautiful designs.
+    </p>
+
+    <p>
+        সহজেই অনলাইনে আপনার ছবি এডিট করুন। ছবির ব্যাকগ্রাউন্ড
+        পরিবর্তন, ছবি ছোট-বড় করা, ছবির মান উন্নত করা এবং
+        সুন্দর ডিজাইন তৈরি করুন।
+    </p>
+
+</section>
+
+<section class="why-section">
+
+    <h2>Why Choose Our Photo Editing Tools?</h2>
+    <h3>আমাদের ফটো এডিটিং টুলস কেন ব্যবহার করবেন?</h3>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <h3>⚡ Easy to Use</h3>
+            <p>সহজেই ছবি এডিট করার সুবিধা।</p>
+        </div>
+
+        <div class="why-card">
+            <h3>🌐 Online Tools</h3>
+            <p>সফটওয়্যার ইনস্টল ছাড়াই অনলাইনে কাজ করুন।</p>
+        </div>
+
+        <div class="why-card">
+            <h3>🎨 Creative Design</h3>
+            <p>সুন্দর ও আকর্ষণীয় ডিজাইন তৈরি করুন।</p>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="container">
+
+    <h2>Online Photo Editing Tools</h2>
+
+    <p>আপনার প্রয়োজনীয় ছবির কাজ করতে নিচের টুলগুলো ব্যবহার করুন।</p>
+
+    <div class="tools">
+
+        <div class="tool-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d"
+		alt="Remove Background"
+		class="tool-image">
+            <h3>Remove Background</h3>
+            <p>ছবির ব্যাকগ্রাউন্ড সহজেই মুছে ফেলুন।</p>
+            <a class="tool-btn" href="https://www.remove.bg/" target="_blank" rel="noopener">
+                Start Editing
+            </a>
+        </div>
+
+        <div class="tool-card">
+            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"
+			alt="Photo Editing"
+			class="tool-image">
+            <h3>Photo Editing</h3>
+            <p>অনলাইনে ছবি এডিট ও ডিজাইন করুন।</p>
+            <a class="tool-btn" href="https://www.photopea.com/" target="_blank" rel="noopener">
+                Start Editing
+            </a>
+        </div>
+
+        <div class="tool-card">
+            <<img src="https://images.unsplash.com/photo-1455390582262-044cdead277a"
+			alt="Image Resize and Crop"
+			class="tool-image">
+            <h3>Image Resize & Crop</h3>
+            <p>ছবির সাইজ পরিবর্তন ও প্রয়োজনীয় অংশ কাটুন।</p>
+            <a class="tool-btn" href="https://www.iloveimg.com/" target="_blank" rel="noopener">
+                Start Editing
+            </a>
+        </div>
+
+        <div class="tool-card">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab"
+			alt="Graphic Design"
+			class="tool-image">
+            <h3>Graphic Design</h3>
+            <p>সুন্দর ছবি, পোস্টার ও ডিজাইন তৈরি করুন।</p>
+            <a class="tool-btn" href="https://www.canva.com/" target="_blank" rel="noopener">
+                Start Editing
+            </a>
+        </div>
+
+    </div>
+</div>
+<section class="how-to-use">
+    <h2>How to Use Photo Editing Tools</h2>
+    <p>কীভাবে সহজে অনলাইনে ছবি এডিট করবেন?</p>
+
+    <div class="steps">
+        <div>
+            <h3>Step 1</h3>
+            <p>আপনার প্রয়োজনীয় Photo Editing Tool নির্বাচন করুন।</p>
+        </div>
+
+        <div>
+            <h3>Step 2</h3>
+            <p>Start Editing বাটনে ক্লিক করুন।</p>
+        </div>
+
+        <div>
+            <h3>Step 3</h3>
+            <p>আপনার ছবি আপলোড করে প্রয়োজনীয় পরিবর্তন করুন।</p>
+        </div>
+
+        <div>
+            <h3>Step 4</h3>
+            <p>এডিট করা ছবিটি ডাউনলোড করে সংরক্ষণ করুন।</p>
+        </div>
+    </div>
+</section>
+
+<section class="privacy-notice">
+
+    <h2>Privacy & Safety Notice</h2>
+    <h3>গোপনীয়তা ও নিরাপত্তা সতর্কতা</h3>
+
+    <ul>
+        <li>
+            Be careful before uploading personal or private photos.
+            <br>
+            ব্যক্তিগত বা গোপনীয় ছবি আপলোড করার আগে সতর্ক থাকুন।
+        </li>
+
+        <li>
+            Do not share personal information on unknown websites.
+            <br>
+            অপরিচিত ওয়েবসাইটে ব্যক্তিগত তথ্য শেয়ার করবেন না।
+        </li>
+
+        <li>
+            Read the Privacy Policy before editing your photos.
+            <br>
+			ছবি এডিট করার আগে সংশ্লিষ্ট ওয়েবসাইটের গোপনীয়তা নীতি পড়ে নিন।
+        </li>
+
+        <li>
+            Delete your uploaded photos after editing, if the option is available.
+			<br>
+			এডিটিং শেষে সুযোগ থাকলে আপলোড করা ছবিগুলো মুছে ফেলুন।
+        </li>
+		</ul>
+
+    <p class="privacy-message">
+        Protecting your personal information and photos is your responsibility.
+        <br>
+			আপনার ব্যক্তিগত তথ্য ও ছবির নিরাপত্তা আপনার নিজের দায়িত্ব।
+    </p>
+
+</section>
+<footer>
+    <h3>RIFAT AHMED</h3>
+    <p>Personal & Online Business</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
