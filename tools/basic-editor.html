@@ -3,525 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Basic Photo Editor | Rifat AI Photo Studio</title>
-
+<title>Basic Photo Editor | Rifat Online Tools</title>
 <style>
 *{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#eef3f9;
-    color:#102a43;
-}
-header{
-    background:linear-gradient(120deg,#071d35,#1769aa);
-    color:white;
-    padding:22px 15px;
-    text-align:center;
-}
-header h1{margin:0 0 8px;font-size:25px}
-header p{margin:0;color:#dcecff}
-.container{
-    max-width:1150px;
-    margin:25px auto;
-    padding:15px;
-}
-.topbar{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:18px;
-}
-button,.upload-label{
-    border:0;
-    border-radius:7px;
-    padding:11px 16px;
-    background:#1769aa;
-    color:white;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:bold;
-}
-button:hover,.upload-label:hover{background:#0b4e85}
-button.secondary{background:#52677c}
-button.gold{background:#d69e19;color:#102a43}
-button:disabled{opacity:.4;cursor:not-allowed}
-#photoInput{display:none}
-.workspace{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 310px;
-    gap:18px;
-}
-.preview-box,.panel{
-    background:white;
-    border-radius:12px;
-    padding:18px;
-    box-shadow:0 3px 15px #102a4312;
-}
-.preview-box{
-    min-height:440px;
-    display:flex;
-    flex-direction:column;
-}
-.preview-area{
-    flex:1;
-    min-height:350px;
-    background:#e9eef5;
-    border:2px dashed #b6c7d8;
-    border-radius:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:auto;
-    padding:12px;
-}
-#canvas{
-    display:none;
-    max-width:100%;
-    max-height:650px;
-    background:white;
-    box-shadow:0 2px 12px #0002;
-}
-#emptyMessage{
-    color:#60758a;
-    text-align:center;
-    line-height:2;
-}
-.panel h2{
-    margin:0 0 18px;
-    font-size:20px;
-    border-bottom:1px solid #e2e8f0;
-    padding-bottom:12px;
-}
-.control{margin-bottom:19px}
-.control label{
-    display:flex;
-    justify-content:space-between;
-    font-weight:bold;
-    font-size:14px;
-    margin-bottom:8px;
-}
-.control input[type=range]{width:100%;cursor:pointer}
-.value{color:#1769aa}
-.tool-buttons{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-    margin-top:15px;
-}
-.tool-buttons button{width:100%}
-.help{
-    margin-top:20px;
-    padding:13px;
-    background:#edf6ff;
-    border-radius:8px;
-    color:#315575;
-    font-size:13px;
-    line-height:1.7;
-}
-footer{
-    text-align:center;
-    padding:22px;
-    color:#65798d;
-    font-size:13px;
-}
-@media(max-width:800px){
-    .workspace{grid-template-columns:1fr}
-    .preview-area{min-height:280px}
-}
+body{margin:0;font-family:Arial,sans-serif;background:#071d35;color:#fff}
+header{text-align:center;padding:28px 15px;background:linear-gradient(120deg,#071d35,#1769aa)}
+header img{width:100%;max-width:1000px;border-radius:14px}
+header h1{margin:20px 0 8px;color:#f0c040}
+header p{line-height:1.7}
+nav{text-align:center;padding:15px}
+nav a{display:inline-block;background:#1769aa;color:white;text-decoration:none;padding:11px 22px;border-radius:8px}
+main{max-width:1100px;margin:auto;padding:15px}
+.intro{text-align:center;line-height:1.8;margin:20px 0 30px}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#102a43;border:1px solid #1769aa;border-radius:12px;padding:22px;text-align:center}
+.symbol{font-size:36px}
+.card h3{color:#f0c040}
+.card p{color:#d7e5f5;line-height:1.6;min-height:48px}
+.status{display:inline-block;background:#35485b;color:#ffe08a;padding:7px 13px;border-radius:20px;font-size:13px}
+.notice{margin:30px 0;background:#102a43;padding:20px;border-left:4px solid #f0c040;border-radius:8px;line-height:1.8}
+footer{text-align:center;padding:25px;color:#cbd9e8;border-top:1px solid #1769aa;line-height:1.8}
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>Rifat AI Photo Studio</h1>
-    <p>Basic Photo Editor | Professional Photo Editing Tools</p>
+<img src="tools-cover.png" alt="Rifat Online Tools & Documents Cover">
+<h1>Basic Photo Editor</h1>
+<p>সহজেই ছবির সাধারণ সম্পাদনা করুন</p>
+<p>Edit Photos Easily | Basic Photo Editing Tools</p>
 </header>
 
-<div class="container">
+<nav>
+<a href="index.html">⌂ Home | মূল পেজ</a>
+</nav>
 
-    <div class="topbar">
-        <label class="upload-label" for="photoInput">📷 ছবি আপলোড</label>
-        <input type="file" id="photoInput" accept="image/*">
+<main>
+<section class="intro">
+<h2>Basic Photo Editing Tools</h2>
+<p>ছবি সম্পাদনার প্রয়োজনীয় সাধারণ বিষয়গুলো সম্পর্কে জানুন।</p>
+<p>Learn the essential features of basic photo editing.</p>
+</section>
 
-        <button class="secondary" id="undoBtn" disabled>↶ Undo</button>
-        <button class="secondary" id="redoBtn" disabled>↷ Redo</button>
-        <button class="gold" id="resetBtn">Reset</button>
-        <button id="downloadBtn">⬇ Download Photo</button>
-    </div>
+<section class="tools">
 
-    <div class="workspace">
-
-        <section class="preview-box">
-            <h3>ছবির প্রিভিউ</h3>
-
-            <div class="preview-area">
-                <div id="emptyMessage">
-                    <h2>Rifat AI Photo Studio</h2>
-                    এখানে আপনার ছবি আপলোড করুন
-                </div>
-                <canvas id="canvas"></canvas>
-            </div>
-        </section>
-
-        <section class="panel">
-            <h2>Editing Tools</h2>
-
-            <div class="control">
-                <label>
-                    <span>Brightness</span>
-                    <span class="value" id="brightnessValue">100%</span>
-                </label>
-                <input type="range" id="brightness"
-                       min="0" max="200" value="100">
-            </div>
-
-            <div class="control">
-                <label>
-                    <span>Contrast</span>
-                    <span class="value" id="contrastValue">100%</span>
-                </label>
-                <input type="range" id="contrast"
-                       min="0" max="200" value="100">
-            </div>
-
-            <div class="control">
-                <label>
-                    <span>Saturation</span>
-                    <span class="value" id="saturationValue">100%</span>
-                </label>
-                <input type="range" id="saturation"
-                       min="0" max="200" value="100">
-            </div>
-
-            <div class="control">
-                <label>
-                    <span>Exposure</span>
-                    <span class="value" id="exposureValue">0</span>
-                </label>
-                <input type="range" id="exposure"
-                       min="-50" max="50" value="0">
-            </div>
-
-            <div class="control">
-                <label>
-                    <span>Warmth</span>
-                    <span class="value" id="warmthValue">0</span>
-                </label>
-                <input type="range" id="warmth"
-                       min="0" max="100" value="0">
-            </div>
-
-            <div class="tool-buttons">
-                <button id="rotateLeft">↶ Rotate Left</button>
-                <button id="rotateRight">↷ Rotate Right</button>
-                <button class="secondary" id="flipH">↔ Flip Horizontal</button>
-                <button class="secondary" id="flipV">↕ Flip Vertical</button>
-            </div>
-
-            <div class="help">
-                <strong>ব্যবহারের নিয়ম:</strong><br>
-                প্রথমে ছবি আপলোড করুন। তারপর ডান পাশের
-                স্লাইডার দিয়ে ছবির আলো ও রং পরিবর্তন করুন।
-                পছন্দ হলে Download Photo চাপুন।
-            </div>
-        </section>
-
-    </div>
+<div class="card">
+<div class="symbol">📂</div>
+<h3>Image Upload</h3>
+<p>সম্পাদনার জন্য ছবি নির্বাচন ও আপলোড।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
 </div>
 
+<div class="card">
+<div class="symbol">📐</div>
+<h3>Resize Image</h3>
+<p>ছবির দৈর্ঘ্য ও প্রস্থ পরিবর্তন।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
+</div>
+
+<div class="card">
+<div class="symbol">✂️</div>
+<h3>Crop Image</h3>
+<p>ছবির অপ্রয়োজনীয় অংশ কেটে ফেলা।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
+</div>
+
+<div class="card">
+<div class="symbol">🔄</div>
+<h3>Rotate Image</h3>
+<p>ছবিকে ডানে বা বামে ঘোরানো।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
+</div>
+
+<div class="card">
+<div class="symbol">↔️</div>
+<h3>Flip Image</h3>
+<p>ছবিকে অনুভূমিক বা উল্লম্বভাবে উল্টানো।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
+</div>
+
+<div class="card">
+<div class="symbol">☀️</div>
+<h3>Brightness</h3>
+<p>ছবির উজ্জ্বলতা নিয়ন্ত্রণ।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
+</div>
+
+<div class="card">
+<div class="symbol">⚫</div>
+<h3>Contrast</h3>
+<p>ছবির আলো ও অন্ধকারের পার্থক্য ঠিক করা।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
+</div>
+
+<div class="card">
+<div class="symbol">💾</div>
+<h3>Download Image</h3>
+<p>সম্পাদিত ছবি ডাউনলোড করার সুবিধা।</p>
+<span class="status">Coming Soon | শিগগিরই</span>
+</div>
+
+</section>
+
+<div class="notice">
+<strong>গুরুত্বপূর্ণ তথ্য:</strong><br>
+এই পেজের টুলগুলো এখনো কার্যকরভাবে সংযুক্ত করা হয়নি। পরবর্তী ধাপে প্রয়োজনীয় ফিচার তৈরি ও পরীক্ষা করে চালু করা হবে।<br>
+<strong>Important:</strong> The tools are not connected yet. Features will be developed and tested before launch.
+</div>
+
+</main>
+
 <footer>
-    © 2026 Rifat AI Photo Studio | All Rights Reserved
+<strong>Rifat Online Tools & Documents</strong><br>
+শিখুন জানুন দক্ষতা বাড়ান আয় করুন<br>
+© 2026 Rifat Ahmed. All Rights Reserved.
 </footer>
-
-<script>
-const photoInput = document.getElementById("photoInput");
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const emptyMessage = document.getElementById("emptyMessage");
-
-let originalImage = null;
-let rotation = 0;
-let flipH = false;
-let flipV = false;
-
-let settings = {
-    brightness: 100,
-    contrast: 100,
-    saturation: 100,
-    exposure: 0,
-    warmth: 0
-};
-
-let history = [];
-let historyIndex = -1;
-
-const controlNames = [
-    "brightness",
-    "contrast",
-    "saturation",
-    "exposure",
-    "warmth"
-];
-
-function getState(){
-    return {
-        settings: {...settings},
-        rotation,
-        flipH,
-        flipV
-    };
-}
-
-function saveHistory(){
-    if(!originalImage) return;
-
-    history = history.slice(0, historyIndex + 1);
-    history.push(getState());
-
-    if(history.length > 50){
-        history.shift();
-    }
-
-    historyIndex = history.length - 1;
-    updateHistoryButtons();
-}
-
-function updateHistoryButtons(){
-    document.getElementById("undoBtn").disabled =
-        historyIndex <= 0;
-
-    document.getElementById("redoBtn").disabled =
-        historyIndex >= history.length - 1;
-}
-
-function applyState(state){
-    settings = {...state.settings};
-    rotation = state.rotation;
-    flipH = state.flipH;
-    flipV = state.flipV;
-
-    controlNames.forEach(name => {
-        document.getElementById(name).value = settings[name];
-        updateValue(name);
-    });
-
-    renderPhoto();
-}
-
-function updateValue(name){
-    const value = settings[name];
-    const unit = ["brightness","contrast","saturation"].includes(name)
-        ? "%"
-        : "";
-
-    document.getElementById(name + "Value").textContent =
-        (name === "exposure" || name === "warmth"
-            ? (value > 0 ? "+" : "") + value
-            : value + unit);
-}
-
-function renderPhoto(){
-    if(!originalImage) return;
-
-    const angle = ((rotation % 360) + 360) % 360;
-
-    const originalWidth = originalImage.naturalWidth;
-    const originalHeight = originalImage.naturalHeight;
-
-    const rotated = angle === 90 || angle === 270;
-
-    canvas.width = rotated ? originalHeight : originalWidth;
-    canvas.height = rotated ? originalWidth : originalHeight;
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    ctx.save();
-
-    ctx.translate(canvas.width / 2, canvas.height / 2);
-    ctx.rotate(angle * Math.PI / 180);
-
-    ctx.scale(
-        flipH ? -1 : 1,
-        flipV ? -1 : 1
-    );
-
-    const exposureBrightness = Math.pow(
-        2,
-        settings.exposure / 50
-    ) * 100;
-
-    const brightness = settings.brightness *
-        exposureBrightness / 100;
-
-    const warmth = settings.warmth / 100;
-
-    ctx.filter =
-        "brightness(" + brightness + "%) " +
-        "contrast(" + settings.contrast + "%) " +
-        "saturate(" + settings.saturation + "%) " +
-        "sepia(" + (warmth * 35) + "%)";
-
-    ctx.drawImage(
-        originalImage,
-        -originalWidth / 2,
-        -originalHeight / 2,
-        originalWidth,
-        originalHeight
-    );
-
-    ctx.restore();
-}
-
-photoInput.addEventListener("change", function(event){
-    const file = event.target.files[0];
-
-    if(!file) return;
-
-    if(!file.type.startsWith("image/")){
-        alert("অনুগ্রহ করে একটি ছবি নির্বাচন করুন।");
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = function(e){
-        const image = new Image();
-
-        image.onload = function(){
-            originalImage = image;
-
-            rotation = 0;
-            flipH = false;
-            flipV = false;
-
-            settings = {
-                brightness:100,
-                contrast:100,
-                saturation:100,
-                exposure:0,
-                warmth:0
-            };
-
-            emptyMessage.style.display = "none";
-            canvas.style.display = "block";
-
-            history = [];
-            historyIndex = -1;
-
-            controlNames.forEach(name => {
-                document.getElementById(name).value = settings[name];
-                updateValue(name);
-            });
-
-            renderPhoto();
-            saveHistory();
-        };
-
-        image.src = e.target.result;
-    };
-
-    reader.readAsDataURL(file);
-});
-
-controlNames.forEach(name => {
-    document.getElementById(name).addEventListener("input", function(){
-        if(!originalImage) return;
-
-        settings[name] = Number(this.value);
-        updateValue(name);
-        renderPhoto();
-    });
-
-    document.getElementById(name).addEventListener("change", function(){
-        if(originalImage) saveHistory();
-    });
-});
-
-document.getElementById("rotateLeft").onclick = function(){
-    if(!originalImage) return;
-    rotation = (rotation - 90 + 360) % 360;
-    renderPhoto();
-    saveHistory();
-};
-
-document.getElementById("rotateRight").onclick = function(){
-    if(!originalImage) return;
-    rotation = (rotation + 90) % 360;
-    renderPhoto();
-    saveHistory();
-};
-
-document.getElementById("flipH").onclick = function(){
-    if(!originalImage) return;
-    flipH = !flipH;
-    renderPhoto();
-    saveHistory();
-};
-
-document.getElementById("flipV").onclick = function(){
-    if(!originalImage) return;
-    flipV = !flipV;
-    renderPhoto();
-    saveHistory();
-};
-
-document.getElementById("undoBtn").onclick = function(){
-    if(historyIndex <= 0) return;
-
-    historyIndex--;
-    applyState(history[historyIndex]);
-    updateHistoryButtons();
-};
-
-document.getElementById("redoBtn").onclick = function(){
-    if(historyIndex >= history.length - 1) return;
-
-    historyIndex++;
-    applyState(history[historyIndex]);
-    updateHistoryButtons();
-};
-
-document.getElementById("resetBtn").onclick = function(){
-    if(!originalImage){
-        alert("প্রথমে একটি ছবি আপলোড করুন।");
-        return;
-    }
-
-    settings = {
-        brightness:100,
-        contrast:100,
-        saturation:100,
-        exposure:0,
-        warmth:0
-    };
-
-    rotation = 0;
-    flipH = false;
-    flipV = false;
-
-    controlNames.forEach(name => {
-        document.getElementById(name).value = settings[name];
-        updateValue(name);
-    });
-
-    renderPhoto();
-    saveHistory();
-};
-
-document.getElementById("downloadBtn").onclick = function(){
-    if(!originalImage){
-        alert("প্রথমে একটি ছবি আপলোড করুন।");
-        return;
-    }
-
-    const link = document.createElement("a");
-    link.download = "rifat-edited-photo.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-};
-</script>
 
 </body>
 </html>
