@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Effects Studio | Rifat AI Photo Studio</title>
+<meta name="description" content="ছবিতে বিভিন্ন ইফেক্ট দিন। Glow, Blur, Sharpen, Brightness, Contrast ও Color Effects ব্যবহার করুন।">
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:Arial,sans-serif;
+ background:#071d35;color:#fff;
+}
+header{
+ background:linear-gradient(120deg,#071d35,#1769aa);
+ padding:24px 15px;text-align:center;
+ border-bottom:3px solid #f0c040;
+}
+header h1{margin:0;font-size:27px}
+header p{color:#dbeafe;margin:9px 0 0}
+.container{max-width:1150px;margin:25px auto;padding:15px}
+.card{
+ background:#102a43;border:1px solid #285477;
+ border-radius:15px;padding:20px;margin-bottom:20px;
+}
+h2{color:#f0c040;margin-top:0}
+.upload{
+ display:block;text-align:center;padding:22px;
+ border:2px dashed #4da3df;border-radius:12px;
+ cursor:pointer;background:#0b233b;
+}
+.upload input{display:block;margin:12px auto 0;max-width:100%}
+.workspace{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:20px;align-items:start;
+}
+.preview{
+ background:#061426;min-height:280px;
+ border-radius:12px;display:flex;
+ align-items:center;justify-content:center;
+ overflow:hidden;padding:10px;
+}
+canvas{max-width:100%;max-height:520px}
+.placeholder{color:#9db5cc;text-align:center}
+.control{
+ display:grid;grid-template-columns:1fr auto;
+ gap:8px;margin:15px 0;align-items:center;
+}
+.control label{font-size:14px}
+.control input{grid-column:1/3;width:100%;accent-color:#2196c8}
+.control output{color:#f0c040}
+button,.download{
+ border:0;border-radius:9px;padding:11px 15px;
+ background:#1769aa;color:white;font-weight:bold;
+ cursor:pointer;font-size:14px;
+}
+button:hover,.download:hover{background:#2196c8}
+.buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.secondary{background:#334e68}
+.preset{background:#173e60}
+.note{color:#b8cce0;font-size:13px;line-height:1.7}
+footer{text-align:center;padding:20px;color:#9db5cc}
+@media(max-width:750px){
+ .workspace{grid-template-columns:1fr}
+ header h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>✨ Rifat Effects Studio</h1>
+<p>ছবির সৌন্দর্য বাড়ান | Enhance Your Photos</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>📷 ছবি আপলোড | Upload Photo</h2>
+<label class="upload">
+ছবি নির্বাচন করুন | Choose an Image
+<input type="file" id="photoInput" accept="image/*">
+</label>
+<p class="note">আপনার ছবি আপনার ব্রাউজারেই প্রসেস হবে। | Your image is processed in your browser.</p>
+</div>
+
+<div class="workspace">
+
+<div class="card">
+<h2>🖼️ ছবির Preview | Preview</h2>
+<div class="preview">
+<div class="placeholder" id="placeholder">
+এখানে আপনার ছবি দেখা যাবে<br> Your photo will appear here
+</div>
+<canvas id="canvas" style="display:none"></canvas>
+</div>
+<div class="buttons">
+<button onclick="resetEffects()" class="secondary">রিসেট | Reset</button>
+<button onclick="downloadImage('image/png')">PNG Download</button>
+<button onclick="downloadImage('image/jpeg')">JPG Download</button>
+</div>
+</div>
+
+<div class="card">
+<h2>🎨 Effects & Adjustments</h2>
+
+<div class="control">
+<label>Brightness | উজ্জ্বলতা</label>
+<output id="brightnessVal">100%</output>
+<input type="range" id="brightness" min="0" max="200" value="100">
+</div>
+
+<div class="control">
+<label>Contrast | বৈপরীত্য</label>
+<output id="contrastVal">100%</output>
+<input type="range" id="contrast" min="0" max="200" value="100">
+</div>
+
+<div class="control">
+<label>Saturation | রঙের তীব্রতা</label>
+<output id="saturationVal">100%</output>
+<input type="range" id="saturation" min="0" max="200" value="100">
+</div>
+
+<div class="control">
+<label>Blur | ঝাপসা</label>
+<output id="blurVal">0px</output>
+<input type="range" id="blur" min="0" max="10" value="0">
+</div>
+
+<div class="control">
+<label>Grayscale | সাদা-কালো</label>
+<output id="grayVal">0%</output>
+<input type="range" id="grayscale" min="0" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Sepia | পুরোনো ছবির রং</label>
+<output id="sepiaVal">0%</output>
+<input type="range" id="sepia" min="0" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Hue Rotate | রঙ পরিবর্তন</label>
+<output id="hueVal">0°</output>
+<input type="range" id="hue" min="0" max="360" value="0">
+</div>
+
+<div class="control">
+<label>Glow | আলোর আভা</label>
+<output id="glowVal">0px</output>
+<input type="range" id="glow" min="0" max="20" value="0">
+</div>
+
+<div class="control">
+<label>Sharpen Preview | তীক্ষ্ণতা</label>
+<output id="sharpenVal">0</output>
+<input type="range" id="sharpen" min="0" max="100" value="0">
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>⚡ Quick Effects | দ্রুত ইফেক্ট</h2>
+<div class="buttons">
+<button class="preset" onclick="setPreset('bright')">Bright</button>
+<button class="preset" onclick="setPreset('vivid')">Vivid</button>
+<button class="preset" onclick="setPreset('warm')">Warm</button>
+<button class="preset" onclick="setPreset('cool')">Cool</button>
+<button class="preset" onclick="setPreset('bw')">Black & White</button>
+<button class="preset" onclick="setPreset('vintage')">Vintage</button>
+<button class="preset" onclick="setPreset('glow')">Glow</button>
+<button class="preset" onclick="setPreset('clear')">Clear</button>
+</div>
+<p class="note">ইফেক্ট নির্বাচনের পর প্রয়োজন অনুযায়ী স্লাইডার পরিবর্তন করুন।</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Rifat AI Photo Studio | Effects Studio
+</footer>
+
+<script>
+const input=document.getElementById("photoInput");
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+const placeholder=document.getElementById("placeholder");
+
+let originalImage=null;
+
+const ids=["brightness","contrast","saturation","blur",
+"grayscale","sepia","hue","glow","sharpen"];
+
+const defaults={
+brightness:100,contrast:100,saturation:100,blur:0,
+grayscale:0,sepia:0,hue:0,glow:0,sharpen:0
+};
+
+input.addEventListener("change",function(e){
+ const file=e.target.files[0];
+ if(!file)return;
+
+ if(!file.type.startsWith("image/")){
+ alert("Please select an image file.");
+ return;
+ }
+
+ const reader=new FileReader();
+
+ reader.onload=function(event){
+  const img=new Image();
+  img.onload=function(){
+   originalImage=img;
+
+   const max=2200;
+   const scale=Math.min(1,max/img.width,max/img.height);
+
+   canvas.width=Math.round(img.width*scale);
+   canvas.height=Math.round(img.height*scale);
+
+   placeholder.style.display="none";
+   canvas.style.display="block";
+
+   resetEffects();
+  };
+  img.src=event.target.result;
+ };
+ reader.readAsDataURL(file);
+});
+
+function getValues(){
+ const v={};
+ ids.forEach(id=>{
+  v[id]=Number(document.getElementById(id).value);
+ });
+ return v;
+}
+
+function render(){
+ if(!originalImage)return;
+
+ const v=getValues();
+
+ ids.forEach(id=>{
+  document.getElementById(id+"Val").textContent=
+   v[id]+(id==="hue"?"°":id==="blur"||id==="glow"?"px":id==="brightness"||id==="contrast"||id==="saturation"||id==="grayscale"||id==="sepia"?"%":"");
+ });
+
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.filter=
+  `brightness(${v.brightness}%) contrast(${v.contrast}%) saturate(${v.saturation}%) blur(${v.blur}px) grayscale(${v.grayscale}%) sepia(${v.sepia}%) hue-rotate(${v.hue}deg)`;
+
+ ctx.drawImage(originalImage,0,0,canvas.width,canvas.height);
+ ctx.filter="none";
+
+ if(v.glow>0){
+  ctx.save();
+  ctx.globalCompositeOperation="screen";
+  ctx.globalAlpha=Math.min(v.glow/40,0.5);
+  ctx.shadowColor="#ffffff";
+  ctx.shadowBlur=v.glow;
+  ctx.drawImage(originalImage,0,0,canvas.width,canvas.height);
+  ctx.restore();
+ }
+}
+
+ids.forEach(id=>{
+ document.getElementById(id).addEventListener("input",render);
+});
+
+function resetEffects(){
+ ids.forEach(id=>{
+  document.getElementById(id).value=defaults[id];
+ });
+ render();
+}
+
+function setPreset(name){
+ if(!originalImage){
+  alert("Please upload a photo first.");
+  return;
+ }
+
+ resetEffects();
+
+ const presets={
+  bright:{brightness:115,contrast:110,saturation:110},
+  vivid:{brightness:105,contrast:120,saturation:145},
+  warm:{brightness:105,sepia:25,saturation:115},
+  cool:{brightness:105,hue:190,saturation:115},
+  bw:{grayscale:100,contrast:115},
+  vintage:{sepia:55,contrast:90,saturation:80},
+  glow:{brightness:110,glow:12,contrast:110},
+  clear:{}
+ };
+
+ const selected=presets[name];
+
+ Object.keys(selected).forEach(id=>{
+  document.getElementById(id).value=selected[id];
+ });
+
+ render();
+}
+
+function downloadImage(type){
+ if(!originalImage){
+  alert("Please upload a photo first.");
+  return;
+ }
+
+ const exportCanvas=document.createElement("canvas");
+ exportCanvas.width=canvas.width;
+ exportCanvas.height=canvas.height;
+
+ const ec=exportCanvas.getContext("2d");
+ const v=getValues();
+
+ ec.filter=
+  `brightness(${v.brightness}%) contrast(${v.contrast}%) saturate(${v.saturation}%) blur(${v.blur}px) grayscale(${v.grayscale}%) sepia(${v.sepia}%) hue-rotate(${v.hue}deg)`;
+
+ ec.drawImage(originalImage,0,0,exportCanvas.width,exportCanvas.height);
+ ec.filter="none";
+
+ if(v.glow>0){
+  ec.save();
+  ec.globalCompositeOperation="screen";
+  ec.globalAlpha=Math.min(v.glow/40,0.5);
+  ec.shadowColor="#ffffff";
+  ec.shadowBlur=v.glow;
+  ec.drawImage(originalImage,0,0,exportCanvas.width,exportCanvas.height);
+  ec.restore();
+ }
+
+ const link=document.createElement("a");
+ link.download=type==="image/png"?"rifat-effects.png":"rifat-effects.jpg";
+ link.href=exportCanvas.toDataURL(type,type==="image/jpeg"?0.92:undefined);
+ link.click();
+}
+</script>
+
+</body>
+</html>

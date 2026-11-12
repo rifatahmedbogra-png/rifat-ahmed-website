@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifat AI Tools Studio | AI Photo Editing</title>
+<meta name="description" content="Rifat AI Tools Studio - AI Photo Editing, Background Removal, Auto Enhance and Photo Restoration tools.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#071d35;color:#fff}
+header{
+ background:linear-gradient(120deg,#071d35,#1769aa);
+ padding:32px 15px;text-align:center;
+ border-bottom:3px solid #f0c040
+}
+header h1{font-size:29px;margin:0}
+header p{color:#dbeafe;line-height:1.7}
+.container{max-width:1150px;margin:25px auto;padding:15px}
+.hero{
+ background:linear-gradient(135deg,#102a43,#174d77);
+ padding:25px;border-radius:16px;text-align:center;
+ border:1px solid #285477;margin-bottom:22px
+}
+.hero h2{color:#f0c040}
+.hero p{line-height:1.8;color:#dbeafe}
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:18px
+}
+.tool{
+ background:#102a43;border:1px solid #285477;
+ border-radius:15px;padding:20px;
+ transition:.2s
+}
+.tool:hover{transform:translateY(-4px);border-color:#f0c040}
+.icon{font-size:38px;margin-bottom:10px}
+.tool h3{color:#f0c040;margin:8px 0}
+.tool p{color:#c6d7e8;font-size:14px;line-height:1.7;min-height:65px}
+.status{
+ display:inline-block;background:#614b18;color:#ffe49a;
+ border-radius:20px;padding:6px 11px;font-size:12px;
+ margin:7px 0 12px
+}
+button{
+ display:block;width:100%;padding:11px;
+ background:#1769aa;color:#fff;border:0;
+ border-radius:9px;font-weight:bold;cursor:pointer
+}
+button:hover{background:#2196c8}
+.info{
+ background:#102a43;border:1px solid #285477;
+ padding:20px;border-radius:14px;margin-top:25px;
+ line-height:1.8;color:#c6d7e8
+}
+footer{text-align:center;padding:25px;color:#9db5cc}
+@media(max-width:600px){header h1{font-size:23px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🤖 Rifat AI Tools Studio</h1>
+<p>স্মার্ট AI প্রযুক্তিতে ছবির নতুন রূপ দিন<br>
+Transform Your Photos with Smart AI Technology</p>
+</header>
+
+<div class="container">
+
+<div class="hero">
+<h2>✨ Welcome to AI Photo Studio</h2>
+<p>
+আপনার ছবিকে আরও সুন্দর, পরিষ্কার ও আকর্ষণীয় করতে
+আমাদের AI Tools ব্যবহার করুন।<br>
+Use intelligent photo editing tools to improve your images.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="tool">
+<div class="icon">✂️</div>
+<h3>AI Background Remover</h3>
+<p>ছবির মূল বিষয়বস্তু রেখে পেছনের Background সরানোর সুবিধা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Background Remover')">বিস্তারিত | Details</button>
+</div>
+
+<div class="tool">
+<div class="icon">🌄</div>
+<h3>AI Background Changer</h3>
+<p>ছবির পেছনে নতুন Office, Studio, Nature বা Custom Background বসানোর সুবিধা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Background Changer')">বিস্তারিত | Details</button>
+</div>
+
+<div class="tool">
+<div class="icon">✨</div>
+<h3>AI Auto Enhance</h3>
+<p>এক ক্লিকে ছবির আলো, রঙ, Contrast ও Sharpness উন্নত করার পরিকল্পনা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Auto Enhance')">বিস্তারিত | Details</button>
+</div>
+
+<div class="tool">
+<div class="icon">🖼️</div>
+<h3>AI Photo Restoration</h3>
+<p>পুরোনো, ফ্যাকাশে ও ক্ষতিগ্রস্ত ছবির মান উন্নত করার সুবিধা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Photo Restoration')">বিস্তারিত | Details</button>
+</div>
+
+<div class="tool">
+<div class="icon">👤</div>
+<h3>AI Portrait Enhancement</h3>
+<p>Portrait ছবির আলো, ত্বকের টোন ও সামগ্রিক ছবির মান উন্নত করার সুবিধা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Portrait Enhancement')">বিস্তারিত | Details</button>
+</div>
+
+<div class="tool">
+<div class="icon">🧹</div>
+<h3>AI Object Remover</h3>
+<p>ছবির অপ্রয়োজনীয় বস্তু সরানোর AI সুবিধা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Object Remover')">বিস্তারিত | Details</button>
+</div>
+
+<div class="tool">
+<div class="icon">🔍</div>
+<h3>AI Image Upscaler</h3>
+<p>ছবির Resolution ও বিস্তারিত মান বাড়ানোর পরিকল্পিত সুবিধা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Image Upscaler')">বিস্তারিত | Details</button>
+</div>
+
+<div class="tool">
+<div class="icon">🎨</div>
+<h3>AI Creative Effects</h3>
+<p>ছবিতে নতুন Creative Look ও AI Effects প্রয়োগের সুবিধা।</p>
+<span class="status">সংযোগাধীন | Coming Soon</span>
+<button onclick="showInfo('AI Creative Effects')">বিস্তারিত | Details</button>
+</div>
+
+</div>
+
+<div class="info">
+<h3 style="color:#f0c040">🔐 নিরাপত্তা ও ব্যবহার | Security & Usage</h3>
+এই AI Tools পেজটি বর্তমানে পরিচিতিমূলক Dashboard।
+AI Backend সংযুক্ত হলে Registration ও Login-এর মাধ্যমে
+ব্যবহারকারীরা প্রকৃত AI সেবা নিতে পারবেন।
+
+<br><br>
+This is currently an AI tools dashboard. Actual AI editing
+services will become available after backend integration.
+</div>
+
+</div>
+
+<footer>© 2026 Rifat AI Photo Studio | Powered by Rifat Ahmed</footer>
+
+<script>
+function showInfo(tool){
+ alert(
+  tool+
+  "\n\nএই AI সেবাটি এখনো Backend-এর সঙ্গে সংযুক্ত হয়নি।\n"+
+  "This AI service is coming soon."
+ );
+}
+</script>
+
+</body>
+</html>

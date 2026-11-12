@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Color & Light Studio | Rifat AI Photo Studio</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#edf2f8;color:#102a43}
+header{background:linear-gradient(120deg,#071d35,#1769aa);color:white;text-align:center;padding:24px 15px}
+header h1{margin:0 0 8px;font-size:26px}
+header p{margin:0;color:#dcecff}
+.container{max-width:1250px;margin:25px auto;padding:15px}
+.topbar{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}
+button,.upload-label{border:0;border-radius:7px;padding:11px 14px;background:#1769aa;color:white;cursor:pointer;font-size:13px;font-weight:bold}
+button:hover,.upload-label:hover{background:#0b4e85}
+button.secondary{background:#52677c}
+button.gold{background:#d69e19;color:#102a43}
+button:disabled{opacity:.4;cursor:not-allowed}
+#photoInput{display:none}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 365px;gap:18px;align-items:start}
+.preview-box,.panel{background:white;border-radius:12px;padding:17px;box-shadow:0 3px 15px #102a4312}
+.preview-box{position:sticky;top:10px}
+.preview-area{min-height:390px;background:#e9eef5;border:2px dashed #b6c7d8;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:12px;overflow:auto}
+#canvas{display:none;max-width:100%;max-height:650px;background:white}
+#emptyMessage{text-align:center;color:#60758a;line-height:2}
+.panel h2{margin:0 0 15px;font-size:20px}
+.section{border:1px solid #e2e8f0;border-radius:9px;margin-bottom:12px;overflow:hidden}
+.section-title{width:100%;text-align:left;background:#edf4fb;color:#164e7b;border-radius:0;padding:13px;font-size:14px}
+.section-title:hover{background:#dcecff}
+.section-content{padding:13px}
+.control{margin-bottom:15px}
+.control:last-child{margin-bottom:2px}
+.control label{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:bold;margin-bottom:7px}
+.control input[type=range]{width:100%;accent-color:#1769aa;cursor:pointer}
+.value{color:#1769aa;min-width:35px;text-align:right}
+.grid-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid-buttons button{width:100%}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
+.field input{width:100%;padding:9px;border:1px solid #cbd5e1;border-radius:6px}
+.note{background:#edf6ff;color:#315575;padding:12px;border-radius:8px;font-size:12px;line-height:1.7;margin-top:12px}
+#histogram{width:100%;height:115px;background:#101d2b;border-radius:7px;display:block}
+.status{font-size:12px;color:#52677c;margin-top:10px;min-height:18px}
+footer{text-align:center;padding:22px;color:#65798d;font-size:13px}
+@media(max-width:900px){.workspace{grid-template-columns:1fr}.preview-box{position:static}}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Rifat AI Photo Studio</h1>
+<p>Professional Color & Light Studio</p>
+</header>
+
+<div class="container">
+
+<div class="topbar">
+<label class="upload-label" for="photoInput">📷 ছবি আপলোড</label>
+<input type="file" id="photoInput" accept="image/*">
+<button class="secondary" id="undoBtn" disabled>↶ Undo</button>
+<button class="secondary" id="redoBtn" disabled>↷ Redo</button>
+<button class="gold" id="beforeBtn">Before / After</button>
+<button class="secondary" id="resetBtn">Reset All</button>
+<button id="downloadPng">⬇ PNG Download</button>
+<button class="secondary" id="downloadJpg">⬇ JPG Download</button>
+</div>
+
+<div class="workspace">
+
+<section class="preview-box">
+<h3>Photo Preview</h3>
+<div class="preview-area">
+<div id="emptyMessage">
+<h2>Color & Light Studio</h2>
+এখানে ছবি আপলোড করুন<br>
+তারপর ডান পাশের টুল দিয়ে ছবি সম্পাদনা করুন।
+</div>
+<canvas id="canvas"></canvas>
+</div>
+
+<div class="status" id="status">কোনো ছবি আপলোড করা হয়নি।</div>
+
+<div class="section" style="margin-top:15px">
+<button class="section-title">📊 Image Histogram</button>
+<div class="section-content">
+<canvas id="histogram" width="600" height="150"></canvas>
+<p style="font-size:11px;color:#64748b">ছবির আলো ও RGB রঙের বণ্টন দেখুন।</p>
+</div>
+</div>
+
+<div class="note">
+**Before / After:** মূল ছবি ও সম্পাদিত ছবির মধ্যে তুলনা করতে উপরের বাটনে ক্লিক করুন।
+</div>
+</section>
+
+<section class="panel">
+<h2>Professional Editing Tools</h2>
+
+<!-- LIGHT -->
+<div class="section">
+<button class="section-title">☀️ ১. Light Adjustment</button>
+<div class="section-content">
+
+<div class="control">
+<label>Brightness <span class="value" id="brightnessV">0</span></label>
+<input type="range" id="brightness" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Exposure <span class="value" id="exposureV">0</span></label>
+<input type="range" id="exposure" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Contrast <span class="value" id="contrastV">0</span></label>
+<input type="range" id="contrast" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Highlights <span class="value" id="highlightsV">0</span></label>
+<input type="range" id="highlights" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Shadows <span class="value" id="shadowsV">0</span></label>
+<input type="range" id="shadows" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Whites <span class="value" id="whitesV">0</span></label>
+<input type="range" id="whites" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Blacks <span class="value" id="blacksV">0</span></label>
+<input type="range" id="blacks" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Gamma <span class="value" id="gammaV">1.00</span></label>
+<input type="range" id="gamma" min="30" max="250" value="100">
+</div>
+
+</div>
+</div>
+
+<!-- COLOR -->
+<div class="section">
+<button class="section-title">🎨 ২. Color Adjustment</button>
+<div class="section-content">
+
+<div class="control">
+<label>Temperature <span class="value" id="temperatureV">0</span></label>
+<input type="range" id="temperature" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Tint <span class="value" id="tintV">0</span></label>
+<input type="range" id="tint" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Saturation <span class="value" id="saturationV">0</span></label>
+<input type="range" id="saturation" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Vibrance <span class="value" id="vibranceV">0</span></label>
+<input type="range" id="vibrance" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Hue <span class="value" id="hueV">0°</span></label>
+<input type="range" id="hue" min="-180" max="180" value="0">
+</div>
+
+<div class="control">
+<label>Red Balance <span class="value" id="redV">0</span></label>
+<input type="range" id="red" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Green Balance <span class="value" id="greenV">0</span></label>
+<input type="range" id="green" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Blue Balance <span class="value" id="blueV">0</span></label>
+<input type="range" id="blue" min="-100" max="100" value="0">
+</div>
+
+</div>
+</div>
+
+<!-- DETAIL -->
+<div class="section">
+<button class="section-title">🔍 ৩. Clarity & Detail</button>
+<div class="section-content">
+
+<div class="control">
+<label>Sharpness <span class="value" id="sharpnessV">0</span></label>
+<input type="range" id="sharpness" min="0" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Clarity <span class="value" id="clarityV">0</span></label>
+<input type="range" id="clarity" min="0" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Texture <span class="value" id="textureV">0</span></label>
+<input type="range" id="texture" min="0" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Dehaze <span class="value" id="dehazeV">0</span></label>
+<input type="range" id="dehaze" min="0" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Noise Reduction <span class="value" id="noiseV">0</span></label>
+<input type="range" id="noise" min="0" max="100" value="0">
+</div>
+
+</div>
+</div>
+
+<!-- LEVELS -->
+<div class="section">
+<button class="section-title">📈 ৪. Levels & Tone Curve</button>
+<div class="section-content">
+
+<div class="control">
+<label>Black Point <span class="value" id="blackPointV">0</span></label>
+<input type="range" id="blackPoint" min="0" max="100" value="0">
+</div>
+
+<div class="control">
+<label>White Point <span class="value" id="whitePointV">255</span></label>
+<input type="range" id="whitePoint" min="155" max="255" value="255">
+</div>
+
+<div class="control">
+<label>Shadows Curve <span class="value" id="curveShadowV">0</span></label>
+<input type="range" id="curveShadow" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Midtones Curve <span class="value" id="curveMidV">0</span></label>
+<input type="range" id="curveMid" min="-100" max="100" value="0">
+</div>
+
+<div class="control">
+<label>Highlights Curve <span class="value" id="curveHighV">0</span></label>
+<input type="range" id="curveHigh" min="-100" max="100" value="0">
+</div>
+
+</div>
+</div>
+
+<!-- AUTO -->
+<div class="section">
+<button class="section-title">⚡ ৫. Automatic Corrections</button>
+<div class="section-content">
+<div class="grid-buttons">
+<button id="autoTone">Auto Tone</button>
+<button id="autoColor">Auto Color</button>
+<button id="autoContrast">Auto Contrast</button>
+<button class="secondary" id="autoLight">Auto Light</button>
+</div>
+</div>
+</div>
+
+<!-- EFFECTS -->
+<div class="section">
+<button class="section-title">✨ ৬. Color Effects</button>
+<div class="section-content">
+<div class="grid-buttons">
+<button id="blackWhite">Black & White</button>
+<button id="sepia">Sepia</button>
+<button id="warm">Warm</button>
+<button id="cool">Cool</button>
+<button id="fade">Fade</button>
+<button id="vignette">Vignette</button>
+</div>
+<button class="secondary" style="width:100%;margin-top:9px" id="clearEffects">Clear Effects</button>
+</div>
+</div>
+
+<button class="gold" style="width:100%" id="resetAdjustments">Reset Adjustments</button>
+
+<div class="note">
+প্রথমে ছবি আপলোড করুন। প্রতিটি Slider সরালে ছবির পরিবর্তন দেখা যাবে। পছন্দ হলে Download করুন।
+</div>
+
+</section>
+</div>
+</div>
+
+<footer>© 2026 Rifat AI Photo Studio | All Rights Reserved</footer>
+
+<script>
+const photoInput=document.getElementById("photoInput");
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+const histogram=document.getElementById("histogram");
+const hctx=histogram.getContext("2d");
+const emptyMessage=document.getElementById("emptyMessage");
+const statusBox=document.getElementById("status");
+
+let originalImage=null;
+let originalData=null;
+let currentData=null;
+let showBefore=false;
+let history=[];
+let historyIndex=-1;
+let renderTimer=null;
+
+const defaults={
+brightness:0,exposure:0,contrast:0,highlights:0,shadows:0,
+whites:0,blacks:0,gamma:100,
+temperature:0,tint:0,saturation:0,vibrance:0,hue:0,
+red:0,green:0,blue:0,
+sharpness:0,clarity:0,texture:0,dehaze:0,noise:0,
+blackPoint:0,whitePoint:255,
+curveShadow:0,curveMid:0,curveHigh:0,
+effect:""
+};
+
+let settings={...defaults};
+
+const sliderIds=Object.keys(defaults).filter(k=>k!=="effect");
+
+function updateLabels(){
+    sliderIds.forEach(id=>{
+        const el=document.getElementById(id);
+        const label=document.getElementById(id+"V");
+        if(!el||!label)return;
+
+        let value=Number(settings[id]);
+
+        if(id==="gamma")label.textContent=(value/100).toFixed(2);
+        else if(id==="hue")label.textContent=value+"°";
+        else if(id==="whitePoint")label.textContent=value;
+        else label.textContent=(value>0?"+":"")+value;
+    });
+}
+
+function setStatus(message){
+    statusBox.textContent=message;
+}
+
+function saveHistory(){
+    if(!originalData)return;
+
+    history=history.slice(0,historyIndex+1);
+    history.push({...settings});
+
+    if(history.length>30)history.shift();
+
+    historyIndex=history.length-1;
+    updateHistoryButtons();
+}
+
+function updateHistoryButtons(){
+    document.getElementById("undoBtn").disabled=historyIndex<=0;
+    document.getElementById("redoBtn").disabled=historyIndex>=history.length-1;
+}
+
+function clamp(v){
+    return Math.max(0,Math.min(255,v));
+}
+
+function rgbToHsl(r,g,b){
+    r/=255;g/=255;b/=255;
+    const max=Math.max(r,g,b),min=Math.min(r,g,b);
+    let h=0,s=0,l=(max+min)/2;
+
+    if(max!==min){
+        const d=max-min;
+        s=l>0.5?d/(2-max-min):d/(max+min);
+        switch(max){
+            case r:h=(g-b)/d+(g<b?6:0);break;
+            case g:h=(b-r)/d+2;break;
+            case b:h=(r-g)/d+4;break;
+        }
+        h/=6;
+    }
+    return [h,s,l];
+}
+
+function hslToRgb(h,s,l){
+    let r,g,b;
+
+    if(s===0){r=g=b=l;}
+    else{
+        const hue2rgb=(p,q,t)=>{
+            if(t<0)t+=1;
+            if(t>1)t-=1;
+            if(t<1/6)return p+(q-p)*6*t;
+            if(t<1/2)return q;
+            if(t<2/3)return p+(q-p)*(2/3-t)*6;
+            return p;
+        };
+        const q=l<0.5?l*(1+s):l+s-l*s;
+        const p=2*l-q;
+        r=hue2rgb(p,q,h+1/3);
+        g=hue2rgb(p,q,h);
+        b=hue2rgb(p,q,h-1/3);
+    }
+    return [r*255,g*255,b*255];
+}
+
+function applyEffects(data){
+    const d=data.data;
+    const s=settings;
+
+    const black=s.blackPoint;
+    const white=Math.max(black+1,s.whitePoint);
+    const gamma=s.gamma/100;
+
+    const contrastFactor=(259*(s.contrast+255))/(255*(259-s.contrast));
+    const exposureFactor=Math.pow(2,s.exposure/50);
+    const temp=s.temperature*0.65;
+    const tint=s.tint*0.45;
+
+    for(let i=0;i<d.length;i+=4){
+        let r=d[i],g=d[i+1],b=d[i+2];
+
+        // Levels
+        r=clamp((r-black)*255/(white-black));
+        g=clamp((g-black)*255/(white-black));
+        b=clamp((b-black)*255/(white-black));
+
+        // Gamma
+        r=255*Math.pow(r/255,1/gamma);
+        g=255*Math.pow(g/255,1/gamma);
+        b=255*Math.pow(b/255,1/gamma);
+
+        // Exposure and brightness
+        r=(r-128)*contrastFactor+128+s.brightness*1.5;
+        g=(g-128)*contrastFactor+128+s.brightness*1.5;
+        b=(b-128)*contrastFactor+128+s.brightness*1.5;
+
+        r*=exposureFactor;
+        g*=exposureFactor;
+        b*=exposureFactor;
+
+        // Highlights and shadows
+        let lum=(r+g+b)/3;
+        let shadowWeight=1-Math.min(1,lum/150);
+        let highlightWeight=Math.max(0,(lum-100)/155);
+
+        let shadowAmount=s.shadows*0.9*shadowWeight;
+        let highlightAmount=s.highlights*0.8*highlightWeight;
+
+        r+=shadowAmount+highlightAmount;
+        g+=shadowAmount+highlightAmount;
+        b+=shadowAmount+highlightAmount;
+
+        // Whites and blacks
+        let whiteWeight=Math.max(0,(lum-160)/95);
+        let blackWeight=1-Math.min(1,lum/90);
+
+        r+=s.whites*0.6*whiteWeight+s.blacks*0.6*blackWeight;
+        g+=s.whites*0.6*whiteWeight+s.blacks*0.6*blackWeight;
+        b+=s.whites*0.6*whiteWeight+s.blacks*0.6*blackWeight;
+
+        // Tone curve controls
+        let currentLum=(r+g+b)/3;
+        let normalized=currentLum/255;
+
+        let shadowCurve=s.curveShadow/100*(1-normalized)*(1-normalized);
+        let midCurve=s.curveMid/100*4*normalized*(1-normalized);
+        let highCurve=s.curveHigh/100*normalized*normalized;
+
+        let curveChange=(shadowCurve+midCurve+highCurve)*100;
+
+        r+=curveChange;
+        g+=curveChange;
+        b+=curveChange;
+
+        // Temperature and tint
+        r+=temp+tint*0.3;
+        g+=tint;
+        b-=temp+tint*0.3;
+
+        // RGB color balance
+        r+=s.red*0.75;
+        g+=s.green*0.75;
+        b+=s.blue*0.75;
+
+        r=clamp(r);g=clamp(g);b=clamp(b);
+
+        // Saturation, vibrance and hue
+        let hsl=rgbToHsl(r,g,b);
+        let saturationFactor=1+s.saturation/100;
+        let vibranceFactor=1+(s.vibrance/100)*(1-hsl[1]);
+
+        hsl[0]=(hsl[0]+s.hue/360+1)%1;
+        hsl[1]=Math.max(0,Math.min(1,hsl[1]*saturationFactor*vibranceFactor));
+
+        [r,g,b]=hslToRgb(hsl[0],hsl[1],hsl[2]);
+
+        // Effects
+        if(s.effect==="bw"){
+            let gray=0.299*r+0.587*g+0.114*b;
+            r=g=b=gray;
+        }
+        if(s.effect==="sepia"){
+            let nr=.393*r+.769*g+.189*b;
+            let ng=.349*r+.686*g+.168*b;
+            let nb=.272*r+.534*g+.131*b;
+            r=nr;g=ng;b=nb;
+        }
+        if(s.effect==="fade"){
+            r=r*.88+28;g=g*.88+28;b=b*.88+28;
+        }
+        if(s.effect==="warm"){r+=18;b-=12;}
+        if(s.effect==="cool"){r-=12;b+=18;}
+
+        d[i]=clamp(r);
+        d[i+1]=clamp(g);
+        d[i+2]=clamp(b);
+    }
+
+    return data;
+}
+
+// Basic sharpness and noise reduction filters
+function applySpatialFilters(imageData){
+    const s=settings;
+    const w=imageData.width;
+    const h=imageData.height;
+    const source=imageData.data;
+    const output=new Uint8ClampedArray(source);
+
+    const noise=s.noise/100;
+    const sharp=s.sharpness/100;
+    const clarity=s.clarity/100;
+    const texture=s.texture/100;
+
+    if(noise===0&&sharp===0&&clarity===0&&texture===0)return imageData;
+
+    const copy=(x,y,c)=>source[(y*w+x)*4+c];
+
+    for(let y=1;y<h-1;y++){
+        for(let x=1;x<w-1;x++){
+            const index=(y*w+x)*4;
+
+            for(let c=0;c<3;c++){
+                let center=copy(x,y,c);
+
+                if(noise>0){
+                    let sum=0,count=0;
+                    for(let yy=-1;yy<=1;yy++){
+                        for(let xx=-1;xx<=1;xx++){
+                            sum+=copy(x+xx,y+yy,c);
+                            count++;
+                        }
+                    }
+                    const average=sum/count;
+                    center=center*(1-noise*.65)+average*(noise*.65);
+                }
+
+                if(sharp>0||clarity>0||texture>0){
+                    const average=(
+                        copy(x-1,y,c)+copy(x+1,y,c)+
+                        copy(x,y-1,c)+copy(x,y+1,c)
+                    )/4;
+
+                    const strength=sharp*.9+clarity*.45+texture*.35;
+                    center=center+(center-average)*strength;
+                }
+
+                output[index+c]=clamp(center);
+            }
+        }
+    }
+
+    imageData.data.set(output);
+    return imageData;
+}
+
+function drawHistogram(imageData){
+    const binsR=new Array(64).fill(0);
+    const binsG=new Array(64).fill(0);
+    const binsB=new Array(64).fill(0);
+    const d=imageData.data;
+
+    for(let i=0;i<d.length;i+=16){
+        binsR[Math.floor(d[i]/4)]++;
+        binsG[Math.floor(d[i+1]/4)]++;
+        binsB[Math.floor(d[i+2]/4)]++;
+    }
+
+    const max=Math.max(1,...binsR,...binsG,...binsB);
+
+    hctx.clearRect(0,0,600,150);
+    hctx.fillStyle="#101d2b";
+    hctx.fillRect(0,0,600,150);
+
+    const draw=(bins,color)=>{
+        hctx.beginPath();
+        hctx.strokeStyle=color;
+        hctx.lineWidth=2;
+
+        bins.forEach((v,i)=>{
+            const x=i*600/64;
+            const y=145-(v/max)*125;
+            if(i===0)hctx.moveTo(x,y);
+            else hctx.lineTo(x,y);
+        });
+
+        hctx.stroke();
+    };
+
+    draw(binsR,"#ff5555");
+    draw(binsG,"#55df88");
+    draw(binsB,"#559bff");
+}
+
+function renderPhoto(){
+    if(!originalData)return;
+
+    const imageData=new ImageData(
+        new Uint8ClampedArray(originalData.data),
+        originalData.width,
+        originalData.height
+    );
+
+    if(settings.effect==="vignette"){
+        const d=imageData.data;
+        const w=imageData.width;
+        const h=imageData.height;
+        const cx=w/2,cy=h/2;
+        const maxDist=Math.sqrt(cx*cx+cy*cy);
+
+        for(let y=0;y<h;y++){
+            for(let x=0;x<w;x++){
+                const distance=Math.sqrt((x-cx)**2+(y-cy)**2)/maxDist;
+                const factor=1-Math.max(0,distance-.35)*.75;
+                const i=(y*w+x)*4;
+                d[i]*=factor;
+                d[i+1]*=factor;
+                d[i+2]*=factor;
+            }
+        }
+    }
+
+    applyEffects(imageData);
+    applySpatialFilters(imageData);
+
+    currentData=imageData;
+
+    if(showBefore){
+        ctx.putImageData(originalData,0,0);
+    }else{
+        ctx.putImageData(imageData,0,0);
+    }
+
+    drawHistogram(imageData);
+}
+
+function queueRender(){
+    if(!originalData)return;
+
+    clearTimeout(renderTimer);
+    renderTimer=setTimeout(renderPhoto,30);
+}
+
+function loadPhoto(dataURL){
+    const img=new Image();
+
+    img.onload=function(){
+        const maxSide=2500;
+        const scale=Math.min(1,maxSide/Math.max(img.naturalWidth,img.naturalHeight));
+
+        canvas.width=Math.round(img.naturalWidth*scale);
+        canvas.height=Math.round(img.naturalHeight*scale);
+
+        ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+        originalData=ctx.getImageData(0,0,canvas.width,canvas.height);
+
+        settings={...defaults};
+        updateLabels();
+
+        history=[];
+        historyIndex=-1;
+
+        emptyMessage.style.display="none";
+        canvas.style.display="block";
+        showBefore=false;
+
+        renderPhoto();
+        saveHistory();
+
+        setStatus("ছবি লোড হয়েছে: "+canvas.width+" × "+canvas.height+" pixels");
+    };
+
+    img.onerror=function(){
+        alert("ছবিটি খোলা যাচ্ছে না। অন্য ছবি নির্বাচন করুন।");
+    };
+
+    img.src=dataURL;
+}
+
+photoInput.addEventListener("change",function(e){
+    const file=e.target.files[0];
+    if(!file)return;
+
+    if(!file.type.startsWith("image/")){
+        alert("অনুগ্রহ করে একটি ছবি নির্বাচন করুন।");
+        return;
+    }
+
+    const reader=new FileReader();
+    reader.onload=function(event){
+        loadPhoto(event.target.result);
+    };
+    reader.readAsDataURL(file);
+});
+
+// Sliders
+sliderIds.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+
+    el.addEventListener("input",function(){
+        settings[id]=Number(this.value);
+        updateLabels();
+        showBefore=false;
+        queueRender();
+    });
+
+    el.addEventListener("change",function(){
+        if(originalData)saveHistory();
+    });
+});
+
+// Undo / Redo
+function restoreSettings(state){
+    settings={...state};
+
+    sliderIds.forEach(id=>{
+        const el=document.getElementById(id);
+        if(el)el.value=settings[id];
+    });
+
+    updateLabels();
+    renderPhoto();
+}
+
+document.getElementById("undoBtn").onclick=function(){
+    if(historyIndex<=0)return;
+    historyIndex--;
+    restoreSettings(history[historyIndex]);
+    updateHistoryButtons();
+};
+
+document.getElementById("redoBtn").onclick=function(){
+    if(historyIndex>=history.length-1)return;
+    historyIndex++;
+    restoreSettings(history[historyIndex]);
+    updateHistoryButtons();
+};
+
+// Before / After
+document.getElementById("beforeBtn").onclick=function(){
+    if(!originalData){
+        alert("প্রথমে একটি ছবি আপলোড করুন।");
+        return;
+    }
+
+    showBefore=!showBefore;
+    renderPhoto();
+
+    this.textContent=showBefore?"After দেখুন":"Before / After";
+};
+
+// Reset
+function resetAll(){
+    if(!originalData){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    settings={...defaults};
+    sliderIds.forEach(id=>{
+        const el=document.getElementById(id);
+        if(el)el.value=settings[id];
+    });
+
+    updateLabels();
+    showBefore=false;
+    renderPhoto();
+    saveHistory();
+    setStatus("সব Adjustment Reset করা হয়েছে।");
+}
+
+document.getElementById("resetBtn").onclick=resetAll;
+document.getElementById("resetAdjustments").onclick=resetAll;
+
+// Automatic correction tools
+function autoCorrection(type){
+    if(!originalData){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    const d=originalData.data;
+    let sum=0,min=255,max=0;
+    let red=0,green=0,blue=0;
+    let count=0;
+
+    for(let i=0;i<d.length;i+=16){
+        const r=d[i],g=d[i+1],b=d[i+2];
+        sum+=(r+g+b)/3;
+        red+=r;green+=g;blue+=b;
+        min=Math.min(min,r,g,b);
+        max=Math.max(max,r,g,b);
+        count++;
+    }
+
+    const average=sum/count;
+    const avgR=red/count,avgG=green/count,avgB=blue/count;
+
+    settings={...defaults};
+
+    if(type==="tone"||type==="light"){
+        settings.brightness=Math.max(-35,Math.min(35,(128-average)*0.35));
+        settings.shadows=20;
+        settings.highlights=-12;
+    }
+
+    if(type==="contrast"){
+        settings.contrast=20;
+        settings.blackPoint=Math.max(0,Math.min(25,min-8));
+        settings.whitePoint=Math.max(220,Math.min(255,max+8));
+    }
+
+    if(type==="color"){
+        const avg=(avgR+avgG+avgB)/3;
+        settings.red=Math.max(-20,Math.min(20,(avg-avgR)*0.25));
+        settings.green=Math.max(-20,Math.min(20,(avg-avgG)*0.25));
+        settings.blue=Math.max(-20,Math.min(20,(avg-avgB)*0.25));
+        settings.vibrance=15;
+    }
+
+    sliderIds.forEach(id=>{
+        const el=document.getElementById(id);
+        if(el)el.value=settings[id];
+    });
+
+    updateLabels();
+    renderPhoto();
+    saveHistory();
+    setStatus("Automatic correction সম্পন্ন হয়েছে।");
+}
+
+document.getElementById("autoTone").onclick=()=>autoCorrection("tone");
+document.getElementById("autoColor").onclick=()=>autoCorrection("color");
+document.getElementById("autoContrast").onclick=()=>autoCorrection("contrast");
+document.getElementById("autoLight").onclick=()=>autoCorrection("light");
+
+// Effects
+function setEffect(effect){
+    if(!originalData){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    settings.effect=effect;
+    renderPhoto();
+    saveHistory();
+    setStatus("Effect প্রয়োগ করা হয়েছে: "+effect);
+}
+
+document.getElementById("blackWhite").onclick=()=>setEffect("bw");
+document.getElementById("sepia").onclick=()=>setEffect("sepia");
+document.getElementById("warm").onclick=()=>setEffect("warm");
+document.getElementById("cool").onclick=()=>setEffect("cool");
+document.getElementById("fade").onclick=()=>setEffect("fade");
+document.getElementById("vignette").onclick=()=>setEffect("vignette");
+document.getElementById("clearEffects").onclick=()=>setEffect("");
+
+// Download
+function downloadPhoto(type){
+    if(!currentData){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    const exportCanvas=document.createElement("canvas");
+    exportCanvas.width=currentData.width;
+    exportCanvas.height=currentData.height;
+
+    const exportCtx=exportCanvas.getContext("2d");
+
+    if(type==="image/jpeg"){
+        exportCtx.fillStyle="#ffffff";
+        exportCtx.fillRect(0,0,exportCanvas.width,exportCanvas.height);
+    }
+
+    exportCtx.putImageData(currentData,0,0);
+
+    const link=document.createElement("a");
+    link.download=type==="image/png"
+        ?"rifat-color-edited.png"
+        :"rifat-color-edited.jpg";
+
+    link.href=exportCanvas.toDataURL(type,0.92);
+    link.click();
+}
+
+document.getElementById("downloadPng").onclick=()=>downloadPhoto("image/png");
+document.getElementById("downloadJpg").onclick=()=>downloadPhoto("image/jpeg");
+
+</script>
+</body>
+</html>

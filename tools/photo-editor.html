@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifat AI Photo Studio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f7fb;color:#183047}
+header{background:#071d35;color:white;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:bold;color:#f0c040}
+.logo small{display:block;color:#c5d6e7;font-size:11px;font-weight:normal;margin-top:5px}
+nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:#f0c040}
+.btn{border:0;border-radius:8px;padding:12px 18px;background:#1769aa;color:white;font-weight:bold;cursor:pointer}
+.btn:hover{background:#2196c8}
+.btn.gold{background:#f0c040;color:#102a43}
+.btn.light{background:white;color:#1769aa;border:1px solid #cbd9e7}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.hero{padding:65px 6%;background:linear-gradient(120deg,#071d35,#1769aa);color:white;text-align:center}
+.hero h1{font-size:38px;margin:0 0 15px}
+.hero p{max-width:720px;margin:0 auto 25px;line-height:1.8;color:#e0edf8}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.container{width:92%;max-width:1150px;margin:35px auto}
+.section-title{text-align:center;margin-bottom:25px}
+.section-title h2{font-size:27px;color:#102a43;margin-bottom:8px}
+.section-title p{color:#63778b;line-height:1.7}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.feature{background:white;padding:23px;border-radius:13px;box-shadow:0 4px 18px #18304712;border:1px solid #e2eaf2}
+.feature .emoji{font-size:34px}
+.feature h3{margin:13px 0 8px;color:#102a43}
+.feature p{font-size:14px;color:#63778b;line-height:1.7;margin:0}
+.studio{background:white;border:1px solid #dce6ef;border-radius:15px;padding:24px;box-shadow:0 5px 22px #18304712}
+.studio-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.studio-head h2{margin:0;color:#102a43}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:20px}
+.upload-area{background:#f3f7fb;border:2px dashed #9bb6d0;border-radius:12px;min-height:350px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;overflow:hidden}
+.upload-content .camera{font-size:55px}
+.upload-content p{color:#63778b;line-height:1.7}
+#photoInput{display:none}
+
+/* ছবির ক্রপ নির্বাচন */
+.crop-stage{
+ position:relative;
+ display:inline-block;
+ max-width:100%;
+ line-height:0;
+ user-select:none;
+ touch-action:none;
+}
+.crop-stage img{
+ display:block;
+ max-width:100%;
+ max-height:420px;
+ width:auto;
+ height:auto;
+ object-fit:contain;
+ border-radius:5px;
+ pointer-events:none;
+}
+.crop-selection{
+ display:none;
+ position:absolute;
+ border:2px solid #168cff;
+ background:#168cff22;
+ box-shadow:0 0 0 9999px #0006;
+ pointer-events:none;
+ z-index:2;
+}
+.crop-help{
+ font-size:13px;
+ color:#63778b;
+ text-align:center;
+ margin-top:12px;
+ line-height:1.6;
+}
+
+.tools{display:flex;flex-direction:column;gap:10px}
+.tool{padding:15px;border:1px solid #e1e9f0;background:#f8fafc;border-radius:9px}
+.tool b{display:block;margin-bottom:6px;color:#183047}
+.tool span{font-size:12px;color:#63778b;line-height:1.5}
+.tool button{width:100%;margin-top:10px}
+.crop-actions{display:flex;gap:8px;margin-top:10px}
+.crop-actions button{flex:1;padding:11px 7px;font-size:12px}
+.note{background:#fff8e5;border:1px solid #f2dda1;padding:14px;border-radius:9px;color:#70551b;font-size:13px;line-height:1.7;margin-top:17px}
+.account{background:#eaf3fb;padding:35px 20px;text-align:center;border-radius:14px}
+.account h2{color:#102a43}
+.account p{color:#63778b;line-height:1.7}
+.admin{background:#102a43;color:white;padding:25px;border-radius:13px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.admin p{color:#c6d7e7;font-size:13px;line-height:1.6}
+footer{margin-top:45px;background:#071d35;color:#d4e1ed;text-align:center;padding:25px;font-size:13px;line-height:1.8}
+.modal-bg{display:none;position:fixed;inset:0;background:#071d35bb;z-index:10;align-items:center;justify-content:center;padding:15px}
+.modal{background:white;padding:25px;border-radius:13px;width:100%;max-width:420px}
+.modal h2{margin-top:0;color:#102a43}
+.modal input{width:100%;padding:12px;margin:7px 0 13px;border:1px solid #ccd9e5;border-radius:7px}
+.modal .btn{width:100%;margin-top:7px}
+.close{float:right;cursor:pointer;color:#63778b;font-size:22px}
+.status{font-size:12px;color:#63778b;margin-top:10px}
+@media(max-width:800px){
+ .features{grid-template-columns:1fr}
+ .workspace{grid-template-columns:1fr}
+ .hero h1{font-size:29px}
+ .upload-area{min-height:260px}
+ .studio{padding:15px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">Rifat AI Photo Studio
+  <small>Smart AI Photo Editing Platform</small>
+ </div>
+ <nav>
+  <a href="#home">হোম</a>
+  <a href="#features">সুবিধাসমূহ</a>
+  <a href="#studio">Photo Studio</a>
+  <a href="#account">অ্যাকাউন্ট</a>
+  <button class="btn gold" onclick="openLogin()">লগইন</button>
+ </nav>
+</header>
+
+<section class="hero" id="home">
+ <h1>আপনার ছবিকে দিন নতুন রূপ</h1>
+ <p>
+  AI প্রযুক্তির সাহায্যে সহজেই ছবির Background Remove,
+  Background Change এবং Auto Enhance করার স্বপ্ন নিয়ে
+  তৈরি হচ্ছে Rifat AI Photo Studio।
+ </p>
+ <div class="hero-actions">
+  <button class="btn gold" onclick="openLogin()">অ্যাকাউন্টে প্রবেশ করুন</button>
+  <a href="#studio"><button class="btn light">Photo Studio দেখুন</button></a>
+ </div>
+</section>
+
+<section class="container" id="features">
+ <div class="section-title">
+  <h2>আমাদের AI Photo Tools</h2>
+  <p>একটি প্ল্যাটফর্মে প্রয়োজনীয় ছবি সম্পাদনার সুবিধা</p>
+ </div>
+ <div class="features">
+  <div class="feature">
+   <div class="emoji">✂️</div>
+   <h3>AI Background Remove</h3>
+   <p>ছবির মূল বিষয় শনাক্ত করে স্বয়ংক্রিয়ভাবে পুরোনো ব্যাকগ্রাউন্ড সরানোর সুবিধা।</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">🖼️</div>
+   <h3>AI Background Change</h3>
+   <p>সাদা, নীল, অফিস, স্টুডিওসহ পছন্দমতো নতুন ব্যাকগ্রাউন্ড বসানোর সুবিধা।</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">✨</div>
+   <h3>One-Click Auto Enhance</h3>
+   <p>ছবির আলো, রং, উজ্জ্বলতা ও কনট্রাস্ট উন্নত করার সুবিধা।</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">📐</div>
+   <h3>Photo Crop & Resize</h3>
+   <p>ছবি কাটছাঁট, মাপ পরিবর্তন এবং প্রয়োজনীয় আকারে তৈরি করার সুবিধা।</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">🪪</div>
+   <h3>Passport Photo</h3>
+   <p>ভবিষ্যতে পাসপোর্ট ও অফিসিয়াল ছবির নির্দিষ্ট মাপ তৈরির ব্যবস্থা।</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">⬇️</div>
+   <h3>Download Photo</h3>
+   <p>সম্পাদিত ছবি PNG ও JPG ফরম্যাটে ডাউনলোড করার সুবিধা।</p>
+  </div>
+ </div>
+</section>
+
+<section class="container" id="studio">
+ <div class="section-title">
+  <h2>আপনার Photo Studio</h2>
+  <p>ছবি নির্বাচন করে কাজের জায়গাটি দেখুন</p>
+ </div>
+
+ <div class="studio">
+  <div class="studio-head">
+   <h2>📷 Image Workspace</h2>
+   <label class="btn" for="photoInput">ছবি আপলোড করুন</label>
+   <input id="photoInput" type="file" accept="image/*">
+  </div>
+
+  <div class="workspace">
+   <div>
+    <div class="upload-area" id="preview">
+     <div class="upload-content" id="uploadMessage">
+      <div class="camera">📸</div>
+      <h3>এখানে আপনার ছবি দেখানো হবে</h3>
+      <p>কম্পিউটার অথবা মোবাইল থেকে একটি ছবি নির্বাচন করুন।</p>
+      <label class="btn" for="photoInput">ছবি নির্বাচন করুন</label>
+     </div>
+
+     <div class="crop-stage" id="cropStage" style="display:none">
+      <img id="photoPreview" alt="আপলোড করা ছবির প্রিভিউ">
+      <div class="crop-selection" id="cropSelection"></div>
+     </div>
+    </div>
+
+    <div class="crop-help" id="cropHelp" style="display:none">
+     ছবির ওপর মাউস চেপে ধরে টেনে আপনার পছন্দের অংশ নির্বাচন করুন।
+    </div>
+   </div>
+
+   <div class="tools">
+
+    <div class="tool">
+     <b>✂️ Photo Crop</b>
+     <span>মাউস দিয়ে ছবির অংশ নির্বাচন করে ক্রপ করুন।</span>
+     <button class="btn" id="startCropBtn" onclick="startCrop()" disabled>Crop নির্বাচন করুন</button>
+     <div class="crop-actions">
+      <button class="btn gold" id="applyCropBtn" onclick="applyCrop()" disabled>Apply Crop</button>
+      <button class="btn light" id="resetCropBtn" onclick="resetCrop()" disabled>Reset Crop</button>
+     </div>
+    </div>
+
+    <div class="tool">
+     <b>✂️ Background Remove</b>
+     <span>AI দিয়ে ছবির ব্যাকগ্রাউন্ড সরানোর সুবিধা</span>
+     <button class="btn" onclick="notConnected()">Background Remove</button>
+    </div>
+
+    <div class="tool">
+     <b>🖼️ Background Change</b>
+     <span>নতুন ব্যাকগ্রাউন্ড বসানোর সুবিধা</span>
+     <button class="btn" onclick="notConnected()">Background Change</button>
+    </div>
+
+    <div class="tool">
+     <b>✨ Auto Enhance</b>
+     <span>স্বয়ংক্রিয়ভাবে ছবির মান উন্নত করা</span>
+     <button class="btn" onclick="notConnected()">Auto Enhance</button>
+    </div>
+
+    <div class="tool">
+     <b>⬇️ Download</b>
+     <span>সম্পাদিত ছবি ডাউনলোড</span>
+     <button class="btn light" onclick="downloadPreview()">Download Photo</button>
+    </div>
+   </div>
+  </div>
+
+  <div class="note">
+   <b>সেবার অবস্থা:</b> ছবি আপলোড, প্রিভিউ এবং সাধারণ Crop সুবিধা প্রস্তুত করা হয়েছে।
+   AI Background Remove, AI Background Change ও Auto Enhance চালু করতে
+   নিরাপদ AI Backend সংযোগ প্রয়োজন।
+  </div>
+ </div>
+</section>
+
+<section class="container" id="account">
+ <div class="account">
+  <h2>আপনার নিজস্ব অ্যাকাউন্ট তৈরি করুন</h2>
+  <p>অ্যাকাউন্টের মাধ্যমে আপনার Photo Studio ব্যবহারের সুবিধা পাওয়া যাবে।</p>
+  <button class="btn" onclick="openLogin()">Login / Registration</button>
+  <p class="status">প্রাথমিক পরিকল্পনা: সবার জন্য বিনামূল্যে ব্যবহার। ভবিষ্যতে ব্যবহারের সীমা Admin Panel থেকে নিয়ন্ত্রণ করা যাবে।</p>
+ </div>
+</section>
+
+<section class="container">
+ <div class="admin">
+  <div>
+   <h2>🔐 Admin Control Panel</h2>
+   <p>ব্যবহারকারী, AI সেবা, ব্যবহারের সীমা ও সফটওয়্যারের নিয়ন্ত্রণের জন্য আলাদা Admin ব্যবস্থা তৈরি হবে।</p>
+  </div>
+  <button class="btn gold" onclick="adminNotice()">Admin Panel</button>
+ </div>
+</section>
+
+<footer>
+ <b>Rifat AI Photo Studio</b><br>
+ Rifat Online Tools & Documents<br>
+ শিখুন • জানুন • দক্ষতা বাড়ান • কাজ সম্পন্ন করুন<br>
+ © 2026 All Rights Reserved.
+</footer>
+
+<div class="modal-bg" id="loginModal">
+ <div class="modal">
+  <span class="close" onclick="closeLogin()">×</span>
+  <h2>অ্যাকাউন্টে প্রবেশ</h2>
+  <p style="color:#63778b;font-size:13px">Login ও Registration ব্যবস্থা Backend সংযোগের পর চালু হবে।</p>
+  <label>ইমেইল অথবা User ID</label>
+  <input type="text" placeholder="আপনার ইমেইল বা User ID" disabled>
+  <label>পাসওয়ার্ড</label>
+  <input type="password" placeholder="আপনার পাসওয়ার্ড" disabled>
+  <button class="btn" onclick="accountNotice()">Login</button>
+  <button class="btn light" onclick="accountNotice()">নতুন অ্যাকাউন্ট তৈরি</button>
+  <p class="status">নিরাপদ অ্যাকাউন্ট ব্যবস্থা এখনো সংযুক্ত হয়নি।</p>
+ </div>
+</div>
+
+<script>
+const photoInput = document.getElementById('photoInput');
+const photoPreview = document.getElementById('photoPreview');
+const uploadMessage = document.getElementById('uploadMessage');
+const cropStage = document.getElementById('cropStage');
+const cropSelection = document.getElementById('cropSelection');
+const cropHelp = document.getElementById('cropHelp');
+
+let currentPhotoURL = null;
+let cropActive = false;
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let selectedCrop = null;
+
+photoInput.addEventListener('change', function(){
+ const file = this.files[0];
+ if(!file) return;
+
+ if(!file.type.startsWith('image/')){
+  alert('অনুগ্রহ করে একটি ছবি নির্বাচন করুন।');
+  return;
+ }
+
+ if(currentPhotoURL){
+  URL.revokeObjectURL(currentPhotoURL);
+ }
+
+ currentPhotoURL = URL.createObjectURL(file);
+
+ photoPreview.onload = function(){
+  uploadMessage.style.display = 'none';
+  cropStage.style.display = 'inline-block';
+  cropHelp.style.display = 'block';
+
+  cropSelection.style.display = 'none';
+  selectedCrop = null;
+  cropActive = false;
+
+  document.getElementById('startCropBtn').disabled = false;
+  document.getElementById('applyCropBtn').disabled = true;
+  document.getElementById('resetCropBtn').disabled = false;
+ };
+
+ photoPreview.src = currentPhotoURL;
+});
+
+function startCrop(){
+ if(!photoPreview.naturalWidth){
+  alert('আগে একটি ছবি আপলোড করুন।');
+  return;
+ }
+
+ cropActive = true;
+ isDragging = false;
+ selectedCrop = null;
+ cropSelection.style.display = 'none';
+
+ document.getElementById('applyCropBtn').disabled = true;
+
+ cropHelp.textContent = 'এখন ছবির ওপর মাউস চেপে ধরে টেনে ক্রপের জায়গা নির্বাচন করুন।';
+}
+
+function getPointerPosition(event){
+ const rect = cropStage.getBoundingClientRect();
+
+ return {
+  x: Math.max(0, Math.min(event.clientX - rect.left, rect.width)),
+  y: Math.max(0, Math.min(event.clientY - rect.top, rect.height))
+ };
+}
+
+cropStage.addEventListener('pointerdown', function(event){
+ if(!cropActive) return;
+
+ event.preventDefault();
+
+ const point = getPointerPosition(event);
+
+ startX = point.x;
+ startY = point.y;
+ isDragging = true;
+ selectedCrop = null;
+
+ cropSelection.style.display = 'block';
+ cropSelection.style.left = startX + 'px';
+ cropSelection.style.top = startY + 'px';
+ cropSelection.style.width = '0px';
+ cropSelection.style.height = '0px';
+
+ cropStage.setPointerCapture(event.pointerId);
+});
+
+cropStage.addEventListener('pointermove', function(event){
+ if(!isDragging) return;
+
+ const point = getPointerPosition(event);
+
+ const left = Math.min(startX, point.x);
+ const top = Math.min(startY, point.y);
+ const width = Math.abs(point.x - startX);
+ const height = Math.abs(point.y - startY);
+
+ cropSelection.style.left = left + 'px';
+ cropSelection.style.top = top + 'px';
+ cropSelection.style.width = width + 'px';
+ cropSelection.style.height = height + 'px';
+});
+
+cropStage.addEventListener('pointerup', function(event){
+ if(!isDragging) return;
+
+ isDragging = false;
+
+ const point = getPointerPosition(event);
+
+ const left = Math.min(startX, point.x);
+ const top = Math.min(startY, point.y);
+ const width = Math.abs(point.x - startX);
+ const height = Math.abs(point.y - startY);
+
+ if(width < 8 || height < 8){
+  cropSelection.style.display = 'none';
+  selectedCrop = null;
+  alert('আরেকটু বড় করে ছবির অংশ নির্বাচন করুন।');
+  return;
+ }
+
+ selectedCrop = {left, top, width, height};
+
+ document.getElementById('applyCropBtn').disabled = false;
+ cropHelp.textContent = 'ক্রপের জায়গা নির্বাচন হয়েছে। এবার Apply Crop চাপুন।';
+});
+
+function applyCrop(){
+ if(!selectedCrop){
+  alert('আগে ছবির ওপর টেনে ক্রপের জায়গা নির্বাচন করুন।');
+  return;
+ }
+
+ const stageWidth = cropStage.clientWidth;
+ const stageHeight = cropStage.clientHeight;
+
+ if(!stageWidth || !stageHeight) return;
+
+ const scaleX = photoPreview.naturalWidth / stageWidth;
+ const scaleY = photoPreview.naturalHeight / stageHeight;
+
+ const sourceX = Math.round(selectedCrop.left * scaleX);
+ const sourceY = Math.round(selectedCrop.top * scaleY);
+ const sourceWidth = Math.round(selectedCrop.width * scaleX);
+ const sourceHeight = Math.round(selectedCrop.height * scaleY);
+
+ const canvas = document.createElement('canvas');
+
+ canvas.width = Math.max(1, Math.min(sourceWidth, photoPreview.naturalWidth - sourceX));
+ canvas.height = Math.max(1, Math.min(sourceHeight, photoPreview.naturalHeight - sourceY));
+
+ const ctx = canvas.getContext('2d');
+
+ ctx.drawImage(
+  photoPreview,
+  sourceX,
+  sourceY,
+  canvas.width,
+  canvas.height,
+  0,
+  0,
+  canvas.width,
+  canvas.height
+ );
+
+ const croppedImage = canvas.toDataURL('image/png');
+
+ photoPreview.onload = function(){
+  cropSelection.style.display = 'none';
+  selectedCrop = null;
+  cropActive = false;
+
+  document.getElementById('applyCropBtn').disabled = true;
+  document.getElementById('startCropBtn').disabled = false;
+
+  cropHelp.textContent = 'ছবি সফলভাবে ক্রপ হয়েছে। আবার ক্রপ করতে Crop নির্বাচন করুন।';
+ };
+
+ photoPreview.src = croppedImage;
+}
+
+function resetCrop(){
+ if(!currentPhotoURL){
+  alert('আগে একটি ছবি আপলোড করুন।');
+  return;
+ }
+
+ photoPreview.onload = function(){
+  cropSelection.style.display = 'none';
+  selectedCrop = null;
+  cropActive = false;
+  isDragging = false;
+
+  document.getElementById('applyCropBtn').disabled = true;
+  document.getElementById('startCropBtn').disabled = false;
+
+  cropHelp.textContent = 'মূল ছবি ফিরে এসেছে। আবার ক্রপ করতে Crop নির্বাচন করুন।';
+ };
+
+ photoPreview.src = currentPhotoURL;
+}
+
+function downloadPreview(){
+ if(!photoPreview.src || photoPreview.style.display === 'none' && cropStage.style.display === 'none'){
+  alert('আগে একটি ছবি আপলোড করুন।');
+  return;
+ }
+
+ const link = document.createElement('a');
+ link.href = photoPreview.src;
+ link.download = 'rifat-photo-edited.png';
+ document.body.appendChild(link);
+ link.click();
+ link.remove();
+}
+
+function openLogin(){
+ document.getElementById('loginModal').style.display = 'flex';
+}
+function closeLogin(){
+ document.getElementById('loginModal').style.display = 'none';
+}
+function accountNotice(){
+ alert('নিরাপদ Login ও Registration চালু করতে Backend এবং Database সংযোগ করতে হবে।');
+}
+function adminNotice(){
+ alert('Admin Panel নিরাপদভাবে তৈরি করা হবে। Backend সংযোগ ছাড়া এটি চালু করা হবে না।');
+}
+function notConnected(){
+ if(!photoPreview.src || cropStage.style.display === 'none'){
+  alert('প্রথমে একটি ছবি আপলোড করুন।');
+  return;
+ }
+ alert('এই AI সুবিধাটি চালু করতে AI Backend সংযোগ প্রয়োজন। পরবর্তী ধাপে এটি যুক্ত করা হবে।');
+}
+</script>
+
+</body>
+</html>

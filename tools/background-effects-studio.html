@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifat AI Photo Studio - Background & Animation</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#edf2f8;color:#172b43;font-family:Arial,"Noto Sans Bengali",sans-serif}
+header{background:linear-gradient(120deg,#071d35,#1769aa);color:white;text-align:center;padding:23px 12px}
+header h1{margin:0 0 8px;font-size:25px}
+header p{margin:0;color:#dcecff}
+.container{max-width:1250px;margin:20px auto;padding:0 12px}
+.panel{background:white;padding:16px;border-radius:13px;margin-bottom:15px;box-shadow:0 3px 14px #142c4512}
+h2{font-size:18px;color:#1769aa;margin:0 0 13px}
+h3{font-size:15px;margin:15px 0 8px}
+button,.upload{border:0;border-radius:7px;padding:10px 13px;background:#1769aa;color:white;font-weight:bold;cursor:pointer;font-size:13px}
+button:hover,.upload:hover{background:#0b477b}
+.secondary{background:#e6edf5;color:#17334f}
+.green{background:#16865b}
+.gold{background:#d69a16;color:#172b43}
+.danger{background:#c93b43}
+input,select{width:100%;padding:9px;border:1px solid #cbd6e2;border-radius:7px;font-size:14px;background:white}
+input[type=range]{padding:0}
+input[type=color]{height:40px;padding:3px}
+label{display:block;font-size:13px;font-weight:bold;margin:10px 0 5px}
+.grid{display:grid;grid-template-columns:290px 1fr;gap:15px;align-items:start}
+.controls{max-height:850px;overflow:auto}
+.field{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.stage{background:#dce5ef;border:2px dashed #aabbd0;border-radius:12px;min-height:420px;display:flex;align-items:center;justify-content:center;padding:12px;overflow:auto}
+#preview{max-width:100%;height:auto;display:block;background:white;box-shadow:0 4px 18px #0002}
+#preview.hidden{display:none}
+.empty{text-align:center;color:#60758b;padding:50px 10px;line-height:1.8}
+.small{font-size:12px;color:#64768a;line-height:1.7}
+.status{font-size:13px;color:#16865b;min-height:20px;margin-top:8px}
+.animation-buttons{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.animation-buttons button{background:#edf3fa;color:#17334f;border:1px solid #d5e0ec}
+.animation-buttons button.active{background:#1769aa;color:white}
+#previewBox{display:flex;justify-content:center;align-items:center;max-width:100%;transform-origin:center}
+@keyframes zoomIn{from{transform:scale(1)}to{transform:scale(1.2)}}
+@keyframes zoomOut{from{transform:scale(1.2)}to{transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes pulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes fade{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes slide{0%{transform:translateX(-35px)}100%{transform:translateX(35px)}}
+.anim-zoom{animation:zoomIn 2s ease-in-out infinite alternate}
+.anim-zoomout{animation:zoomOut 2s ease-in-out infinite alternate}
+.anim-float{animation:float 2s ease-in-out infinite}
+.anim-pulse{animation:pulse 1.5s ease-in-out infinite}
+.anim-shake{animation:shake .5s ease-in-out infinite}
+.anim-rotate{animation:rotate 5s linear infinite}
+.anim-fade{animation:fade 2s ease-in-out infinite}
+.anim-slide{animation:slide 2s ease-in-out infinite alternate}
+footer{text-align:center;padding:20px;color:#64768a;font-size:12px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.controls{max-height:none}.stage{min-height:280px}header h1{font-size:21px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>✨ Rifat AI Photo Studio</h1>
+<p>Background & Photo Effects Studio</p>
+</header>
+
+<div class="container">
+
+<div class="panel">
+<h2>📷 ছবি আপলোড</h2>
+<div class="toolbar">
+<label class="upload" for="photoInput">ছবি নির্বাচন করুন</label>
+<input type="file" id="photoInput" accept="image/*" hidden>
+<button class="secondary" id="reset">Reset</button>
+<button class="green" id="png">PNG Download</button>
+<button class="gold" id="jpg">JPG Download</button>
+</div>
+<div class="small">আপনার ছবি নির্বাচন করে নিচের টুলস দিয়ে এডিট করুন।</div>
+<div class="status" id="status"></div>
+</div>
+
+<div class="grid">
+
+<div class="panel controls">
+
+<h2>🎨 Background Color</h2>
+<label>Background Color নির্বাচন</label>
+<input type="color" id="bgColor" value="#ffffff">
+<div class="toolbar" style="margin-top:9px">
+<button class="secondary" data-bg="#ffffff">White</button>
+<button class="secondary" data-bg="#1687d9">Blue</button>
+<button class="secondary" data-bg="#e8e8e8">Gray</button>
+<button class="secondary" data-bg="#16865b">Green</button>
+</div>
+<p class="small">এই Background Color স্বচ্ছ ছবির পেছনে দেখা যাবে। সাধারণ ছবির মানুষ ও ব্যাকগ্রাউন্ড আলাদা করতে AI Background Removal প্রয়োজন।</p>
+
+<hr>
+
+<h2>💡 Photo Effects</h2>
+
+<label>Brightness: <span id="brightnessVal">100%</span></label>
+<input type="range" id="brightness" min="0" max="200" value="100">
+
+<label>Contrast: <span id="contrastVal">100%</span></label>
+<input type="range" id="contrast" min="0" max="200" value="100">
+
+<label>Saturation: <span id="saturationVal">100%</span></label>
+<input type="range" id="saturation" min="0" max="200" value="100">
+
+<label>Blur: <span id="blurVal">0px</span></label>
+<input type="range" id="blur" min="0" max="15" value="0">
+
+<label>Sepia: <span id="sepiaVal">0%</span></label>
+<input type="range" id="sepia" min="0" max="100" value="0">
+
+<label>Grayscale: <span id="grayVal">0%</span></label>
+<input type="range" id="gray" min="0" max="100" value="0">
+
+<label>Hue Rotate: <span id="hueVal">0°</span></label>
+<input type="range" id="hue" min="0" max="360" value="0">
+
+<label>Opacity: <span id="opacityVal">100%</span></label>
+<input type="range" id="opacity" min="10" max="100" value="100">
+
+<label>Vignette Effect</label>
+<input type="range" id="vignette" min="0" max="100" value="0">
+
+<div class="toolbar" style="margin-top:12px">
+<button class="secondary" id="resetEffects">Effects Reset</button>
+</div>
+
+<hr>
+
+<h2>🌟 Photo Filters</h2>
+<div class="animation-buttons">
+<button data-filter="none">Original</button>
+<button data-filter="vivid">Vivid</button>
+<button data-filter="warm">Warm</button>
+<button data-filter="cool">Cool</button>
+<button data-filter="vintage">Vintage</button>
+<button data-filter="bw">Black & White</button>
+<button data-filter="soft">Soft Light</button>
+<button data-filter="dramatic">Dramatic</button>
+</div>
+
+<hr>
+
+<h2>🎬 Photo Animation</h2>
+<p class="small">ছবির ওপর বিভিন্ন Animation Preview দেখুন।</p>
+<div class="animation-buttons">
+<button data-animation="none" class="active">Normal</button>
+<button data-animation="anim-zoom">Zoom In</button>
+<button data-animation="anim-zoomout">Zoom Out</button>
+<button data-animation="anim-float">Floating</button>
+<button data-animation="anim-pulse">Light Pulse</button>
+<button data-animation="anim-shake">Shake</button>
+<button data-animation="anim-rotate">Rotate</button>
+<button data-animation="anim-fade">Fade</button>
+<button data-animation="anim-slide">Slide</button>
+</div>
+
+<label>Animation Speed</label>
+<select id="speed">
+<option value="0.7">Fast</option>
+<option value="1" selected>Normal</option>
+<option value="2">Slow</option>
+<option value="3">Very Slow</option>
+</select>
+
+<div class="toolbar" style="margin-top:10px">
+<button class="green" id="play">▶ Play</button>
+<button class="danger" id="stop">■ Stop</button>
+</div>
+
+</div>
+
+<div class="panel">
+<h2>🖼️ Live Preview</h2>
+<div class="stage" id="stage">
+<div class="empty" id="empty">
+<h2>আপনার ছবি এখানে দেখাবে</h2>
+প্রথমে ছবি আপলোড করুন।
+</div>
+<div id="previewBox" hidden>
+<canvas id="preview" class="hidden"></canvas>
+</div>
+</div>
+<p class="small">Animation Preview দেখতে Play চাপুন। Download করলে বর্তমান স্থির এডিট করা ছবি পাওয়া যাবে।</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2026 Rifat AI Photo Studio | Background & Photo Effects Studio
+</footer>
+
+<script>
+const canvas=document.getElementById("preview");
+const ctx=canvas.getContext("2d");
+const box=document.getElementById("previewBox");
+const photoInput=document.getElementById("photoInput");
+const empty=document.getElementById("empty");
+const status=document.getElementById("status");
+
+let originalImage=null;
+let animationName="none";
+let playing=true;
+let currentFilter="none";
+
+const defaults={
+brightness:100,contrast:100,saturation:100,blur:0,
+sepia:0,gray:0,hue:0,opacity:100,vignette:0
+};
+
+function message(t){status.textContent=t;}
+
+function value(id){return Number(document.getElementById(id).value);}
+
+photoInput.addEventListener("change",e=>{
+ const file=e.target.files[0];
+ if(!file)return;
+ if(!file.type.startsWith("image/")){
+  message("সঠিক ছবি নির্বাচন করুন।");
+  return;
+ }
+ const url=URL.createObjectURL(file);
+ const img=new Image();
+ img.onload=()=>{
+  originalImage=img;
+  canvas.width=img.naturalWidth;
+  canvas.height=img.naturalHeight;
+  empty.hidden=true;
+  box.hidden=false;
+  canvas.classList.remove("hidden");
+  resetAll(false);
+  render();
+  message("ছবি সফলভাবে আপলোড হয়েছে!");
+  URL.revokeObjectURL(url);
+ };
+ img.onerror=()=>message("ছবিটি খোলা যায়নি।");
+ img.src=url;
+});
+
+function filterValues(){
+ let b=value("brightness");
+ let c=value("contrast");
+ let s=value("saturation");
+ let blur=value("blur");
+ let sepia=value("sepia");
+ let gray=value("gray");
+ let hue=value("hue");
+ let opacity=value("opacity");
+
+ if(currentFilter==="vivid"){s+=35;c+=12;}
+ if(currentFilter==="warm"){sepia+=35;}
+ if(currentFilter==="cool"){hue=190;s+=12;}
+ if(currentFilter==="vintage"){sepia+=65;c-=10;}
+ if(currentFilter==="bw"){gray=100;}
+ if(currentFilter==="soft"){blur+=1.2;c-=12;}
+ if(currentFilter==="dramatic"){c+=45;s-=12;}
+
+ return `brightness(${b}%) contrast(${c}%) saturate(${s}%) blur(${blur}px) sepia(${Math.min(100,sepia)}%) grayscale(${Math.min(100,gray)}%) hue-rotate(${hue}deg) opacity(${opacity}%)`;
+}
+
+function render(){
+ if(!originalImage)return;
+ ctx.save();
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.fillStyle=document.getElementById("bgColor").value;
+ ctx.fillRect(0,0,canvas.width,canvas.height);
+ ctx.filter=filterValues();
+ ctx.drawImage(originalImage,0,0,canvas.width,canvas.height);
+ ctx.restore();
+
+ const v=value("vignette");
+ if(v>0){
+  const g=ctx.createRadialGradient(
+   canvas.width/2,canvas.height/2,
+   Math.min(canvas.width,canvas.height)*.15,
+   canvas.width/2,canvas.height/2,
+   Math.max(canvas.width,canvas.height)*.72
+  );
+  g.addColorStop(0,"rgba(0,0,0,0)");
+  g.addColorStop(1,`rgba(0,0,0,${v/100})`);
+  ctx.fillStyle=g;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+}
+
+const sliders=[
+ ["brightness","brightnessVal","%"],
+ ["contrast","contrastVal","%"],
+ ["saturation","saturationVal","%"],
+ ["blur","blurVal","px"],
+ ["sepia","sepiaVal","%"],
+ ["gray","grayVal","%"],
+ ["hue","hueVal","°"],
+ ["opacity","opacityVal","%"]
+];
+
+sliders.forEach(([id,label,unit])=>{
+ document.getElementById(id).addEventListener("input",()=>{
+  document.getElementById(label).textContent=value(id)+unit;
+  render();
+ });
+});
+
+document.getElementById("vignette").addEventListener("input",render);
+document.getElementById("bgColor").addEventListener("input",render);
+
+document.querySelectorAll("[data-bg]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  document.getElementById("bgColor").value=btn.dataset.bg;
+  render();
+ });
+});
+
+document.querySelectorAll("[data-filter]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  currentFilter=btn.dataset.filter;
+  document.querySelectorAll("[data-filter]").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  render();
+  message("Filter প্রয়োগ হয়েছে: "+currentFilter);
+ });
+});
+
+function setAnimation(name){
+ animationName=name;
+ box.className="";
+ if(name!=="none")box.classList.add(name);
+ box.style.animationDuration=value("speed")+"s";
+ document.querySelectorAll("[data-animation]").forEach(b=>{
+  b.classList.toggle("active",b.dataset.animation===name);
+ });
+}
+
+document.querySelectorAll("[data-animation]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  setAnimation(btn.dataset.animation);
+  if(playing)box.style.animationPlayState="running";
+  message("Animation নির্বাচন হয়েছে: "+btn.textContent);
+ });
+});
+
+document.getElementById("speed").addEventListener("change",()=>{
+ box.style.animationDuration=value("speed")+"s";
+});
+
+document.getElementById("play").onclick=()=>{
+ if(!originalImage){message("আগে ছবি আপলোড করুন।");return;}
+ playing=true;
+ box.style.animationPlayState="running";
+ if(animationName==="none")setAnimation("anim-zoom");
+ message("Animation চলছে!");
+};
+
+document.getElementById("stop").onclick=()=>{
+ playing=false;
+ box.style.animationPlayState="paused";
+ message("Animation বন্ধ করা হয়েছে।");
+};
+
+function resetAll(showMessage=true){
+ Object.keys(defaults).forEach(id=>{
+  document.getElementById(id).value=defaults[id];
+ });
+ sliders.forEach(([id,label,unit])=>{
+  document.getElementById(label).textContent=defaults[id]+unit;
+ });
+ document.getElementById("vignette").value=0;
+ document.getElementById("bgColor").value="#ffffff";
+ currentFilter="none";
+ document.querySelectorAll("[data-filter]").forEach(b=>b.classList.remove("active"));
+ document.querySelector('[data-filter="none"]').classList.add("active");
+ setAnimation("none");
+ playing=true;
+ box.style.animationPlayState="running";
+ render();
+ if(showMessage)message("সব Effects Reset হয়েছে।");
+}
+
+document.getElementById("resetEffects").onclick=()=>resetAll();
+document.getElementById("reset").onclick=()=>{
+ if(!originalImage){message("কোনো ছবি আপলোড করা হয়নি।");return;}
+ resetAll();
+ message("ছবি ও Effects Reset হয়েছে।");
+};
+
+function download(format){
+ if(!originalImage){message("আগে ছবি আপলোড করুন।");return;}
+ const link=document.createElement("a");
+ link.download="rifat-photo-effects."+format;
+ if(format==="jpg"){
+  const out=document.createElement("canvas");
+  out.width=canvas.width;out.height=canvas.height;
+  const c=out.getContext("2d");
+  c.fillStyle="#ffffff";
+  c.fillRect(0,0,out.width,out.height);
+  c.drawImage(canvas,0,0);
+  link.href=out.toDataURL("image/jpeg",.92);
+ }else{
+  link.href=canvas.toDataURL("image/png");
+ }
+ link.click();
+ message(format.toUpperCase()+" ডাউনলোড শুরু হয়েছে!");
+}
+
+document.getElementById("png").onclick=()=>download("png");
+document.getElementById("jpg").onclick=()=>download("jpg");
+</script>
+</body>
+</html>
