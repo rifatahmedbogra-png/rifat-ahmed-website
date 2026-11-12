@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Rifat AI Photo Studio</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:linear-gradient(135deg,#071d35,#102f50,#1769aa);
+ display:flex;align-items:center;justify-content:center;
+ padding:25px 15px;color:#fff;
+}
+.wrapper{width:100%;max-width:460px}
+.container{
+ background:white;color:#172b43;
+ border-radius:20px;padding:34px;
+ box-shadow:0 15px 50px #0005;
+}
+.logo{
+ width:65px;height:65px;margin:auto;
+ border-radius:18px;
+ background:linear-gradient(135deg,#1769aa,#2196c8);
+ display:flex;align-items:center;justify-content:center;
+ font-size:30px;color:white;
+}
+h1{text-align:center;font-size:26px;margin:18px 0 7px}
+.subtitle{text-align:center;color:#718096;font-size:14px;margin-bottom:28px;line-height:1.8}
+label{display:block;font-weight:bold;font-size:14px;margin:17px 0 7px;line-height:1.7}
+.label-en{color:#64748b;font-weight:normal}
+input{
+ width:100%;padding:14px;
+ border:1px solid #d5dfeb;border-radius:10px;
+ font-size:15px;outline:none;
+}
+input:focus{border-color:#1769aa;box-shadow:0 0 0 3px #1769aa20}
+.password-wrap{position:relative}
+.password-wrap input{padding-right:75px}
+.show{
+ position:absolute;right:12px;top:50%;
+ transform:translateY(-50%);
+ border:0;background:none;color:#1769aa;
+ cursor:pointer;font-weight:bold;
+}
+.options{
+ display:flex;justify-content:space-between;
+ align-items:center;margin-top:17px;font-size:12px;
+ color:#64748b;gap:10px;
+}
+.options label{margin:0;font-weight:normal;display:flex;gap:6px;align-items:center}
+.options input{width:auto}
+a{color:#1769aa;text-decoration:none;font-weight:bold}
+.submit{
+ width:100%;padding:14px;margin-top:25px;
+ border:0;border-radius:10px;
+ background:linear-gradient(90deg,#1769aa,#2196c8);
+ color:white;font-size:16px;font-weight:bold;cursor:pointer;
+}
+.submit:hover{opacity:.92}
+.bottom{text-align:center;margin-top:22px;font-size:14px;color:#667085;line-height:1.9}
+#message{text-align:center;font-size:13px;margin-top:15px;line-height:1.7}
+.notice{
+ margin-top:18px;padding:12px;
+ background:#fff7e6;color:#805b12;
+ border-radius:9px;font-size:12px;line-height:1.8;
+}
+footer{text-align:center;color:#a9c6df;font-size:12px;margin-top:20px}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+<div class="container">
+
+<div class="logo">✦</div>
+
+<h1>Welcome Back!</h1>
+<p class="subtitle">
+আবারও স্বাগতম<br>
+Welcome to Rifat AI Photo Studio
+</p>
+
+<form id="loginForm">
+
+<label for="email">
+ইমেইল ঠিকানা <span class="label-en">| Email Address</span>
+</label>
+<input id="email" type="email"
+placeholder="আপনার ইমেইল লিখুন | Enter your email"
+autocomplete="username" required>
+
+<label for="password">
+পাসওয়ার্ড <span class="label-en">| Password</span>
+</label>
+<div class="password-wrap">
+<input id="password" type="password"
+placeholder="আপনার পাসওয়ার্ড লিখুন | Enter password"
+autocomplete="current-password" required>
+<button class="show" type="button"
+onclick="togglePassword()">দেখুন | Show</button>
+</div>
+
+<div class="options">
+<label>
+<input type="checkbox" id="remember">
+মনে রাখুন | Remember me
+</label>
+<a href="#" onclick="showNotice(event)">
+পাসওয়ার্ড ভুলে গেছেন? | Forgot Password?
+</a>
+</div>
+
+<button class="submit" type="submit">
+লগইন করুন | Login
+</button>
+
+<div id="message"></div>
+</form>
+
+<div class="notice">
+<strong>নিরাপত্তা | Security:</strong><br>
+Login Backend এখনো সংযুক্ত হয়নি। প্রকৃত Login করতে Backend প্রয়োজন।<br>
+The login service is not connected yet. Backend integration is required.
+</div>
+
+<div class="bottom">
+নতুন ব্যবহারকারী? | New User?<br>
+<a href="registration.html">
+নতুন অ্যাকাউন্ট তৈরি করুন | Create New Account
+</a>
+</div>
+
+</div>
+<footer>© 2026 Rifat AI Photo Studio</footer>
+</div>
+
+<script>
+function togglePassword(){
+ const field=document.getElementById("password");
+ const button=document.querySelector(".show");
+
+ if(field.type==="password"){
+   field.type="text";
+   button.textContent="লুকান | Hide";
+ }else{
+   field.type="password";
+   button.textContent="দেখুন | Show";
+ }
+}
+
+function showNotice(e){
+ e.preventDefault();
+ alert("পাসওয়ার্ড রিসেট সুবিধা শিগগিরই চালু হবে | Password reset will be available soon.");
+}
+
+document.getElementById("loginForm")
+.addEventListener("submit",function(e){
+ e.preventDefault();
+ const message=document.getElementById("message");
+ message.style.color="#b7791f";
+ message.textContent=
+ "Login Backend এখনো সংযুক্ত হয়নি | Login Backend is not connected yet.";
+});
+</script>
+<p style="text-align:center; margin-top:20px;">
+  নতুন ব্যবহারকারী?
+  <a href="registration.html">নতুন অ্যাকাউন্ট তৈরি করুন | Register</a>
+</p>
+</body>
+</html>

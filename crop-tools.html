@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop & Resize Tools | Rifat AI Photo Studio</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#eef3f9;
+    color:#102a43;
+}
+header{
+    background:linear-gradient(120deg,#071d35,#1769aa);
+    color:white;
+    padding:23px 15px;
+    text-align:center;
+}
+header h1{margin:0 0 8px;font-size:26px}
+header p{margin:0;color:#dcecff}
+.container{
+    max-width:1200px;
+    margin:25px auto;
+    padding:15px;
+}
+.topbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:18px;
+}
+button,.upload-label{
+    border:0;
+    border-radius:7px;
+    padding:11px 15px;
+    background:#1769aa;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:bold;
+}
+button:hover,.upload-label:hover{background:#0b4e85}
+button.secondary{background:#52677c}
+button.gold{background:#d69e19;color:#102a43}
+button:disabled{opacity:.45;cursor:not-allowed}
+#photoInput{display:none}
+.workspace{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 320px;
+    gap:18px;
+}
+.preview-box,.panel{
+    background:white;
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 3px 15px #102a4312;
+}
+.preview-area{
+    min-height:420px;
+    background:#e9eef5;
+    border:2px dashed #b6c7d8;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px;
+    overflow:auto;
+}
+#canvas{
+    display:none;
+    max-width:100%;
+    max-height:650px;
+    height:auto;
+    background:white;
+    cursor:crosshair;
+    touch-action:none;
+}
+#emptyMessage{
+    color:#60758a;
+    text-align:center;
+    line-height:2;
+}
+.panel h2{
+    margin:0 0 17px;
+    font-size:20px;
+    border-bottom:1px solid #e2e8f0;
+    padding-bottom:12px;
+}
+.section{
+    margin-bottom:22px;
+    padding-bottom:17px;
+    border-bottom:1px solid #e5ebf1;
+}
+.section h3{
+    font-size:16px;
+    margin:0 0 12px;
+}
+.ratio-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+.ratio-grid button{
+    background:#edf4fb;
+    color:#1769aa;
+    border:1px solid #cbdced;
+}
+.ratio-grid button.active{
+    background:#1769aa;
+    color:white;
+}
+.field{margin-bottom:12px}
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+.field input{
+    width:100%;
+    padding:10px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    font-size:14px;
+}
+.check-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    margin:12px 0;
+}
+.check-row input{width:auto}
+.full{width:100%;margin-top:7px}
+.note{
+    margin-top:14px;
+    padding:12px;
+    background:#edf6ff;
+    border-radius:8px;
+    color:#315575;
+    font-size:13px;
+    line-height:1.7;
+}
+.status{
+    font-size:13px;
+    color:#52677c;
+    margin-top:12px;
+    min-height:20px;
+}
+footer{
+    text-align:center;
+    padding:22px;
+    color:#65798d;
+    font-size:13px;
+}
+@media(max-width:850px){
+    .workspace{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Rifat AI Photo Studio</h1>
+    <p>Crop & Resize Tools | Professional Image Editing</p>
+</header>
+
+<div class="container">
+
+    <div class="topbar">
+        <label class="upload-label" for="photoInput">📷 ছবি আপলোড</label>
+        <input type="file" id="photoInput" accept="image/*">
+        <button class="secondary" id="clearBtn">Selection Clear</button>
+        <button class="gold" id="resetBtn">Original Photo</button>
+        <button id="downloadPng">⬇ Download PNG</button>
+        <button id="downloadJpg" class="secondary">⬇ Download JPG</button>
+    </div>
+
+    <div class="workspace">
+
+        <section class="preview-box">
+            <h3>ছবির Crop Preview</h3>
+
+            <div class="preview-area">
+                <div id="emptyMessage">
+                    <h2>Crop & Resize Studio</h2>
+                    এখানে ছবি আপলোড করুন
+                    <br>
+                    তারপর ছবির ওপর মাউস টেনে Crop নির্বাচন করুন।
+                </div>
+
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="status" id="status">
+                এখনো কোনো ছবি আপলোড করা হয়নি।
+            </div>
+
+            <button class="gold full" id="applyCrop">
+                ✂ Apply Crop
+            </button>
+        </section>
+
+        <section class="panel">
+
+            <h2>Crop & Resize Tools</h2>
+
+            <div class="section">
+                <h3>১. Crop Ratio</h3>
+
+                <div class="ratio-grid">
+                    <button class="active" data-ratio="free">Free Crop</button>
+                    <button data-ratio="1">Square 1:1</button>
+                    <button data-ratio="1.333333">4:3</button>
+                    <button data-ratio="1.777778">16:9</button>
+                    <button data-ratio="0.777778">Passport 35:45</button>
+                    <button data-ratio="0.666667">Portrait 2:3</button>
+                </div>
+
+                <p style="font-size:12px;color:#64748b">
+                    ছবির ওপর মাউস টেনে Crop এলাকা নির্বাচন করুন।
+                </p>
+            </div>
+
+            <div class="section">
+                <h3>২. Custom Crop</h3>
+
+                <div class="field">
+                    <label>Crop Width (px)</label>
+                    <input type="number" id="cropWidth" min="1" placeholder="Width">
+                </div>
+
+                <div class="field">
+                    <label>Crop Height (px)</label>
+                    <input type="number" id="cropHeight" min="1" placeholder="Height">
+                </div>
+
+                <button class="full" id="centerCrop">
+                    Custom Crop নির্বাচন
+                </button>
+            </div>
+
+            <div class="section">
+                <h3>৩. Image Resize</h3>
+
+                <div class="field">
+                    <label>Image Width (px)</label>
+                    <input type="number" id="resizeWidth" min="1" max="8000" placeholder="Width">
+                </div>
+
+                <div class="field">
+                    <label>Image Height (px)</label>
+                    <input type="number" id="resizeHeight" min="1" max="8000" placeholder="Height">
+                </div>
+
+                <label class="check-row">
+                    <input type="checkbox" id="keepRatio" checked>
+                    Maintain Aspect Ratio
+                </label>
+
+                <button class="full" id="applyResize">
+                    Apply Resize
+                </button>
+            </div>
+
+            <div class="section">
+                <h3>৪. Passport Photo Size</h3>
+
+                <div class="note">
+                    **35 × 45 mm Passport Photo**<br>
+                    300 DPI অনুযায়ী আনুমানিক 413 × 531 pixels।
+                </div>
+
+                <button class="full" id="passportSize">
+                    Apply Passport Size
+                </button>
+            </div>
+
+            <div class="note">
+                <strong>মনে রাখবেন:</strong><br>
+                Crop নির্বাচন করার পর Apply Crop চাপুন।
+                Resize করতে Width ও Height লিখে Apply Resize চাপুন।
+            </div>
+
+        </section>
+    </div>
+</div>
+
+<footer>
+    © 2026 Rifat AI Photo Studio | All Rights Reserved
+</footer>
+
+<script>
+const photoInput = document.getElementById("photoInput");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const emptyMessage = document.getElementById("emptyMessage");
+const statusBox = document.getElementById("status");
+
+let currentImage = null;
+let originalImage = null;
+let cropRect = null;
+let selectedRatio = null;
+let dragging = false;
+let dragStart = null;
+let cropAspect = null;
+
+function showStatus(message){
+    statusBox.textContent = message;
+}
+
+function drawPhoto(){
+    if(!currentImage) return;
+
+    canvas.width = currentImage.naturalWidth;
+    canvas.height = currentImage.naturalHeight;
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(currentImage,0,0);
+
+    if(cropRect){
+        const r = cropRect;
+
+        ctx.save();
+
+        ctx.fillStyle = "rgba(0,0,0,0.48)";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+
+        ctx.clearRect(r.x,r.y,r.w,r.h);
+        ctx.drawImage(
+            currentImage,
+            r.x,r.y,r.w,r.h,
+            r.x,r.y,r.w,r.h
+        );
+
+        ctx.strokeStyle = "#ffd34d";
+        ctx.lineWidth = Math.max(2,canvas.width/500);
+        ctx.setLineDash([8,5]);
+        ctx.strokeRect(r.x,r.y,r.w,r.h);
+
+        ctx.restore();
+    }
+
+    updateDimensions();
+}
+
+function updateDimensions(){
+    if(!currentImage) return;
+
+    document.getElementById("resizeWidth").value = canvas.width;
+    document.getElementById("resizeHeight").value = canvas.height;
+}
+
+function loadImage(dataURL,callback){
+    const image = new Image();
+
+    image.onload = function(){
+        currentImage = image;
+        cropRect = null;
+        canvas.style.display = "block";
+        emptyMessage.style.display = "none";
+
+        drawPhoto();
+        showStatus(
+            "ছবির মাপ: " + image.naturalWidth +
+            " × " + image.naturalHeight + " pixels"
+        );
+
+        if(callback) callback();
+    };
+
+    image.onerror = function(){
+        alert("ছবিটি খোলা যাচ্ছে না। অন্য ছবি চেষ্টা করুন।");
+    };
+
+    image.src = dataURL;
+}
+
+photoInput.addEventListener("change",function(event){
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    if(!file.type.startsWith("image/")){
+        alert("অনুগ্রহ করে একটি ছবি নির্বাচন করুন।");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+        originalImage = e.target.result;
+        loadImage(originalImage);
+    };
+
+    reader.readAsDataURL(file);
+});
+
+function getCanvasPoint(event){
+    const rect = canvas.getBoundingClientRect();
+
+    return {
+        x: (event.clientX - rect.left) * canvas.width / rect.width,
+        y: (event.clientY - rect.top) * canvas.height / rect.height
+    };
+}
+
+function createSelection(start,end){
+    let dx = end.x - start.x;
+    let dy = end.y - start.y;
+
+    let x = Math.min(start.x,end.x);
+    let y = Math.min(start.y,end.y);
+    let w = Math.abs(dx);
+    let h = Math.abs(dy);
+
+    if(cropAspect){
+        if(w / cropAspect > h){
+            w = h * cropAspect;
+        }else{
+            h = w / cropAspect;
+        }
+
+        x = dx >= 0 ? start.x : start.x - w;
+        y = dy >= 0 ? start.y : start.y - h;
+    }
+
+    x = Math.max(0,x);
+    y = Math.max(0,y);
+    w = Math.min(w,canvas.width-x);
+    h = Math.min(h,canvas.height-y);
+
+    if(cropAspect){
+        if(w / cropAspect > h){
+            w = h * cropAspect;
+        }else{
+            h = w / cropAspect;
+        }
+    }
+
+    return {x,y,w,h};
+}
+
+canvas.addEventListener("pointerdown",function(event){
+    if(!currentImage) return;
+
+    event.preventDefault();
+
+    const point = getCanvasPoint(event);
+
+    dragging = true;
+    dragStart = point;
+    cropRect = {
+        x:point.x,
+        y:point.y,
+        w:0,
+        h:0
+    };
+
+    canvas.setPointerCapture(event.pointerId);
+    drawPhoto();
+});
+
+canvas.addEventListener("pointermove",function(event){
+    if(!dragging || !dragStart) return;
+
+    const point = getCanvasPoint(event);
+
+    cropRect = createSelection(dragStart,point);
+    drawPhoto();
+});
+
+function finishCropSelection(){
+    if(!dragging) return;
+
+    dragging = false;
+    dragStart = null;
+
+    if(cropRect && cropRect.w < 2 || cropRect && cropRect.h < 2){
+        cropRect = null;
+    }
+
+    drawPhoto();
+
+    if(cropRect){
+        showStatus(
+            "Crop নির্বাচন: " +
+            Math.round(cropRect.w) + " × " +
+            Math.round(cropRect.h) + " pixels"
+        );
+    }
+}
+
+canvas.addEventListener("pointerup",finishCropSelection);
+canvas.addEventListener("pointercancel",finishCropSelection);
+
+document.querySelectorAll("[data-ratio]").forEach(button=>{
+    button.addEventListener("click",function(){
+        document.querySelectorAll("[data-ratio]").forEach(b=>{
+            b.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        const value = this.dataset.ratio;
+        cropAspect = value === "free" ? null : Number(value);
+
+        showStatus("নির্বাচিত Crop Ratio: " + this.textContent);
+
+        if(cropRect && currentImage){
+            cropRect = null;
+            drawPhoto();
+        }
+    });
+});
+
+document.getElementById("clearBtn").onclick = function(){
+    cropRect = null;
+    drawPhoto();
+    showStatus("Crop Selection পরিষ্কার করা হয়েছে।");
+};
+
+document.getElementById("applyCrop").onclick = function(){
+    if(!currentImage){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    if(!cropRect || cropRect.w < 2 || cropRect.h < 2){
+        alert("প্রথমে ছবির ওপর Crop এলাকা নির্বাচন করুন।");
+        return;
+    }
+
+    const r = cropRect;
+    const temp = document.createElement("canvas");
+
+    temp.width = Math.round(r.w);
+    temp.height = Math.round(r.h);
+
+    const tempCtx = temp.getContext("2d");
+
+    tempCtx.drawImage(
+        currentImage,
+        Math.round(r.x),
+        Math.round(r.y),
+        temp.width,
+        temp.height,
+        0,0,temp.width,temp.height
+    );
+
+    loadImage(temp.toDataURL("image/png"));
+    showStatus("Crop সফলভাবে সম্পন্ন হয়েছে!");
+};
+
+document.getElementById("centerCrop").onclick = function(){
+    if(!currentImage){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    const w = Number(document.getElementById("cropWidth").value);
+    const h = Number(document.getElementById("cropHeight").value);
+
+    if(!w || !h || w < 1 || h < 1){
+        alert("সঠিক Crop Width এবং Height লিখুন।");
+        return;
+    }
+
+    if(w > canvas.width || h > canvas.height){
+        alert("Crop-এর মাপ ছবির বর্তমান মাপের চেয়ে বড় হতে পারবে না।");
+        return;
+    }
+
+    cropRect = {
+        x:Math.round((canvas.width-w)/2),
+        y:Math.round((canvas.height-h)/2),
+        w:w,
+        h:h
+    };
+
+    drawPhoto();
+    showStatus("Custom Crop নির্বাচন করা হয়েছে। Apply Crop চাপুন।");
+};
+
+document.getElementById("applyResize").onclick = function(){
+    if(!currentImage){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    const oldW = canvas.width;
+    const oldH = canvas.height;
+
+    let w = Number(document.getElementById("resizeWidth").value);
+    let h = Number(document.getElementById("resizeHeight").value);
+
+    if(!w || !h || w < 1 || h < 1 || w > 8000 || h > 8000){
+        alert("Width ও Height 1 থেকে 8000 pixels-এর মধ্যে লিখুন।");
+        return;
+    }
+
+    if(document.getElementById("keepRatio").checked){
+        const ratio = oldW / oldH;
+
+        if(Math.abs(w-oldW) >= Math.abs(h-oldH)){
+            h = Math.max(1,Math.round(w/ratio));
+        }else{
+            w = Math.max(1,Math.round(h*ratio));
+        }
+    }
+
+    const temp = document.createElement("canvas");
+    temp.width = w;
+    temp.height = h;
+
+    const tempCtx = temp.getContext("2d");
+    tempCtx.imageSmoothingEnabled = true;
+    tempCtx.imageSmoothingQuality = "high";
+
+    tempCtx.drawImage(currentImage,0,0,w,h);
+
+    loadImage(temp.toDataURL("image/png"));
+    showStatus("Resize সফল: " + w + " × " + h + " pixels");
+};
+
+document.getElementById("passportSize").onclick = function(){
+    if(!currentImage){
+        alert("প্রথমে ছবি আপলোড করুন।");
+        return;
+    }
+
+    const w = 413;
+    const h = 531;
+
+    const temp = document.createElement("canvas");
+    temp.width = w;
+    temp.height = h;
+
+    const tempCtx = temp.getContext("2d");
+    tempCtx.imageSmoothingEnabled = true;
+    tempCtx.imageSmoothingQuality = "high";
+
+    const sourceRatio = currentImage.naturalWidth/currentImage.naturalHeight;
+    const targetRatio = w/h;
+
+    let sx=0,sy=0,sw=currentImage.naturalWidth,sh=currentImage.naturalHeight;
+
+    if(sourceRatio > targetRatio){
+        sw = currentImage.naturalHeight * targetRatio;
+        sx = (currentImage.naturalWidth-sw)/2;
+    }else{
+        sh = currentImage.naturalWidth / targetRatio;
+        sy = (currentImage.naturalHeight-sh)/2;
+    }
+
+    tempCtx.drawImage(
+        currentImage,
+        sx,sy,sw,sh,
+        0,0,w,h
+    );
+
+    loadImage(temp.toDataURL("image/png"));
+    showStatus("35 × 45 mm অনুপাতের আনুমানিক Passport Photo তৈরি হয়েছে।");
+};
+
+document.getElementById("resetBtn").onclick = function(){
+    if(!originalImage){
+        alert("প্রথমে একটি ছবি আপলোড করুন।");
+        return;
+    }
+
+    loadImage(originalImage);
+    showStatus("মূল ছবিতে ফিরে যাওয়া হয়েছে।");
+};
+
+function downloadPhoto(type){
+    if(!currentImage){
+        alert("প্রথমে একটি ছবি আপলোড করুন।");
+        return;
+    }
+
+    const exportCanvas = document.createElement("canvas");
+    exportCanvas.width = canvas.width;
+    exportCanvas.height = canvas.height;
+
+    const exportCtx = exportCanvas.getContext("2d");
+
+    if(type === "image/jpeg"){
+        exportCtx.fillStyle = "#ffffff";
+        exportCtx.fillRect(0,0,exportCanvas.width,exportCanvas.height);
+    }
+
+    exportCtx.drawImage(currentImage,0,0);
+
+    const link = document.createElement("a");
+    link.download = type === "image/png"
+        ? "rifat-cropped-photo.png"
+        : "rifat-cropped-photo.jpg";
+
+    link.href = exportCanvas.toDataURL(type,0.92);
+    link.click();
+}
+
+document.getElementById("downloadPng").onclick = function(){
+    downloadPhoto("image/png");
+};
+
+document.getElementById("downloadJpg").onclick = function(){
+    downloadPhoto("image/jpeg");
+};
+</script>
+
+</body>
+</html>
