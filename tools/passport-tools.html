@@ -3,259 +3,209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passport Photo Studio | Rifat AI Photo Studio</title>
-<meta name="description" content="সহজেই পাসপোর্ট সাইজ ছবি তৈরি করুন, Crop, Resize, Background ও Print Sheet তৈরি করুন।">
+<title>Passport Photo Studio | Rifat Online Tools</title>
+<meta name="description" content="Rifat Passport Photo Studio - Passport size photo, background, crop and resize tools.">
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#071d35;color:#fff}
-header{background:linear-gradient(120deg,#071d35,#1769aa);padding:25px 15px;text-align:center;border-bottom:3px solid #f0c040}
-header h1{margin:0;font-size:27px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#071d35;
+  color:#fff;
+  line-height:1.7;
+}
+.cover-banner{padding:15px;text-align:center}
+.cover-banner img{
+  display:block;width:100%;max-width:1100px;
+  height:auto;margin:auto;border-radius:14px
+}
+nav{
+  background:#102a43;padding:14px;text-align:center;
+  border-top:1px solid #285477;
+  border-bottom:1px solid #285477
+}
+nav a{
+  display:inline-block;color:white;background:#1769aa;
+  text-decoration:none;padding:9px 20px;
+  margin:4px;border-radius:8px;font-weight:bold
+}
+nav a:hover{background:#2196c8}
+header{
+  background:linear-gradient(120deg,#071d35,#1769aa);
+  padding:42px 15px;text-align:center;
+  border-bottom:3px solid #f0c040
+}
+header h1{font-size:30px;margin-bottom:12px}
 header p{color:#dbeafe}
-.container{max-width:1100px;margin:25px auto;padding:15px}
-.card{background:#102a43;border:1px solid #285477;border-radius:15px;padding:20px;margin-bottom:20px}
-h2{color:#f0c040;margin-top:0}
-label{display:block;margin:13px 0 7px}
-input,select{width:100%;padding:11px;border-radius:8px;border:1px solid #51718e;background:#071d35;color:white}
-button{border:0;border-radius:9px;padding:12px 16px;background:#1769aa;color:white;font-weight:bold;cursor:pointer;margin:5px 3px}
-button:hover{background:#2196c8}
-.workspace{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.preview{min-height:300px;background:#061426;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:15px;overflow:auto}
-canvas{max-width:100%;max-height:500px}
-.note{font-size:13px;color:#b8cce0;line-height:1.7}
-.buttons{display:flex;flex-wrap:wrap;gap:5px;margin-top:15px}
-footer{text-align:center;padding:22px;color:#9db5cc}
-@media(max-width:750px){.workspace{grid-template-columns:1fr}header h1{font-size:22px}}
+.container{max-width:1150px;margin:auto;padding:25px 18px}
+.hero{
+  background:linear-gradient(135deg,#102a43,#174d77);
+  padding:28px 20px;border-radius:16px;text-align:center;
+  border:1px solid #285477;margin-bottom:28px
+}
+.hero h2,.section-title{color:#f0c040}
+.hero p{color:#dbeafe;margin-top:10px}
+.section-title{text-align:center;margin:28px 0;font-size:25px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px
+}
+.tool{
+  background:#102a43;border:1px solid #285477;
+  border-radius:15px;padding:23px;text-align:center;
+  transition:.25s
+}
+.tool:hover{
+  transform:translateY(-5px);
+  border-color:#f0c040;
+  box-shadow:0 8px 22px rgba(0,0,0,.2)
+}
+.icon{font-size:42px;margin-bottom:12px}
+.tool h3{color:#f0c040;font-size:18px;margin-bottom:10px}
+.tool p{color:#c6d7e8;font-size:14px;min-height:75px}
+.status{
+  display:inline-block;background:#614b18;color:#ffe49a;
+  border-radius:20px;padding:6px 13px;
+  font-size:12px;margin-top:15px
+}
+.info{
+  background:#102a43;border:1px solid #285477;
+  padding:24px;border-radius:14px;margin-top:30px;
+  color:#c6d7e8
+}
+.info h2{color:#f0c040;margin-bottom:12px}
+.info p{margin-bottom:10px}
+footer{
+  background:#061629;text-align:center;padding:25px 15px;
+  color:#9db5cc;border-top:2px solid #1769aa
+}
+footer p{margin:5px 0}
+@media(max-width:600px){
+  header{padding:30px 12px}
+  header h1{font-size:23px}
+  .container{padding:18px 12px}
+  .grid{grid-template-columns:1fr}
+  .section-title{font-size:21px}
+}
 </style>
 </head>
+
 <body>
 
+<div class="cover-banner">
+  <a href="index.html">
+    <img src="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/tools/tools-cover.png"
+    alt="Rifat Online Tools and Documents">
+  </a>
+</div>
+
+<nav>
+  <a href="index.html">🏠 Home / হোম</a>
+  <a href="#passport-tools">📸 Passport Tools</a>
+  <a href="#security">🔐 নিরাপত্তা</a>
+</nav>
+
 <header>
-<h1>🪪 Rifat Passport Photo Studio</h1>
-<p>পাসপোর্ট ছবি তৈরি করুন | Create Passport Photos</p>
+  <h1>📸 Passport Photo Studio</h1>
+  <p>সহজেই তৈরি করুন প্রয়োজনীয় পাসপোর্ট ও আইডি কার্ডের ছবি</p>
+  <p>Create Passport & ID Photos Easily</p>
 </header>
 
-<div class="container">
+<main class="container">
 
-<div class="card">
-<h2>📷 ছবি আপলোড | Upload Photo</h2>
-<input type="file" id="photoInput" accept="image/*">
-<p class="note">পরিষ্কার ও সামনের দিক থেকে তোলা ছবি ব্যবহার করুন।</p>
-</div>
+<section class="hero">
+  <h2>✨ Welcome to Passport Photo Studio</h2>
+  <p>
+    পাসপোর্ট, ভিসা, জাতীয় পরিচয়পত্র ও অন্যান্য প্রয়োজনীয়
+    ছবির কাজের জন্য প্রয়োজনীয় টুলস এক জায়গায়।
+  </p>
+</section>
 
-<div class="workspace">
+<section id="passport-tools">
+  <h2 class="section-title">🚀 Passport & Photo Tools</h2>
 
-<div class="card">
-<h2>⚙️ Photo Settings</h2>
+  <div class="grid">
 
-<label>ছবির সাইজ | Photo Size</label>
-<select id="photoSize">
-<option value="35x45">35 × 45 mm</option>
-<option value="40x50">40 × 50 mm</option>
-<option value="2x2">2 × 2 inch</option>
-<option value="33x48">33 × 48 mm</option>
-</select>
+    <div class="tool">
+      <div class="icon">📷</div>
+      <h3>Passport Size Photo</h3>
+      <p>নির্ধারিত মাপ অনুযায়ী পাসপোর্ট সাইজ ছবি তৈরি করুন।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-<label>Background Color</label>
-<select id="bgColor">
-<option value="#ffffff">White | সাদা</option>
-<option value="#dceeff">Light Blue | হালকা নীল</option>
-<option value="#1769d2">Blue | নীল</option>
-<option value="#f5f5f5">Light Gray | হালকা ধূসর</option>
-<option value="#f4d6d6">Light Red | হালকা লাল</option>
-</select>
+    <div class="tool">
+      <div class="icon">🪪</div>
+      <h3>Visa Photo Maker</h3>
+      <p>ভিসা আবেদনের জন্য প্রয়োজনীয় মাপের ছবি তৈরি করার সুবিধা।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-<label>ছবির Zoom | Zoom</label>
-<input type="range" id="zoom" min="70" max="150" value="100">
+    <div class="tool">
+      <div class="icon">🎨</div>
+      <h3>White Background</h3>
+      <p>ছবির পেছনে সাদা Background তৈরি করার সুবিধা।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-<label>Horizontal Position</label>
-<input type="range" id="moveX" min="-100" max="100" value="0">
+    <div class="tool">
+      <div class="icon">✂️</div>
+      <h3>Photo Crop</h3>
+      <p>প্রয়োজন অনুযায়ী ছবির অংশ নির্বাচন ও Crop করুন।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-<label>Vertical Position</label>
-<input type="range" id="moveY" min="-100" max="100" value="0">
+    <div class="tool">
+      <div class="icon">📐</div>
+      <h3>Photo Resize</h3>
+      <p>ছবির দৈর্ঘ্য, প্রস্থ ও সাইজ পরিবর্তন করুন।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-<div class="buttons">
-<button onclick="resetSettings()">Reset</button>
-<button onclick="updatePreview()">Preview Update</button>
-</div>
-<p class="note">Background Color শুধু ছবির পেছনের ক্যানভাসে প্রয়োগ হয়। এটি AI Background Removal নয়।</p>
-</div>
+    <div class="tool">
+      <div class="icon">🖨️</div>
+      <h3>Print Layout Maker</h3>
+      <p>একটি পৃষ্ঠায় একাধিক পাসপোর্ট ছবি সাজানোর সুবিধা।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-<div class="card">
-<h2>🖼️ Passport Photo Preview</h2>
-<div class="preview">
-<canvas id="photoCanvas" width="413" height="531"></canvas>
-</div>
-<p class="note" id="sizeInfo">ছবি আপলোড করলে Preview দেখা যাবে।</p>
-<div class="buttons">
-<button onclick="downloadPhoto('image/jpeg')">Download JPG</button>
-<button onclick="downloadPhoto('image/png')">Download PNG</button>
-</div>
-</div>
+    <div class="tool">
+      <div class="icon">💾</div>
+      <h3>Image Size Compressor</h3>
+      <p>ছবির মান বজায় রেখে ফাইলের সাইজ কমানোর সুবিধা।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-</div>
+    <div class="tool">
+      <div class="icon">🪄</div>
+      <h3>Photo Background Changer</h3>
+      <p>ছবির Background পরিবর্তন ও প্রয়োজনমতো সাজানোর সুবিধা।</p>
+      <span class="status">সংযোগাধীন | Coming Soon</span>
+    </div>
 
-<div class="card">
-<h2>🖨️ Print Sheet | এক পাতায় একাধিক ছবি</h2>
-<label>প্রতি সারিতে ছবি | Photos per row</label>
-<select id="columns">
-<option value="2">2 Photos</option>
-<option value="3" selected>3 Photos</option>
-<option value="4">4 Photos</option>
-</select>
+  </div>
+</section>
 
-<label>মোট ছবি | Total Photos</label>
-<select id="copies">
-<option value="4">4</option>
-<option value="6">6</option>
-<option value="8" selected>8</option>
-<option value="12">12</option>
-<option value="16">16</option>
-</select>
+<section class="info" id="security">
+  <h2>🔐 নিরাপত্তা ও ব্যবহার | Security & Usage</h2>
+  <p>
+    এই পেজটি বর্তমানে পরিচিতিমূলক টুলস Dashboard।
+    প্রয়োজনীয় সফটওয়্যার ও সার্ভিস সংযুক্ত হলে টুলগুলো
+    ব্যবহার করা যাবে।
+  </p>
+  <p>
+    ছবি আপলোড করার আগে সংশ্লিষ্ট সরকারি বা প্রতিষ্ঠানের
+    নির্ধারিত ছবি, মাপ ও ফরম্যাটের নিয়ম যাচাই করুন।
+  </p>
+</section>
 
-<button onclick="downloadSheet()">Create Print Sheet</button>
-<p class="note">Print Sheet A4 অনুপাতের JPG হিসেবে ডাউনলোড হবে। প্রিন্টের সময় 100% / Actual Size নির্বাচন করুন।</p>
-</div>
+</main>
 
-</div>
-
-<footer>© 2026 Rifat AI Photo Studio</footer>
-
-<script>
-const input=document.getElementById("photoInput");
-const canvas=document.getElementById("photoCanvas");
-const ctx=canvas.getContext("2d");
-let img=null;
-
-const sizes={
- "35x45":[413,531,"35 × 45 mm"],
- "40x50":[472,590,"40 × 50 mm"],
- "2x2":[600,600,"2 × 2 inch"],
- "33x48":[389,567,"33 × 48 mm"]
-};
-
-input.addEventListener("change",function(){
- const file=this.files[0];
- if(!file)return;
- if(!file.type.startsWith("image/")){
-  alert("Please select an image.");
-  return;
- }
- const reader=new FileReader();
- reader.onload=e=>{
-  const image=new Image();
-  image.onload=()=>{
-   img=image;
-   updatePreview();
-  };
-  image.src=e.target.result;
- };
- reader.readAsDataURL(file);
-});
-
-function updatePreview(){
- if(!img){
-  alert("Please upload a photo first.");
-  return;
- }
- const selected=document.getElementById("photoSize").value;
- const size=sizes[selected];
- canvas.width=size[0];
- canvas.height=size[1];
-
- const bg=document.getElementById("bgColor").value;
- ctx.fillStyle=bg;
- ctx.fillRect(0,0,canvas.width,canvas.height);
-
- const zoom=Number(document.getElementById("zoom").value)/100;
- const moveX=Number(document.getElementById("moveX").value);
- const moveY=Number(document.getElementById("moveY").value);
-
- const base=Math.max(canvas.width/img.width,canvas.height/img.height);
- const scale=base*zoom;
- const w=img.width*scale;
- const h=img.height*scale;
- const x=(canvas.width-w)/2+(moveX/100)*canvas.width*.3;
- const y=(canvas.height-h)/2+(moveY/100)*canvas.height*.3;
-
- ctx.save();
- ctx.beginPath();
- ctx.rect(0,0,canvas.width,canvas.height);
- ctx.clip();
- ctx.drawImage(img,x,y,w,h);
- ctx.restore();
-
- document.getElementById("sizeInfo").textContent=
- "Selected size: "+size[2]+" | Preview dimensions: "+canvas.width+" × "+canvas.height+" px";
-}
-
-function resetSettings(){
- document.getElementById("zoom").value=100;
- document.getElementById("moveX").value=0;
- document.getElementById("moveY").value=0;
- updatePreview();
-}
-
-document.getElementById("photoSize").addEventListener("change",updatePreview);
-document.getElementById("bgColor").addEventListener("change",updatePreview);
-["zoom","moveX","moveY"].forEach(id=>{
- document.getElementById(id).addEventListener("input",updatePreview);
-});
-
-function downloadPhoto(type){
- if(!img){
-  alert("Please upload a photo first.");
-  return;
- }
- updatePreview();
- const a=document.createElement("a");
- a.download=type==="image/png"?"rifat-passport.png":"rifat-passport.jpg";
- a.href=canvas.toDataURL(type,type==="image/jpeg"?.95:undefined);
- a.click();
-}
-
-function downloadSheet(){
- if(!img){
-  alert("Please upload a photo first.");
-  return;
- }
- updatePreview();
-
- const cols=Number(document.getElementById("columns").value);
- const copies=Number(document.getElementById("copies").value);
- const sheet=document.createElement("canvas");
- sheet.width=2480;
- sheet.height=3508;
- const s=sheet.getContext("2d");
-
- s.fillStyle="#ffffff";
- s.fillRect(0,0,sheet.width,sheet.height);
-
- const margin=100;
- const gap=35;
- const cellW=(sheet.width-margin*2-gap*(cols-1))/cols;
- const cellH=cellW*canvas.height/canvas.width;
- const rows=Math.ceil(copies/cols);
- const totalH=rows*cellH+(rows-1)*gap;
- let y=(sheet.height-totalH)/2;
-
- for(let i=0;i<copies;i++){
-  const row=Math.floor(i/cols);
-  const col=i%cols;
-  const x=margin+col*(cellW+gap);
-  const py=y+row*(cellH+gap);
-
-  s.drawImage(canvas,x,py,cellW,cellH);
-  s.strokeStyle="#cccccc";
-  s.lineWidth=2;
-  s.strokeRect(x,py,cellW,cellH);
- }
-
- const a=document.createElement("a");
- a.download="rifat-passport-print-sheet.jpg";
- a.href=sheet.toDataURL("image/jpeg",.95);
- a.click();
-}
-</script>
+<footer>
+  <p>© 2026 Rifat Online Tools & Documents</p>
+  <p>Powered by Rifat Ahmed</p>
+  <p>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
+</footer>
 
 </body>
 </html>
