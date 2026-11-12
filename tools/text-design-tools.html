@@ -3,648 +3,297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rifat AI Photo Studio - Text & Design Tools</title>
+
+<title>Text Design Studio | Rifat Online Tools</title>
+<meta name="description" content="Rifat Text Design Studio - Stylish text, Bangla text design, fancy fonts, text colors, shadows, 3D text and logo tools.">
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#edf2f8;color:#172b43;font-family:Arial,"Noto Sans Bengali",sans-serif}
-header{background:linear-gradient(120deg,#071d35,#1769aa);color:white;padding:22px 15px;text-align:center}
-header h1{margin:0 0 7px;font-size:25px}
-header p{margin:0;color:#dcecff}
-.container{max-width:1250px;margin:20px auto;padding:0 12px}
-.panel{background:white;border-radius:13px;padding:16px;margin-bottom:15px;box-shadow:0 3px 14px #142c4512}
-h2{font-size:18px;margin:0 0 13px;color:#1769aa}
-h3{font-size:15px;margin:12px 0 8px}
-button,.upload-label{border:0;border-radius:7px;padding:10px 13px;background:#1769aa;color:white;font-weight:bold;cursor:pointer;font-size:13px}
-button:hover,.upload-label:hover{background:#0b477b}
-button.secondary{background:#e6edf5;color:#17334f}
-button.danger{background:#c93b43}
-button.green{background:#16865b}
-button.gold{background:#d69a16;color:#172b43}
-input,select,textarea{width:100%;padding:9px;border:1px solid #cbd6e2;border-radius:7px;font-size:14px;background:white;color:#172b43}
-input[type=color]{height:40px;padding:3px}
-input[type=range]{padding:0}
-input[type=checkbox]{width:auto}
-label{font-size:13px;font-weight:bold;display:block;margin:9px 0 5px}
-.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.workspace{display:grid;grid-template-columns:290px 1fr;gap:15px;align-items:start}
-.controls{max-height:850px;overflow:auto}
-.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.canvas-wrap{background:#dce5ef;border:2px dashed #aabbd0;border-radius:12px;min-height:400px;display:flex;justify-content:center;align-items:center;padding:12px;overflow:auto}
-canvas{display:block;max-width:100%;height:auto;background:white;box-shadow:0 4px 18px #0002;touch-action:none}
-.empty{color:#60758b;text-align:center;padding:45px 15px;line-height:1.8}
-.small{font-size:12px;color:#64768a;line-height:1.6}
-.status{font-size:13px;color:#16865b;margin-top:8px;min-height:18px}
-.object-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
-.object-item{padding:9px;border:1px solid #d9e2ec;border-radius:7px;display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:13px;cursor:pointer}
-.object-item.active{border:2px solid #1769aa;background:#edf6ff}
-.object-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-footer{text-align:center;padding:20px;color:#64768a;font-size:12px}
-@media(max-width:800px){.workspace{grid-template-columns:1fr}.controls{max-height:none}.canvas-wrap{min-height:280px}header h1{font-size:21px}}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:Arial,sans-serif;
+  background:#071d35;
+  color:#fff;
+  line-height:1.7;
+}
+.cover-banner{
+  padding:15px;
+  text-align:center;
+}
+.cover-banner img{
+  display:block;
+  width:100%;
+  max-width:1100px;
+  height:auto;
+  margin:auto;
+  border-radius:14px;
+}
+nav{
+  background:#102a43;
+  padding:14px;
+  text-align:center;
+  border-top:1px solid #285477;
+  border-bottom:1px solid #285477;
+}
+nav a{
+  display:inline-block;
+  color:white;
+  background:#1769aa;
+  text-decoration:none;
+  padding:9px 20px;
+  margin:4px;
+  border-radius:8px;
+  font-weight:bold;
+}
+nav a:hover{
+  background:#2196c8;
+}
+header{
+  background:linear-gradient(120deg,#071d35,#1769aa);
+  padding:42px 15px;
+  text-align:center;
+  border-bottom:3px solid #f0c040;
+}
+header h1{
+  font-size:30px;
+  margin-bottom:12px;
+}
+header p{
+  color:#dbeafe;
+}
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:25px 18px;
+}
+.hero{
+  background:linear-gradient(135deg,#102a43,#174d77);
+  padding:28px 20px;
+  border-radius:16px;
+  text-align:center;
+  border:1px solid #285477;
+  margin-bottom:28px;
+}
+.hero h2{
+  color:#f0c040;
+  margin-bottom:12px;
+}
+.hero p{
+  color:#dbeafe;
+}
+.section-title{
+  text-align:center;
+  color:#f0c040;
+  margin:28px 0;
+  font-size:25px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+}
+.tool{
+  background:#102a43;
+  border:1px solid #285477;
+  border-radius:15px;
+  padding:23px;
+  text-align:center;
+  transition:.25s;
+}
+.tool:hover{
+  transform:translateY(-5px);
+  border-color:#f0c040;
+  box-shadow:0 8px 22px rgba(0,0,0,.2);
+}
+.icon{
+  font-size:42px;
+  margin-bottom:12px;
+}
+.tool h3{
+  color:#f0c040;
+  font-size:18px;
+  margin-bottom:10px;
+}
+.tool p{
+  color:#c6d7e8;
+  font-size:14px;
+  min-height:75px;
+}
+.status{
+  display:inline-block;
+  background:#614b18;
+  color:#ffe49a;
+  border-radius:20px;
+  padding:6px 13px;
+  font-size:12px;
+  margin-top:15px;
+}
+.info{
+  background:#102a43;
+  border:1px solid #285477;
+  padding:24px;
+  border-radius:14px;
+  margin-top:30px;
+  color:#c6d7e8;
+}
+.info h2{
+  color:#f0c040;
+  margin-bottom:12px;
+}
+.info p{
+  margin-bottom:10px;
+}
+footer{
+  background:#061629;
+  text-align:center;
+  padding:25px 15px;
+  color:#9db5cc;
+  border-top:2px solid #1769aa;
+}
+footer p{
+  margin:5px 0;
+}
+@media(max-width:600px){
+  header{
+    padding:30px 12px;
+  }
+  header h1{
+    font-size:23px;
+  }
+  .container{
+    padding:18px 12px;
+  }
+  .grid{
+    grid-template-columns:1fr;
+  }
+  .section-title{
+    font-size:21px;
+  }
+}
 </style>
 </head>
+
 <body>
 
+<div class="cover-banner">
+  <a href="index.html">
+    <img
+      src="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/tools/tools-cover.png"
+      alt="Rifat Online Tools and Documents">
+  </a>
+</div>
+
+<nav>
+  <a href="index.html">🏠 Home / হোম</a>
+  <a href="#text-tools">✍️ Text Design</a>
+  <a href="#security">🔐 নিরাপত্তা</a>
+</nav>
+
 <header>
-<h1>🎨 Rifat AI Photo Studio</h1>
-<p>Text, Design & Watermark Studio</p>
+  <h1>✍️ Text Design Studio</h1>
+  <p>সাধারণ লেখাকে দিন আকর্ষণীয় ও সৃজনশীল রূপ</p>
+  <p>Create Beautiful & Stylish Text Designs</p>
 </header>
 
-<div class="container">
+<main class="container">
 
-<div class="panel">
-<h2>📷 ছবি আপলোড করুন</h2>
-<div class="toolbar">
-<label class="upload-label" for="photoInput">ছবি নির্বাচন করুন</label>
-<input id="photoInput" type="file" accept="image/*" hidden>
-<button class="secondary" id="resetBtn">মূল ছবি দেখুন</button>
-<button class="secondary" id="undoBtn">↶ Undo</button>
-<button class="secondary" id="redoBtn">↷ Redo</button>
-<button class="green" id="downloadPng">PNG ডাউনলোড</button>
-<button class="gold" id="downloadJpg">JPG ডাউনলোড</button>
-</div>
-<div class="small">প্রথমে ছবি আপলোড করুন। তারপর Text অথবা Design যোগ করুন।</div>
-<div class="status" id="status"></div>
-</div>
+<section class="hero">
+  <h2>✨ Welcome to Text Design Studio</h2>
+  <p>
+    বাংলা ও ইংরেজি লেখাকে বিভিন্ন Font, Color, Shadow
+    ও Creative Style দিয়ে সুন্দরভাবে সাজানোর টুলস এক জায়গায়।
+    <br>
+    Design beautiful text for social media, logos and graphics.
+  </p>
+</section>
 
-<div class="workspace">
+<section id="text-tools">
 
-<div class="panel controls">
+<h2 class="section-title">🚀 Our Text Design Tools</h2>
 
-<h2>✍️ Text Design</h2>
-<label>আপনার লেখা লিখুন</label>
-<textarea id="textValue" rows="3" placeholder="এখানে বাংলা অথবা ইংরেজি লিখুন...">আমার ডিজাইন</textarea>
-<div class="toolbar" style="margin-top:9px">
-<button id="addText">＋ Text যোগ করুন</button>
-<button class="secondary" id="addWatermark">Watermark</button>
+<div class="grid">
+
+<div class="tool">
+  <div class="icon">✨</div>
+  <h3>Stylish Text Generator</h3>
+  <p>সাধারণ লেখাকে বিভিন্ন Stylish Text-এ পরিবর্তন করুন।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
 </div>
 
-<div class="field-grid">
-<div>
-<label>Font Family</label>
-<select id="fontFamily">
-<option value="Arial">Arial</option>
-<option value="Noto Sans Bengali">Noto Sans Bengali</option>
-<option value="SolaimanLipi">SolaimanLipi</option>
-<option value="Kalpurush">Kalpurush</option>
-<option value="Georgia">Georgia</option>
-<option value="Times New Roman">Times New Roman</option>
-<option value="Verdana">Verdana</option>
-<option value="Tahoma">Tahoma</option>
-<option value="Impact">Impact</option>
-</select>
-</div>
-<div>
-<label>Font Size</label>
-<input id="fontSize" type="number" min="8" max="500" value="50">
-</div>
-<div>
-<label>Text Color</label>
-<input id="textColor" type="color" value="#ffffff">
-</div>
-<div>
-<label>Outline Color</label>
-<input id="outlineColor" type="color" value="#000000">
-</div>
+<div class="tool">
+  <div class="icon">🇧🇩</div>
+  <h3>Bangla Text Design</h3>
+  <p>বাংলা লেখাকে সুন্দর Font ও Design দিয়ে সাজানোর সুবিধা।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
 </div>
 
-<div class="toolbar" style="margin-top:10px">
-<button class="secondary" id="boldBtn">B Bold</button>
-<button class="secondary" id="italicBtn">I Italic</button>
-<button class="secondary" id="outlineBtn">Outline</button>
+<div class="tool">
+  <div class="icon">🔤</div>
+  <h3>Fancy Font Generator</h3>
+  <p>বিভিন্ন Fancy ও Creative Font Style তৈরি করুন।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
 </div>
 
-<label>Text Alignment</label>
-<select id="textAlign">
-<option value="left">Left</option>
-<option value="center">Center</option>
-<option value="right">Right</option>
-</select>
-
-<label>লেখার স্বচ্ছতা</label>
-<input id="textOpacity" type="range" min="10" max="100" value="100">
-
-<label>লেখা ঘোরান: <span id="rotationValue">0°</span></label>
-<input id="textRotation" type="range" min="-180" max="180" value="0">
-
-<div class="toolbar" style="margin-top:12px">
-<button class="secondary" id="updateText">লেখা পরিবর্তন</button>
-<button class="danger" id="deleteObject">নির্বাচিতটি মুছুন</button>
+<div class="tool">
+  <div class="icon">🎨</div>
+  <h3>Text Color Changer</h3>
+  <p>লেখার রঙ পরিবর্তন করে আকর্ষণীয় Design তৈরি করুন।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
 </div>
 
-<hr style="border:0;border-top:1px solid #e1e7ef;margin:17px 0">
-
-<h2>🔷 Shapes & Design</h2>
-<label>Shape নির্বাচন করুন</label>
-<select id="shapeType">
-<option value="rect">Rectangle</option>
-<option value="circle">Circle</option>
-<option value="line">Line</option>
-<option value="arrow">Arrow</option>
-</select>
-<div class="field-grid">
-<div>
-<label>Shape Color</label>
-<input id="shapeColor" type="color" value="#f0c040">
-</div>
-<div>
-<label>Line Width</label>
-<input id="shapeWidth" type="number" min="1" max="50" value="5">
-</div>
-<div>
-<label>Width</label>
-<input id="shapeW" type="number" min="10" value="250">
-</div>
-<div>
-<label>Height</label>
-<input id="shapeH" type="number" min="10" value="120">
-</div>
-</div>
-<div class="toolbar" style="margin-top:10px">
-<button id="addShape">＋ Shape যোগ করুন</button>
+<div class="tool">
+  <div class="icon">🌑</div>
+  <h3>Text Shadow Effects</h3>
+  <p>লেখায় সুন্দর Shadow ও Depth Effect যোগ করুন।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
 </div>
 
-<hr style="border:0;border-top:1px solid #e1e7ef;margin:17px 0">
-
-<h2>📚 Design Layers</h2>
-<p class="small">কোনো লেখা বা Shape নির্বাচন করতে তালিকায় ক্লিক করুন।</p>
-<div id="objectList" class="object-list">
-<div class="small">এখনো কোনো Design যোগ করা হয়নি।</div>
+<div class="tool">
+  <div class="icon">💎</div>
+  <h3>3D Text Effects</h3>
+  <p>লেখাকে আকর্ষণীয় 3D Style-এ রূপান্তর করুন।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
 </div>
 
-<div class="toolbar" style="margin-top:12px">
-<button class="secondary" id="moveUp">উপরে নিন</button>
-<button class="secondary" id="moveDown">নিচে নিন</button>
+<div class="tool">
+  <div class="icon">🔲</div>
+  <h3>Text Outline</h3>
+  <p>লেখার চারপাশে Outline ও Border তৈরি করুন।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
+</div>
+
+<div class="tool">
+  <div class="icon">🏷️</div>
+  <h3>Text Logo Maker</h3>
+  <p>নাম, ব্র্যান্ড ও ব্যবসার জন্য Text Logo ডিজাইন করুন।</p>
+  <span class="status">সংযোগাধীন | Coming Soon</span>
 </div>
 
 </div>
+</section>
 
-<div class="panel">
-<h2>🖼️ Design Workspace</h2>
-<div class="canvas-wrap" id="canvasWrap">
-<div class="empty" id="emptyMessage">
-<h2>আপনার ছবি এখানে দেখাবে</h2>
-ছবি আপলোড করে Text ও Design তৈরি করুন।
-</div>
-<canvas id="editorCanvas" hidden></canvas>
-</div>
-<p class="small">নির্বাচিত লেখা বা Shape মাউস অথবা আঙুল দিয়ে টেনে সরাতে পারবেন।</p>
-</div>
+<section class="info" id="security">
+  <h2>🔐 নিরাপত্তা ও ব্যবহার | Security & Usage</h2>
+  <p>
+    এই পেজটি বর্তমানে Text Design Tools-এর পরিচিতিমূলক Dashboard।
+    প্রয়োজনীয় সফটওয়্যার সংযুক্ত হলে প্রতিটি টুল ব্যবহার করা যাবে।
+  </p>
+  <p>
+    নিজের তৈরি Design ব্যবহারের আগে প্রয়োজনীয় Font ও
+    অন্যান্য উপাদানের ব্যবহারের অনুমতি যাচাই করুন।
+  </p>
+</section>
 
-</div>
-</div>
+</main>
 
 <footer>
-© 2026 Rifat AI Photo Studio | Text, Design & Watermark Studio
+  <p>© 2026 Rifat Online Tools & Documents</p>
+  <p>Powered by Rifat Ahmed</p>
+  <p>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
 </footer>
 
-<script>
-const canvas=document.getElementById("editorCanvas");
-const ctx=canvas.getContext("2d");
-const photoInput=document.getElementById("photoInput");
-const emptyMessage=document.getElementById("emptyMessage");
-const statusBox=document.getElementById("status");
-const objectList=document.getElementById("objectList");
-
-let baseImage=null;
-let objects=[];
-let selected=-1;
-let dragging=false;
-let dragOffset={x:0,y:0};
-let history=[];
-let historyIndex=-1;
-
-function say(message){
- statusBox.textContent=message;
-}
-
-function saveHistory(){
- const snapshot=JSON.stringify(objects);
- if(historyIndex>=0 && history[historyIndex]===snapshot)return;
- history=history.slice(0,historyIndex+1);
- history.push(snapshot);
- if(history.length>40)history.shift();
- historyIndex=history.length-1;
-}
-
-function restoreHistory(index){
- if(index<0||index>=history.length)return;
- historyIndex=index;
- objects=JSON.parse(history[index]);
- selected=-1;
- render();
- updateList();
-}
-
-function getSelected(){
- return selected>=0?objects[selected]:null;
-}
-
-function photoLoaded(){
- return !!baseImage;
-}
-
-photoInput.addEventListener("change",function(e){
- const file=e.target.files[0];
- if(!file)return;
- if(!file.type.startsWith("image/")){
-  say("সঠিক ছবি নির্বাচন করুন।");
-  return;
- }
- const url=URL.createObjectURL(file);
- const img=new Image();
- img.onload=function(){
-  baseImage=img;
-  canvas.width=img.naturalWidth;
-  canvas.height=img.naturalHeight;
-  objects=[];
-  selected=-1;
-  history=[];
-  historyIndex=-1;
-  canvas.hidden=false;
-  emptyMessage.hidden=true;
-  saveHistory();
-  render();
-  updateList();
-  say("ছবি সফলভাবে আপলোড হয়েছে!");
-  URL.revokeObjectURL(url);
- };
- img.onerror=function(){
-  say("ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।");
- };
- img.src=url;
-});
-
-function render(){
- if(!photoLoaded())return;
- ctx.clearRect(0,0,canvas.width,canvas.height);
- ctx.drawImage(baseImage,0,0,canvas.width,canvas.height);
-
- objects.forEach((obj,index)=>{
-  ctx.save();
-  ctx.globalAlpha=obj.opacity===undefined?1:obj.opacity;
-  ctx.translate(obj.x,obj.y);
-  ctx.rotate((obj.rotation||0)*Math.PI/180);
-
-  if(obj.type==="text"){
-   const fontStyle=(obj.italic?"italic ":"")+(obj.bold?"bold ":"");
-   ctx.font=fontStyle+obj.size+"px "+obj.font;
-   ctx.textAlign=obj.align||"left";
-   ctx.textBaseline="middle";
-   const lines=String(obj.text).split("\n");
-   const lineHeight=obj.size*1.25;
-   const startY=-(lines.length-1)*lineHeight/2;
-
-   lines.forEach((line,i)=>{
-    const y=startY+i*lineHeight;
-    if(obj.outline){
-     ctx.lineWidth=Math.max(2,obj.size/14);
-     ctx.strokeStyle=obj.outlineColor;
-     ctx.lineJoin="round";
-     ctx.strokeText(line,0,y);
-    }
-    ctx.fillStyle=obj.color;
-    ctx.fillText(line,0,y);
-   });
-
-   if(index===selected){
-    const metrics=ctx.measureText(lines[0]||" ");
-    const w=Math.max(metrics.width,30);
-    ctx.strokeStyle="#1687ff";
-    ctx.lineWidth=Math.max(2,canvas.width/800);
-    ctx.setLineDash([8,5]);
-    ctx.strokeRect(obj.align==="center"?-w/2:obj.align==="right"?-w:-4,
-     startY-obj.size/2-5,w+8,lines.length*lineHeight+10);
-   }
-  }
-
-  if(obj.type==="rect"){
-   ctx.strokeStyle=obj.color;
-   ctx.lineWidth=obj.lineWidth;
-   ctx.strokeRect(-obj.w/2,-obj.h/2,obj.w,obj.h);
-  }
-
-  if(obj.type==="circle"){
-   ctx.strokeStyle=obj.color;
-   ctx.lineWidth=obj.lineWidth;
-   ctx.beginPath();
-   ctx.ellipse(0,0,obj.w/2,obj.h/2,0,0,Math.PI*2);
-   ctx.stroke();
-  }
-
-  if(obj.type==="line"||obj.type==="arrow"){
-   ctx.strokeStyle=obj.color;
-   ctx.fillStyle=obj.color;
-   ctx.lineWidth=obj.lineWidth;
-   ctx.lineCap="round";
-   ctx.beginPath();
-   ctx.moveTo(-obj.w/2,0);
-   ctx.lineTo(obj.w/2,0);
-   ctx.stroke();
-
-   if(obj.type==="arrow"){
-    const size=Math.max(12,obj.lineWidth*3);
-    ctx.beginPath();
-    ctx.moveTo(obj.w/2,0);
-    ctx.lineTo(obj.w/2-size,-size/1.5);
-    ctx.lineTo(obj.w/2-size,size/1.5);
-    ctx.closePath();
-    ctx.fill();
-   }
-  }
-
-  if(index===selected && obj.type!=="text"){
-   ctx.strokeStyle="#1687ff";
-   ctx.lineWidth=Math.max(2,canvas.width/800);
-   ctx.setLineDash([8,5]);
-   ctx.strokeRect(-obj.w/2-8,-obj.h/2-8,obj.w+16,obj.h+16);
-  }
-  ctx.restore();
- });
-}
-
-function updateList(){
- objectList.innerHTML="";
- if(objects.length===0){
-  objectList.innerHTML='<div class="small">এখনো কোনো Design যোগ করা হয়নি।</div>';
-  return;
- }
- objects.forEach((obj,index)=>{
-  const item=document.createElement("div");
-  item.className="object-item"+(index===selected?" active":"");
-  const name=obj.type==="text"?"✍️ "+obj.text:
-   obj.type==="rect"?"▭ Rectangle":
-   obj.type==="circle"?"◯ Circle":
-   obj.type==="arrow"?"➜ Arrow":"― Line";
-  const span=document.createElement("span");
-  span.textContent=name;
-  const number=document.createElement("b");
-  number.textContent="#"+(index+1);
-  item.append(span,number);
-  item.addEventListener("click",()=>{
-   selected=index;
-   loadSelected();
-   render();
-   updateList();
-  });
-  objectList.appendChild(item);
- });
-}
-
-function addObject(obj){
- if(!photoLoaded()){
-  say("আগে একটি ছবি আপলোড করুন।");
-  return;
- }
- obj.x=canvas.width/2;
- obj.y=canvas.height/2;
- obj.rotation=obj.rotation||0;
- objects.push(obj);
- selected=objects.length-1;
- saveHistory();
- render();
- updateList();
- loadSelected();
- say("Design যোগ হয়েছে!");
-}
-
-document.getElementById("addText").onclick=()=>{
- const text=document.getElementById("textValue").value.trim();
- if(!text){say("আগে লেখাটি লিখুন।");return;}
- addObject({
-  type:"text",text,
-  font:document.getElementById("fontFamily").value,
-  size:Math.max(8,Number(document.getElementById("fontSize").value)||50),
-  color:document.getElementById("textColor").value,
-  outlineColor:document.getElementById("outlineColor").value,
-  outline:false,bold:false,italic:false,
-  align:document.getElementById("textAlign").value,
-  opacity:1
- });
-};
-
-document.getElementById("addWatermark").onclick=()=>{
- const text=document.getElementById("textValue").value.trim()||"Rifat Studio";
- addObject({
-  type:"text",text,
-  font:"Arial",size:Math.max(12,Number(document.getElementById("fontSize").value)||35),
-  color:document.getElementById("textColor").value,
-  outlineColor:"#000000",outline:false,
-  bold:true,italic:false,align:"center",opacity:.35
- });
-};
-
-document.getElementById("addShape").onclick=()=>{
- const type=document.getElementById("shapeType").value;
- addObject({
-  type,
-  color:document.getElementById("shapeColor").value,
-  lineWidth:Math.max(1,Number(document.getElementById("shapeWidth").value)||5),
-  w:Math.max(10,Number(document.getElementById("shapeW").value)||250),
-  h:Math.max(10,Number(document.getElementById("shapeH").value)||120),
-  opacity:1
- });
-};
-
-function loadSelected(){
- const obj=getSelected();
- if(!obj)return;
- if(obj.type==="text"){
-  document.getElementById("textValue").value=obj.text;
-  document.getElementById("fontFamily").value=obj.font;
-  document.getElementById("fontSize").value=obj.size;
-  document.getElementById("textColor").value=obj.color;
-  document.getElementById("outlineColor").value=obj.outlineColor;
-  document.getElementById("textAlign").value=obj.align;
-  document.getElementById("textOpacity").value=Math.round(obj.opacity*100);
-  document.getElementById("textRotation").value=obj.rotation||0;
-  document.getElementById("rotationValue").textContent=(obj.rotation||0)+"°";
-  document.getElementById("boldBtn").classList.toggle("gold",obj.bold);
-  document.getElementById("italicBtn").classList.toggle("gold",obj.italic);
-  document.getElementById("outlineBtn").classList.toggle("gold",obj.outline);
- }
-}
-
-function updateTextObject(){
- const obj=getSelected();
- if(!obj||obj.type!=="text"){
-  say("আগে একটি Text নির্বাচন করুন।");
-  return;
- }
- obj.text=document.getElementById("textValue").value;
- obj.font=document.getElementById("fontFamily").value;
- obj.size=Math.max(8,Number(document.getElementById("fontSize").value)||50);
- obj.color=document.getElementById("textColor").value;
- obj.outlineColor=document.getElementById("outlineColor").value;
- obj.align=document.getElementById("textAlign").value;
- obj.opacity=Number(document.getElementById("textOpacity").value)/100;
- obj.rotation=Number(document.getElementById("textRotation").value);
- saveHistory();
- render();
- updateList();
- say("Text পরিবর্তন হয়েছে!");
-}
-
-document.getElementById("updateText").onclick=updateTextObject;
-
-document.getElementById("boldBtn").onclick=()=>{
- const obj=getSelected();
- if(!obj||obj.type!=="text"){say("একটি Text নির্বাচন করুন।");return;}
- obj.bold=!obj.bold;
- saveHistory();loadSelected();render();
-};
-
-document.getElementById("italicBtn").onclick=()=>{
- const obj=getSelected();
- if(!obj||obj.type!=="text"){say("একটি Text নির্বাচন করুন।");return;}
- obj.italic=!obj.italic;
- saveHistory();loadSelected();render();
-};
-
-document.getElementById("outlineBtn").onclick=()=>{
- const obj=getSelected();
- if(!obj||obj.type!=="text"){say("একটি Text নির্বাচন করুন।");return;}
- obj.outline=!obj.outline;
- saveHistory();loadSelected();render();
-};
-
-document.getElementById("textRotation").addEventListener("input",e=>{
- document.getElementById("rotationValue").textContent=e.target.value+"°";
- const obj=getSelected();
- if(obj&&obj.type==="text"){
-  obj.rotation=Number(e.target.value);
-  render();
- }
-});
-
-document.getElementById("deleteObject").onclick=()=>{
- if(selected<0){say("আগে একটি Design নির্বাচন করুন।");return;}
- objects.splice(selected,1);
- selected=-1;
- saveHistory();render();updateList();
- say("নির্বাচিত Design মুছে ফেলা হয়েছে।");
-};
-
-document.getElementById("moveUp").onclick=()=>{
- if(selected<0||selected===objects.length-1)return;
- [objects[selected],objects[selected+1]]=[objects[selected+1],objects[selected]];
- selected++;
- saveHistory();render();updateList();
-};
-
-document.getElementById("moveDown").onclick=()=>{
- if(selected<=0)return;
- [objects[selected],objects[selected-1]]=[objects[selected-1],objects[selected]];
- selected--;
- saveHistory();render();updateList();
-};
-
-document.getElementById("undoBtn").onclick=()=>{
- if(historyIndex>0)restoreHistory(historyIndex-1);
- else say("আর Undo করা যাবে না।");
-};
-
-document.getElementById("redoBtn").onclick=()=>{
- if(historyIndex<history.length-1)restoreHistory(historyIndex+1);
- else say("আর Redo করা যাবে না।");
-};
-
-function pointerPosition(e){
- const rect=canvas.getBoundingClientRect();
- return {
-  x:(e.clientX-rect.left)*(canvas.width/rect.width),
-  y:(e.clientY-rect.top)*(canvas.height/rect.height)
- };
-}
-
-function hitObject(obj,p){
- const dx=p.x-obj.x,dy=p.y-obj.y;
- const angle=-(obj.rotation||0)*Math.PI/180;
- const x=dx*Math.cos(angle)-dy*Math.sin(angle);
- const y=dx*Math.sin(angle)+dy*Math.cos(angle);
- if(obj.type==="text"){
-  ctx.save();
-  ctx.font=(obj.bold?"bold ":"")+(obj.italic?"italic ":"")+obj.size+"px "+obj.font;
-  const lines=obj.text.split("\n");
-  const width=Math.max(...lines.map(t=>ctx.measureText(t).width),30);
-  ctx.restore();
-  return Math.abs(x)<width/2+25 && Math.abs(y)<obj.size*lines.length;
- }
- return Math.abs(x)<obj.w/2+18 && Math.abs(y)<obj.h/2+18;
-}
-
-canvas.addEventListener("pointerdown",e=>{
- if(!photoLoaded())return;
- const p=pointerPosition(e);
- let found=-1;
- for(let i=objects.length-1;i>=0;i--){
-  if(hitObject(objects[i],p)){found=i;break;}
- }
- selected=found;
- if(found>=0){
-  dragging=true;
-  dragOffset.x=p.x-objects[found].x;
-  dragOffset.y=p.y-objects[found].y;
-  canvas.setPointerCapture(e.pointerId);
-  loadSelected();
- }
- render();
- updateList();
-});
-
-canvas.addEventListener("pointermove",e=>{
- if(!dragging||selected<0)return;
- const p=pointerPosition(e);
- objects[selected].x=p.x-dragOffset.x;
- objects[selected].y=p.y-dragOffset.y;
- render();
-});
-
-canvas.addEventListener("pointerup",()=>{
- if(dragging){
-  dragging=false;
-  saveHistory();
- }
-});
-
-canvas.addEventListener("pointercancel",()=>{
- if(dragging){
-  dragging=false;
-  saveHistory();
- }
-});
-
-document.getElementById("resetBtn").onclick=()=>{
- if(!photoLoaded()){say("কোনো ছবি আপলোড করা হয়নি।");return;}
- objects=[];
- selected=-1;
- saveHistory();
- render();updateList();
- say("মূল ছবি দেখানো হচ্ছে।");
-};
-
-function downloadImage(format){
- if(!photoLoaded()){say("আগে একটি ছবি আপলোড করুন।");return;}
- const mime=format==="jpg"?"image/jpeg":"image/png";
- const link=document.createElement("a");
- link.download="rifat-photo-design."+format;
- if(format==="jpg"){
-  const output=document.createElement("canvas");
-  output.width=canvas.width;output.height=canvas.height;
-  const out=output.getContext("2d");
-  out.fillStyle="#ffffff";
-  out.fillRect(0,0,output.width,output.height);
-  out.drawImage(canvas,0,0);
-  link.href=output.toDataURL(mime,.92);
- }else{
-  link.href=canvas.toDataURL(mime);
- }
- link.click();
- say(format.toUpperCase()+" ডাউনলোড শুরু হয়েছে!");
-}
-
-document.getElementById("downloadPng").onclick=()=>downloadImage("png");
-document.getElementById("downloadJpg").onclick=()=>downloadImage("jpg");
-
-</script>
 </body>
 </html>
