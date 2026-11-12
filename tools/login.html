@@ -1,173 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login | Rifat AI Photo Studio</title>
-
+<meta name="description" content="Login to Rifat AI Photo Studio.">
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;min-height:100vh;
- font-family:Arial,"Noto Sans Bengali",sans-serif;
- background:linear-gradient(135deg,#071d35,#102f50,#1769aa);
+ margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:linear-gradient(135deg,#071d35,#102a43,#1769aa);
+ color:#fff;min-height:100vh;
  display:flex;align-items:center;justify-content:center;
- padding:25px 15px;color:#fff;
+ padding:25px 15px;
 }
-.wrapper{width:100%;max-width:460px}
-.container{
- background:white;color:#172b43;
- border-radius:20px;padding:34px;
- box-shadow:0 15px 50px #0005;
-}
+.wrapper{width:100%;max-width:470px}
+.brand{text-align:center;margin-bottom:22px}
 .logo{
- width:65px;height:65px;margin:auto;
- border-radius:18px;
- background:linear-gradient(135deg,#1769aa,#2196c8);
+ width:65px;height:65px;border-radius:18px;
+ background:#f0c040;color:#071d35;
  display:flex;align-items:center;justify-content:center;
- font-size:30px;color:white;
+ font-size:30px;font-weight:bold;margin:auto auto 12px;
 }
-h1{text-align:center;font-size:26px;margin:18px 0 7px}
-.subtitle{text-align:center;color:#718096;font-size:14px;margin-bottom:28px;line-height:1.8}
-label{display:block;font-weight:bold;font-size:14px;margin:17px 0 7px;line-height:1.7}
-.label-en{color:#64748b;font-weight:normal}
+.brand h1{font-size:25px;margin:8px 0}
+.brand p{color:#d5e7f7;font-size:14px;margin:0}
+.card{
+ background:#fff;color:#183047;border-radius:20px;
+ padding:30px;box-shadow:0 15px 45px #0005;
+}
+.card h2{text-align:center;font-size:25px;margin:0 0 8px}
+.subtitle{text-align:center;color:#718096;font-size:14px;margin-bottom:25px}
+label{display:block;font-size:14px;font-weight:bold;margin:17px 0 7px}
 input{
- width:100%;padding:14px;
- border:1px solid #d5dfeb;border-radius:10px;
- font-size:15px;outline:none;
+ width:100%;padding:14px;border:1px solid #d6e0eb;
+ border-radius:10px;font-size:15px;outline:none;
 }
 input:focus{border-color:#1769aa;box-shadow:0 0 0 3px #1769aa20}
-.password-wrap{position:relative}
-.password-wrap input{padding-right:75px}
-.show{
- position:absolute;right:12px;top:50%;
- transform:translateY(-50%);
- border:0;background:none;color:#1769aa;
- cursor:pointer;font-weight:bold;
+.password-box{position:relative}
+.password-box input{padding-right:78px}
+.toggle{
+ position:absolute;right:10px;top:50%;transform:translateY(-50%);
+ border:0;background:none;color:#1769aa;cursor:pointer;font-weight:bold;
 }
 .options{
- display:flex;justify-content:space-between;
- align-items:center;margin-top:17px;font-size:12px;
- color:#64748b;gap:10px;
+ display:flex;justify-content:space-between;align-items:center;
+ gap:10px;margin-top:17px;font-size:12px;
 }
-.options label{margin:0;font-weight:normal;display:flex;gap:6px;align-items:center}
-.options input{width:auto}
+.remember{display:flex;align-items:center;gap:6px;color:#64748b}
+.remember input{width:auto}
 a{color:#1769aa;text-decoration:none;font-weight:bold}
 .submit{
- width:100%;padding:14px;margin-top:25px;
- border:0;border-radius:10px;
- background:linear-gradient(90deg,#1769aa,#2196c8);
- color:white;font-size:16px;font-weight:bold;cursor:pointer;
+ width:100%;padding:14px;margin-top:24px;
+ background:linear-gradient(120deg,#1769aa,#071d35);
+ color:#fff;border:0;border-radius:10px;
+ font-size:16px;font-weight:bold;cursor:pointer;
 }
-.submit:hover{opacity:.92}
-.bottom{text-align:center;margin-top:22px;font-size:14px;color:#667085;line-height:1.9}
-#message{text-align:center;font-size:13px;margin-top:15px;line-height:1.7}
-.notice{
- margin-top:18px;padding:12px;
- background:#fff7e6;color:#805b12;
- border-radius:9px;font-size:12px;line-height:1.8;
+.submit:disabled{opacity:.65;cursor:wait}
+#message{
+ display:none;padding:12px;border-radius:9px;
+ margin-top:15px;font-size:14px;line-height:1.6;
 }
-footer{text-align:center;color:#a9c6df;font-size:12px;margin-top:20px}
+.links{text-align:center;margin-top:20px;font-size:14px;line-height:2}
+.home{display:inline-block;margin-top:10px;color:#1769aa}
+.footer{text-align:center;color:#d5e7f7;font-size:12px;margin-top:20px}
+@media(max-width:420px){.card{padding:23px 18px}.brand h1{font-size:22px}}
 </style>
 </head>
-
 <body>
 <div class="wrapper">
-<div class="container">
 
-<div class="logo">✦</div>
+ <div class="brand">
+  <div class="logo">R</div>
+  <h1>Rifat AI Photo Studio</h1>
+  <p>Professional Photo Editing Platform</p>
+ </div>
 
-<h1>Welcome Back!</h1>
-<p class="subtitle">
-আবারও স্বাগতম<br>
-Welcome to Rifat AI Photo Studio
-</p>
+ <div class="card">
+  <h2>Welcome Back!</h2>
+  <div class="subtitle">আবারও স্বাগতম | আপনার অ্যাকাউন্টে প্রবেশ করুন</div>
 
-<form id="loginForm">
+  <form id="loginForm">
+   <label for="email">ইমেইল ঠিকানা | Email Address</label>
+   <input id="email" type="email"
+    placeholder="আপনার ইমেইল লিখুন"
+    autocomplete="username" maxlength="254" required>
 
-<label for="email">
-ইমেইল ঠিকানা <span class="label-en">| Email Address</span>
-</label>
-<input id="email" type="email"
-placeholder="আপনার ইমেইল লিখুন | Enter your email"
-autocomplete="username" required>
+   <label for="password">পাসওয়ার্ড | Password</label>
+   <div class="password-box">
+    <input id="password" type="password"
+     placeholder="আপনার পাসওয়ার্ড লিখুন"
+     autocomplete="current-password" required>
+    <button class="toggle" type="button" id="togglePassword">দেখুন | Show</button>
+   </div>
 
-<label for="password">
-পাসওয়ার্ড <span class="label-en">| Password</span>
-</label>
-<div class="password-wrap">
-<input id="password" type="password"
-placeholder="আপনার পাসওয়ার্ড লিখুন | Enter password"
-autocomplete="current-password" required>
-<button class="show" type="button"
-onclick="togglePassword()">দেখুন | Show</button>
-</div>
+   <div class="options">
+    <label class="remember">
+     <input type="checkbox" id="remember">
+     মনে রাখুন | Remember me
+    </label>
+   </div>
 
-<div class="options">
-<label>
-<input type="checkbox" id="remember">
-মনে রাখুন | Remember me
-</label>
-<a href="#" onclick="showNotice(event)">
-পাসওয়ার্ড ভুলে গেছেন? | Forgot Password?
-</a>
-</div>
+   <button class="submit" id="submitBtn" type="submit">
+    লগইন করুন | Login
+   </button>
+   <div id="message" role="status" aria-live="polite"></div>
+  </form>
 
-<button class="submit" type="submit">
-লগইন করুন | Login
-</button>
+  <div class="links">
+   নতুন ব্যবহারকারী? | New User?
+   <br>
+   <a href="registration.html">নতুন অ্যাকাউন্ট তৈরি করুন | Register</a>
+   <br>
+   <a class="home" href="index.html">← Back to Home</a>
+  </div>
+ </div>
 
-<div id="message"></div>
-</form>
-
-<div class="notice">
-<strong>নিরাপত্তা | Security:</strong><br>
-Login Backend এখনো সংযুক্ত হয়নি। প্রকৃত Login করতে Backend প্রয়োজন।<br>
-The login service is not connected yet. Backend integration is required.
-</div>
-
-<div class="bottom">
-নতুন ব্যবহারকারী? | New User?<br>
-<a href="registration.html">
-নতুন অ্যাকাউন্ট তৈরি করুন | Create New Account
-</a>
-</div>
-
-</div>
-<footer>© 2026 Rifat AI Photo Studio</footer>
+ <div class="footer">
+  © 2026 Rifat AI Photo Studio. All Rights Reserved.
+ </div>
 </div>
 
 <script>
-function togglePassword(){
+const API_URL="https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+
+const form=document.getElementById("loginForm");
+const message=document.getElementById("message");
+const submitBtn=document.getElementById("submitBtn");
+
+function showMessage(text,success){
+ message.style.display="block";
+ message.style.background=success?"#e7f8ed":"#fff0f0";
+ message.style.color=success?"#176b36":"#b42318";
+ message.textContent=text;
+}
+
+document.getElementById("togglePassword").addEventListener("click",function(){
  const field=document.getElementById("password");
- const button=document.querySelector(".show");
+ const show=field.type==="password";
+ field.type=show?"text":"password";
+ this.textContent=show?"লুকান | Hide":"দেখুন | Show";
+});
 
- if(field.type==="password"){
-   field.type="text";
-   button.textContent="লুকান | Hide";
- }else{
-   field.type="password";
-   button.textContent="দেখুন | Show";
+form.addEventListener("submit",async function(e){
+ e.preventDefault();
+
+ const email=document.getElementById("email").value.trim();
+ const password=document.getElementById("password").value;
+ const remember=document.getElementById("remember").checked;
+
+ if(!email||!password){
+  showMessage("ইমেইল ও পাসওয়ার্ড লিখুন।",false);
+  return;
  }
-}
 
-function showNotice(e){
- e.preventDefault();
- alert("পাসওয়ার্ড রিসেট সুবিধা শিগগিরই চালু হবে | Password reset will be available soon.");
-}
+ submitBtn.disabled=true;
+ submitBtn.textContent="Logging in...";
+ showMessage("Backend-এর সঙ্গে সংযোগ করা হচ্ছে...",true);
 
-document.getElementById("loginForm")
-.addEventListener("submit",function(e){
- e.preventDefault();
- const message=document.getElementById("message");
- message.style.color="#b7791f";
- message.textContent=
- "Login Backend এখনো সংযুক্ত হয়নি | Login Backend is not connected yet.";
+ try{
+  const response=await fetch(API_URL+"/api/login",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({email,password})
+  });
+
+  let data;
+  try{
+   data=await response.json();
+  }catch{
+   throw new Error("Backend থেকে সঠিক উত্তর পাওয়া যায়নি।");
+  }
+
+  if(!response.ok||!data.success||!data.token){
+   throw new Error(data.message||"Login করা যায়নি।");
+  }
+
+  // Remember me: persistent storage, otherwise session-only.
+  const storage=remember?localStorage:sessionStorage;
+  const otherStorage=remember?sessionStorage:localStorage;
+
+  otherStorage.removeItem("rifat_ai_token");
+  otherStorage.removeItem("rifat_ai_user");
+
+  storage.setItem("rifat_ai_token",data.token);
+  storage.setItem("rifat_ai_user",JSON.stringify(data.user));
+
+  showMessage("Login successful! স্বাগতম, "+(data.user?.name||"User"),true);
+
+  // Owner/Audience destination will be configured after
+  // the secure Owner role and protected pages are verified.
+ }catch(error){
+  showMessage(error.message||"সংযোগ করা যাচ্ছে না। আবার চেষ্টা করুন।",false);
+ }finally{
+  submitBtn.disabled=false;
+  submitBtn.textContent="লগইন করুন | Login";
+ }
 });
 </script>
-<p style="text-align:center; margin-top:20px;">
-  নতুন ব্যবহারকারী?
-  <a href="registration.html">নতুন অ্যাকাউন্ট তৈরি করুন | Register</a>
-</p>
 </body>
 </html>
