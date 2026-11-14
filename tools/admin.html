@@ -1,1 +1,246 @@
-tools/admin.html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifat AI Photo Studio - Admin Panel</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  color: #172b4d;
+}
+
+header {
+  background: linear-gradient(135deg, #071d35, #1769aa);
+  color: white;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 23px;
+}
+
+header p {
+  margin: 7px 0 0;
+  color: #dbeafe;
+}
+
+button {
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 18px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout {
+  background: #ef4444;
+  color: white;
+}
+
+main {
+  max-width: 1100px;
+  margin: 25px auto;
+  padding: 0 16px;
+}
+
+.welcome, .card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: 0 3px 12px #0000000d;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #1769aa;
+}
+
+.card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.status {
+  color: #15803d;
+  font-weight: bold;
+}
+
+#message {
+  text-align: center;
+  padding: 35px 15px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div id="message">Admin অনুমতি যাচাই হচ্ছে...</div>
+
+<div id="panel" hidden>
+
+<header>
+  <div>
+    <h1>Rifat AI Photo Studio</h1>
+    <p>Secure Admin Dashboard</p>
+  </div>
+  <button class="logout" onclick="logout()">Logout</button>
+</header>
+
+<main>
+
+  <section class="welcome">
+    <h2>স্বাগতম, <span id="adminName">Admin</span></h2>
+    <p class="status">● Admin Access Verified</p>
+    <p>আপনি সফলভাবে Admin Panel-এ প্রবেশ করেছেন।</p>
+  </section>
+
+  <section class="grid">
+
+    <div class="card">
+      <h3>User Management</h3>
+      <p>ওয়েবসাইটের User অ্যাকাউন্ট পরিচালনার বিভাগ।</p>
+      <strong>পরবর্তী ধাপে তৈরি হবে</strong>
+    </div>
+
+    <div class="card">
+      <h3>AI Services</h3>
+      <p>AI Photo Studio-এর সার্ভিস পরিচালনার বিভাগ।</p>
+      <strong>পরবর্তী ধাপে তৈরি হবে</strong>
+    </div>
+
+    <div class="card">
+      <h3>Usage Limit</h3>
+      <p>User-দের ব্যবহারের সীমা নিয়ন্ত্রণের বিভাগ।</p>
+      <strong>পরবর্তী ধাপে তৈরি হবে</strong>
+    </div>
+
+    <div class="card">
+      <h3>Admin Security</h3>
+      <p>Admin অ্যাকাউন্টের নিরাপত্তা ও প্রবেশাধিকার।</p>
+      <strong>Admin Access Protected</strong>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Rifat AI Photo Studio | Admin Panel
+</footer>
+
+</div>
+
+<script>
+const API_URL =
+"https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+
+async function verifyAdmin() {
+  const token =
+    localStorage.getItem("rifat_ai_token") ||
+    sessionStorage.getItem("rifat_ai_token");
+
+  if (!token) {
+    window.location.replace("login.html");
+    return;
+  }
+
+  try {
+    const response = await fetch(API_URL + "/api/admin/me", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    });
+
+    const result = await response.json();
+
+    if (response.status === 401) {
+      document.getElementById("message").textContent =
+        "Login session শেষ হয়েছে। আবার Login করুন।";
+      return;
+    }
+
+    if (response.status === 403) {
+      document.getElementById("message").textContent =
+        "Admin Access Denied.";
+      return;
+    }
+
+    if (!response.ok || !result.success ||
+        result.user?.role !== "admin") {
+      document.getElementById("message").textContent =
+        "Admin অনুমতি যাচাই করা যায়নি।";
+      return;
+    }
+
+    document.getElementById("adminName").textContent =
+      result.user.name || "Admin";
+
+    document.getElementById("message").hidden = true;
+    document.getElementById("panel").hidden = false;
+
+  } catch (error) {
+    document.getElementById("message").textContent =
+      "Server connection failed. আবার চেষ্টা করুন।";
+  }
+}
+
+async function logout() {
+  const token =
+    localStorage.getItem("rifat_ai_token") ||
+    sessionStorage.getItem("rifat_ai_token");
+
+  try {
+    if (token) {
+      await fetch(API_URL + "/api/logout", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + token
+        }
+      });
+    }
+  } catch (error) {
+    console.error("Logout request failed.");
+  }
+
+  localStorage.removeItem("rifat_ai_token");
+  localStorage.removeItem("rifat_ai_user");
+  sessionStorage.removeItem("rifat_ai_token");
+  sessionStorage.removeItem("rifat_ai_user");
+
+  window.location.replace("login.html");
+}
+
+verifyAdmin();
+</script>
+
+</body>
+</html>
