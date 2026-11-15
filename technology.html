@@ -1,169 +1,621 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technology Tips - Rifat Ahmed</title>
-    <meta name="description" content="প্রযুক্তির নতুন খবর, দরকারি প্রযুক্তি টিপস, ডিজিটাল টুলস, কম্পিউটার ও মোবাইল ব্যবহারের সহজ পরামর্শ জানুন Md Rifat Ahmed-এর ওয়েবসাইটে।">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f7fb;
-            color: #333;
-            line-height: 1.8;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            background: #1769aa;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+<title>প্রযুক্তি | Technology - Md Rifat Ahmed</title>
 
-        nav {
-            background: #222;
-            text-align: center;
-            padding: 12px;
-        }
+<meta name="description" content="প্রযুক্তি সম্পর্কে বাংলায় ও ইংরেজিতে জানুন। কম্পিউটার, ইন্টারনেট, AI, সফটওয়্যার, সাইবার নিরাপত্তা এবং ওয়েব ডেভেলপমেন্ট শিখুন।">
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 10px;
-        }
+<meta name="keywords" content="Technology Bangla, Computer Learning, Artificial Intelligence, AI, Cybersecurity, Web Development, Software, Internet">
 
-        .container {
-            max-width: 1000px;
-            margin: 25px auto;
-            padding: 20px;
-            background: white;
-        }
+<meta name="author" content="Md Rifat Ahmed">
+<meta name="robots" content="index, follow">
 
-        h2 {
-            color: #1769aa;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
-    </style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fa;
+    color: #263445;
+    line-height: 1.8;
+}
+
+header {
+    background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+    color: #e7f4ff;
+}
+
+nav {
+    background: #102a43;
+    text-align: center;
+    padding: 14px 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 6px 10px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #f0c040;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 30px auto;
+    padding: 0 18px;
+}
+
+.section {
+    background: white;
+    padding: 27px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+}
+
+.section h2 {
+    color: #1769aa;
+    font-size: 23px;
+    margin-bottom: 13px;
+    border-bottom: 2px solid #e6eff8;
+    padding-bottom: 8px;
+}
+
+.section h3 {
+    color: #102a43;
+    font-size: 19px;
+    margin: 17px 0 7px;
+}
+
+.section p {
+    margin-bottom: 10px;
+}
+
+.english {
+    color: #526477;
+    background: #f5f8fc;
+    padding: 12px 15px;
+    border-left: 3px solid #2196c8;
+    border-radius: 5px;
+    margin: 10px 0 16px;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.topic-card {
+    background: #f5f9fd;
+    padding: 17px;
+    border-radius: 9px;
+    border: 1px solid #e1ebf5;
+}
+
+.topic-card h3 {
+    color: #1769aa;
+    margin-top: 0;
+}
+
+.topic-card p {
+    font-size: 15px;
+}
+
+.section ul,
+.section ol {
+    padding-left: 24px;
+    margin: 10px 0;
+}
+
+.section li {
+    margin-bottom: 7px;
+}
+
+.notice {
+    background: #fff8e7;
+    border-left: 4px solid #e5a900;
+    padding: 17px;
+    border-radius: 7px;
+    margin-top: 12px;
+}
+
+.resource-list a {
+    color: #1769aa;
+    text-decoration: none;
+}
+
+.resource-list a:hover {
+    text-decoration: underline;
+}
+
+.cta {
+    background: linear-gradient(135deg, #102a43, #1769aa);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.cta h2 {
+    margin-bottom: 10px;
+}
+
+.cta p {
+    color: #e7f4ff;
+}
+
+.cta a {
+    display: inline-block;
+    background: #f0c040;
+    color: #102a43;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+footer {
+    background: #071d35;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+    margin-top: 35px;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #e7f4ff;
+    text-decoration: none;
+    margin: 5px 9px;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #f0c040;
+}
+
+footer p {
+    margin: 7px 0;
+}
+
+.copyright {
+    color: #b9c9d9;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 19px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    nav a {
+        margin: 5px 7px;
+        font-size: 14px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>RIFAT AHMED</h1>
-    <p>Personal & Online Business</p>
+    <h1>প্রযুক্তি | Technology</h1>
+    <p>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।</p>
+    <p>Learn, Explore, Improve Your Skills, and Grow.</p>
 </header>
 
 <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Me</a>
     <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <a href="online-income.html">Online Income</a>
+    <a href="freelancing.html">Freelancing</a>
+    <a href="digital-marketing.html">Digital Marketing</a>
+    <a href="technology.html">Technology</a>
 </nav>
 
-<div class="container">
+<main class="container">
 
-    <h2>প্রযুক্তি বিষয়ক তথ্য (Technology Tips)</h2>
+<section class="section">
+<h2>১. প্রযুক্তি কী? | What Is Technology?</h2>
 
-    <p>
-        বর্তমান যুগ প্রযুক্তির যুগ। মোবাইল, কম্পিউটার ও ইন্টারনেট
-        আমাদের দৈনন্দিন জীবনের গুরুত্বপূর্ণ অংশ। প্রযুক্তি সম্পর্কে
-        সঠিক জ্ঞান অর্জন করলে কাজ সহজ হয় এবং নতুন সুযোগ তৈরি হয়।
-    </p>
+<p>
+প্রযুক্তি হলো মানুষের জীবনকে সহজ, উন্নত ও কার্যকর করার জন্য বৈজ্ঞানিক জ্ঞান, যন্ত্রপাতি, সফটওয়্যার এবং বিভিন্ন পদ্ধতির ব্যবহার। বর্তমানে কম্পিউটার, স্মার্টফোন, ইন্টারনেট, কৃত্রিম বুদ্ধিমত্তা (AI) এবং ডিজিটাল প্রযুক্তি আমাদের দৈনন্দিন জীবনের গুরুত্বপূর্ণ অংশ।
+</p>
 
-    <h2>১. মোবাইল প্রযুক্তি (Mobile Technology)</h2>
-    <p>
-        স্মার্টফোন ব্যবহার, প্রয়োজনীয় অ্যাপ ইনস্টল, মোবাইলের নিরাপত্তা
-        এবং দৈনন্দিন সমস্যার সমাধান সম্পর্কে জানুন।
-    </p>
+<p class="english">
+Technology is the use of scientific knowledge, tools, software, and methods to make human life easier, better, and more efficient. Computers, smartphones, the internet, artificial intelligence (AI), and digital technologies are now important parts of everyday life.
+</p>
+</section>
 
-    <h2>২. কম্পিউটার শিক্ষা (Computer Knowledge)</h2>
-    <p>
-        কম্পিউটার পরিচালনা, Windows ব্যবহার, Microsoft Word,
-        Excel এবং প্রয়োজনীয় সফটওয়্যার সম্পর্কে শিখুন।
-    </p>
+<section class="section">
+<h2>২. আধুনিক প্রযুক্তি কেন গুরুত্বপূর্ণ? | Why Is Modern Technology Important?</h2>
 
-    <h2>৩. ইন্টারনেট ব্যবহার (Internet Usage)</h2>
-    <p>
-        নিরাপদ ইন্টারনেট ব্যবহার, ওয়েবসাইট ব্রাউজিং, ইমেইল,
-        অনলাইন সার্চ এবং ডিজিটাল যোগাযোগ সম্পর্কে জানুন।
-    </p>
+<p>
+আধুনিক প্রযুক্তি শিক্ষা, যোগাযোগ, ব্যবসা, চিকিৎসা, গবেষণা এবং দৈনন্দিন কাজকে আরও সহজ ও দ্রুত করেছে। প্রযুক্তির সঠিক ব্যবহার আমাদের সময় বাঁচাতে, নতুন দক্ষতা অর্জন করতে এবং বিভিন্ন সমস্যার সমাধান খুঁজতে সাহায্য করে।
+</p>
 
-    <h2>৪. অনলাইন নিরাপত্তা (Online Security)</h2>
-    <p>
-        শক্তিশালী পাসওয়ার্ড ব্যবহার করুন। Two-Factor Authentication
-        চালু রাখুন। অপরিচিত লিংক ও সন্দেহজনক ফাইল থেকে সতর্ক থাকুন।
-    </p>
+<p class="english">
+Modern technology has made education, communication, business, healthcare, research, and everyday activities easier and faster. Using technology properly helps us save time, develop new skills, and find solutions to different problems.
+</p>
+</section>
 
-    <h2>৫. সফটওয়্যার ও প্রযুক্তিগত সমাধান (Software & Troubleshooting)</h2>
-    <p>
-        প্রয়োজনীয় সফটওয়্যার ব্যবহার, নিরাপদ ডাউনলোড এবং
-        কম্পিউটার বা মোবাইলের সাধারণ সমস্যার সমাধান শিখুন।
-    </p>
+<section class="section">
+<h2>৩. প্রযুক্তির প্রধান ক্ষেত্র | Main Areas of Technology</h2>
 
-    <h2>৬. প্রযুক্তি শেখার গুরুত্ব (Importance of Learning Technology)</h2>
-    <p>
-        প্রযুক্তিগত দক্ষতা ব্যক্তিগত উন্নয়ন, শিক্ষা, ফ্রিল্যান্সিং
-        এবং অনলাইন ব্যবসার ক্ষেত্রে নতুন সম্ভাবনা তৈরি করে।
-    </p>
+<div class="topic-grid">
 
-    <hr>
-
-    <h2>Technology Tips – English</h2>
-
-    <p>
-        Technology plays an important role in our daily lives.
-        Learning how to use mobile phones, computers and the
-        internet can improve our knowledge and skills.
-    </p>
-
-    <h2>Mobile Technology</h2>
-    <p>
-        Learn about smartphone usage, useful applications,
-        mobile settings and device security.
-    </p>
-
-    <h2>Computer Knowledge</h2>
-    <p>
-        Improve your computer skills by learning Windows,
-        Microsoft Word, Excel and essential software.
-    </p>
-
-    <h2>Internet Usage</h2>
-    <p>
-        Learn safe browsing, email communication,
-        online searching and internet basics.
-    </p>
-
-    <h2>Online Security</h2>
-    <p>
-        Use strong passwords, enable two-factor authentication
-        and avoid suspicious links or unknown downloads.
-    </p>
-
-    <h2>Software & Troubleshooting</h2>
-    <p>
-        Learn how to install trusted software and solve
-        common computer and mobile problems.
-    </p>
-
-    <h2>Importance of Technology</h2>
-    <p>
-        Technology skills can support education,
-        freelancing, business and personal development.
-    </p>
-
+<div class="topic-card">
+<h3>ক. কম্পিউটার প্রযুক্তি</h3>
+<p>কম্পিউটার ব্যবহার করে তথ্য সংরক্ষণ, হিসাব-নিকাশ, লেখালেখি, ডিজাইন, গবেষণা এবং বিভিন্ন অফিসের কাজ করা যায়।</p>
+<p class="english"><strong>Computer Technology:</strong> Computers are used for storing information, calculations, writing, designing, research, and various office tasks.</p>
 </div>
 
+<div class="topic-card">
+<h3>খ. ইন্টারনেট প্রযুক্তি</h3>
+<p>ইন্টারনেটের মাধ্যমে পৃথিবীর বিভিন্ন প্রান্তের মানুষের সঙ্গে যোগাযোগ, তথ্য অনুসন্ধান, অনলাইন শিক্ষা, ব্যবসা এবং বিভিন্ন ডিজিটাল সেবা ব্যবহার করা যায়।</p>
+<p class="english"><strong>Internet Technology:</strong> The internet allows people to communicate worldwide, search for information, learn online, conduct business, and access digital services.</p>
+</div>
+
+<div class="topic-card">
+<h3>গ. স্মার্টফোন প্রযুক্তি</h3>
+<p>স্মার্টফোনের মাধ্যমে যোগাযোগ, ছবি ও ভিডিও তৈরি, অনলাইন ব্যাংকিং, শিক্ষা, ব্যবসা এবং বিভিন্ন অ্যাপ ব্যবহার করা যায়।</p>
+<p class="english"><strong>Smartphone Technology:</strong> Smartphones allow users to communicate, create photos and videos, access online banking, learn, conduct business, and use different applications.</p>
+</div>
+
+<div class="topic-card">
+<h3>ঘ. সফটওয়্যার প্রযুক্তি</h3>
+<p>সফটওয়্যার হলো কম্পিউটার বা মোবাইলকে নির্দিষ্ট কাজ করানোর জন্য তৈরি প্রোগ্রাম বা নির্দেশনার সমষ্টি। যেমন Microsoft Word, Excel এবং Google Chrome।</p>
+<p class="english"><strong>Software Technology:</strong> Software is a collection of programs and instructions designed to perform specific tasks on computers or mobile devices. Examples include Microsoft Word, Excel, and Google Chrome.</p>
+</div>
+
+<div class="topic-card">
+<h3>ঙ. কৃত্রিম বুদ্ধিমত্তা (AI)</h3>
+<p>AI এমন প্রযুক্তি, যার মাধ্যমে কম্পিউটার তথ্য বিশ্লেষণ, ভাষা বোঝা, ছবি শনাক্ত করা এবং নির্দিষ্ট বুদ্ধিবৃত্তিক কাজ সম্পন্ন করতে পারে।</p>
+<p class="english"><strong>Artificial Intelligence:</strong> AI enables computers to analyze information, understand language, recognize images, and perform certain tasks that normally require human intelligence.</p>
+</div>
+
+<div class="topic-card">
+<h3>চ. ক্লাউড প্রযুক্তি</h3>
+<p>ক্লাউড প্রযুক্তির মাধ্যমে ইন্টারনেট ব্যবহার করে অনলাইনে ফাইল সংরক্ষণ, পরিচালনা এবং বিভিন্ন ডিজিটাল সেবা ব্যবহার করা যায়। যেমন Google Drive ও OneDrive।</p>
+<p class="english"><strong>Cloud Technology:</strong> Cloud technology allows users to store and manage files online and access digital services through the internet. Examples include Google Drive and OneDrive.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>৪. কম্পিউটার শেখার প্রাথমিক বিষয় | Basic Computer Skills</h2>
+
+<p>নতুনদের জন্য কম্পিউটার শেখার কয়েকটি গুরুত্বপূর্ণ বিষয় হলো:</p>
+
+<ul>
+<li>কম্পিউটারের বিভিন্ন অংশ সম্পর্কে জানা।</li>
+<li>কিবোর্ড ও মাউস ব্যবহার শেখা।</li>
+<li>Windows অপারেটিং সিস্টেম সম্পর্কে ধারণা নেওয়া।</li>
+<li>ফাইল ও ফোল্ডার তৈরি এবং পরিচালনা করা।</li>
+<li>বাংলা ও ইংরেজি টাইপিং শেখা।</li>
+<li>Microsoft Word ও Excel-এর প্রাথমিক ব্যবহার শেখা।</li>
+<li>ইন্টারনেট ও ওয়েব ব্রাউজার ব্যবহার করা।</li>
+</ul>
+
+<p class="english"><strong>Basic Computer Skills for Beginners:</strong></p>
+<ul class="english">
+<li>Understanding the different parts of a computer.</li>
+<li>Using a keyboard and mouse.</li>
+<li>Learning the basics of the Windows operating system.</li>
+<li>Creating and managing files and folders.</li>
+<li>Practicing Bengali and English typing.</li>
+<li>Learning basic Microsoft Word and Excel.</li>
+<li>Using the internet and web browsers.</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>৫. প্রয়োজনীয় সফটওয়্যার ও ডিজিটাল টুলস | Useful Software and Digital Tools</h2>
+
+<div class="topic-grid">
+
+<div class="topic-card">
+<h3>Microsoft Word</h3>
+<p>ডকুমেন্ট তৈরি ও সম্পাদনা করার জন্য।</p>
+<p class="english">Creating and editing documents.</p>
+</div>
+
+<div class="topic-card">
+<h3>Microsoft Excel</h3>
+<p>হিসাব-নিকাশ, তথ্য সাজানো ও বিশ্লেষণ করার জন্য।</p>
+<p class="english">Calculations, organizing, and analyzing data.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Docs</h3>
+<p>অনলাইনে ডকুমেন্ট তৈরি ও সম্পাদনা করার জন্য।</p>
+<p class="english">Creating and editing online documents.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Sheets</h3>
+<p>অনলাইনে হিসাব ও তথ্য ব্যবস্থাপনার জন্য।</p>
+<p class="english">Managing data and calculations online.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Chrome</h3>
+<p>ইন্টারনেট ব্রাউজিং করার জন্য।</p>
+<p class="english">Browsing the internet.</p>
+</div>
+
+<div class="topic-card">
+<h3>Canva</h3>
+<p>ডিজাইন ও গ্রাফিক্স তৈরি করার জন্য।</p>
+<p class="english">Creating designs and graphics.</p>
+</div>
+
+<div class="topic-card">
+<h3>CapCut</h3>
+<p>ভিডিও সম্পাদনা করার জন্য।</p>
+<p class="english">Editing videos.</p>
+</div>
+
+<div class="topic-card">
+<h3>Visual Studio Code</h3>
+<p>কোড লেখা ও ওয়েবসাইট তৈরি করার জন্য।</p>
+<p class="english">Writing code and building websites.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Drive</h3>
+<p>অনলাইনে ফাইল সংরক্ষণ করার জন্য।</p>
+<p class="english">Storing files online.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>৬. কৃত্রিম বুদ্ধিমত্তা (AI) ও এর ব্যবহার | Artificial Intelligence and Its Uses</h2>
+
+<p>
+বর্তমানে AI প্রযুক্তি শিক্ষা, লেখালেখি, অনুবাদ, তথ্য বিশ্লেষণ, ছবি তৈরি, প্রোগ্রামিং এবং বিভিন্ন দৈনন্দিন কাজে সহায়তা করছে।
+</p>
+
+<p>
+AI ব্যবহার করে নতুন বিষয় শেখা, কাজের ধারণা পাওয়া এবং সময় বাঁচানো সম্ভব। তবে AI-এর দেওয়া তথ্য সবসময় সঠিক নাও হতে পারে। তাই গুরুত্বপূর্ণ তথ্য যাচাই করা প্রয়োজন।
+</p>
+
+<p class="english">
+AI technology is now helping with education, writing, translation, data analysis, image creation, programming, and everyday tasks. AI can help people learn new topics, generate ideas, and save time. However, AI-generated information may not always be accurate, so important information should be verified.
+</p>
+</section>
+
+<section class="section">
+<h2>৭. সাইবার নিরাপত্তা ও অনলাইন গোপনীয়তা | Cybersecurity and Online Privacy</h2>
+
+<p>ইন্টারনেট ব্যবহারের সময় নিজের ব্যক্তিগত তথ্য, অ্যাকাউন্ট এবং ডিভাইস নিরাপদ রাখা অত্যন্ত গুরুত্বপূর্ণ।</p>
+
+<ul>
+<li>শক্তিশালী ও আলাদা পাসওয়ার্ড ব্যবহার করুন।</li>
+<li>সম্ভব হলে Two-Factor Authentication (2FA) চালু রাখুন।</li>
+<li>অপরিচিত লিংকে ক্লিক করবেন না।</li>
+<li>OTP, পাসওয়ার্ড বা গোপন তথ্য কাউকে দেবেন না।</li>
+<li>সন্দেহজনক ইমেইল ও মেসেজ থেকে সতর্ক থাকুন।</li>
+<li>বিশ্বস্ত উৎস ছাড়া সফটওয়্যার ডাউনলোড করবেন না।</li>
+<li>নিয়মিত সফটওয়্যার ও নিরাপত্তা আপডেট করুন।</li>
+<li>গুরুত্বপূর্ণ ফাইলের ব্যাকআপ রাখুন।</li>
+</ul>
+
+<p class="english">
+Protecting your personal information, accounts, and devices is essential when using the internet.
+</p>
+
+<ul class="english">
+<li>Use strong and unique passwords.</li>
+<li>Enable Two-Factor Authentication (2FA) whenever possible.</li>
+<li>Avoid clicking unknown links.</li>
+<li>Never share your OTP, password, or confidential information.</li>
+<li>Be careful with suspicious emails and messages.</li>
+<li>Download software only from trusted sources.</li>
+<li>Keep software and security updates up to date.</li>
+<li>Back up important files regularly.</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>৮. ওয়েবসাইট ও ওয়েব ডেভেলপমেন্ট | Website and Web Development</h2>
+
+<p>
+ওয়েবসাইট হলো ইন্টারনেটে প্রকাশিত এক বা একাধিক ওয়েব পেজের সমষ্টি। ওয়েব ডেভেলপমেন্টের মাধ্যমে ব্যক্তিগত, শিক্ষামূলক, ব্যবসায়িক এবং বিভিন্ন ধরনের ওয়েবসাইট তৈরি করা যায়।
+</p>
+
+<h3>ওয়েবসাইট তৈরির গুরুত্বপূর্ণ প্রযুক্তি</h3>
+
+<ul>
+<li><strong>HTML:</strong> ওয়েব পেজের কাঠামো তৈরি।</li>
+<li><strong>CSS:</strong> ওয়েব পেজের ডিজাইন ও সৌন্দর্য বৃদ্ধি।</li>
+<li><strong>JavaScript:</strong> ওয়েব পেজে ইন্টারঅ্যাকটিভ সুবিধা যোগ করা।</li>
+<li><strong>Domain:</strong> ওয়েবসাইটের অনলাইন ঠিকানা।</li>
+<li><strong>Hosting:</strong> ওয়েবসাইটের ফাইল সংরক্ষণ ও অনলাইনে প্রকাশের ব্যবস্থা।</li>
+</ul>
+
+<p class="english">
+A website is a collection of one or more web pages published on the internet. Web development allows people to create personal, educational, business, and other types of websites.
+</p>
+
+<p class="english">
+<strong>HTML:</strong> Creates the structure of web pages.<br>
+<strong>CSS:</strong> Controls the design and appearance of web pages.<br>
+<strong>JavaScript:</strong> Adds interactive features to web pages.<br>
+<strong>Domain:</strong> The online address of a website.<br>
+<strong>Hosting:</strong> A service that stores website files and makes them accessible online.
+</p>
+</section>
+
+<section class="section">
+<h2>৯. প্রযুক্তি শেখার জন্য বিনামূল্যের উৎস | Free Technology Learning Resources</h2>
+
+<p>নতুনরা বিভিন্ন বিশ্বস্ত শিক্ষামূলক প্ল্যাটফর্ম থেকে বিনামূল্যে প্রযুক্তি সম্পর্কে শিখতে পারেন।</p>
+
+<ul class="resource-list">
+<li><a href="https://grow.google/" target="_blank" rel="noopener noreferrer">Google Learning Resources</a> – ডিজিটাল দক্ষতা শেখার রিসোর্স।</li>
+<li><a href="https://learn.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft Learn</a> – Microsoft প্রযুক্তি ও সফটওয়্যার শেখা।</li>
+<li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a> – HTML, CSS, JavaScript ও ওয়েব ডেভেলপমেন্ট শেখা।</li>
+<li><a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">freeCodeCamp</a> – প্রোগ্রামিং ও ওয়েব ডেভেলপমেন্ট অনুশীলন।</li>
+<li><a href="https://www.khanacademy.org/" target="_blank" rel="noopener noreferrer">Khan Academy</a> – বিভিন্ন শিক্ষামূলক বিষয় শেখা।</li>
+<li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a> – প্রযুক্তির ব্যবহারিক টিউটোরিয়াল দেখা।</li>
+</ul>
+
+<p class="english">
+Beginners can learn technology through these educational platforms and resources. Some courses and services may have optional paid features.
+</p>
+</section>
+
+<section class="section">
+<h2>১০. প্রযুক্তি ব্যবহারে সাধারণ ভুল | Common Technology Mistakes</h2>
+
+<ul>
+<li>যাচাই না করে কোনো সফটওয়্যার ইনস্টল করা।</li>
+<li>একই পাসওয়ার্ড সব অ্যাকাউন্টে ব্যবহার করা।</li>
+<li>গুরুত্বপূর্ণ ফাইলের ব্যাকআপ না রাখা।</li>
+<li>অপরিচিত ওয়েবসাইটে ব্যক্তিগত তথ্য দেওয়া।</li>
+<li>ভুয়া খবর বা ভুল তথ্য শেয়ার করা।</li>
+<li>প্রযুক্তির ওপর অতিরিক্ত নির্ভরশীল হয়ে পড়া।</li>
+</ul>
+
+<p class="english">
+Avoid installing software from untrusted sources, reusing passwords, neglecting backups, sharing personal information on unknown websites, spreading misinformation, and becoming overly dependent on technology.
+</p>
+</section>
+
+<section class="section">
+<h2>১১. নতুনদের জন্য ৩০ দিনের প্রযুক্তি শেখার পরিকল্পনা | 30-Day Technology Learning Plan</h2>
+
+<div class="topic-grid">
+
+<div class="topic-card">
+<h3>প্রথম সপ্তাহ | First Week</h3>
+<p>কম্পিউটার, কিবোর্ড, মাউস, ফাইল ও ফোল্ডার ব্যবহারের অনুশীলন।</p>
+<p class="english">Practice using a computer, keyboard, mouse, files, and folders.</p>
+</div>
+
+<div class="topic-card">
+<h3>দ্বিতীয় সপ্তাহ | Second Week</h3>
+<p>Microsoft Word, Excel এবং ইন্টারনেট ব্যবহারের প্রাথমিক শিক্ষা।</p>
+<p class="english">Learn the basics of Microsoft Word, Excel, and internet browsing.</p>
+</div>
+
+<div class="topic-card">
+<h3>তৃতীয় সপ্তাহ | Third Week</h3>
+<p>AI টুলস, অনলাইন নিরাপত্তা এবং প্রয়োজনীয় সফটওয়্যার সম্পর্কে শেখা।</p>
+<p class="english">Explore AI tools, online safety, and useful software.</p>
+</div>
+
+<div class="topic-card">
+<h3>চতুর্থ সপ্তাহ | Fourth Week</h3>
+<p>HTML ও CSS-এর প্রাথমিক ধারণা নিয়ে একটি ছোট ওয়েব পেজ তৈরি করার অনুশীলন।</p>
+<p class="english">Learn the basics of HTML and CSS and practice creating a simple web page.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>১২. আমাদের শিক্ষামূলক লক্ষ্য | Our Educational Mission</h2>
+
+<p>
+আমাদের লক্ষ্য হলো প্রযুক্তি সম্পর্কে সহজ, নির্ভরযোগ্য এবং ব্যবহারিক তথ্য বাংলা ও ইংরেজি ভাষায় সবার কাছে পৌঁছে দেওয়া।
+</p>
+
+<p>
+আমরা চাই নতুন শিক্ষার্থীরা প্রযুক্তি সম্পর্কে জানুক, নিজের দক্ষতা বাড়াক এবং নিরাপদ ও দায়িত্বশীলভাবে ডিজিটাল জগতে এগিয়ে যাক।
+</p>
+
+<p class="english">
+Our goal is to provide simple, reliable, and practical technology information in both Bengali and English. We want beginners to understand technology, improve their skills, and grow safely and responsibly in the digital world.
+</p>
+</section>
+
+<section class="section">
+<h2>গুরুত্বপূর্ণ ঘোষণা | Important Disclaimer</h2>
+
+<p>
+এই ওয়েবসাইটের প্রযুক্তিবিষয়ক তথ্য শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে প্রকাশ করা হয়। সফটওয়্যার, প্রযুক্তি ও অনলাইন সেবার বৈশিষ্ট্য সময়ের সঙ্গে পরিবর্তিত হতে পারে। কোনো সফটওয়্যার বা অনলাইন সেবা ব্যবহারের আগে তার বর্তমান নিয়ম, নিরাপত্তা ও গোপনীয়তা নীতি যাচাই করুন।
+</p>
+
+<p class="english">
+Technology-related information on this website is provided for educational purposes only. Software, technologies, and online services may change over time. Before using any software or online service, check its current terms, security, and privacy policies.
+</p>
+</section>
+
+<section class="cta">
+<h2>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।</h2>
+<p>Learn, Explore, Improve Your Skills, and Grow.</p>
+<p>আপনার শেখার যাত্রা শুরু হোক আজ থেকেই।</p>
+<p>Let your learning journey begin today.</p>
+<a href="services.html">Explore More Topics</a>
+</section>
+
+</main>
+
 <footer>
-    <p>© 2026 Rifat Ahmed – All Rights Reserved.</p>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="about.html">About Me</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+<a href="online-income.html">Online Income</a>
+<a href="freelancing.html">Freelancing</a>
+<a href="digital-marketing.html">Digital Marketing</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="terms-and-conditions.html">Terms & Conditions</a>
+</div>
+
+<p>Email: rifatahmedbogra@gmail.com</p>
+
+<p class="copyright">
+© 2026 Md Rifat Ahmed – Personal & Online Business. All Rights Reserved.
+</p>
+
 </footer>
 
 </body>
