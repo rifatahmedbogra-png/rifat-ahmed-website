@@ -4,125 +4,259 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About Me - Md Rifat Ahmed | Personal & Online Business</title>
+    <title>About Me | Md Rifat Ahmed - Personal & Online Business</title>
 
-    <meta name="description" content="Learn about Md Rifat Ahmed, the purpose of this website, and useful information about online income, freelancing, technology, digital marketing and online business.">
+    <meta name="description" content="Learn about Rifat Ahmed, his website, vision, and educational content on online income, freelancing, technology, digital marketing, and online business.">
+
+    <meta name="keywords" content="Rifat Ahmed, About Me, Online Business, Freelancing, Online Income, Digital Marketing, Technology">
+
+    <meta name="author" content="Md Rifat Ahmed">
+
+    <meta name="robots" content="index, follow">
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
             color: #263445;
+            line-height: 1.8;
         }
 
         header {
-            background: linear-gradient(135deg, #071d35, #1769aa);
-            color: white;
+            background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
+            color: #ffffff;
             text-align: center;
-            padding: 40px 15px;
-            border-bottom: 5px solid #f0c040;
+            padding: 48px 20px;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 32px;
+            font-size: 30px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
         header p {
-            margin-bottom: 0;
+            font-size: 17px;
+            color: #e5f4ff;
+        }
+
+        .tagline {
+            margin-top: 12px;
+            font-weight: bold;
+            color: #ffe08a;
         }
 
         nav {
-            background: #1769aa;
-            text-align: center;
-            padding: 15px 10px;
+            background: #102a43;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 12px 10px;
+            gap: 8px;
         }
 
         nav a {
-            display: inline-block;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            margin: 5px 12px;
-            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #f0c040;
+            background: #2196c8;
+            color: #ffffff;
         }
 
-        main {
-            max-width: 900px;
+        .container {
+            max-width: 1050px;
             margin: 35px auto;
-            padding: 35px;
-            background: white;
+            padding: 0 18px;
+        }
+
+        .section {
+            background: #ffffff;
+            padding: 30px;
+            margin-bottom: 25px;
             border-radius: 12px;
-            line-height: 1.9;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #2196c8;
         }
 
-        h2 {
+        .section h2 {
+            color: #123b60;
+            font-size: 23px;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5edf5;
+        }
+
+        .section h3 {
             color: #1769aa;
-            margin-top: 28px;
+            font-size: 19px;
+            margin-bottom: 8px;
         }
 
-        p {
+        .section p {
             font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
-        ul {
-            padding-left: 25px;
+        .english {
+            color: #526477;
+            font-size: 15px;
+            padding-left: 14px;
+            border-left: 2px solid #d5e5f2;
+            margin-top: 10px;
         }
 
-        li {
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .topic-card {
+            background: #f5f9fd;
+            border: 1px solid #e1ebf4;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(20, 75, 120, 0.10);
+            border-color: #2196c8;
+        }
+
+        .topic-card h3 {
+            font-size: 18px;
             margin-bottom: 10px;
         }
 
-        main a {
-            color: #1769aa;
-        }
-
-        footer {
+        .contact-box {
             background: linear-gradient(135deg, #102a43, #1769aa);
-            color: white;
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
             text-align: center;
-            padding: 30px 15px;
-            margin-top: 40px;
-            border-top: 5px solid #f0c040;
         }
 
-        .footer-links {
-            margin: 20px 0;
+        .contact-box h2 {
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
         }
 
-        .footer-links a {
-            display: inline-block;
-            color: white;
+        .contact-box p {
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: #ffe08a;
             text-decoration: none;
-            margin: 6px 10px;
             font-weight: bold;
         }
 
-        .footer-links a:hover {
-            color: #f0c040;
+        .contact-box a:hover {
+            text-decoration: underline;
         }
 
-        @media (max-width: 600px) {
-            main {
-                margin: 15px;
-                padding: 22px;
+        footer {
+            background: #071d35;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: #dceeff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #ffe08a;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .copyright {
+            color: #b8c9d9;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                padding: 35px 15px;
             }
 
             header h1 {
-                font-size: 25px;
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            nav {
+                gap: 4px;
             }
 
             nav a {
-                margin: 7px;
+                padding: 7px 10px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 12px;
+            }
+
+            .section {
+                padding: 20px 17px;
+                margin-bottom: 18px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .section h3 {
+                font-size: 17px;
+            }
+
+            .section p {
+                font-size: 15px;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .topic-card {
+                padding: 17px;
             }
         }
     </style>
@@ -133,7 +267,11 @@
 <header>
     <h1>MD RIFAT AHMED</h1>
     <p>Personal & Online Business</p>
-    <p>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন</p>
+    <p class="tagline">
+        শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।
+        <br>
+        Learn, Explore, Improve Your Skills, and Grow.
+    </p>
 </header>
 
 <nav>
@@ -143,121 +281,307 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<main>
+<main class="container">
 
-    <h2>About Me | আমার সম্পর্কে</h2>
+    <!-- About Me -->
 
-    <p>
-        আসসালামু আলাইকুম। আমার ওয়েবসাইটে আপনাকে স্বাগতম।
-        আমি রিফাত আহমেদ। প্রযুক্তি, অনলাইন ব্যবসা,
-        ডিজিটাল দক্ষতা এবং ইন্টারনেটভিত্তিক বিভিন্ন
-        কাজ সম্পর্কে জানতে ও শিখতে আগ্রহী।
-    </p>
+    <section class="section">
+        <h2>আমার সম্পর্কে | About Me</h2>
 
-    <p>
-        এই আগ্রহ থেকেই আমি
-        <strong>Md Rifat Ahmed – Personal & Online Business</strong>
-        ওয়েবসাইটটি তৈরি করেছি। আমার উদ্দেশ্য হলো
-        প্রয়োজনীয় তথ্য, শেখার উপকরণ এবং ব্যবহারিক
-        নির্দেশনা সহজ ভাষায় পাঠকদের সামনে তুলে ধরা।
-    </p>
+        <h3>আসসালামু আলাইকুম! আমার ওয়েবসাইটে আপনাকে স্বাগতম।</h3>
 
-    <h2>আমার ওয়েবসাইটের উদ্দেশ্য</h2>
+        <p>
+            আমি রিফাত আহমেদ। প্রযুক্তি, অনলাইন ব্যবসা,
+            ডিজিটাল দক্ষতা এবং ইন্টারনেটভিত্তিক বিভিন্ন
+            সম্ভাবনাময় বিষয় সম্পর্কে জানতে, শিখতে এবং
+            নতুন জ্ঞান অর্জন করতে আগ্রহী।
+        </p>
 
-    <p>
-        ইন্টারনেটে অনেক গুরুত্বপূর্ণ তথ্য পাওয়া যায়,
-        কিন্তু নতুনদের জন্য সঠিক বিষয় খুঁজে পাওয়া
-        সবসময় সহজ নয়। তাই আমি চেষ্টা করছি বিভিন্ন
-        প্রয়োজনীয় বিষয় সহজভাবে সাজিয়ে উপস্থাপন করতে,
-        যাতে পাঠকরা নিজের প্রয়োজন অনুযায়ী শিখতে পারেন।
-    </p>
+        <p>
+            নিজের শেখার আগ্রহ, অভিজ্ঞতা ও জ্ঞান সবার সঙ্গে
+            ভাগ করে নেওয়ার উদ্দেশ্যে তৈরি করেছি
+            <strong>Md Rifat Ahmed – Personal & Online Business</strong>
+            ওয়েবসাইটটি। এটি একটি ব্যক্তিগত ও শিক্ষামূলক
+            প্ল্যাটফর্ম, যেখানে প্রয়োজনীয় তথ্য ও ব্যবহারিক
+            নির্দেশনা সহজ ভাষায় উপস্থাপন করা হয়।
+        </p>
 
-    <h2>এই ওয়েবসাইটে কী শিখতে পারবেন?</h2>
+        <h3>Welcome to My Website!</h3>
 
-    <ul>
-        <li>
-            <strong>অনলাইন আয়:</strong>
-            ঘরে বসে অনলাইনে কাজ ও আয়ের বিভিন্ন পদ্ধতি সম্পর্কে ধারণা।
-        </li>
+        <p class="english">
+            Assalamu Alaikum! I am Rifat Ahmed. I am interested
+            in learning and exploring technology, online
+            business, digital skills, and various opportunities
+            available through the internet.
+        </p>
 
-        <li>
-            <strong>ফ্রিল্যান্সিং:</strong>
-            নতুনদের জন্য প্রয়োজনীয় দক্ষতা, কাজ শেখা এবং
-            অনলাইন মার্কেটপ্লেস সম্পর্কে নির্দেশনা।
-        </li>
+        <p class="english">
+            With the aim of sharing useful knowledge and
+            learning experiences, I created
+            <strong>Md Rifat Ahmed – Personal & Online Business</strong>.
+            This is a personal and educational platform where
+            I share helpful information and practical guidance
+            in a simple and accessible way.
+        </p>
+    </section>
 
-        <li>
-            <strong>ডিজিটাল মার্কেটিং:</strong>
-            অনলাইন প্রচার, কনটেন্ট এবং ডিজিটাল মার্কেটিংয়ের
-            মৌলিক বিষয়।
-        </li>
+    <!-- Website Purpose -->
 
-        <li>
-            <strong>প্রযুক্তি:</strong>
-            মোবাইল, কম্পিউটার, ইন্টারনেট এবং
-            প্রয়োজনীয় প্রযুক্তি ব্যবহারের টিপস।
-        </li>
+    <section class="section">
+        <h2>আমার ওয়েবসাইটের উদ্দেশ্য | Purpose of This Website</h2>
 
-        <li>
-            <strong>অনলাইন ব্যবসা:</strong>
-            অনলাইন ব্যবসার ধারণা, পরিকল্পনা ও পরিচালনা
-            সম্পর্কে প্রয়োজনীয় তথ্য।
-        </li>
+        <p>
+            বর্তমান ডিজিটাল যুগে ইন্টারনেট আমাদের সামনে
+            জ্ঞান অর্জন, দক্ষতা উন্নয়ন এবং নতুন সম্ভাবনা
+            তৈরির অসংখ্য সুযোগ সৃষ্টি করেছে। তবে প্রয়োজনীয়
+            ও নির্ভরযোগ্য তথ্য খুঁজে পাওয়া অনেক সময়
+            নতুনদের জন্য কঠিন হয়ে পড়ে।
+        </p>
 
-        <li>
-            <strong>শিক্ষামূলক কনটেন্ট:</strong>
-            নতুন বিষয় শেখা এবং নিজের দক্ষতা উন্নয়নের
-            জন্য বিভিন্ন নির্দেশনা।
-        </li>
-    </ul>
+        <p>
+            আমার ওয়েবসাইটের মূল উদ্দেশ্য হলো গুরুত্বপূর্ণ
+            বিষয়গুলো সহজভাবে ব্যাখ্যা করা, প্রয়োজনীয় তথ্য
+            এক জায়গায় সাজিয়ে উপস্থাপন করা এবং পাঠকদের
+            নতুন কিছু শেখার পাশাপাশি নিজেদের দক্ষতা
+            উন্নয়নে উৎসাহিত করা।
+        </p>
 
-    <h2>আমার কনটেন্ট তৈরির নীতি</h2>
+        <p class="english">
+            In today's digital world, the internet offers
+            countless opportunities to gain knowledge,
+            develop skills, and explore new possibilities.
+            However, finding useful and reliable information
+            can sometimes be challenging, especially for beginners.
+        </p>
 
-    <p>
-        আমি চেষ্টা করি কনটেন্ট সহজ, পরিষ্কার এবং
-        পাঠকের জন্য উপকারী রাখতে। কোনো বিষয়ে তথ্য
-        প্রকাশ করার সময় যথাসম্ভব নির্ভরযোগ্য উৎস
-        অনুসরণ এবং প্রয়োজন অনুযায়ী তথ্য হালনাগাদ
-        করার চেষ্টা করি।
-    </p>
+        <p class="english">
+            The main purpose of this website is to explain
+            important topics in a simple way, organize useful
+            information in one place, and encourage visitors
+            to learn new things and improve their skills.
+        </p>
+    </section>
 
-    <p>
-        এই ওয়েবসাইটের তথ্য মূলত শিক্ষা ও সাধারণ
-        সচেতনতার উদ্দেশ্যে প্রকাশ করা হয়।
-        অনলাইন আয় বা ব্যবসা সম্পর্কিত কোনো নির্দিষ্ট
-        ফলাফল বা আয়ের নিশ্চয়তা দেওয়া হয় না।
-    </p>
+    <!-- Learning Topics -->
 
-    <h2>আমার লক্ষ্য</h2>
+    <section class="section">
+        <h2>এই ওয়েবসাইটে কী শিখতে পারবেন? | What You Can Learn Here</h2>
 
-    <p>
-        নিজে শেখা, নিজের দক্ষতা বাড়ানো এবং অন্যদের
-        শেখার সুযোগ তৈরি করা। আমি চাই এই ওয়েবসাইট
-        এমন একটি তথ্যভিত্তিক জায়গা হয়ে উঠুক,
-        যেখানে পাঠকরা নতুন কিছু জানতে এবং
-        নিজেদের উন্নয়নে প্রয়োজনীয় দিকনির্দেশনা
-        পেতে পারেন।
-    </p>
+        <div class="topic-grid">
 
-    <h2>যোগাযোগ করুন</h2>
+            <div class="topic-card">
+                <h3>১. অনলাইন আয় | Online Income</h3>
+                <p>
+                    অনলাইনে কাজের বিভিন্ন সুযোগ, আয়ের পদ্ধতি,
+                    প্রয়োজনীয় প্রস্তুতি এবং নতুনদের জন্য
+                    উপযোগী দিকনির্দেশনা সম্পর্কে জানতে পারবেন।
+                </p>
+                <p class="english">
+                    Explore online work opportunities, income
+                    methods, essential preparations, and
+                    helpful guidance for beginners.
+                </p>
+            </div>
 
-    <p>
-        ওয়েবসাইট সম্পর্কে কোনো প্রশ্ন, পরামর্শ
-        অথবা মতামত থাকলে ইমেইলের মাধ্যমে যোগাযোগ
-        করতে পারেন।
-    </p>
+            <div class="topic-card">
+                <h3>২. ফ্রিল্যান্সিং | Freelancing</h3>
+                <p>
+                    ফ্রিল্যান্সিংয়ের প্রাথমিক ধারণা, প্রয়োজনীয়
+                    দক্ষতা, কাজ শেখার পদ্ধতি এবং অনলাইন
+                    মার্কেটপ্লেস সম্পর্কে প্রয়োজনীয় তথ্য পাবেন।
+                </p>
+                <p class="english">
+                    Learn about freelancing fundamentals,
+                    essential skills, learning methods, and
+                    popular online marketplaces.
+                </p>
+            </div>
 
-    <p>
-        <strong>Email:</strong>
-        <a href="mailto:rifatahmedbogra@gmail.com">
-            rifatahmedbogra@gmail.com
-        </a>
-    </p>
+            <div class="topic-card">
+                <h3>৩. ডিজিটাল মার্কেটিং | Digital Marketing</h3>
+                <p>
+                    ডিজিটাল মার্কেটিংয়ের মৌলিক বিষয়, অনলাইন
+                    প্রচার, কনটেন্ট তৈরি এবং ডিজিটাল
+                    প্ল্যাটফর্ম ব্যবহারের কৌশল সম্পর্কে জানতে পারবেন।
+                </p>
+                <p class="english">
+                    Discover digital marketing fundamentals,
+                    online promotion, content creation, and
+                    effective ways to use digital platforms.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <h3>৪. প্রযুক্তি | Technology</h3>
+                <p>
+                    মোবাইল, কম্পিউটার, ইন্টারনেট, সফটওয়্যার
+                    এবং দৈনন্দিন প্রযুক্তি ব্যবহারের প্রয়োজনীয়
+                    টিপস ও ব্যবহারিক নির্দেশনা পাবেন।
+                </p>
+                <p class="english">
+                    Find useful tips and practical guides about
+                    mobile devices, computers, the internet,
+                    software, and everyday technology.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <h3>৫. অনলাইন ব্যবসা | Online Business</h3>
+                <p>
+                    অনলাইন ব্যবসার ধারণা, পরিকল্পনা, পরিচালনা,
+                    ডিজিটাল ব্যবসায়িক কৌশল এবং উদ্যোক্তা
+                    হওয়ার প্রাথমিক বিষয়গুলো সম্পর্কে জানতে পারবেন।
+                </p>
+                <p class="english">
+                    Explore online business ideas, planning,
+                    management, digital business strategies,
+                    and the fundamentals of entrepreneurship.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <h3>৬. শিক্ষামূলক কনটেন্ট | Educational Content</h3>
+                <p>
+                    জ্ঞান বৃদ্ধি, নতুন বিষয় শেখা, ব্যক্তিগত
+                    দক্ষতা উন্নয়ন এবং প্রয়োজনীয় তথ্যভিত্তিক
+                    শিক্ষামূলক কনটেন্ট পাবেন।
+                </p>
+                <p class="english">
+                    Explore educational content, practical
+                    learning resources, and useful information
+                    to expand your knowledge and improve your skills.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Content Principles -->
+
+    <section class="section">
+        <h2>আমার কনটেন্ট তৈরির নীতি | My Content Principles</h2>
+
+        <p>
+            আমি প্রতিটি কনটেন্ট সহজ, পরিষ্কার, তথ্যবহুল
+            এবং পাঠকদের জন্য উপযোগী করে উপস্থাপন করার
+            চেষ্টা করি। তথ্য প্রকাশের ক্ষেত্রে নির্ভরযোগ্য
+            উৎস অনুসরণ, তথ্যের যথার্থতা যাচাই এবং
+            প্রয়োজন অনুযায়ী কনটেন্ট হালনাগাদ করার
+            বিষয়গুলোকে গুরুত্ব দিই।
+        </p>
+
+        <p>
+            আমার লক্ষ্য শুধু তথ্য প্রকাশ করা নয়; বরং
+            পাঠকদের এমন কিছু শেখার সুযোগ তৈরি করা,
+            যা তাদের জ্ঞান ও দক্ষতা উন্নয়নে সহায়ক হতে পারে।
+        </p>
+
+        <p>
+            এই ওয়েবসাইটের কনটেন্ট মূলত শিক্ষা, তথ্য প্রদান
+            এবং সাধারণ সচেতনতা বৃদ্ধির উদ্দেশ্যে প্রকাশ
+            করা হয়। অনলাইন আয়, ফ্রিল্যান্সিং বা ব্যবসা
+            সম্পর্কিত কোনো নির্দিষ্ট আয় কিংবা ফলাফলের
+            নিশ্চয়তা দেওয়া হয় না।
+        </p>
+
+        <p class="english">
+            I aim to present every piece of content in a
+            simple, clear, informative, and reader-friendly
+            manner. I value reliable sources, information
+            accuracy, and updating content whenever necessary.
+        </p>
+
+        <p class="english">
+            My goal is not only to share information but also
+            to provide learning opportunities that may help
+            visitors improve their knowledge and skills.
+        </p>
+
+        <p class="english">
+            The content published on this website is primarily
+            intended for educational, informational, and
+            general awareness purposes. No specific income
+            or business results are guaranteed.
+        </p>
+    </section>
+
+    <!-- Vision -->
+
+    <section class="section">
+        <h2>আমার লক্ষ্য ও ভবিষ্যৎ পরিকল্পনা | My Vision & Future Goals</h2>
+
+        <p>
+            নিজে শেখা, নতুন দক্ষতা অর্জন করা এবং অর্জিত
+            জ্ঞান অন্যদের সঙ্গে ভাগ করে নেওয়াই আমার
+            অন্যতম লক্ষ্য।
+        </p>
+
+        <p>
+            আমি চাই,
+            <strong>Md Rifat Ahmed – Personal & Online Business</strong>
+            ধীরে ধীরে একটি মানসম্মত, তথ্যসমৃদ্ধ ও
+            পাঠকবান্ধব শিক্ষামূলক প্ল্যাটফর্ম হিসেবে
+            গড়ে উঠুক।
+        </p>
+
+        <p>
+            ভবিষ্যতে এই ওয়েবসাইটে আরও নতুন বিষয়,
+            প্রয়োজনীয় গাইড, ব্যবহারিক টিউটোরিয়াল এবং
+            শিক্ষামূলক রিসোর্স যুক্ত করার পরিকল্পনা রয়েছে।
+            পাঠকরা যেন প্রয়োজনীয় তথ্য সহজে খুঁজে পান
+            এবং নিজেদের দক্ষতা উন্নয়নে অনুপ্রাণিত হন,
+            সেটিই আমার প্রত্যাশা।
+        </p>
+
+        <p class="english">
+            My goal is to keep learning, develop new skills,
+            and share the knowledge I gain with others.
+        </p>
+
+        <p class="english">
+            I aspire to develop
+            <strong>Md Rifat Ahmed – Personal & Online Business</strong>
+            into a valuable, informative, and reader-friendly
+            educational platform.
+        </p>
+
+        <p class="english">
+            In the future, I plan to introduce more topics,
+            useful guides, practical tutorials, and educational
+            resources. My hope is to make it easier for visitors
+            to find helpful information and feel inspired
+            to improve their skills.
+        </p>
+    </section>
+
+    <!-- Contact -->
+
+    <section class="contact-box">
+        <h2>যোগাযোগ করুন | Contact Me</h2>
+
+        <p>
+            আপনার কোনো প্রশ্ন, পরামর্শ, মতামত অথবা
+            ওয়েবসাইট সম্পর্কিত কোনো বিষয়ে যোগাযোগের
+            প্রয়োজন হলে নির্দ্বিধায় ইমেইল করতে পারেন।
+        </p>
+
+        <p class="english">
+            If you have any questions, suggestions, feedback,
+            or inquiries regarding this website, please feel
+            free to contact me by email.
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:rifatahmedbogra@gmail.com">
+                rifatahmedbogra@gmail.com
+            </a>
+        </p>
+    </section>
 
 </main>
 
 <footer>
-    <p>© 2026 Md Rifat Ahmed – Personal & Online Business</p>
 
     <div class="footer-links">
         <a href="index.html">Home</a>
@@ -268,9 +592,15 @@
         <a href="terms-and-conditions.html">Terms & Conditions</a>
     </div>
 
-    <p>All Rights Reserved.</p>
+    <p>
+        Email: rifatahmedbogra@gmail.com
+    </p>
+
+    <p class="copyright">
+        © 2026 Md Rifat Ahmed. All Rights Reserved.
+    </p>
+
 </footer>
 
 </body>
 </html>
-
