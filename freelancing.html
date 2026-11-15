@@ -3,206 +3,805 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ফ্রিল্যান্সিং | Freelancing - Rifat Ahmed</title>
-<meta name="description" content="ফ্রিল্যান্সিং শেখার উপায়, অনলাইন মার্কেটপ্লেস, প্রয়োজনীয় দক্ষতা এবং নতুনদের জন্য কাজ পাওয়ার পরামর্শ জানুন Md Rifat Ahmed-এর ওয়েবসাইটে।">
+
+<title>ফ্রিল্যান্সিং | Freelancing - Md Rifat Ahmed</title>
+
+<meta name="description" content="ফ্রিল্যান্সিং কী, কীভাবে শুরু করবেন, Data Entry, Excel, Graphic Design, Content Writing, Fiverr, Upwork এবং Portfolio সম্পর্কে বাংলা ও ইংরেজিতে শিখুন।">
+
+<meta name="keywords" content="Freelancing, ফ্রিল্যান্সিং, Fiverr, Upwork, Data Entry, Excel, Graphic Design, Content Writing, Freelancing for Beginners">
+
+<meta name="author" content="Md Rifat Ahmed">
+<meta name="robots" content="index, follow">
+
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f4f7fb;
-    color: #263238;
+    color: #263445;
     line-height: 1.8;
 }
+
 header {
-    background: #102a43;
+    background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
     color: white;
     text-align: center;
-    padding: 25px 10px;
+    padding: 45px 20px;
 }
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 17px;
+}
+
 nav {
-    background: #1769aa;
+    background: #102a43;
+    padding: 13px 10px;
     text-align: center;
-    padding: 12px;
 }
+
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
+    margin: 5px 10px;
+    display: inline-block;
+    font-size: 15px;
 }
+
+nav a:hover {
+    color: #f0c040;
+}
+
 .container {
-    max-width: 950px;
-    margin: 25px auto;
-    padding: 20px;
+    max-width: 1050px;
+    margin: 30px auto;
+    padding: 0 18px;
 }
-section {
+
+.section {
     background: white;
-    padding: 22px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    padding: 27px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+}
+
+h2 {
+    color: #1769aa;
+    border-left: 5px solid #f0c040;
+    padding-left: 12px;
+    margin-top: 0;
+    font-size: 25px;
+}
+
+h3 {
+    color: #102a43;
+    margin-bottom: 8px;
+    font-size: 19px;
+}
+
+p {
+    margin-top: 8px;
+}
+
+ul, ol {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.topic-card {
+    background: #f5f9fd;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px #ddd;
+    border: 1px solid #e1eaf3;
 }
-h2 { color: #1769aa; }
-h3 { color: #102a43; }
+
+.topic-card h3 {
+    color: #1769aa;
+}
+
 .english {
-    color: #52616b;
+    color: #536477;
     font-style: italic;
+    border-left: 3px solid #d5e5f5;
+    padding-left: 12px;
+    margin-top: 10px;
 }
-footer {
-    background: #102a43;
+
+.notice {
+    background: #fff8e6;
+    border-left: 5px solid #e3ad28;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.cta {
+    background: linear-gradient(135deg, #102a43, #1769aa);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
+    border-radius: 12px;
+}
+
+.cta h2 {
+    color: white;
+    border: none;
+    padding: 0;
+}
+
+.cta a {
+    display: inline-block;
+    background: #f0c040;
+    color: #102a43;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.content-link {
+    color: #1769aa;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.content-link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background: #071d35;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+    margin-top: 40px;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 9px;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #f0c040;
+}
+
+footer p {
+    margin: 7px 0;
+}
+
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        margin: 5px 7px;
+        font-size: 14px;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-    <h1>RIFAT AHMED</h1>
-    <p>Personal & Online Business</p>
-    <p>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন</p>
+    <h1>ফ্রিল্যান্সিং | Freelancing</h1>
+    <p>দক্ষতা শিখুন, নিজের কাজের পরিচয় তৈরি করুন এবং বিশ্বজুড়ে কাজের সুযোগ খুঁজুন।</p>
+    <p>Learn Skills, Build Your Portfolio, and Explore Opportunities Worldwide.</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">হোম | Home</a>
+    <a href="about.html">আমার সম্পর্কে | About</a>
+    <a href="services.html">সেবাসমূহ | Services</a>
+    <a href="online-income.html">অনলাইন আয় | Online Income</a>
+    <a href="freelancing.html">ফ্রিল্যান্সিং</a>
+    <a href="contact.html">যোগাযোগ | Contact</a>
 </nav>
 
 <div class="container">
 
-<section>
-<h2>ফ্রিল্যান্সিং কী? | What is Freelancing?</h2>
-<p>
-ফ্রিল্যান্সিং হলো স্বাধীনভাবে বিভিন্ন ব্যক্তি বা প্রতিষ্ঠানের
-কাজ চুক্তিভিত্তিক সম্পন্ন করে পারিশ্রমিক উপার্জনের একটি পদ্ধতি।
-এখানে সাধারণত কোনো একটি প্রতিষ্ঠানের স্থায়ী কর্মচারী না হয়েও
-নিজের দক্ষতা অনুযায়ী বিভিন্ন ক্লায়েন্টের কাজ করা যায়।
-</p>
-<p class="english">
-Freelancing is a way of working independently by providing
-services to different clients or businesses for payment.
-Freelancers usually work on projects or contracts.
-</p>
+<section class="section">
+    <h2>১. ফ্রিল্যান্সিং কী? | What Is Freelancing?</h2>
+
+    <p>
+        ফ্রিল্যান্সিং হলো স্বাধীনভাবে বিভিন্ন ব্যক্তি বা
+        প্রতিষ্ঠানের জন্য নির্দিষ্ট কাজ বা সেবা প্রদান করা।
+        একজন ফ্রিল্যান্সার সাধারণত নিজের দক্ষতা অনুযায়ী
+        কাজ নির্বাচন করেন এবং কাজের শর্ত, সময় ও পারিশ্রমিক
+        নিয়ে গ্রাহকের সঙ্গে আলোচনা করেন।
+    </p>
+
+    <p>
+        ফ্রিল্যান্সার কোনো একটি প্রতিষ্ঠানের স্থায়ী কর্মচারী
+        না হয়েও একাধিক ক্লায়েন্টের সঙ্গে কাজ করতে পারেন।
+    </p>
+
+    <p class="english">
+        Freelancing is a way of working independently by
+        providing specific services to individuals or businesses.
+        A freelancer usually chooses projects based on their
+        skills and discusses the work requirements, deadlines,
+        and payment with clients.
+    </p>
+
+    <p class="english">
+        Freelancers can work with multiple clients without
+        being permanent employees of a single organization.
+    </p>
 </section>
 
-<section>
-<h2>ফ্রিল্যান্সিংয়ের জনপ্রিয় কাজ | Popular Freelancing Skills</h2>
+<section class="section">
+    <h2>২. ফ্রিল্যান্সিংয়ের জনপ্রিয় কাজ | Popular Freelancing Skills</h2>
 
-<h3>১. ডাটা এন্ট্রি | Data Entry</h3>
-<p>তথ্য টাইপ করা, Excel-এ তথ্য সাজানো এবং ডকুমেন্ট তৈরি করা।</p>
-<p class="english">Entering information, organizing spreadsheets and preparing documents.</p>
+    <div class="topic-grid">
 
-<h3>২. গ্রাফিক ডিজাইন | Graphic Design</h3>
-<p>লোগো, ব্যানার, পোস্টার ও সামাজিক যোগাযোগমাধ্যমের ডিজাইন তৈরি করা।</p>
-<p class="english">Creating logos, banners, posters and social media graphics.</p>
+        <div class="topic-card">
+            <h3>১. ডেটা এন্ট্রি | Data Entry</h3>
+            <p>
+                তথ্য সংগ্রহ, টাইপ করা, সাজানো এবং নির্দিষ্ট
+                সফটওয়্যার বা স্প্রেডশিটে সংরক্ষণ করা।
+            </p>
+            <p class="english">
+                Data Entry involves collecting, typing,
+                organizing, and entering information into
+                documents, spreadsheets, or other digital
+                systems. Accuracy and attention to detail
+                are important for this type of work.
+            </p>
+        </div>
 
-<h3>৩. ওয়েব ডিজাইন | Web Design</h3>
-<p>HTML, CSS এবং অন্যান্য প্রযুক্তি ব্যবহার করে ওয়েবসাইট তৈরি করা।</p>
-<p class="english">Building websites using HTML, CSS and other web technologies.</p>
+        <div class="topic-card">
+            <h3>২. মাইক্রোসফট এক্সেল | Microsoft Excel</h3>
+            <p>
+                ডেটা সাজানো, হিসাব করা, তালিকা তৈরি,
+                সাধারণ ফর্মুলা ব্যবহার এবং রিপোর্ট প্রস্তুত করা।
+            </p>
+            <p class="english">
+                Microsoft Excel is used to organize data,
+                perform calculations, create lists, use
+                formulas, and prepare reports. It is useful
+                for administrative, business, and data-related tasks.
+            </p>
+        </div>
 
-<h3>৪. কনটেন্ট রাইটিং | Content Writing</h3>
-<p>ওয়েবসাইট, ব্লগ ও বিভিন্ন প্রতিষ্ঠানের জন্য লেখা তৈরি করা।</p>
-<p class="english">Writing articles, blog posts and other digital content.</p>
+        <div class="topic-card">
+            <h3>৩. গ্রাফিক ডিজাইন | Graphic Design</h3>
+            <p>
+                লোগো, ব্যানার, পোস্টার, সোশ্যাল মিডিয়া পোস্ট
+                ও অন্যান্য ডিজাইন তৈরি করা।
+            </p>
+            <p class="english">
+                Graphic Design involves creating visual materials
+                such as logos, banners, posters, social media posts,
+                and promotional graphics. Creativity and design
+                principles help produce professional results.
+            </p>
+        </div>
 
-<h3>৫. ভিডিও এডিটিং | Video Editing</h3>
-<p>ভিডিও কাটা, সাজানো, শব্দ যোগ করা এবং আকর্ষণীয় ভিডিও তৈরি করা।</p>
-<p class="english">Editing video clips, adding audio and creating engaging videos.</p>
+        <div class="topic-card">
+            <h3>৪. কনটেন্ট রাইটিং | Content Writing</h3>
+            <p>
+                ব্লগ পোস্ট, আর্টিকেল, পণ্যের বিবরণ এবং
+                তথ্যভিত্তিক লেখা তৈরি করা।
+            </p>
+            <p class="english">
+                Content Writing involves preparing articles,
+                blog posts, product descriptions, website content,
+                and informative materials. Good writing,
+                research, and clear communication are essential.
+            </p>
+        </div>
 
-<h3>৬. ডিজিটাল মার্কেটিং | Digital Marketing</h3>
-<p>অনলাইনে পণ্য ও সেবার প্রচার এবং বিজ্ঞাপন পরিচালনা করা।</p>
-<p class="english">Promoting products and services through online marketing channels.</p>
+        <div class="topic-card">
+            <h3>৫. ভিডিও এডিটিং | Video Editing</h3>
+            <p>
+                ভিডিও কাটা, সাজানো, সাবটাইটেল যোগ করা,
+                অডিও ঠিক করা এবং প্রয়োজনীয় ভিজ্যুয়াল যুক্ত করা।
+            </p>
+            <p class="english">
+                Video Editing involves cutting and arranging
+                video clips, adding subtitles, adjusting audio,
+                and including suitable visual elements. It is
+                widely used for social media, marketing,
+                and educational content.
+            </p>
+        </div>
 
+        <div class="topic-card">
+            <h3>৬. ওয়েব ডিজাইন | Web Design</h3>
+            <p>
+                ওয়েবসাইটের পেজ তৈরি এবং HTML, CSS ও
+                অন্যান্য ওয়েব প্রযুক্তি ব্যবহার করে ডিজাইন করা।
+            </p>
+            <p class="english">
+                Web Design involves creating and arranging
+                website pages using technologies such as HTML
+                and CSS. A web designer focuses on layout,
+                readability, navigation, and user experience.
+            </p>
+        </div>
+
+        <div class="topic-card">
+            <h3>৭. ভার্চুয়াল অ্যাসিস্ট্যান্স | Virtual Assistance</h3>
+            <p>
+                ইমেইল পরিচালনা, তথ্য সাজানো, অনলাইন গবেষণা,
+                সময়সূচি তৈরি এবং প্রশাসনিক কাজে সহায়তা করা।
+            </p>
+            <p class="english">
+                Virtual Assistance involves providing remote
+                administrative support, such as managing emails,
+                organizing information, conducting online research,
+                scheduling appointments, and handling routine tasks.
+            </p>
+        </div>
+
+    </div>
 </section>
 
-<section>
-<h2>কোথায় ফ্রিল্যান্সিং কাজ পাওয়া যায়?</h2>
-<p class="english">Where Can You Find Freelance Work?</p>
+<section class="section">
+    <h2>৩. নতুনদের জন্য কোন কাজ দিয়ে শুরু করবেন? | Best Starting Skills for Beginners</h2>
 
-<h3>১. Fiverr</h3>
-<p>Fiverr-এ নিজের দক্ষতা অনুযায়ী সার্ভিস বা Gig তৈরি করে ক্রেতার কাছ থেকে কাজ পাওয়া যায়।</p>
-<p class="english">Fiverr allows freelancers to offer services through listings called Gigs.</p>
+    <p>
+        নতুনদের জন্য এমন একটি কাজ নির্বাচন করা ভালো,
+        যা নিজের আগ্রহ, ডিভাইস এবং শেখার সময়ের সঙ্গে
+        মানানসই।
+    </p>
 
-<h3>২. Upwork</h3>
-<p>Upwork-এ বিভিন্ন ক্লায়েন্টের কাজের জন্য প্রস্তাব পাঠিয়ে কাজ পাওয়ার সুযোগ রয়েছে।</p>
-<p class="english">On Upwork, freelancers can submit proposals for available client projects.</p>
+    <ul>
+        <li>কম্পিউটারে আগ্রহ থাকলে: Data Entry ও Excel</li>
+        <li>লেখালেখিতে আগ্রহ থাকলে: Content Writing</li>
+        <li>সৃজনশীল কাজে আগ্রহ থাকলে: Graphic Design</li>
+        <li>ভিডিও নিয়ে কাজ করতে চাইলে: Video Editing</li>
+        <li>ওয়েবসাইট তৈরি করতে চাইলে: Web Design</li>
+    </ul>
 
-<h3>৩. Freelancer</h3>
-<p>Freelancer প্ল্যাটফর্মে বিভিন্ন প্রকল্পে বিড করে কাজের সুযোগ পাওয়া যায়।</p>
-<p class="english">Freelancer provides opportunities to bid on different projects.</p>
+    <p>
+        একসঙ্গে অনেক দক্ষতা শেখার চেষ্টা না করে প্রথমে
+        একটি বিষয়ে ভালোভাবে দক্ষতা অর্জন করুন।
+    </p>
+
+    <p class="english">
+        Beginners should choose a skill that matches their
+        interests, available devices, and learning time.
+        For example, people interested in computers can start
+        with Data Entry and Excel. Those who enjoy writing
+        can explore Content Writing, while creative learners
+        may choose Graphic Design.
+    </p>
+
+    <p class="english">
+        Instead of learning many skills at once, focus on
+        one skill and practise it consistently.
+    </p>
 </section>
 
-<section>
-<h2>নতুনরা কীভাবে শুরু করবেন?</h2>
-<p class="english">How Can Beginners Get Started?</p>
-<ol>
-<li>প্রথমে একটি নির্দিষ্ট দক্ষতা নির্বাচন করুন।</li>
-<li>বিনামূল্যের রিসোর্স দিয়ে শেখা শুরু করুন।</li>
-<li>প্রতিদিন অনুশীলন করুন।</li>
-<li>নিজের কাজের নমুনা বা Portfolio তৈরি করুন।</li>
-<li>বিশ্বস্ত মার্কেটপ্লেসে প্রোফাইল তৈরি করুন।</li>
-<li>ক্লায়েন্টের কাজ বুঝে সততার সঙ্গে সম্পন্ন করুন।</li>
-</ol>
-<p class="english">
-Choose one skill, learn from reliable resources, practise regularly,
-build a portfolio and create a professional profile on a trusted
-marketplace. Deliver quality work honestly.
-</p>
+<section class="section">
+    <h2>৪. ফ্রিল্যান্সিং শুরু করার ধাপ | Steps to Start Freelancing</h2>
+
+    <ol>
+        <li>নিজের আগ্রহ ও দক্ষতা চিহ্নিত করুন।</li>
+        <li>একটি নির্দিষ্ট কাজ নির্বাচন করুন।</li>
+        <li>নির্ভরযোগ্য বিনামূল্যের রিসোর্স থেকে শিখুন।</li>
+        <li>নিয়মিত অনুশীলন করুন।</li>
+        <li>নিজের কাজের নমুনা বা Portfolio তৈরি করুন।</li>
+        <li>উপযুক্ত মার্কেটপ্লেসে প্রোফাইল তৈরি করুন।</li>
+        <li>কাজের বিবরণ বুঝে উপযুক্ত প্রস্তাব পাঠান।</li>
+        <li>গ্রাহকের সঙ্গে পরিষ্কারভাবে যোগাযোগ করুন এবং সময়মতো কাজ জমা দিন।</li>
+    </ol>
+
+    <p class="english">
+        Follow these steps to begin your freelancing journey:
+    </p>
+
+    <ol>
+        <li>Identify your interests and existing skills.</li>
+        <li>Choose one specific service.</li>
+        <li>Learn from reliable free resources.</li>
+        <li>Practise regularly.</li>
+        <li>Create a portfolio of your work.</li>
+        <li>Build a profile on a suitable marketplace.</li>
+        <li>Read project descriptions carefully and submit relevant proposals.</li>
+        <li>Communicate clearly with clients and deliver work on time.</li>
+    </ol>
 </section>
 
-<section>
-<h2>ফ্রিল্যান্সিংয়ে সফল হওয়ার পরামর্শ</h2>
-<p class="english">Tips for Freelancing Success</p>
-<ul>
-<li>একসঙ্গে অনেক কাজ শেখার চেষ্টা করবেন না।</li>
-<li>কাজের মান ও সময়ের প্রতি গুরুত্ব দিন।</li>
-<li>ক্লায়েন্টের সঙ্গে ভালো যোগাযোগ রাখুন।</li>
-<li>নিজের দক্ষতা নিয়মিত উন্নত করুন।</li>
-<li>কাজ পাওয়ার নিশ্চয়তা দিয়ে টাকা চাওয়া প্রতারণা থেকে সতর্ক থাকুন।</li>
-</ul>
-<p class="english">
-Focus on one skill, maintain quality, communicate professionally,
-improve continuously and beware of scams.
-</p>
+<section class="section">
+    <h2>৫. পরিচিত ফ্রিল্যান্সিং মার্কেটপ্লেস | Popular Freelancing Marketplaces</h2>
+
+    <h3>Fiverr</h3>
+    <p>
+        নিজের সেবা বা Gig তৈরি করে গ্রাহকের কাছে
+        সেবা প্রদানের সুযোগ রয়েছে।
+    </p>
+    <p class="english">
+        Fiverr is a freelancing marketplace where service
+        providers can create service listings, known as Gigs,
+        and offer their skills to potential clients.
+    </p>
+
+    <h3>Upwork</h3>
+    <p>
+        বিভিন্ন প্রকল্পে আবেদন করে ক্লায়েন্টের সঙ্গে
+        কাজ করার সুযোগ রয়েছে।
+    </p>
+    <p class="english">
+        Upwork is a platform where freelancers can find
+        projects, submit proposals, and work with clients
+        on different types of professional assignments.
+    </p>
+
+    <h3>Freelancer</h3>
+    <p>
+        বিভিন্ন ধরনের প্রকল্পে অংশগ্রহণ ও কাজের জন্য
+        প্রস্তাব দেওয়ার সুযোগ রয়েছে।
+    </p>
+    <p class="english">
+        Freelancer is an online marketplace where freelancers
+        can explore projects, submit bids, and offer services
+        to clients.
+    </p>
+
+    <div class="notice">
+        <p>
+            মনে রাখবেন, প্রতিটি মার্কেটপ্লেসের নিজস্ব নিয়ম,
+            ফি, পরিচয় যাচাই ও কাজের নীতিমালা রয়েছে।
+            অ্যাকাউন্ট খোলার আগে সেগুলো ভালোভাবে পড়ে নিন।
+        </p>
+        <p class="english">
+            Remember that every marketplace has its own rules,
+            fees, identity verification requirements, and working
+            policies. Read the terms carefully before creating
+            an account.
+        </p>
+    </div>
 </section>
 
-<section>
-<h2>সতর্কতা | Important Warning</h2>
-<p>
-ফ্রিল্যান্সিংয়ে আয় নিশ্চিত নয়। দক্ষতা, অভিজ্ঞতা, কাজের মান
-এবং ক্লায়েন্ট পাওয়ার ওপর আয় নির্ভর করে। কোনো ব্যক্তি
-নিশ্চিত কাজ বা আয়ের প্রতিশ্রুতি দিয়ে অগ্রিম টাকা চাইলে
-সতর্ক থাকুন।
-</p>
-<p class="english">
-Freelance income is not guaranteed. It depends on skills,
-experience, work quality and finding clients. Be careful
-of anyone promising guaranteed jobs in exchange for advance fees.
-</p>
+<section class="section">
+    <h2>৬. Portfolio কী এবং কেন প্রয়োজন? | What Is a Portfolio?</h2>
+
+    <p>
+        Portfolio হলো আপনার কাজের নমুনার সংগ্রহ।
+        এটি দেখে সম্ভাব্য ক্লায়েন্ট বুঝতে পারেন
+        আপনি কী ধরনের কাজ করতে পারেন এবং আপনার
+        কাজের মান কেমন।
+    </p>
+
+    <p>উদাহরণ:</p>
+    <ul>
+        <li>Data Entry: সাজানো Excel Sheet</li>
+        <li>Graphic Design: কয়েকটি ডিজাইন নমুনা</li>
+        <li>Content Writing: নিজের লেখা আর্টিকেল</li>
+        <li>Video Editing: সম্পাদিত ভিডিওর নমুনা</li>
+        <li>Web Design: নিজের তৈরি ওয়েবপেজ</li>
+    </ul>
+
+    <p>
+        ক্লায়েন্টের কাজের নমুনা প্রকাশের আগে অনুমতি নিন।
+        অনুশীলনের জন্য নিজস্ব নমুনা তৈরি করাই ভালো।
+    </p>
+
+    <p class="english">
+        A portfolio is a collection of work samples that
+        demonstrates your skills and work quality to
+        potential clients.
+    </p>
+
+    <ul>
+        <li>Data Entry: Well-organized Excel spreadsheets.</li>
+        <li>Graphic Design: A collection of original design samples.</li>
+        <li>Content Writing: Articles written by you.</li>
+        <li>Video Editing: Samples of videos edited by you.</li>
+        <li>Web Design: Website pages created by you.</li>
+    </ul>
+
+    <p class="english">
+        Always obtain permission before publishing a client's
+        work. Creating your own practice samples is a good
+        way to build a portfolio.
+    </p>
 </section>
 
-<section>
-<h2>শেষ কথা | Conclusion</h2>
-<p>
-ফ্রিল্যান্সিং একটি দক্ষতাভিত্তিক কাজের ক্ষেত্র।
-সঠিকভাবে শেখা, নিয়মিত অনুশীলন এবং ধৈর্যের মাধ্যমে
-এখানে নিজের কর্মজীবন গড়ে তোলার সুযোগ রয়েছে।
-</p>
-<p class="english">
-Freelancing is a skill-based field. Learning properly,
-practising consistently and being patient can help you
-build a professional career.
-</p>
+<section class="section">
+    <h2>৭. প্রয়োজনীয় সফটওয়্যার ও টুলস | Useful Software and Tools</h2>
+
+    <ul>
+        <li>Microsoft Excel — ডেটা ও হিসাব ব্যবস্থাপনা</li>
+        <li>Microsoft Word — ডকুমেন্ট ও লেখালেখি</li>
+        <li>Google Docs — অনলাইন ডকুমেন্ট</li>
+        <li>Google Sheets — অনলাইন স্প্রেডশিট</li>
+        <li>Canva — সহজ গ্রাফিক ডিজাইন</li>
+        <li>CapCut — ভিডিও এডিটিং</li>
+        <li>Visual Studio Code — ওয়েবসাইট তৈরি</li>
+    </ul>
+
+    <p class="english">
+        Useful tools for different freelancing tasks include:
+    </p>
+
+    <ul>
+        <li>Microsoft Excel — Data organization and calculations.</li>
+        <li>Microsoft Word — Document creation and writing.</li>
+        <li>Google Docs — Online document editing.</li>
+        <li>Google Sheets — Online spreadsheet management.</li>
+        <li>Canva — Easy graphic design.</li>
+        <li>CapCut — Video editing.</li>
+        <li>Visual Studio Code — Website development.</li>
+    </ul>
+
+    <p>
+        কাজের ধরন অনুযায়ী প্রয়োজনীয় টুল নির্বাচন করুন।
+        সব সফটওয়্যার একসঙ্গে শেখার প্রয়োজন নেই।
+    </p>
+
+    <p class="english">
+        Choose tools according to your selected skill.
+        You do not need to learn every software application
+        at once.
+    </p>
+</section>
+
+<section class="section">
+    <h2>৮. ক্লায়েন্টের সঙ্গে যোগাযোগ | Client Communication</h2>
+
+    <p>
+        ফ্রিল্যান্সিংয়ে শুধু কাজ জানলেই হয় না;
+        ভালো যোগাযোগও গুরুত্বপূর্ণ।
+    </p>
+
+    <ul>
+        <li>ক্লায়েন্টের কাজের বিবরণ মনোযোগ দিয়ে পড়ুন।</li>
+        <li>কাজের সময়সীমা ও শর্ত বুঝে নিন।</li>
+        <li>যা পারবেন না, তার প্রতিশ্রুতি দেবেন না।</li>
+        <li>কাজের অগ্রগতি সম্পর্কে প্রয়োজনমতো জানান।</li>
+        <li>ভদ্র ও পেশাদার ভাষায় কথা বলুন।</li>
+        <li>কাজ জমা দেওয়ার আগে ভালোভাবে পরীক্ষা করুন।</li>
+    </ul>
+
+    <p class="english">
+        Good communication is just as important as technical
+        skills in freelancing.
+    </p>
+
+    <ul>
+        <li>Read the client's project requirements carefully.</li>
+        <li>Understand the deadlines and working conditions.</li>
+        <li>Never promise something you cannot deliver.</li>
+        <li>Provide updates when necessary.</li>
+        <li>Communicate politely and professionally.</li>
+        <li>Review your work before submitting it.</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h2>৯. অনলাইন নিরাপত্তা ও প্রতারণা থেকে সতর্কতা | Online Safety and Scam Prevention</h2>
+
+    <ul>
+        <li>কাজ দেওয়ার নামে অগ্রিম টাকা দাবি করলে সতর্ক থাকুন।</li>
+        <li>OTP, পাসওয়ার্ড বা ব্যক্তিগত তথ্য কাউকে দেবেন না।</li>
+        <li>মার্কেটপ্লেসের নিয়ম ভেঙে বাইরে লেনদেন করবেন না।</li>
+        <li>সন্দেহজনক লিংক ও ফাইল এড়িয়ে চলুন।</li>
+        <li>কাজের শর্ত ও পেমেন্ট পদ্ধতি বুঝে নিন।</li>
+        <li>ভুয়া আয় বা নিশ্চিত কাজের প্রতিশ্রুতিতে বিশ্বাস করবেন না।</li>
+    </ul>
+
+    <p class="english">
+        Stay safe while working online:
+    </p>
+
+    <ul>
+        <li>Be careful if someone asks for advance payment to provide work.</li>
+        <li>Never share your OTP, password, or sensitive personal information.</li>
+        <li>Do not violate marketplace rules by moving transactions outside the platform.</li>
+        <li>Avoid suspicious links and files.</li>
+        <li>Understand the project terms and payment arrangements.</li>
+        <li>Do not trust unrealistic income claims or guaranteed job offers.</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h2>১০. নতুনদের সাধারণ ভুল | Common Beginner Mistakes</h2>
+
+    <ul>
+        <li>দক্ষতা অর্জনের আগেই কাজ খোঁজা।</li>
+        <li>অন্যের Portfolio নিজের নামে ব্যবহার করা।</li>
+        <li>কাজ না বুঝে আবেদন করা।</li>
+        <li>অবাস্তব পারিশ্রমিক বা সময়ের প্রতিশ্রুতি দেওয়া।</li>
+        <li>অনুশীলন না করে দ্রুত আয় করতে চাওয়া।</li>
+        <li>প্রতারণামূলক প্রশিক্ষণ বা অফারে টাকা দেওয়া।</li>
+    </ul>
+
+    <p class="english">
+        Common mistakes beginners should avoid:
+    </p>
+
+    <ul>
+        <li>Searching for jobs before developing the required skills.</li>
+        <li>Using someone else's portfolio as their own.</li>
+        <li>Applying for projects without understanding the requirements.</li>
+        <li>Making unrealistic promises about price or delivery time.</li>
+        <li>Expecting quick income without sufficient practice.</li>
+        <li>Paying for suspicious training programs or fake job offers.</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h2>১১. ৩০ দিনের শেখার পরিকল্পনা | 30-Day Learning Plan</h2>
+
+    <h3>প্রথম সপ্তাহ | Week 1</h3>
+    <p>
+        ফ্রিল্যান্সিং সম্পর্কে জানুন এবং একটি দক্ষতা নির্বাচন করুন।
+    </p>
+    <p class="english">
+        Learn about freelancing and choose one skill.
+    </p>
+
+    <h3>দ্বিতীয় সপ্তাহ | Week 2</h3>
+    <p>
+        নির্বাচিত দক্ষতার মৌলিক বিষয় শিখুন।
+    </p>
+    <p class="english">
+        Study the basic concepts of your selected skill.
+    </p>
+
+    <h3>তৃতীয় সপ্তাহ | Week 3</h3>
+    <p>
+        প্রতিদিন অনুশীলন করে নিজের কাজের নমুনা তৈরি করুন।
+    </p>
+    <p class="english">
+        Practise daily and create your own work samples.
+    </p>
+
+    <h3>চতুর্থ সপ্তাহ | Week 4</h3>
+    <p>
+        Portfolio সাজান, মার্কেটপ্লেসের নিয়ম জানুন
+        এবং প্রোফাইল তৈরির প্রস্তুতি নিন।
+    </p>
+    <p class="english">
+        Organize your portfolio, understand marketplace
+        policies, and prepare your profile.
+    </p>
+
+    <div class="notice">
+        <p>
+            এই পরিকল্পনা একটি প্রাথমিক নির্দেশনা।
+            দক্ষতা অর্জনের জন্য ৩০ দিনের বেশি সময়ও লাগতে পারে।
+        </p>
+        <p class="english">
+            This is a beginner-friendly learning plan.
+            Developing professional skills may take longer
+            than 30 days.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>১২. আমাদের লক্ষ্য | Our Mission</h2>
+
+    <p>
+        আমাদের লক্ষ্য হলো নতুনদের জন্য ফ্রিল্যান্সিং সম্পর্কে
+        সহজ, নির্ভরযোগ্য ও ব্যবহারিক শিক্ষামূলক তথ্য প্রকাশ করা।
+    </p>
+
+    <p>
+        আমরা চাই, শিক্ষার্থীরা শুধু কাজের নাম জানবে না;
+        বরং প্রয়োজনীয় দক্ষতা শিখবে, অনুশীলন করবে এবং
+        দায়িত্বশীলভাবে কাজের সুযোগ খুঁজবে।
+    </p>
+
+    <p class="english">
+        Our mission is to provide simple, reliable, and
+        practical educational information about freelancing
+        for beginners.
+    </p>
+
+    <p class="english">
+        We want learners not only to understand different
+        freelancing services but also to develop the necessary
+        skills, practise consistently, and explore work
+        opportunities responsibly.
+    </p>
+
+    <h3>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।</h3>
+    <p class="english">
+        Learn, Explore, Improve Your Skills, and Grow.
+    </p>
+</section>
+
+<section class="section">
+    <h2>গুরুত্বপূর্ণ ঘোষণা | Important Disclaimer</h2>
+
+    <div class="notice">
+        <p>
+            এই পেজের তথ্য শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে প্রকাশিত।
+            ফ্রিল্যান্সিংয়ে কাজ বা নির্দিষ্ট আয়ের নিশ্চয়তা নেই।
+            কাজ পাওয়া নির্ভর করে দক্ষতা, অভিজ্ঞতা, কাজের মান,
+            বাজারের চাহিদা, প্রতিযোগিতা এবং মার্কেটপ্লেসের
+            নীতিমালার ওপর।
+        </p>
+
+        <p class="english">
+            The information on this page is provided for
+            educational purposes only. Freelancing does not
+            guarantee employment or a specific income.
+            Opportunities depend on skills, experience,
+            work quality, market demand, competition,
+            and marketplace policies.
+        </p>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>শেখার পথে আমাদের সঙ্গে থাকুন</h2>
+
+    <p>
+        শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।
+    </p>
+
+    <p>
+        Learn, Explore, Improve Your Skills, and Grow.
+    </p>
+
+    <a href="services.html">আরও শিখুন | Explore More</a>
 </section>
 
 </div>
 
 <footer>
-<p>© 2026 Rifat Ahmed – Personal & Online Business</p>
-<p>Contact: rifatahmedbogra@gmail.com</p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+    </div>
+
+    <p>Email: rifatahmedbogra@gmail.com</p>
+
+    <p class="copyright">
+        © 2026 Rifat Ahmed. All Rights Reserved.
+    </p>
+
 </footer>
 
 </body>
