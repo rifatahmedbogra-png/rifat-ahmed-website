@@ -1,192 +1,665 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Business - Rifat Ahmed</title>
-    <meta name="description" content="অনলাইন ব্যবসা শুরু করার উপায়, ব্যবসার পরিকল্পনা, পণ্য নির্বাচন, ডিজিটাল মার্কেটিং এবং উদ্যোক্তা হওয়ার প্রয়োজনীয় পরামর্শ জানুন Md Rifat Ahmed-এর ওয়েবসাইটে।">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f7fb;
-            color: #333;
-            line-height: 1.8;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            background: #1769aa;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+<title>অনলাইন ব্যবসা | Online Business - Md Rifat Ahmed</title>
 
-        nav {
-            background: #222;
-            text-align: center;
-            padding: 12px;
-        }
+<meta name="description" content="অনলাইন ব্যবসা শুরু, ই-কমার্স, ব্যবসার পরিকল্পনা, বাজার যাচাই, ডিজিটাল মার্কেটিং ও উদ্যোক্তা হওয়ার প্রয়োজনীয় শিক্ষা জানুন। Learn online business, e-commerce and entrepreneurship.">
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 10px;
-        }
+<meta name="keywords" content="অনলাইন ব্যবসা, Online Business, E-commerce, Business Ideas, Entrepreneurship, Digital Business, Online Selling">
 
-        .container {
-            max-width: 1000px;
-            margin: 25px auto;
-            padding: 20px;
-            background: white;
-        }
+<meta name="author" content="Md Rifat Ahmed">
+<meta name="robots" content="index, follow">
 
-        h2 {
-            color: #1769aa;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
-    </style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f6fa;
+    color: #263445;
+    line-height: 1.8;
+}
+
+header {
+    background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+}
+
+header p {
+    max-width: 800px;
+    margin: 12px auto 0;
+    font-size: 17px;
+}
+
+nav {
+    background: #102a43;
+    padding: 14px 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 7px 12px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #f0c040;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 18px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+}
+
+h2 {
+    color: #1769aa;
+    font-size: 24px;
+    margin-top: 0;
+    border-bottom: 2px solid #e6edf5;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #102a43;
+}
+
+.english {
+    background: #eef5fb;
+    border-left: 4px solid #2196c8;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.english strong {
+    color: #1769aa;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.topic {
+    background: #f5f8fc;
+    border: 1px solid #e2eaf2;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.topic h3 {
+    margin-top: 0;
+    color: #1769aa;
+}
+
+.notice {
+    background: #fff8e6;
+    border-left: 4px solid #e4aa24;
+    padding: 17px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.resource-list a {
+    color: #1769aa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.resource-list a:hover {
+    text-decoration: underline;
+}
+
+.cta {
+    background: linear-gradient(135deg, #102a43, #1769aa);
+    color: white;
+    padding: 35px 22px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.cta h2 {
+    color: white;
+    border: none;
+}
+
+.cta a {
+    display: inline-block;
+    background: #f0c040;
+    color: #102a43;
+    padding: 11px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+footer {
+    background: #071d35;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 9px;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #f0c040;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 27px;
+    }
+
+    .section {
+        padding: 18px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    nav a {
+        margin: 5px 7px;
+        font-size: 14px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>RIFAT AHMED</h1>
-    <p>Personal & Online Business</p>
+    <h1>অনলাইন ব্যবসা | Online Business</h1>
+    <p>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।</p>
+    <p>Learn, Explore, Improve Your Skills, and Grow.</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">হোম | Home</a>
+    <a href="about.html">আমার সম্পর্কে | About</a>
+    <a href="services.html">সার্ভিস | Services</a>
+    <a href="online-income.html">অনলাইন আয় | Online Income</a>
+    <a href="freelancing.html">ফ্রিল্যান্সিং | Freelancing</a>
+    <a href="digital-marketing.html">ডিজিটাল মার্কেটিং | Digital Marketing</a>
+    <a href="technology.html">প্রযুক্তি | Technology</a>
+    <a href="online-business.html">অনলাইন ব্যবসা | Online Business</a>
+    <a href="contact.html">যোগাযোগ | Contact</a>
 </nav>
 
-<div class="container">
+<main class="container">
 
-    <h2>অনলাইন ব্যবসা (Online Business)</h2>
-
-    <p>
-        বর্তমান সময়ে ইন্টারনেট ব্যবহার করে ঘরে বসেই বিভিন্ন ধরনের
-        ব্যবসা পরিচালনা করা সম্ভব। সঠিক পরিকল্পনা, ভালো পণ্য,
-        গ্রাহকের চাহিদা এবং মানসম্মত সেবার মাধ্যমে অনলাইন ব্যবসা
-        গড়ে তোলা যায়।
-    </p>
-
-    <h2>১. অনলাইন ব্যবসা কী? (What is Online Business?)</h2>
-    <p>
-        ইন্টারনেট ও ডিজিটাল প্ল্যাটফর্ম ব্যবহার করে পণ্য বা সেবা
-        বিক্রি করাকে অনলাইন ব্যবসা বলা হয়। Facebook, Website,
-        Marketplace এবং অন্যান্য মাধ্যমে ব্যবসা পরিচালনা করা যায়।
-    </p>
-
-    <h2>২. পণ্য নির্বাচন (Product Selection)</h2>
-    <p>
-        ব্যবসা শুরু করার আগে বাজারের চাহিদা, পণ্যের গুণগত মান,
-        ক্রয়মূল্য এবং সম্ভাব্য গ্রাহক সম্পর্কে ধারণা নিতে হবে।
-    </p>
-
-    <h2>৩. বাজার যাচাই (Market Research)</h2>
-    <p>
-        ক্রেতারা কোন পণ্য বেশি পছন্দ করেন, প্রতিযোগীরা কী দামে
-        বিক্রি করছেন এবং কোন এলাকায় চাহিদা বেশি—এসব বিষয়
-        যাচাই করা জরুরি।
-    </p>
-
-    <h2>৪. মূল্য ও লাভের হিসাব (Pricing & Profit)</h2>
-    <p>
-        পণ্যের ক্রয়মূল্য, পরিবহন খরচ, প্যাকেজিং, বিজ্ঞাপন এবং
-        অন্যান্য ব্যয় হিসাব করে বিক্রয়মূল্য নির্ধারণ করতে হবে।
-        লাভের হিসাব বাস্তব খরচের ভিত্তিতে করতে হবে।
-    </p>
-
-    <h2>৫. গ্রাহক সংগ্রহ (Customer Acquisition)</h2>
-    <p>
-        ভালো পণ্যের ছবি, সঠিক বিবরণ, নিয়মিত যোগাযোগ এবং
-        মানসম্মত সেবার মাধ্যমে নতুন গ্রাহক তৈরি করা যায়।
-    </p>
-
-    <h2>৬. পেমেন্ট ও ডেলিভারি (Payment & Delivery)</h2>
-    <p>
-        গ্রাহকের সুবিধা অনুযায়ী নিরাপদ পেমেন্ট ব্যবস্থা এবং
-        নির্ভরযোগ্য ডেলিভারি সেবা নিশ্চিত করতে হবে।
-    </p>
-
-    <h2>৭. ব্যবসার প্রচার (Business Promotion)</h2>
-    <p>
-        Facebook Page, YouTube, Website এবং Digital Marketing
-        ব্যবহার করে পণ্য ও সেবার প্রচার করা যায়।
-    </p>
-
-    <h2>৮. আইন ও গ্রাহকসেবা (Legal Compliance & Customer Service)</h2>
-    <p>
-        ব্যবসার ধরন অনুযায়ী প্রয়োজনীয় লাইসেন্স, কর ও ভোক্তা
-        অধিকার সংক্রান্ত নিয়ম মেনে চলুন। গ্রাহকের অভিযোগ
-        গুরুত্বের সঙ্গে সমাধান করুন।
-    </p>
-
-    <hr>
-
-    <h2>Online Business – English</h2>
+<section class="section">
+    <h2>১. অনলাইন ব্যবসা কী? | What Is Online Business?</h2>
 
     <p>
-        Online business means selling products or services
-        through the internet. It allows entrepreneurs to
-        reach customers using websites and digital platforms.
+        অনলাইন ব্যবসা হলো ইন্টারনেট ব্যবহার করে পণ্য বা সেবা ক্রয়-বিক্রয় এবং গ্রাহকের কাছে পৌঁছে দেওয়ার একটি আধুনিক ব্যবসায়িক পদ্ধতি। ওয়েবসাইট, ফেসবুক পেজ, অনলাইন মার্কেটপ্লেস কিংবা অন্যান্য ডিজিটাল প্ল্যাটফর্মের মাধ্যমে এই ব্যবসা পরিচালনা করা যায়।
     </p>
 
-    <h2>Product Selection</h2>
+    <div class="english">
+        <strong>English:</strong>
+        Online business is a modern way of selling products or services through the internet. It can be operated through websites, social media pages, online marketplaces, and other digital platforms.
+    </div>
+</section>
+
+<section class="section">
+    <h2>২. অনলাইন ব্যবসার জনপ্রিয় ধরন | Popular Types of Online Business</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+            <h3>পণ্য বিক্রির ব্যবসা</h3>
+            <p>পোশাক, ইলেকট্রনিকস, খাবার, প্রসাধনী ও অন্যান্য পণ্য অনলাইনে বিক্রি করা।</p>
+            <div class="english">
+                <strong>Product Selling:</strong>
+                Selling clothing, electronics, food, cosmetics, and other products online.
+            </div>
+        </div>
+
+        <div class="topic">
+            <h3>সেবা প্রদান</h3>
+            <p>গ্রাফিক ডিজাইন, ওয়েব ডিজাইন ও ডিজিটাল মার্কেটিংয়ের মতো সেবা প্রদান করা।</p>
+            <div class="english">
+                <strong>Service-Based Business:</strong>
+                Offering services such as graphic design, web design, and digital marketing.
+            </div>
+        </div>
+
+        <div class="topic">
+            <h3>ডিজিটাল পণ্য</h3>
+            <p>ই-বুক, অনলাইন কোর্স, টেমপ্লেট ও ডিজিটাল ফাইল বিক্রি করা।</p>
+            <div class="english">
+                <strong>Digital Products:</strong>
+                Selling e-books, online courses, templates, and digital files.
+            </div>
+        </div>
+
+        <div class="topic">
+            <h3>অনলাইন শিক্ষাদান</h3>
+            <p>ইন্টারনেটের মাধ্যমে শিক্ষার্থীদের প্রশিক্ষণ ও পাঠদান করা।</p>
+            <div class="english">
+                <strong>Online Teaching:</strong>
+                Providing lessons, training, and educational services through the internet.
+            </div>
+        </div>
+
+        <div class="topic">
+            <h3>ই-কমার্স</h3>
+            <p>নিজস্ব ওয়েবসাইট বা মার্কেটপ্লেসের মাধ্যমে পণ্য বিক্রি করা।</p>
+            <div class="english">
+                <strong>E-commerce:</strong>
+                Selling products through an online store or marketplace.
+            </div>
+        </div>
+
+        <div class="topic">
+            <h3>ড্রপশিপিং</h3>
+            <p>সরবরাহকারীর মাধ্যমে সরাসরি ক্রেতার কাছে পণ্য পাঠানোর ব্যবসায়িক পদ্ধতি।</p>
+            <div class="english">
+                <strong>Dropshipping:</strong>
+                A business model where suppliers ship products directly to customers on behalf of the seller.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>৩. ব্যবসার আইডিয়া নির্বাচন | Choosing a Business Idea</h2>
+
     <p>
-        Choose products based on customer demand, quality,
-        purchase cost and market opportunities.
+        ব্যবসা শুরু করার আগে এমন একটি আইডিয়া নির্বাচন করা প্রয়োজন, যার বাজারে চাহিদা রয়েছে এবং যা আপনি বুঝতে ও পরিচালনা করতে পারবেন।
     </p>
 
-    <h2>Market Research</h2>
+    <ul>
+        <li>কোন পণ্য বা সেবার চাহিদা রয়েছে?</li>
+        <li>আপনার সম্ভাব্য ক্রেতা কারা?</li>
+        <li>প্রতিযোগীরা কী ধরনের পণ্য বা সেবা দিচ্ছে?</li>
+        <li>পণ্য সংগ্রহ বা সেবা প্রদানের খরচ কত?</li>
+        <li>সম্ভাব্য লাভ ও ঝুঁকি কেমন?</li>
+    </ul>
+
+    <div class="english">
+        <strong>English:</strong>
+        Before starting a business, choose an idea that has market demand and matches your knowledge and ability. Research customers, competitors, costs, potential profit, and risks.
+    </div>
+</section>
+
+<section class="section">
+    <h2>৪. বাজার যাচাই ও ক্রেতা চেনা | Market Research and Target Customers</h2>
+
     <p>
-        Study customer needs, competitor prices and market
-        trends before starting your business.
+        বাজার যাচাই হলো ব্যবসা শুরুর আগে ক্রেতাদের প্রয়োজন, পণ্যের চাহিদা, প্রতিযোগিতা এবং সম্ভাব্য মূল্য সম্পর্কে তথ্য সংগ্রহ করা।
     </p>
 
-    <h2>Pricing and Profit</h2>
+    <ul>
+        <li>সম্ভাব্য ক্রেতাদের চাহিদা বোঝা।</li>
+        <li>প্রতিযোগীদের পণ্য ও মূল্য বিশ্লেষণ করা।</li>
+        <li>ক্রেতাদের মতামত সংগ্রহ করা।</li>
+        <li>কোন এলাকায় বা শ্রেণির মানুষের কাছে পণ্য বিক্রি করবেন তা নির্ধারণ করা।</li>
+    </ul>
+
+    <div class="english">
+        <strong>English:</strong>
+        Market research helps you understand customer needs, product demand, competitors, and pricing. It allows you to identify the right target audience before investing money.
+    </div>
+</section>
+
+<section class="section">
+    <h2>৫. ব্যবসার পরিকল্পনা তৈরি | Creating a Business Plan</h2>
+
+    <p>একটি ভালো ব্যবসার পরিকল্পনায় থাকবে:</p>
+
+    <ol>
+        <li>ব্যবসার নাম ও উদ্দেশ্য।</li>
+        <li>পণ্য বা সেবার বিবরণ।</li>
+        <li>সম্ভাব্য ক্রেতা।</li>
+        <li>প্রাথমিক বিনিয়োগ ও অন্যান্য খরচ।</li>
+        <li>পণ্যের মূল্য ও লাভের হিসাব।</li>
+        <li>প্রচার ও বিক্রির কৌশল।</li>
+        <li>ডেলিভারি ও গ্রাহকসেবা পরিকল্পনা।</li>
+    </ol>
+
+    <div class="english">
+        <strong>English:</strong>
+        A business plan should include the business name, objectives, products or services, target customers, startup costs, pricing, marketing strategy, delivery arrangements, and customer support.
+    </div>
+</section>
+
+<section class="section">
+    <h2>৬. অনলাইন ব্যবসার প্রয়োজনীয় প্ল্যাটফর্ম | Online Business Platforms</h2>
+
+    <div class="grid">
+        <div class="topic">
+            <h3>Facebook Page</h3>
+            <p>পণ্য পরিচিতি, প্রচার ও ক্রেতাদের সঙ্গে যোগাযোগ।</p>
+            <div class="english">Promoting products and communicating with customers.</div>
+        </div>
+
+        <div class="topic">
+            <h3>Instagram</h3>
+            <p>ছবি ও ভিডিওর মাধ্যমে পণ্য প্রদর্শন।</p>
+            <div class="english">Showcasing products through photos and videos.</div>
+        </div>
+
+        <div class="topic">
+            <h3>WhatsApp Business</h3>
+            <p>ক্রেতাদের সঙ্গে যোগাযোগ ও ব্যবসায়িক তথ্য পরিচালনা।</p>
+            <div class="english">Managing customer communication and business information.</div>
+        </div>
+
+        <div class="topic">
+            <h3>নিজস্ব ওয়েবসাইট</h3>
+            <p>নিজস্ব অনলাইন স্টোর ও ব্যবসায়িক পরিচিতি তৈরি।</p>
+            <div class="english">Creating your own online store and business presence.</div>
+        </div>
+
+        <div class="topic">
+            <h3>অনলাইন মার্কেটপ্লেস</h3>
+            <p>বিভিন্ন অনলাইন মার্কেটপ্লেসে পণ্য বিক্রি।</p>
+            <div class="english">Selling products through online marketplaces.</div>
+        </div>
+
+        <div class="topic">
+            <h3>YouTube</h3>
+            <p>ভিডিওর মাধ্যমে পণ্য ও ব্যবসার পরিচিতি তুলে ধরা।</p>
+            <div class="english">Introducing products and businesses through videos.</div>
+        </div>
+    </div>
+
+    <div class="english">
+        <strong>English:</strong>
+        Online businesses can use social media, messaging applications, websites, marketplaces, and video platforms. Choose platforms based on your business needs and understand their policies.
+    </div>
+</section>
+
+<section class="section">
+    <h2>৭. পেমেন্ট, ডেলিভারি ও গ্রাহকসেবা | Payments, Delivery and Customer Service</h2>
+
+    <p>অনলাইন ব্যবসায় ক্রেতার আস্থা অর্জন অত্যন্ত গুরুত্বপূর্ণ।</p>
+
+    <ul>
+        <li>নিরাপদ ও গ্রহণযোগ্য পেমেন্ট পদ্ধতি ব্যবহার করুন।</li>
+        <li>ডেলিভারি চার্জ ও সময় আগে থেকেই জানিয়ে দিন।</li>
+        <li>পণ্যের সঠিক ছবি ও বিবরণ প্রকাশ করুন।</li>
+        <li>ক্রেতার প্রশ্নের উত্তর দ্রুত দিন।</li>
+        <li>অভিযোগ ও রিটার্ন নীতিমালা পরিষ্কার রাখুন।</li>
+    </ul>
+
+    <div class="english">
+        <strong>English:</strong>
+        Customer trust is essential in online business. Use reliable payment methods, communicate delivery costs and timelines, provide accurate product information, respond to customers, and maintain clear return policies.
+    </div>
+</section>
+
+<section class="section">
+    <h2>৮. অনলাইন মার্কেটিং | Online Marketing</h2>
+
+    <p>পণ্য বা সেবা সম্পর্কে সম্ভাব্য ক্রেতাদের জানাতে অনলাইন মার্কেটিং ব্যবহার করা হয়।</p>
+
+    <div class="grid">
+        <div class="topic">
+            <h3>সোশ্যাল মিডিয়া মার্কেটিং</h3>
+            <p>সামাজিক যোগাযোগমাধ্যমে পণ্যের প্রচার।</p>
+            <div class="english">Social Media Marketing: Promoting products on social platforms.</div>
+        </div>
+
+        <div class="topic">
+            <h3>SEO</h3>
+            <p>সার্চ ইঞ্জিনে ওয়েবসাইটের দৃশ্যমানতা উন্নত করা।</p>
+            <div class="english">Search Engine Optimization: Improving website visibility in search results.</div>
+        </div>
+
+        <div class="topic">
+            <h3>কনটেন্ট মার্কেটিং</h3>
+            <p>উপকারী লেখা, ছবি ও ভিডিও দিয়ে দর্শকদের আকৃষ্ট করা।</p>
+            <div class="english">Content Marketing: Attracting audiences through useful content.</div>
+        </div>
+
+        <div class="topic">
+            <h3>ভিডিও মার্কেটিং</h3>
+            <p>ভিডিওর মাধ্যমে পণ্য ও সেবার প্রচার।</p>
+            <div class="english">Video Marketing: Promoting products and services through videos.</div>
+        </div>
+
+        <div class="topic">
+            <h3>ইমেইল মার্কেটিং</h3>
+            <p>অনুমতিপ্রাপ্ত গ্রাহকদের কাছে ব্যবসায়িক তথ্য পাঠানো।</p>
+            <div class="english">Email Marketing: Sending business updates to customers who have agreed to receive them.</div>
+        </div>
+
+        <div class="topic">
+            <h3>পেইড বিজ্ঞাপন</h3>
+            <p>বাজেট অনুযায়ী অনলাইনে বিজ্ঞাপন প্রচার।</p>
+            <div class="english">Paid Advertising: Promoting products through paid online campaigns.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>৯. খরচ, বিক্রি ও লাভের হিসাব | Cost, Sales and Profit Management</h2>
+
     <p>
-        Calculate product cost, delivery, packaging,
-        advertising and other expenses before setting prices.
+        ব্যবসা পরিচালনায় প্রতিটি আয় ও ব্যয়ের হিসাব রাখা জরুরি। এতে ব্যবসার প্রকৃত অবস্থা বোঝা সহজ হয়।
     </p>
 
-    <h2>Customer Acquisition</h2>
+    <div class="notice">
+        <strong>লাভ = মোট বিক্রয় − মোট খরচ</strong>
+        <p>খরচের মধ্যে পণ্য ক্রয়, প্যাকেজিং, ডেলিভারি, বিজ্ঞাপন, কর্মচারী ও অন্যান্য পরিচালন ব্যয় অন্তর্ভুক্ত হতে পারে।</p>
+    </div>
+
+    <div class="english">
+        <strong>English:</strong>
+        Maintaining accurate financial records is essential.
+        <br>
+        <strong>Profit = Total Sales − Total Expenses</strong>
+        <br>
+        Expenses may include product purchases, packaging, delivery, advertising, staff costs, and other operating costs.
+    </div>
+</section>
+
+<section class="section">
+    <h2>১০. অনলাইন ব্যবসার নিরাপত্তা | Online Business Security</h2>
+
+    <ul>
+        <li>শক্তিশালী পাসওয়ার্ড ব্যবহার করুন।</li>
+        <li>Two-Factor Authentication চালু রাখুন।</li>
+        <li>অপরিচিত লিংকে ক্লিক করবেন না।</li>
+        <li>পেমেন্টের ভুয়া স্ক্রিনশট যাচাই ছাড়া বিশ্বাস করবেন না।</li>
+        <li>গ্রাহকের ব্যক্তিগত তথ্য নিরাপদ রাখুন।</li>
+        <li>ব্যবসার গুরুত্বপূর্ণ নথির ব্যাকআপ রাখুন।</li>
+    </ul>
+
+    <div class="english">
+        <strong>English:</strong>
+        Online businesses may face fraud and data-security risks. Use strong passwords, enable two-factor authentication, avoid suspicious links, verify payments, protect customer information, and keep backups of important records.
+    </div>
+</section>
+
+<section class="section">
+    <h2>১১. নতুনদের সাধারণ ভুল | Common Mistakes Beginners Should Avoid</h2>
+
+    <ul>
+        <li>বাজার যাচাই না করে ব্যবসা শুরু করা।</li>
+        <li>সব টাকা একবারে বিনিয়োগ করা।</li>
+        <li>পণ্যের গুণগত মান উপেক্ষা করা।</li>
+        <li>অতিরিক্ত লাভের আশায় ভুল সিদ্ধান্ত নেওয়া।</li>
+        <li>গ্রাহকের অভিযোগ উপেক্ষা করা।</li>
+        <li>আয় নিশ্চিত—এমন প্রতিশ্রুতিতে বিশ্বাস করা।</li>
+        <li>আয়-ব্যয়ের হিসাব না রাখা।</li>
+    </ul>
+
+    <div class="english">
+        <strong>English:</strong>
+        Beginners should avoid starting without research, investing all their money at once, ignoring product quality, making unrealistic profit expectations, neglecting customers, trusting guaranteed-income claims, and failing to maintain financial records.
+    </div>
+</section>
+
+<section class="section">
+    <h2>১২. ৩০ দিনের প্রাথমিক শেখার পরিকল্পনা | 30-Day Beginner Learning Plan</h2>
+
+    <div class="grid">
+        <div class="topic">
+            <h3>দিন ১–৭</h3>
+            <p>অনলাইন ব্যবসার ধারণা ও ব্যবসার ধরন শিখুন।</p>
+            <div class="english">Days 1–7: Learn business basics and different business models.</div>
+        </div>
+
+        <div class="topic">
+            <h3>দিন ৮–১৪</h3>
+            <p>বাজার যাচাই ও ক্রেতা নির্বাচন শিখুন।</p>
+            <div class="english">Days 8–14: Study market research and target customers.</div>
+        </div>
+
+        <div class="topic">
+            <h3>দিন ১৫–২১</h3>
+            <p>ব্যবসার পরিকল্পনা ও খরচের হিসাব শিখুন।</p>
+            <div class="english">Days 15–21: Learn business planning and budgeting.</div>
+        </div>
+
+        <div class="topic">
+            <h3>দিন ২২–২৬</h3>
+            <p>অনলাইন মার্কেটিং ও গ্রাহকসেবা শিখুন।</p>
+            <div class="english">Days 22–26: Learn online marketing and customer service.</div>
+        </div>
+
+        <div class="topic">
+            <h3>দিন ২৭–৩০</h3>
+            <p>ছোট পরিসরে পরীক্ষা ও ফলাফল পর্যালোচনা করুন।</p>
+            <div class="english">Days 27–30: Test your idea on a small scale and review the results.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section resource-list">
+    <h2>১৩. বিনামূল্যে শেখার রিসোর্স | Free Learning Resources</h2>
+
+    <ul>
+        <li>
+            <a href="https://skillshop.withgoogle.com/" target="_blank" rel="noopener noreferrer">Google Skillshop</a>
+            — ডিজিটাল মার্কেটিং ও গুগলের বিভিন্ন টুল শেখা।
+        </li>
+
+        <li>
+            <a href="https://www.facebook.com/business/learn" target="_blank" rel="noopener noreferrer">Meta Business Learn</a>
+            — ফেসবুক ও ইনস্টাগ্রাম ব্যবসায়িক প্রশিক্ষণ।
+        </li>
+
+        <li>
+            <a href="https://www.shopify.com/blog" target="_blank" rel="noopener noreferrer">Shopify Blog</a>
+            — ই-কমার্স সম্পর্কে শেখা।
+        </li>
+
+        <li>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+            — বিভিন্ন ব্যবসায়িক টিউটোরিয়াল।
+        </li>
+    </ul>
+
+    <div class="english">
+        <strong>English:</strong>
+        These resources can help learners understand digital marketing, social media business tools, e-commerce, and practical business strategies.
+    </div>
+</section>
+
+<section class="section">
+    <h2>১৪. আমাদের উদ্দেশ্য | Our Mission</h2>
+
     <p>
-        Build customer trust through quality products,
-        clear information and helpful communication.
+        আমাদের লক্ষ্য হলো নতুন উদ্যোক্তাদের অনলাইন ব্যবসা সম্পর্কে সঠিক ধারণা দেওয়া, প্রয়োজনীয় দক্ষতা শেখানো এবং দায়িত্বশীলভাবে ব্যবসা শুরু করার জন্য প্রস্তুত করা। আমরা চাই, দর্শকরা শুধু তথ্য পড়বেন না—বাস্তব জীবনে কাজে লাগানোর মতো জ্ঞান অর্জন করবেন।
     </p>
 
-    <h2>Payment and Delivery</h2>
+    <div class="english">
+        <strong>English:</strong>
+        Our mission is to help aspiring entrepreneurs understand online business, develop practical skills, and prepare to start and manage businesses responsibly. We aim to provide knowledge that readers can apply in real life.
+    </div>
+</section>
+
+<section class="section">
+    <h2>১৫. গুরুত্বপূর্ণ সতর্কতা | Important Disclaimer</h2>
+
     <p>
-        Provide convenient payment options and reliable
-        delivery services to your customers.
+        অনলাইন ব্যবসায় লাভের নিশ্চয়তা নেই। ব্যবসা শুরু করার আগে নিজের সামর্থ্য, বাজারের চাহিদা, সম্ভাব্য ঝুঁকি এবং প্রয়োজনীয় আইনগত ও করসংক্রান্ত নিয়ম যাচাই করুন। কোনো সিদ্ধান্ত নেওয়ার আগে যথাযথ গবেষণা করুন।
     </p>
 
-    <h2>Business Promotion</h2>
-    <p>
-        Use websites, Facebook pages, YouTube and digital
-        marketing to promote your products and services.
-    </p>
+    <div class="english">
+        <strong>English:</strong>
+        Online business does not guarantee profit. Before starting, assess your resources, market demand, and potential risks. Check applicable legal, tax, payment, and platform requirements, and conduct proper research before making business decisions.
+    </div>
+</section>
 
-    <h2>Legal Compliance and Customer Service</h2>
-    <p>
-        Follow applicable business laws and provide
-        responsible customer support.
-    </p>
+<section class="cta">
+    <h2>শিখুন, জানুন, নিজের দক্ষতা বাড়ান</h2>
+    <p>সঠিক জ্ঞান ও পরিকল্পনার মাধ্যমে আপনার ব্যবসায়িক যাত্রা শুরু করুন।</p>
 
-</div>
+    <div class="english">
+        Learn, explore, and improve your skills. Start your business journey with knowledge and careful planning.
+    </div>
+
+    <a href="services.html">আরও শিখুন | Explore More</a>
+</section>
+
+</main>
 
 <footer>
-    <p>© 2026 Rifat Ahmed – All Rights Reserved.</p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+    </div>
+
+    <p>Email: rifatahmedbogra@gmail.com</p>
+
+    <p>© 2026 Md Rifat Ahmed. All Rights Reserved.</p>
+
+    <p>Learn, Explore, Improve Your Skills, and Grow.</p>
+
 </footer>
 
 </body>
