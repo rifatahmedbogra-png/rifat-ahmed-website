@@ -1,186 +1,824 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services - Rifat Ahmed</title>
-<meta name="description" content="Explore the services of Md Rifat Ahmed, including online business guidance, freelancing, digital marketing, technology tips and online income resources.">
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #222;
-}
-header {
-    background: #102a43;
-    color: white;
-    text-align: center;
-    padding: 35px 15px;
-}
-nav {
-    background: #1769aa;
-    text-align: center;
-    padding: 16px;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-main {
-    max-width: 1000px;
-    margin: 35px auto;
-    padding: 20px;
-}
-h2 {
-    color: #1769aa;
-    text-align: center;
-}
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 3px 12px #00000012;
-}
-.card h3 {
-    color: #1769aa;
-}
-footer {
-    background: #102a43;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Services & Learning | Md Rifat Ahmed</title>
+
+    <meta name="description" content="Explore free educational resources and practical learning guides about online income, freelancing, digital marketing, technology, and online business in Bangla and English.">
+
+    <meta name="keywords" content="Online Learning, Online Income, Freelancing, Digital Marketing, Technology, Online Business, Educational Tutorials">
+
+    <meta name="author" content="Md Rifat Ahmed">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #263445;
+            line-height: 1.8;
+        }
+
+        header {
+            background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
+            color: #ffffff;
+            text-align: center;
+            padding: 48px 20px;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            font-size: 17px;
+            color: #e5f4ff;
+        }
+
+        .tagline {
+            margin-top: 12px;
+            font-weight: bold;
+            color: #ffe08a;
+        }
+
+        nav {
+            background: #102a43;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 12px 10px;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #2196c8;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 0 18px;
+        }
+
+        .section {
+            background: #ffffff;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #2196c8;
+        }
+
+        .section h2 {
+            color: #123b60;
+            font-size: 23px;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5edf5;
+        }
+
+        .section h3 {
+            color: #1769aa;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .english {
+            color: #526477;
+            font-size: 15px;
+            padding-left: 14px;
+            border-left: 2px solid #d5e5f2;
+            margin-top: 10px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .topic-card {
+            background: #f5f9fd;
+            border: 1px solid #e1ebf4;
+            border-radius: 10px;
+            padding: 22px;
+            transition: 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(20, 75, 120, 0.10);
+            border-color: #2196c8;
+        }
+
+        .topic-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .topic-card p {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .topic-card ul {
+            padding-left: 22px;
+            margin-bottom: 15px;
+        }
+
+        .topic-card li {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .english-list {
+            color: #526477;
+        }
+
+        .step-list {
+            padding-left: 25px;
+            margin-top: 15px;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+        }
+
+        .highlight-box {
+            background: #edf7ff;
+            border: 1px solid #d5e9fa;
+            border-radius: 10px;
+            padding: 22px;
+            margin-top: 15px;
+        }
+
+        .highlight-box h3 {
+            color: #1769aa;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #102a43, #1769aa);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .contact-box p {
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: #ffe08a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #071d35;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: #dceeff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #ffe08a;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .copyright {
+            color: #b8c9d9;
+        }
+
+        @media (max-width: 650px) {
+
+            header {
+                padding: 35px 15px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            nav {
+                gap: 4px;
+            }
+
+            nav a {
+                padding: 7px 10px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 12px;
+            }
+
+            .section {
+                padding: 20px 17px;
+                margin-bottom: 18px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .section h3 {
+                font-size: 17px;
+            }
+
+            .section p {
+                font-size: 15px;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .topic-card {
+                padding: 17px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+<!-- Header -->
+
 <header>
-<h1>RIFAT AHMED</h1>
-<p>Personal & Online Business</p>
+    <h1>MD RIFAT AHMED</h1>
+
+    <p>Personal & Online Business</p>
+
+    <p class="tagline">
+        শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।
+        <br>
+        Learn, Explore, Improve Your Skills, and Grow.
+    </p>
 </header>
 
+<!-- Navigation -->
+
 <nav>
-<a href="index.html">Home</a>
-<a href="about.html">About Me</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
-<main>
-<h2>আমাদের সেবা ও তথ্য</h2>
+<main class="container">
 
-<div class="cards">
+    <!-- Introduction -->
 
-<div class="card">
-<h3>
-    <a href="online-income.html" style="color:#1769aa; text-decoration:none;">
-        অনলাইন আয় (Online Income)
-    </a>
-</h3>
+    <section class="section">
 
-<p>ঘরে বসে অনলাইনে আয় করার বিভিন্ন পদ্ধতি সম্পর্কে জানুন।</p>
+        <h2>আমাদের সেবাসমূহ ও শিক্ষার সুযোগ | Our Services & Learning Opportunities</h2>
 
-<p>
-    <a href="online-income.html" style="color:green; font-weight:bold;">
-        বিস্তারিত পড়ুন | Read More →
-    </a>
-</p>
-</div>
+        <h3>আসসালামু আলাইকুম! স্বাগতম আমাদের শিক্ষামূলক প্ল্যাটফর্মে।</h3>
 
-<div class="card">
-<h3>
-    <a href="freelancing.html" style="color:#1769aa; text-decoration:none;">
-        ফ্রিল্যান্সিং (Freelancing)
-    </a>
-</h3>
+        <p>
+            Md Rifat Ahmed – Personal & Online Business-এ
+            আপনাকে স্বাগতম। এটি এমন একটি তথ্যভিত্তিক ও
+            শিক্ষামূলক প্ল্যাটফর্ম, যেখানে প্রযুক্তি,
+            অনলাইন আয়, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং
+            এবং অনলাইন ব্যবসা সম্পর্কে সহজ ভাষায়
+            শেখার সুযোগ তৈরি করা হয়েছে।
+        </p>
 
-<p>ফ্রিল্যান্সিং শেখা এবং অনলাইনে কাজ শুরু করার নির্দেশনা।</p>
+        <p>
+            আমাদের উদ্দেশ্য শুধু তথ্য প্রকাশ করা নয়;
+            বরং নতুনদের জন্য প্রয়োজনীয় জ্ঞান, ব্যবহারিক
+            নির্দেশনা এবং ধাপে ধাপে শেখার উপকরণ তুলে ধরা,
+            যাতে পাঠকরা নিজেদের দক্ষতা উন্নত করতে পারেন।
+        </p>
 
-<p>
-    <a href="freelancing.html" style="color:green; font-weight:bold;">
-        বিস্তারিত পড়ুন | Read More →
-    </a>
-</p>
-</div>
+        <h3>Welcome to Our Educational Platform!</h3>
 
-<div class="card">
-<h3>
-    <a href="digital-marketing.html" style="color:#1769aa; text-decoration:none;">
-        ডিজিটাল মার্কেটিং (Digital Marketing)
-    </a>
-</h3>
+        <p class="english">
+            Welcome to Md Rifat Ahmed – Personal & Online
+            Business. This is an informative and educational
+            platform designed to help visitors learn about
+            technology, online income, freelancing, digital
+            marketing, and online business.
+        </p>
 
-<p>ডিজিটাল মার্কেটিং ও অনলাইন প্রচার সম্পর্কে প্রয়োজনীয় তথ্য।</p>
+        <p class="english">
+            Our purpose is not just to share information
+            but also to provide useful knowledge, practical
+            guidance, and step-by-step learning resources
+            that can help visitors improve their skills.
+        </p>
 
-<p>
-    <a href="digital-marketing.html" style="color:green; font-weight:bold;">
-        বিস্তারিত পড়ুন | Read More →
-    </a>
-</p>
-</div>
+    </section>
 
-<div class="card">
-<h3>
-    <a href="technology.html" style="color:#1769aa; text-decoration:none;">
-        প্রযুক্তি বিষয়ক তথ্য (Technology Tips)
-    </a>
-</h3>
+    <!-- Learning Categories -->
 
-<p>মোবাইল, কম্পিউটার ও ইন্টারনেট ব্যবহারের সহজ টিপস।</p>
+    <section class="section">
 
-<p>
-    <a href="technology.html" style="color:green; font-weight:bold;">
-        বিস্তারিত পড়ুন | Read More →
-    </a>
-</p>
-</div>
+        <h2>আমাদের শিক্ষার বিভাগসমূহ | Our Learning Categories</h2>
 
-<div class="card">
-<h3>
-    <a href="online-business.html" style="color:#1769aa; text-decoration:none;">
-        অনলাইন ব্যবসা (Online Business)
-    </a>
-</h3>
+        <div class="topic-grid">
 
-<p>অনলাইন ব্যবসা শুরু ও পরিচালনা সম্পর্কে পরামর্শ।</p>
+            <!-- Online Income -->
 
-<p>
-    <a href="online-business.html" style="color:green; font-weight:bold;">
-        বিস্তারিত পড়ুন | Read More →
-    </a>
-</p>
-</div>
+            <div class="topic-card">
 
-<div class="card">
-<h3>
-    <a href="education.html" style="color:#1769aa; text-decoration:none;">
-        শিক্ষামূলক কনটেন্ট (Educational Content)
-    </a>
-</h3>
+                <h3>১. অনলাইন আয় শিক্ষা | Online Income Learning</h3>
 
-<p>নতুন দক্ষতা শেখার জন্য প্রয়োজনীয় তথ্য ও নির্দেশনা।</p>
+                <p><strong>আপনি যা শিখবেন:</strong></p>
 
-<p>
-    <a href="education.html" style="color:green; font-weight:bold;">
-        বিস্তারিত পড়ুন | Read More →
-    </a>
-</p>
-</div>
+                <ul>
+                    <li>অনলাইন আয়ের ধারণা ও কাজের ক্ষেত্র।</li>
+                    <li>নতুনদের জন্য উপযুক্ত কাজ নির্বাচন।</li>
+                    <li>প্রয়োজনীয় দক্ষতা ও প্রস্তুতি।</li>
+                    <li>অনলাইন কাজ খোঁজার পদ্ধতি।</li>
+                    <li>অনলাইন প্রতারণা শনাক্ত করার উপায়।</li>
+                    <li>নিরাপদে অনলাইন কাজ করার নিয়ম।</li>
+                </ul>
 
-</div>
+                <p class="english">
+                    <strong>What You Will Learn:</strong>
+                </p>
+
+                <ul class="english-list">
+                    <li>Understanding online income opportunities.</li>
+                    <li>Choosing suitable work as a beginner.</li>
+                    <li>Essential skills and preparation.</li>
+                    <li>How to find online work.</li>
+                    <li>Identifying common online scams.</li>
+                    <li>Online work safety practices.</li>
+                </ul>
+
+            </div>
+
+            <!-- Freelancing -->
+
+            <div class="topic-card">
+
+                <h3>২. ফ্রিল্যান্সিং শিক্ষা | Freelancing Education</h3>
+
+                <p><strong>আপনি যা শিখবেন:</strong></p>
+
+                <ul>
+                    <li>ফ্রিল্যান্সিং কী এবং কীভাবে কাজ করে।</li>
+                    <li>প্রয়োজনীয় দক্ষতা নির্বাচন।</li>
+                    <li>Data Entry ও Web Research-এর ধারণা।</li>
+                    <li>Fiverr ও Upwork সম্পর্কে পরিচিতি।</li>
+                    <li>প্রফেশনাল প্রোফাইল তৈরি।</li>
+                    <li>Proposal লেখার প্রাথমিক পদ্ধতি।</li>
+                    <li>ক্লায়েন্টের সঙ্গে যোগাযোগ।</li>
+                    <li>কাজ জমা দেওয়ার পদ্ধতি।</li>
+                </ul>
+
+                <p class="english">
+                    <strong>What You Will Learn:</strong>
+                </p>
+
+                <ul class="english-list">
+                    <li>What freelancing is and how it works.</li>
+                    <li>Choosing essential skills.</li>
+                    <li>Introduction to Data Entry and Web Research.</li>
+                    <li>Understanding Fiverr and Upwork.</li>
+                    <li>Creating a professional profile.</li>
+                    <li>Writing basic proposals.</li>
+                    <li>Communicating with clients.</li>
+                    <li>Delivering freelance projects.</li>
+                </ul>
+
+            </div>
+
+            <!-- Digital Marketing -->
+
+            <div class="topic-card">
+
+                <h3>৩. ডিজিটাল মার্কেটিং শিক্ষা | Digital Marketing Education</h3>
+
+                <p><strong>আপনি যা শিখবেন:</strong></p>
+
+                <ul>
+                    <li>ডিজিটাল মার্কেটিংয়ের মৌলিক ধারণা।</li>
+                    <li>Facebook Page তৈরি ও পরিচালনা।</li>
+                    <li>সোশ্যাল মিডিয়া মার্কেটিং।</li>
+                    <li>কনটেন্ট পরিকল্পনা ও তৈরি।</li>
+                    <li>SEO-এর প্রাথমিক ধারণা।</li>
+                    <li>ওয়েবসাইটের কনটেন্ট উন্নয়ন।</li>
+                    <li>অনলাইন ব্র্যান্ড তৈরি ও প্রচার।</li>
+                </ul>
+
+                <p class="english">
+                    <strong>What You Will Learn:</strong>
+                </p>
+
+                <ul class="english-list">
+                    <li>Digital marketing fundamentals.</li>
+                    <li>Creating and managing Facebook Pages.</li>
+                    <li>Social media marketing.</li>
+                    <li>Content planning and creation.</li>
+                    <li>Introduction to SEO.</li>
+                    <li>Improving website content.</li>
+                    <li>Building and promoting an online brand.</li>
+                </ul>
+
+            </div>
+
+            <!-- Technology -->
+
+            <div class="topic-card">
+
+                <h3>৪. প্রযুক্তি শিক্ষা | Technology Education</h3>
+
+                <p><strong>আপনি যা শিখবেন:</strong></p>
+
+                <ul>
+                    <li>কম্পিউটার ব্যবহারের প্রাথমিক নিয়ম।</li>
+                    <li>Windows অপারেটিং সিস্টেম।</li>
+                    <li>Microsoft Word ও Excel।</li>
+                    <li>ইন্টারনেট ও ইমেইল ব্যবহার।</li>
+                    <li>সফটওয়্যার ইনস্টল ও ব্যবহার।</li>
+                    <li>মোবাইল ও কম্পিউটারের সেটিংস।</li>
+                    <li>অনলাইন নিরাপত্তা ও গোপনীয়তা।</li>
+                    <li>প্রাথমিক প্রযুক্তিগত সমস্যা সমাধান।</li>
+                </ul>
+
+                <p class="english">
+                    <strong>What You Will Learn:</strong>
+                </p>
+
+                <ul class="english-list">
+                    <li>Basic computer operation.</li>
+                    <li>Understanding Windows.</li>
+                    <li>Using Microsoft Word and Excel.</li>
+                    <li>Internet and email basics.</li>
+                    <li>Installing and using software.</li>
+                    <li>Mobile and computer settings.</li>
+                    <li>Online safety and privacy.</li>
+                    <li>Basic troubleshooting.</li>
+                </ul>
+
+            </div>
+
+            <!-- Online Business -->
+
+            <div class="topic-card">
+
+                <h3>৫. অনলাইন ব্যবসা শিক্ষা | Online Business Education</h3>
+
+                <p><strong>আপনি যা শিখবেন:</strong></p>
+
+                <ul>
+                    <li>অনলাইন ব্যবসার প্রাথমিক ধারণা।</li>
+                    <li>ব্যবসার পরিকল্পনা ও প্রস্তুতি।</li>
+                    <li>পণ্য নির্বাচন ও বাজার বিশ্লেষণ।</li>
+                    <li>অনলাইনে পণ্য বা সেবা উপস্থাপন।</li>
+                    <li>Facebook ও ওয়েবসাইটের মাধ্যমে ব্যবসা।</li>
+                    <li>গ্রাহকের সঙ্গে যোগাযোগ।</li>
+                    <li>ব্যবসার হিসাব ও ব্যবস্থাপনা।</li>
+                    <li>ব্যবসায়িক ঝুঁকি ও সতর্কতা।</li>
+                </ul>
+
+                <p class="english">
+                    <strong>What You Will Learn:</strong>
+                </p>
+
+                <ul class="english-list">
+                    <li>Fundamentals of online business.</li>
+                    <li>Business planning and preparation.</li>
+                    <li>Product selection and market research.</li>
+                    <li>Presenting products and services online.</li>
+                    <li>Managing business through Facebook and websites.</li>
+                    <li>Customer communication.</li>
+                    <li>Basic accounting and management.</li>
+                    <li>Business risks and precautions.</li>
+                </ul>
+
+            </div>
+
+            <!-- Educational Tutorials -->
+
+            <div class="topic-card">
+
+                <h3>৬. শিক্ষামূলক টিউটোরিয়াল | Educational Tutorials</h3>
+
+                <p><strong>আপনি যা শিখবেন:</strong></p>
+
+                <ul>
+                    <li>ধাপে ধাপে শেখার নির্দেশনা।</li>
+                    <li>ব্যবহারিক কাজের উদাহরণ।</li>
+                    <li>প্রয়োজনীয় ওয়েবসাইট ও অনলাইন টুল।</li>
+                    <li>নতুন সফটওয়্যার ও ডিজিটাল টুল।</li>
+                    <li>ছবি ও স্ক্রিনশটের মাধ্যমে শিক্ষা।</li>
+                    <li>নিজের দক্ষতা যাচাই ও উন্নয়ন।</li>
+                </ul>
+
+                <p class="english">
+                    <strong>What You Will Learn:</strong>
+                </p>
+
+                <ul class="english-list">
+                    <li>Step-by-step learning guides.</li>
+                    <li>Practical examples and exercises.</li>
+                    <li>Useful websites and online tools.</li>
+                    <li>New software and digital tools.</li>
+                    <li>Learning through images and screenshots.</li>
+                    <li>Evaluating and improving your skills.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Learning Method -->
+
+    <section class="section">
+
+        <h2>কীভাবে শিখবেন? | How to Learn</h2>
+
+        <p>
+            আমরা চাই প্রত্যেক পাঠক নিজের সুবিধা অনুযায়ী
+            সহজভাবে শিখতে পারেন। তাই আমাদের শিক্ষামূলক
+            কনটেন্ট ধাপে ধাপে সাজানোর পরিকল্পনা রয়েছে।
+        </p>
+
+        <h3>শেখার পদ্ধতি</h3>
+
+        <ol class="step-list">
+            <li>প্রথমে বিষয়টির প্রাথমিক ধারণা জানুন।</li>
+            <li>এরপর বিস্তারিত নির্দেশনা পড়ুন।</li>
+            <li>বাস্তব উদাহরণ অনুসরণ করুন।</li>
+            <li>প্রয়োজনীয় টুল বা ওয়েবসাইট ব্যবহার করে অনুশীলন করুন।</li>
+            <li>শেখা বিষয়টি নিজের কাজে প্রয়োগ করার চেষ্টা করুন।</li>
+        </ol>
+
+        <h3>Our Learning Approach</h3>
+
+        <p class="english">
+            We aim to organize learning resources so that
+            every visitor can learn at their own pace.
+        </p>
+
+        <ol class="step-list english">
+            <li>Start with the basic concepts.</li>
+            <li>Read the detailed instructions.</li>
+            <li>Follow practical examples.</li>
+            <li>Practice using relevant tools or websites.</li>
+            <li>Apply what you have learned in real situations.</li>
+        </ol>
+
+    </section>
+
+    <!-- Free Learning -->
+
+    <section class="section">
+
+        <h2>বিনামূল্যে শিক্ষার সুযোগ | Free Learning Resources</h2>
+
+        <div class="highlight-box">
+
+            <h3>সবার জন্য শেখার সুযোগ</h3>
+
+            <p>
+                আমাদের ওয়েবসাইটে প্রকাশিত সাধারণ
+                শিক্ষামূলক আর্টিকেল, গাইড ও টিউটোরিয়াল
+                পাঠকদের জন্য সহজে উন্মুক্ত রাখার লক্ষ্য রয়েছে।
+            </p>
+
+            <p>
+                আমরা চাই নতুন ও অভিজ্ঞ—সব ধরনের পাঠক
+                প্রয়োজনীয় তথ্য পড়তে এবং নিজেদের জ্ঞান
+                উন্নত করতে পারেন।
+            </p>
+
+            <h3>Learning Opportunities for Everyone</h3>
+
+            <p class="english">
+                Our goal is to make general educational
+                articles, guides, and tutorials easily
+                accessible to visitors.
+            </p>
+
+            <p class="english">
+                We want both beginners and experienced
+                learners to have opportunities to explore
+                useful information and improve their knowledge.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Content Quality -->
+
+    <section class="section">
+
+        <h2>আমাদের কনটেন্টের মান ও দায়িত্বশীলতা | Content Quality & Responsibility</h2>
+
+        <p>
+            আমরা চেষ্টা করি তথ্য সহজ, পরিষ্কার,
+            নির্ভরযোগ্য এবং ব্যবহারিকভাবে উপস্থাপন করতে।
+            প্রয়োজন অনুযায়ী তথ্য যাচাই, নির্ভরযোগ্য উৎস
+            অনুসরণ এবং কনটেন্ট হালনাগাদ করার বিষয়কে
+            গুরুত্ব দেওয়া হয়।
+        </p>
+
+        <p>
+            শিক্ষামূলক কনটেন্ট থেকে পাওয়া জ্ঞান বাস্তবে
+            প্রয়োগ করার আগে পাঠকদের নিজেদের প্রয়োজন
+            ও পরিস্থিতি বিবেচনা করা উচিত।
+        </p>
+
+        <p class="english">
+            We aim to present information in a clear,
+            practical, and responsible manner. We value
+            information verification, reliable sources,
+            and updating content when necessary.
+        </p>
+
+        <p class="english">
+            Before applying information in real situations,
+            visitors should consider their own needs
+            and circumstances.
+        </p>
+
+    </section>
+
+    <!-- Disclaimer -->
+
+    <section class="section">
+
+        <h2>গুরুত্বপূর্ণ ঘোষণা | Important Disclaimer</h2>
+
+        <p>
+            এই ওয়েবসাইটের শিক্ষামূলক কনটেন্ট সাধারণ
+            তথ্য ও দক্ষতা উন্নয়নের উদ্দেশ্যে প্রকাশ করা হয়।
+            কোনো নির্দিষ্ট চাকরি, ফ্রিল্যান্সিং কাজ,
+            অনলাইন আয় বা ব্যবসায়িক সাফল্যের নিশ্চয়তা
+            দেওয়া হয় না।
+        </p>
+
+        <p>
+            সাফল্য ব্যক্তির দক্ষতা, অভিজ্ঞতা, প্রচেষ্টা
+            এবং বাস্তব পরিস্থিতির ওপর নির্ভর করে।
+        </p>
+
+        <p class="english">
+            The educational content on this website is
+            provided for general information and skill
+            development purposes. We do not guarantee
+            any specific job, freelance project, online
+            income, or business success.
+        </p>
+
+        <p class="english">
+            Results depend on individual skills,
+            experience, effort, and real-world circumstances.
+        </p>
+
+    </section>
+
+    <!-- Learning Journey -->
+
+    <section class="section">
+
+        <h2>আপনার শেখার যাত্রা শুরু করুন | Start Your Learning Journey</h2>
+
+        <p>
+            নতুন কিছু শেখার আগ্রহই দক্ষতা উন্নয়নের
+            প্রথম ধাপ। আপনার পছন্দের বিষয় নির্বাচন করুন,
+            প্রয়োজনীয় গাইড পড়ুন এবং ধীরে ধীরে নিজের
+            জ্ঞান ও দক্ষতা বাড়িয়ে তুলুন।
+        </p>
+
+        <p class="english">
+            The desire to learn something new is the first
+            step toward developing skills. Choose a topic
+            that interests you, explore the available guides,
+            and gradually improve your knowledge and abilities.
+        </p>
+
+        <h3 style="text-align:center; margin-top:25px;">
+            শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।
+        </h3>
+
+        <h3 style="text-align:center;">
+            Learn, Explore, Improve Your Skills, and Grow.
+        </h3>
+
+    </section>
+
+    <!-- Contact -->
+
+    <section class="contact-box">
+
+        <h2>যোগাযোগ করুন | Contact Us</h2>
+
+        <p>
+            আপনার কোনো প্রশ্ন, পরামর্শ বা মতামত থাকলে
+            আমাদের সঙ্গে যোগাযোগ করতে পারেন।
+        </p>
+
+        <p class="english">
+            If you have any questions, suggestions,
+            or feedback, feel free to contact us.
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:rifatahmedbogra@gmail.com">
+                rifatahmedbogra@gmail.com
+            </a>
+        </p>
+
+    </section>
+
 </main>
 
+<!-- Footer -->
+
 <footer>
-<p>© 2026 Rifat Ahmed. All Rights Reserved.</p>
+
+    <div class="footer-links">
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+
+    </div>
+
+    <p>
+        Email: rifatahmedbogra@gmail.com
+    </p>
+
+    <p class="copyright">
+        © 2026 Md Rifat Ahmed. All Rights Reserved.
+    </p>
+
 </footer>
 
 </body>
