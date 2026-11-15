@@ -3,247 +3,528 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ডিজিটাল মার্কেটিং | Digital Marketing - Rifat Ahmed</title>
-<meta name="description" content="ডিজিটাল মার্কেটিং, SEO, সোশ্যাল মিডিয়া মার্কেটিং, কনটেন্ট মার্কেটিং এবং অনলাইনে ব্যবসা প্রচারের কৌশল শিখুন Md Rifat Ahmed-এর ওয়েবসাইটে।">
+
+<meta name="description" content="ডিজিটাল মার্কেটিং শিখুন বাংলায় ও ইংরেজিতে। SEO, Social Media Marketing, Content Marketing, Email Marketing এবং প্রয়োজনীয় টুলস সম্পর্কে জানুন।">
+<meta name="keywords" content="Digital Marketing, SEO, Social Media Marketing, Content Marketing, Online Marketing, Digital Marketing Bangla">
+<meta name="author" content="Md Rifat Ahmed">
+<meta name="robots" content="index, follow">
+
 <style>
-* { box-sizing: border-box; }
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #263238;
+    background: #f3f6fa;
+    color: #263445;
     line-height: 1.8;
 }
+
 header {
-    background: #102a43;
+    background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
     color: white;
     text-align: center;
-    padding: 25px 10px;
+    padding: 45px 20px;
 }
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+    color: #e7f4ff;
+}
+
 nav {
-    background: #1769aa;
+    background: #102a43;
     text-align: center;
-    padding: 12px;
+    padding: 14px 10px;
 }
+
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
+    margin: 6px 10px;
+    font-size: 15px;
+    display: inline-block;
 }
+
+nav a:hover {
+    color: #f0c040;
+}
+
 .container {
-    max-width: 950px;
-    margin: 25px auto;
-    padding: 20px;
+    max-width: 1050px;
+    margin: 30px auto;
+    padding: 0 18px;
 }
-section {
+
+.section {
     background: white;
-    padding: 22px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px #ddd;
+    padding: 27px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.06);
 }
-h2 { color: #1769aa; }
-h3 { color: #102a43; }
+
+.section h2 {
+    color: #1769aa;
+    font-size: 23px;
+    margin-bottom: 13px;
+    border-bottom: 2px solid #e6eff8;
+    padding-bottom: 8px;
+}
+
+.section h3 {
+    color: #102a43;
+    font-size: 19px;
+    margin: 17px 0 7px;
+}
+
+.section p {
+    margin-bottom: 10px;
+}
+
 .english {
-    color: #52616b;
-    font-style: italic;
+    color: #526477;
+    background: #f5f8fc;
+    padding: 12px 15px;
+    border-left: 3px solid #2196c8;
+    border-radius: 5px;
+    margin: 10px 0 16px;
 }
-footer {
-    background: #102a43;
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.topic-card {
+    background: #f5f9fd;
+    padding: 17px;
+    border-radius: 9px;
+    border: 1px solid #e1ebf5;
+}
+
+.topic-card h3 {
+    color: #1769aa;
+    margin-top: 0;
+}
+
+.topic-card p {
+    font-size: 15px;
+}
+
+.notice {
+    background: #fff8e7;
+    border-left: 4px solid #e5a900;
+    padding: 17px;
+    border-radius: 7px;
+    margin-top: 12px;
+}
+
+.section ul,
+.section ol {
+    padding-left: 24px;
+    margin: 10px 0;
+}
+
+.section li {
+    margin-bottom: 7px;
+}
+
+.cta {
+    background: linear-gradient(135deg, #102a43, #1769aa);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.cta h2 {
+    margin-bottom: 10px;
+}
+
+.cta p {
+    color: #e7f4ff;
+}
+
+.cta a {
+    display: inline-block;
+    background: #f0c040;
+    color: #102a43;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+footer {
+    background: #071d35;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+    margin-top: 35px;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #e7f4ff;
+    text-decoration: none;
+    margin: 5px 9px;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #f0c040;
+}
+
+footer p {
+    margin: 7px 0;
+}
+
+.copyright {
+    color: #b9c9d9;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 19px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    nav a {
+        margin: 5px 7px;
+        font-size: 14px;
+    }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-    <h1>RIFAT AHMED</h1>
-    <p>Personal & Online Business</p>
-    <p>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন</p>
+    <h1>ডিজিটাল মার্কেটিং | Digital Marketing</h1>
+    <p>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।</p>
+    <p>Learn, Explore, Improve Your Skills, and Grow.</p>
 </header>
 
 <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Me</a>
     <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <a href="online-income.html">Online Income</a>
+    <a href="freelancing.html">Freelancing</a>
+    <a href="digital-marketing.html">Digital Marketing</a>
 </nav>
 
-<div class="container">
+<main class="container">
 
-<section>
-<h2>ডিজিটাল মার্কেটিং কী? | What is Digital Marketing?</h2>
+<section class="section">
+<h2>১. ডিজিটাল মার্কেটিং কী? | What Is Digital Marketing?</h2>
+
 <p>
-ডিজিটাল মার্কেটিং হলো ইন্টারনেট ও ডিজিটাল প্রযুক্তি ব্যবহার করে
-কোনো পণ্য, সেবা বা প্রতিষ্ঠানের প্রচার-প্রচারণা করার পদ্ধতি।
-বর্তমানে ব্যবসার প্রসার, নতুন ক্রেতা খুঁজে পাওয়া এবং
-ব্র্যান্ড পরিচিতি তৈরিতে ডিজিটাল মার্কেটিং গুরুত্বপূর্ণ।
+ডিজিটাল মার্কেটিং হলো ইন্টারনেট ও ডিজিটাল প্রযুক্তি ব্যবহার করে কোনো পণ্য, সেবা, ব্যবসা বা প্রতিষ্ঠানের প্রচার ও প্রসারের পদ্ধতি। বর্তমানে Facebook, YouTube, Google, Website এবং অন্যান্য অনলাইন প্ল্যাটফর্মের মাধ্যমে ডিজিটাল মার্কেটিং করা হয়।
 </p>
+
 <p class="english">
-Digital marketing is the process of promoting products,
-services or businesses through the internet and digital
-technologies. It helps businesses reach customers and
-build brand awareness.
+Digital marketing is the process of promoting products, services, businesses, or organizations using the internet and digital technologies. Businesses use platforms such as Facebook, YouTube, Google, websites, and other online channels to reach their audiences.
 </p>
 </section>
 
-<section>
-<h2>ডিজিটাল মার্কেটিংয়ের প্রধান প্রকারভেদ</h2>
-<p class="english">Major Types of Digital Marketing</p>
+<section class="section">
+<h2>২. ডিজিটাল মার্কেটিং কেন গুরুত্বপূর্ণ? | Why Is It Important?</h2>
 
-<h3>১. সোশ্যাল মিডিয়া মার্কেটিং | Social Media Marketing</h3>
 <p>
-Facebook, Instagram, LinkedIn ও অন্যান্য সামাজিক যোগাযোগমাধ্যমে
-পণ্য বা সেবার প্রচার করাকে সোশ্যাল মিডিয়া মার্কেটিং বলে।
-</p>
-<p class="english">
-Social media marketing promotes products and services through
-platforms such as Facebook, Instagram and LinkedIn.
+বর্তমান সময়ে মানুষ পণ্য বা সেবা সম্পর্কে জানতে ইন্টারনেট ব্যবহার করে। তাই ব্যবসার পরিচিতি বাড়ানো, নতুন গ্রাহক খুঁজে পাওয়া এবং অনলাইনে নিজের অবস্থান তৈরি করার জন্য ডিজিটাল মার্কেটিং গুরুত্বপূর্ণ।
 </p>
 
-<h3>২. সার্চ ইঞ্জিন অপটিমাইজেশন | SEO</h3>
-<p>
-SEO-এর মাধ্যমে ওয়েবসাইটের কনটেন্ট ও কাঠামো উন্নত করা হয়,
-যাতে Google-এর মতো সার্চ ইঞ্জিনে ওয়েবসাইট সহজে খুঁজে পাওয়া যায়।
-</p>
 <p class="english">
-SEO improves website content and structure to help pages
-appear more effectively in search engine results.
-</p>
-
-<h3>৩. কনটেন্ট মার্কেটিং | Content Marketing</h3>
-<p>
-মানসম্মত লেখা, ছবি, ভিডিও ও শিক্ষামূলক তথ্য প্রকাশ করে
-দর্শক ও সম্ভাব্য ক্রেতার আস্থা অর্জন করা হয়।
-</p>
-<p class="english">
-Content marketing uses useful articles, images and videos
-to attract and engage an audience.
-</p>
-
-<h3>৪. ইমেইল মার্কেটিং | Email Marketing</h3>
-<p>
-গ্রাহকের অনুমতি নিয়ে ইমেইলের মাধ্যমে পণ্য, সেবা,
-অফার ও প্রয়োজনীয় তথ্য পাঠানো হয়।
-</p>
-<p class="english">
-Email marketing sends useful updates, offers and information
-to people who have agreed to receive them.
-</p>
-
-<h3>৫. পেইড অ্যাডভার্টাইজিং | Paid Advertising</h3>
-<p>
-Google Ads, Facebook Ads এবং অন্যান্য বিজ্ঞাপন প্ল্যাটফর্মে
-অর্থের বিনিময়ে নির্দিষ্ট মানুষের কাছে বিজ্ঞাপন পৌঁছে দেওয়া হয়।
-</p>
-<p class="english">
-Paid advertising uses platforms such as Google Ads and
-Facebook Ads to reach selected audiences.
-</p>
-
-<h3>৬. ভিডিও মার্কেটিং | Video Marketing</h3>
-<p>
-YouTube, Facebook ও অন্যান্য মাধ্যমে ভিডিও প্রকাশ করে
-পণ্য, সেবা বা প্রতিষ্ঠানের প্রচার করা হয়।
-</p>
-<p class="english">
-Video marketing uses online videos to explain, promote
-and showcase products or services.
+People increasingly use the internet to discover products and services. Digital marketing helps businesses increase visibility, reach potential customers, build trust, and establish a strong online presence.
 </p>
 </section>
 
-<section>
-<h2>ডিজিটাল মার্কেটিং কেন গুরুত্বপূর্ণ?</h2>
-<p class="english">Why is Digital Marketing Important?</p>
-<ul>
-<li>অল্প খরচে অনেক মানুষের কাছে পৌঁছানো যায়।</li>
-<li>নির্দিষ্ট এলাকার বা আগ্রহের মানুষের কাছে বিজ্ঞাপন দেওয়া যায়।</li>
-<li>ব্যবসার পরিচিতি বাড়ানো যায়।</li>
-<li>গ্রাহকের সঙ্গে সরাসরি যোগাযোগ করা যায়।</li>
-<li>বিজ্ঞাপনের ফলাফল পরিমাপ করা যায়।</li>
-</ul>
-<p class="english">
-Digital marketing can help businesses reach targeted audiences,
-build awareness, communicate with customers and measure results.
-</p>
-</section>
+<section class="section">
+<h2>৩. ডিজিটাল মার্কেটিংয়ের প্রধান শাখা | Main Types of Digital Marketing</h2>
 
-<section>
-<h2>নতুনরা কীভাবে শিখবেন?</h2>
-<p class="english">How Can Beginners Learn Digital Marketing?</p>
-<ol>
-<li>প্রথমে ডিজিটাল মার্কেটিংয়ের মৌলিক ধারণা শিখুন।</li>
-<li>Facebook Page তৈরি ও পরিচালনা অনুশীলন করুন।</li>
-<li>কনটেন্ট লেখা ও ছবি তৈরির দক্ষতা বাড়ান।</li>
-<li>SEO-এর প্রাথমিক বিষয়গুলো শিখুন।</li>
-<li>বিজ্ঞাপন পরিচালনার নিয়ম বুঝুন।</li>
-<li>নিজের একটি ছোট প্রকল্পে অনুশীলন করুন।</li>
-</ol>
-<p class="english">
-Learn the basics, practise managing a social media page,
-create content, study SEO and advertising, and apply
-your knowledge to a small project.
-</p>
-</section>
+<div class="topic-grid">
 
-<section>
-<h2>ডিজিটাল মার্কেটিংয়ে কাজের সুযোগ</h2>
-<p class="english">Career Opportunities in Digital Marketing</p>
-<ul>
-<li>Social Media Manager</li>
-<li>SEO Specialist</li>
-<li>Content Marketing Assistant</li>
-<li>Digital Marketing Executive</li>
-<li>Facebook Ads Manager</li>
-<li>Email Marketing Assistant</li>
-</ul>
-<p>
-দক্ষতা ও অভিজ্ঞতা অর্জনের পর বিভিন্ন প্রতিষ্ঠান,
-এজেন্সি অথবা ফ্রিল্যান্সিং মার্কেটপ্লেসে কাজের সুযোগ
-খোঁজা যেতে পারে।
-</p>
-<p class="english">
-With relevant skills and experience, people can seek
-opportunities with businesses, agencies or freelance clients.
-</p>
-</section>
-
-<section>
-<h2>সতর্কতা | Important Warning</h2>
-<p>
-ডিজিটাল মার্কেটিংয়ে সফল হতে শেখা, পরিকল্পনা ও অনুশীলন
-প্রয়োজন। বিজ্ঞাপন চালানোর আগে বাজেট বুঝে নিন।
-নিশ্চিত আয় বা দ্রুত সফলতার প্রতিশ্রুতিতে বিশ্বাস করবেন না।
-</p>
-<p class="english">
-Digital marketing requires learning, planning and practice.
-Understand your budget before running ads and avoid
-unrealistic promises of guaranteed income.
-</p>
-</section>
-
-<section>
-<h2>শেষ কথা | Conclusion</h2>
-<p>
-ডিজিটাল মার্কেটিং বর্তমান সময়ের একটি গুরুত্বপূর্ণ দক্ষতা।
-নিয়মিত শেখা ও বাস্তব অনুশীলনের মাধ্যমে নিজের দক্ষতা
-বাড়িয়ে ব্যবসা বা পেশাগত কাজে এটি ব্যবহার করা সম্ভব।
-</p>
-<p class="english">
-Digital marketing is an important modern skill.
-Continuous learning and practical experience can help
-you use it in business or professional work.
-</p>
-</section>
-
+<div class="topic-card">
+<h3>ক. সোশ্যাল মিডিয়া মার্কেটিং</h3>
+<p>Facebook, Instagram, LinkedIn এবং অন্যান্য সামাজিক যোগাযোগমাধ্যম ব্যবহার করে পণ্য, সেবা বা প্রতিষ্ঠানের প্রচার করাকে সোশ্যাল মিডিয়া মার্কেটিং বলে।</p>
+<p class="english"><strong>Social Media Marketing:</strong> Promoting products, services, or businesses through social media platforms such as Facebook, Instagram, and LinkedIn.</p>
 </div>
 
+<div class="topic-card">
+<h3>খ. সার্চ ইঞ্জিন অপটিমাইজেশন (SEO)</h3>
+<p>SEO হলো ওয়েবসাইটের কনটেন্ট ও কাঠামো উন্নত করার পদ্ধতি, যার মাধ্যমে Google-এর মতো সার্চ ইঞ্জিনে ওয়েবসাইটের দৃশ্যমানতা বাড়ানোর চেষ্টা করা হয়।</p>
+<p class="english"><strong>SEO:</strong> Improving website content and structure to increase visibility in search engines such as Google.</p>
+</div>
+
+<div class="topic-card">
+<h3>গ. সার্চ ইঞ্জিন মার্কেটিং (SEM)</h3>
+<p>সার্চ ইঞ্জিনে বিজ্ঞাপনের মাধ্যমে নির্দিষ্ট পণ্য, সেবা বা ওয়েবসাইটকে মানুষের সামনে তুলে ধরাকে সার্চ ইঞ্জিন মার্কেটিং বলে।</p>
+<p class="english"><strong>SEM:</strong> Using paid search advertising to promote products, services, or websites to relevant audiences.</p>
+</div>
+
+<div class="topic-card">
+<h3>ঘ. কনটেন্ট মার্কেটিং</h3>
+<p>উপকারী আর্টিকেল, ভিডিও, ছবি, গাইড ও অন্যান্য তথ্য তৈরি এবং প্রকাশ করে দর্শকের আগ্রহ ও বিশ্বাস তৈরি করাকে কনটেন্ট মার্কেটিং বলে।</p>
+<p class="english"><strong>Content Marketing:</strong> Creating and sharing useful articles, videos, images, and guides to attract and engage an audience.</p>
+</div>
+
+<div class="topic-card">
+<h3>ঙ. ইমেইল মার্কেটিং</h3>
+<p>ইমেইলের মাধ্যমে গ্রাহকদের কাছে নতুন তথ্য, পণ্য, সেবা, অফার এবং প্রয়োজনীয় আপডেট পৌঁছে দেওয়াকে ইমেইল মার্কেটিং বলে।</p>
+<p class="english"><strong>Email Marketing:</strong> Using email to share updates, product information, offers, and useful content with subscribers and customers.</p>
+</div>
+
+<div class="topic-card">
+<h3>চ. অ্যাফিলিয়েট মার্কেটিং</h3>
+<p>অন্য প্রতিষ্ঠানের পণ্য বা সেবা বিশেষ লিংকের মাধ্যমে প্রচার করে যোগ্য বিক্রয় বা নির্দিষ্ট কার্যক্রম সম্পন্ন হলে কমিশন অর্জনের পদ্ধতিকে অ্যাফিলিয়েট মার্কেটিং বলে।</p>
+<p class="english"><strong>Affiliate Marketing:</strong> Promoting another company's products or services through special links and earning commissions from qualifying purchases or actions.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>৪. ডিজিটাল মার্কেটিং শিখতে কী কী দক্ষতা প্রয়োজন? | Skills You Need</h2>
+
+<p>একজন ভালো ডিজিটাল মার্কেটার হতে হলে কিছু গুরুত্বপূর্ণ দক্ষতা অর্জন করা প্রয়োজন।</p>
+
+<ul>
+<li>কম্পিউটার ও ইন্টারনেট ব্যবহারের দক্ষতা।</li>
+<li>সোশ্যাল মিডিয়া পরিচালনার ধারণা।</li>
+<li>কনটেন্ট লেখা ও তৈরি করার দক্ষতা।</li>
+<li>ছবি ও ভিডিও সম্পাদনার প্রাথমিক জ্ঞান।</li>
+<li>SEO সম্পর্কে ধারণা।</li>
+<li>অনলাইন যোগাযোগ ও গ্রাহকসেবা।</li>
+<li>তথ্য বিশ্লেষণ ও ফলাফল বোঝার ক্ষমতা।</li>
+</ul>
+
+<p class="english"><strong>Skills Needed:</strong></p>
+<ul class="english">
+<li>Basic computer and internet skills.</li>
+<li>Social media management.</li>
+<li>Content writing and creation.</li>
+<li>Basic image and video editing.</li>
+<li>Understanding of SEO.</li>
+<li>Online communication and customer service.</li>
+<li>Data analysis and performance understanding.</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>৫. নতুনরা কীভাবে শুরু করবেন? | How Can Beginners Get Started?</h2>
+
+<p>ডিজিটাল মার্কেটিং শেখার জন্য শুরুতেই সবকিছু শেখার প্রয়োজন নেই। একটি বিষয় নির্বাচন করে ধাপে ধাপে এগিয়ে যেতে পারেন।</p>
+
+<ol>
+<li>প্রথমে ডিজিটাল মার্কেটিং সম্পর্কে মৌলিক ধারণা নিন।</li>
+<li>একটি বিষয় নির্বাচন করুন, যেমন SEO বা Social Media Marketing।</li>
+<li>বিনামূল্যের শিক্ষামূলক রিসোর্স থেকে শিখুন।</li>
+<li>নিজের একটি অনুশীলনমূলক Facebook Page বা Website তৈরি করুন।</li>
+<li>নিয়মিত কনটেন্ট তৈরি ও প্রকাশ করুন।</li>
+<li>ফলাফল পর্যবেক্ষণ করে ভুলগুলো সংশোধন করুন।</li>
+<li>দক্ষতা বাড়লে নিজের কাজের নমুনা বা Portfolio তৈরি করুন।</li>
+</ol>
+
+<p class="english"><strong>Getting Started:</strong></p>
+<ol class="english">
+<li>Learn the basic concepts of digital marketing.</li>
+<li>Choose one area, such as SEO or Social Media Marketing.</li>
+<li>Study using free educational resources.</li>
+<li>Create a practice Facebook Page or website.</li>
+<li>Create and publish content regularly.</li>
+<li>Monitor results and improve your work.</li>
+<li>Build a portfolio as your skills develop.</li>
+</ol>
+</section>
+
+<section class="section">
+<h2>৬. ডিজিটাল মার্কেটিংয়ের প্রয়োজনীয় টুলস | Useful Digital Marketing Tools</h2>
+
+<div class="topic-grid">
+
+<div class="topic-card">
+<h3>Canva</h3>
+<p>ছবি, পোস্ট ও ডিজাইন তৈরি করার জন্য ব্যবহার করা হয়।</p>
+<p class="english">Used for creating images, social media posts, and designs.</p>
+</div>
+
+<div class="topic-card">
+<h3>CapCut</h3>
+<p>ভিডিও সম্পাদনা ও আকর্ষণীয় ভিডিও তৈরি করার জন্য।</p>
+<p class="english">Used for video editing and creating engaging videos.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Analytics</h3>
+<p>ওয়েবসাইটের ভিজিটর ও তাদের কার্যক্রম বিশ্লেষণ করতে সাহায্য করে।</p>
+<p class="english">Helps analyze website visitors and their activities.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Search Console</h3>
+<p>Google Search-এ ওয়েবসাইটের উপস্থিতি ও পারফরম্যান্স পর্যবেক্ষণ করতে সাহায্য করে।</p>
+<p class="english">Helps monitor website visibility and performance in Google Search.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Trends</h3>
+<p>বিভিন্ন বিষয়ের জনপ্রিয়তা ও অনুসন্ধানের প্রবণতা বুঝতে সাহায্য করে।</p>
+<p class="english">Helps understand topic popularity and search trends.</p>
+</div>
+
+<div class="topic-card">
+<h3>Meta Business Suite</h3>
+<p>Facebook ও Instagram-এর কনটেন্ট পরিচালনা করতে সাহায্য করে।</p>
+<p class="english">Helps manage Facebook and Instagram content.</p>
+</div>
+
+<div class="topic-card">
+<h3>Google Keyword Planner</h3>
+<p>কীওয়ার্ড সম্পর্কে ধারণা ও নতুন কীওয়ার্ড খুঁজতে সাহায্য করে।</p>
+<p class="english">Helps discover keyword ideas and explore keyword information.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>৭. ডিজিটাল মার্কেটিং থেকে কি আয় করা যায়? | Can You Earn Through Digital Marketing?</h2>
+
+<p>হ্যাঁ, দক্ষতা ও অভিজ্ঞতা অর্জনের পর ডিজিটাল মার্কেটিংয়ের মাধ্যমে বিভিন্নভাবে কাজের সুযোগ তৈরি হতে পারে।</p>
+
+<ul>
+<li>Freelancing Marketplace-এ কাজ করা।</li>
+<li>ব্যবসা বা প্রতিষ্ঠানের Social Media Page পরিচালনা।</li>
+<li>SEO ও Website Optimization সেবা দেওয়া।</li>
+<li>কনটেন্ট তৈরি ও পরিচালনা।</li>
+<li>ডিজিটাল বিজ্ঞাপন পরিচালনা।</li>
+<li>নিজের অনলাইন ব্যবসার প্রচার করা।</li>
+</ul>
+
+<p class="english">Yes. After developing relevant skills and experience, you may find opportunities in freelancing, social media management, SEO services, content creation, digital advertising, and promoting your own online business.</p>
+
+<div class="notice">
+<strong>মনে রাখবেন:</strong> আয় নিশ্চিত নয়। কাজের দক্ষতা, অভিজ্ঞতা, গ্রাহকের চাহিদা এবং কাজের মানের ওপর সুযোগ নির্ভর করে।
+<p class="english"><strong>Remember:</strong> Income is not guaranteed. Opportunities depend on your skills, experience, client demand, and quality of work.</p>
+</div>
+</section>
+
+<section class="section">
+<h2>৮. নতুনদের জন্য বিনামূল্যে শেখার উৎস | Free Learning Resources</h2>
+
+<p>শুরুতে অর্থ খরচ না করেও অনেক বিষয় শেখা সম্ভব। নিচের শিক্ষামূলক প্ল্যাটফর্মগুলো ব্যবহার করতে পারেন।</p>
+
+<ul>
+<li><a href="https://skillshop.withgoogle.com/" target="_blank" rel="noopener noreferrer">Google Skillshop</a></li>
+<li><a href="https://www.facebook.com/business/learn" target="_blank" rel="noopener noreferrer">Meta Business Learn</a></li>
+<li><a href="https://academy.hubspot.com/" target="_blank" rel="noopener noreferrer">HubSpot Academy</a></li>
+<li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube Educational Videos</a></li>
+<li><a href="https://developers.google.com/search" target="_blank" rel="noopener noreferrer">Google Search Central</a></li>
+</ul>
+
+<p class="english">You can learn many digital marketing topics for free using these educational platforms and resources.</p>
+</section>
+
+<section class="section">
+<h2>৯. ডিজিটাল মার্কেটিংয়ে যেসব ভুল এড়িয়ে চলবেন | Common Mistakes to Avoid</h2>
+
+<ul>
+<li>অন্যের কনটেন্ট অনুমতি ছাড়া কপি করবেন না।</li>
+<li>ভুয়া ফলাফল বা আয় দেখিয়ে মানুষকে বিভ্রান্ত করবেন না।</li>
+<li>অপ্রয়োজনীয় বিজ্ঞাপন দিয়ে দর্শককে বিরক্ত করবেন না।</li>
+<li>ভুয়া ফলোয়ার বা লাইক কেনার চেষ্টা করবেন না।</li>
+<li>যাচাই না করে কোনো তথ্য প্রকাশ করবেন না।</li>
+<li>গ্রাহকের ব্যক্তিগত তথ্যের গোপনীয়তা রক্ষা করুন।</li>
+</ul>
+
+<p class="english">Avoid copying content without permission, making false income claims, excessive advertising, buying fake followers, publishing unverified information, and mishandling customer data.</p>
+</section>
+
+<section class="section">
+<h2>১০. আমাদের শিক্ষামূলক লক্ষ্য | Our Educational Mission</h2>
+
+<p>
+আমাদের লক্ষ্য হলো বাংলা ও ইংরেজি ভাষায় সহজ, পরিষ্কার এবং ব্যবহারিক তথ্যের মাধ্যমে ডিজিটাল মার্কেটিং সম্পর্কে মানুষকে শেখার সুযোগ করে দেওয়া।
+</p>
+
+<p>
+আমরা চাই নতুন শিক্ষার্থীরা শুধু তথ্য পড়েই থেমে না থেকে বাস্তবে অনুশীলন করুক, নিজের দক্ষতা বাড়াক এবং দায়িত্বশীলভাবে অনলাইন জগতে এগিয়ে যাক।
+</p>
+
+<p class="english">
+Our goal is to help people learn digital marketing through simple, clear, and practical information in both Bengali and English. We encourage beginners to practice, improve their skills, and grow responsibly in the digital world.
+</p>
+</section>
+
+<section class="section">
+<h2>গুরুত্বপূর্ণ ঘোষণা | Important Disclaimer</h2>
+
+<p>
+এই ওয়েবসাইটের তথ্য শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে প্রকাশ করা হয়। ডিজিটাল মার্কেটিংয়ে সফলতা বা নির্দিষ্ট পরিমাণ আয় নিশ্চিত নয়। যেকোনো কাজ শুরু করার আগে নিজে যাচাই করে সিদ্ধান্ত নিন।
+</p>
+
+<p class="english">
+The information on this website is provided for educational purposes only. Success or a specific income from digital marketing is not guaranteed. Always do your own research before starting any activity.
+</p>
+</section>
+
+<section class="cta">
+<h2>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।</h2>
+<p>Learn, Explore, Improve Your Skills, and Grow.</p>
+<p>আপনার শেখার যাত্রা শুরু হোক আজ থেকেই।</p>
+<p>Let your learning journey begin today.</p>
+<a href="services.html">Explore More Topics</a>
+</section>
+
+</main>
+
 <footer>
-<p>© 2026 Rifat Ahmed – Personal & Online Business</p>
-<p>Contact: rifatahmedbogra@gmail.com</p>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="about.html">About Me</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+<a href="online-income.html">Online Income</a>
+<a href="freelancing.html">Freelancing</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="terms-and-conditions.html">Terms & Conditions</a>
+</div>
+
+<p>Email: rifatahmedbogra@gmail.com</p>
+
+<p class="copyright">
+© 2026 Md Rifat Ahmed – Personal & Online Business. All Rights Reserved.
+</p>
+
 </footer>
 
 </body>
