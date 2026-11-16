@@ -3,118 +3,832 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Background Effects Studio | Rifat Online Tools</title>
+<meta name="description" content="Rifat AI Photo Studio - Background Remover and Background Effects Tools.">
+<title>Background Effects Studio | Rifat AI Photo Studio</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#071d35;color:#fff}
-header{text-align:center;padding:28px 15px;background:linear-gradient(120deg,#071d35,#1769aa)}
-header img{width:100%;max-width:1000px;border-radius:14px}
-header h1{margin:20px 0 8px;color:#f0c040}
-header p{line-height:1.7}
-nav{text-align:center;padding:15px}
-nav a{display:inline-block;background:#1769aa;color:white;text-decoration:none;padding:11px 22px;border-radius:8px}
-main{max-width:1100px;margin:auto;padding:15px}
-.intro{text-align:center;line-height:1.8;margin:20px 0 30px}
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:#102a43;border:1px solid #1769aa;border-radius:12px;padding:22px;text-align:center}
-.card .symbol{font-size:36px}
-.card h3{color:#f0c040}
-.card p{color:#d7e5f5;line-height:1.6;min-height:48px}
-.status{display:inline-block;background:#35485b;color:#ffe08a;padding:7px 13px;border-radius:20px;font-size:13px}
-.notice{margin:30px 0;background:#102a43;padding:20px;border-left:4px solid #f0c040;border-radius:8px;line-height:1.8}
-footer{text-align:center;padding:25px;color:#cbd9e8;border-top:1px solid #1769aa;line-height:1.8}
+:root {
+  --navy:#071d35;
+  --navy2:#102a43;
+  --blue:#1769aa;
+  --cyan:#2196c8;
+  --gold:#f0c040;
+  --white:#ffffff;
+  --muted:#c7d7e5;
+  --line:rgba(255,255,255,.15);
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  color:var(--white);
+  background:linear-gradient(135deg,var(--navy),var(--navy2),#123d60);
+  min-height:100vh;
+}
+
+.wrap {
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+header {
+  padding:25px 0;
+  background:
+    linear-gradient(120deg,rgba(7,29,53,.96),rgba(23,105,170,.85)),
+    url("../tools-cover.png") center/cover;
+  border-bottom:1px solid var(--line);
+}
+
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.brand {
+  font-size:26px;
+  font-weight:800;
+}
+
+.brand span {
+  color:var(--gold);
+}
+
+nav {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+nav a {
+  text-decoration:none;
+  color:white;
+  padding:10px 15px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:rgba(255,255,255,.08);
+}
+
+.hero {
+  text-align:center;
+  padding:38px 0 15px;
+}
+
+.hero h1 {
+  font-size:clamp(27px,5vw,42px);
+  margin:12px 0;
+}
+
+.hero p {
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.gold {
+  color:var(--gold);
+  font-weight:bold;
+}
+
+main {
+  padding:35px 0 55px;
+}
+
+.section-title {
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.section-title small {
+  display:block;
+  color:var(--muted);
+  margin-top:8px;
+  font-weight:normal;
+}
+
+.tools-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
+  gap:18px;
+}
+
+.card {
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:22px;
+  box-shadow:0 12px 28px rgba(0,0,0,.13);
+}
+
+.card.primary {
+  grid-column:1/-1;
+  border-color:rgba(240,192,64,.65);
+  background:linear-gradient(135deg,rgba(23,105,170,.3),rgba(255,255,255,.08));
+}
+
+.card h3 {
+  margin:8px 0;
+  font-size:19px;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+}
+
+.en {
+  display:block;
+  font-size:12px;
+  opacity:.85;
+  margin-top:4px;
+}
+
+.icon {
+  font-size:30px;
+}
+
+.pill {
+  display:inline-block;
+  background:var(--gold);
+  color:#172b3d;
+  font-size:11px;
+  font-weight:bold;
+  padding:6px 11px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+
+button,.btn {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  padding:12px 17px;
+  border:0;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  color:white;
+  font-weight:bold;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:14px;
+}
+
+button:hover,.btn:hover {
+  filter:brightness(1.1);
+}
+
+button:disabled {
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+.secondary {
+  background:rgba(255,255,255,.12);
+  border:1px solid var(--line);
+}
+
+.upload-area {
+  margin-top:15px;
+  padding:17px;
+  border:1px dashed rgba(255,255,255,.35);
+  border-radius:13px;
+  background:rgba(0,0,0,.12);
+}
+
+input[type=file] {
+  display:block;
+  width:100%;
+  color:var(--muted);
+  margin-bottom:15px;
+}
+
+.button-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.status {
+  margin-top:15px;
+  min-height:24px;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.status.error {
+  color:#fecaca;
+}
+
+.status.success {
+  color:#a7f3d0;
+}
+
+.preview-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
+
+.preview-box {
+  background:rgba(0,0,0,.18);
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:13px;
+}
+
+.preview-box h4 {
+  margin:0 0 12px;
+  font-size:14px;
+}
+
+.preview-box img {
+  width:100%;
+  max-height:360px;
+  object-fit:contain;
+  display:block;
+  border-radius:8px;
+  background-color:#e7edf3;
+  background-image:
+    linear-gradient(45deg,#d4dce4 25%,transparent 25%),
+    linear-gradient(-45deg,#d4dce4 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#d4dce4 75%),
+    linear-gradient(-45deg,transparent 75%,#d4dce4 75%);
+  background-size:20px 20px;
+  background-position:0 0,0 10px,10px -10px,-10px 0;
+}
+
+.notice {
+  margin-top:17px;
+  padding:13px;
+  border-radius:11px;
+  background:rgba(240,192,64,.1);
+  border:1px solid rgba(240,192,64,.35);
+  color:#ffedb0;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.hidden {
+  display:none!important;
+}
+
+footer {
+  border-top:1px solid var(--line);
+  padding:24px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+@media(max-width:600px) {
+  .topbar {
+    justify-content:center;
+    text-align:center;
+  }
+
+  nav {
+    justify-content:center;
+  }
+
+  .card.primary {
+    grid-column:auto;
+  }
+
+  .button-row button {
+    width:100%;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<img src="tools-cover.png" alt="Rifat Online Tools & Documents Cover">
-<h1>Background Effects Studio</h1>
-<p>ব্যাকগ্রাউন্ড পরিবর্তন, ডিজাইন ও বিভিন্ন ইফেক্ট শিখুন</p>
-<p>Learn Background Editing & Creative Effects</p>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      Rifat <span>AI Photo Studio</span>
+    </div>
+
+    <nav>
+      <a href="index.html">← টুলস পেজ / Tools</a>
+      <a href="../index.html">হোম / Home</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div class="gold">CREATIVE IMAGE TOOLS</div>
+
+    <h1>ব্যাকগ্রাউন্ড ইফেক্টস স্টুডিও</h1>
+
+    <p>
+      আপনার ছবির ব্যাকগ্রাউন্ড সহজে সরান, পরিবর্তন করুন
+      এবং নিজের মতো করে সাজান।
+      <span class="en">
+        Remove, change and customize your photo backgrounds easily.
+      </span>
+    </p>
+  </div>
+
+</div>
 </header>
 
-<nav>
-<a href="index.html">⌂ Home | মূল পেজ</a>
-</nav>
+<main class="wrap">
 
-<main>
-<section class="intro">
-<h2>Background Design Tools</h2>
-<p>ছবির ব্যাকগ্রাউন্ড পরিবর্তন, সুন্দর ডিজাইন এবং ক্রিয়েটিভ ইফেক্ট সম্পর্কে জানুন।</p>
-<p>Explore background editing tools and creative design features.</p>
+<h2 class="section-title">
+  আমাদের ইমেজ টুলস
+  <small>Our Background & Image Tools</small>
+</h2>
+
+<section class="tools-grid">
+
+<!-- BACKGROUND REMOVER -->
+
+<article class="card primary">
+
+  <span class="pill">প্রথমে ব্যবহার করুন / START HERE</span>
+
+  <div class="icon">✂️</div>
+
+  <h3>Background Remover</h3>
+
+  <p>
+    আপনার ছবির ব্যাকগ্রাউন্ড সরিয়ে স্বচ্ছ PNG তৈরি করুন।
+    <span class="en">
+      Remove the background from your image and create a transparent PNG.
+    </span>
+  </p>
+
+  <div class="upload-area">
+
+    <label for="imageInput">
+      ছবি নির্বাচন করুন / Select Your Image
+    </label>
+
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/jpeg,image/png,.jpg,.jpeg,.png"
+    >
+
+    <div class="button-row">
+
+      <button type="button" id="removeBtn">
+        ব্যাকগ্রাউন্ড সরান / Remove Background
+      </button>
+
+      <button type="button" id="resetBtn" class="secondary">
+        রিসেট / Reset
+      </button>
+
+    </div>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <div id="previewArea" class="preview-grid hidden">
+
+      <div class="preview-box">
+        <h4>মূল ছবি / Original Image</h4>
+        <img id="originalPreview" alt="Original image preview">
+      </div>
+
+      <div class="preview-box">
+        <h4>ফলাফল / Background Removed</h4>
+
+        <img id="resultPreview" alt="Background removed image preview">
+
+        <div style="margin-top:13px">
+          <a
+            id="downloadBtn"
+            class="btn hidden"
+            download="rifat-background-removed.png"
+          >
+            PNG ডাউনলোড / Download PNG
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="notice">
+    <strong>নোট / Note:</strong>
+    এই টুলটি ব্যবহার করতে লগইন প্রয়োজন।
+    ছবি প্রসেসিংয়ের জন্য Cloudflare Worker-এর Background Remover API চালু থাকতে হবে।
+    <span class="en">
+      Login is required. Image processing depends on the Background Remover API being enabled on Cloudflare Worker.
+    </span>
+  </div>
+
+</article>
+
+<!-- BACKGROUND CHANGER -->
+
+<article class="card">
+  <div class="icon">🖼️</div>
+  <h3>Background Changer</h3>
+  <p>
+    ছবির পেছনের দৃশ্য নতুন ব্যাকগ্রাউন্ড দিয়ে পরিবর্তন করুন।
+    <span class="en">Replace the background with a new scene.</span>
+  </p>
+  <span class="pill">শীঘ্রই আসছে / Coming Soon</span>
+</article>
+
+<!-- TRANSPARENT BACKGROUND -->
+
+<article class="card">
+  <div class="icon">🌫️</div>
+  <h3>Transparent Background</h3>
+  <p>
+    ছবির ব্যাকগ্রাউন্ড স্বচ্ছ PNG হিসেবে প্রস্তুত করুন।
+    <span class="en">Prepare images with a transparent background.</span>
+  </p>
+  <span class="pill">শীঘ্রই আসছে / Coming Soon</span>
+</article>
+
+<!-- BLUR BACKGROUND -->
+
+<article class="card">
+  <div class="icon">💧</div>
+  <h3>Blur Background</h3>
+  <p>
+    ছবির পেছনের অংশে সুন্দর Blur Effect যোগ করুন।
+    <span class="en">Add a soft blur effect to your background.</span>
+  </p>
+  <span class="pill">শীঘ্রই আসছে / Coming Soon</span>
+</article>
+
+<!-- STUDIO BACKGROUND -->
+
+<article class="card">
+  <div class="icon">📸</div>
+  <h3>Studio Background</h3>
+  <p>
+    ছবিতে পরিপাটি স্টুডিও-ধাঁচের ব্যাকগ্রাউন্ড ব্যবহার করুন।
+    <span class="en">Give your photo a clean studio-style background.</span>
+  </p>
+  <span class="pill">শীঘ্রই আসছে / Coming Soon</span>
+</article>
+
+<!-- NATURE BACKGROUND -->
+
+<article class="card">
+  <div class="icon">🌳</div>
+  <h3>Nature Background</h3>
+  <p>
+    প্রকৃতির দৃশ্য দিয়ে ছবির পরিবেশ সাজান।
+    <span class="en">Place your subject in a nature-inspired scene.</span>
+  </p>
+  <span class="pill">শীঘ্রই আসছে / Coming Soon</span>
+</article>
+
+<!-- GRADIENT BACKGROUND -->
+
+<article class="card">
+  <div class="icon">🎨</div>
+  <h3>Gradient Background</h3>
+  <p>
+    বিভিন্ন রঙের Gradient দিয়ে নতুন ব্যাকগ্রাউন্ড তৈরি করুন।
+    <span class="en">Create a background with smooth color gradients.</span>
+  </p>
+  <span class="pill">শীঘ্রই আসছে / Coming Soon</span>
+</article>
+
+<!-- CUSTOM BACKGROUND -->
+
+<article class="card">
+  <div class="icon">✨</div>
+  <h3>Custom Background Designer</h3>
+  <p>
+    নিজের পছন্দমতো ব্যাকগ্রাউন্ড ডিজাইন করুন।
+    <span class="en">Design a custom background to match your style.</span>
+  </p>
+  <span class="pill">শীঘ্রই আসছে / Coming Soon</span>
+</article>
+
 </section>
-
-<section class="tools">
-<div class="card">
-<div class="symbol">✂️</div>
-<h3>Background Remover</h3>
-<p>ছবির ব্যাকগ্রাউন্ড সরানোর টুল।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-
-<div class="card">
-<div class="symbol">🖼️</div>
-<h3>Background Changer</h3>
-<p>ছবির ব্যাকগ্রাউন্ড পরিবর্তনের টুল।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-
-<div class="card">
-<div class="symbol">🌐</div>
-<h3>Transparent Background</h3>
-<p>স্বচ্ছ ব্যাকগ্রাউন্ড তৈরির সুবিধা।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-
-<div class="card">
-<div class="symbol">💧</div>
-<h3>Blur Background</h3>
-<p>ছবির ব্যাকগ্রাউন্ড ব্লার করার টুল।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-
-<div class="card">
-<div class="symbol">📸</div>
-<h3>Studio Background</h3>
-<p>স্টুডিও স্টাইল ব্যাকগ্রাউন্ড ডিজাইন।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-
-<div class="card">
-<div class="symbol">🌳</div>
-<h3>Nature Background</h3>
-<p>প্রকৃতির দৃশ্য দিয়ে ব্যাকগ্রাউন্ড সাজানো।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-
-<div class="card">
-<div class="symbol">🎨</div>
-<h3>Gradient Background</h3>
-<p>রঙিন গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড তৈরি।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-
-<div class="card">
-<div class="symbol">✨</div>
-<h3>Custom Background Designer</h3>
-<p>নিজের পছন্দমতো ব্যাকগ্রাউন্ড ডিজাইন।</p>
-<span class="status">Coming Soon | শিগগিরই</span>
-</div>
-</section>
-
-<div class="notice">
-<strong>নিরাপত্তা ও ব্যবহার:</strong><br>
-এই পেজে প্রদর্শিত টুলগুলো এখনো সংযুক্ত করা হয়নি। চালু হওয়ার আগে কোনো টুলকে কার্যকর হিসেবে দেখানো হবে না।<br>
-<strong>Security Notice:</strong> These tools are not connected yet. Features will be enabled after development and testing.
-</div>
 </main>
 
 <footer>
-<strong>Rifat Online Tools & Documents</strong><br>
-শিখুন জানুন দক্ষতা বাড়ান আয় করুন<br>
-© 2026 Rifat Ahmed. All Rights Reserved.
+  <div class="wrap">
+    <strong>Rifat AI Photo Studio</strong><br>
+    ছবি সম্পাদনা শিখুন, সৃজনশীলতা বাড়ান।<br>
+    Learn, create and improve your images.<br>
+    © 2026 Md Rifat Ahmed. All Rights Reserved.
+  </div>
 </footer>
+
+<script>
+"use strict";
+
+/* CLOUDFLARE WORKER API */
+
+const API_URL =
+  "https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+
+/* PAGE ELEMENTS */
+
+const imageInput = document.getElementById("imageInput");
+const removeBtn = document.getElementById("removeBtn");
+const resetBtn = document.getElementById("resetBtn");
+const statusBox = document.getElementById("status");
+
+const previewArea = document.getElementById("previewArea");
+const originalPreview = document.getElementById("originalPreview");
+const resultPreview = document.getElementById("resultPreview");
+const downloadBtn = document.getElementById("downloadBtn");
+
+let originalObjectURL = null;
+let resultObjectURL = null;
+
+/* LOGIN TOKEN */
+
+function getToken() {
+
+  return (
+    localStorage.getItem("rifat_ai_token") ||
+    sessionStorage.getItem("rifat_ai_token") ||
+    ""
+  );
+
+}
+
+/* STATUS MESSAGE */
+
+function showStatus(message, type = "") {
+
+  statusBox.textContent = message;
+  statusBox.className = "status " + type;
+
+}
+
+/* CLEAR RESULT */
+
+function clearResult() {
+
+  if (resultObjectURL) {
+    URL.revokeObjectURL(resultObjectURL);
+  }
+
+  resultObjectURL = null;
+
+  resultPreview.removeAttribute("src");
+  downloadBtn.removeAttribute("href");
+  downloadBtn.classList.add("hidden");
+
+}
+
+/* RESET */
+
+function resetTool() {
+
+  imageInput.value = "";
+
+  if (originalObjectURL) {
+    URL.revokeObjectURL(originalObjectURL);
+  }
+
+  originalObjectURL = null;
+
+  originalPreview.removeAttribute("src");
+
+  clearResult();
+
+  previewArea.classList.add("hidden");
+
+  showStatus("");
+
+  removeBtn.disabled = false;
+
+  removeBtn.textContent =
+    "ব্যাকগ্রাউন্ড সরান / Remove Background";
+
+}
+
+/* IMAGE SELECTION */
+
+imageInput.addEventListener("change", function() {
+
+  clearResult();
+
+  const file = imageInput.files[0];
+
+  if (!file) {
+    previewArea.classList.add("hidden");
+    return;
+  }
+
+  if (!["image/jpeg", "image/png"].includes(file.type)) {
+
+    imageInput.value = "";
+
+    showStatus(
+      "শুধু JPG অথবা PNG ছবি ব্যবহার করুন। / Please select JPG or PNG.",
+      "error"
+    );
+
+    previewArea.classList.add("hidden");
+
+    return;
+  }
+
+  if (file.size > 20 * 1024 * 1024) {
+
+    imageInput.value = "";
+
+    showStatus(
+      "ছবির সাইজ ২০ MB-এর কম হতে হবে। / Image must be smaller than 20 MB.",
+      "error"
+    );
+
+    previewArea.classList.add("hidden");
+
+    return;
+  }
+
+  if (originalObjectURL) {
+    URL.revokeObjectURL(originalObjectURL);
+  }
+
+  originalObjectURL = URL.createObjectURL(file);
+
+  originalPreview.src = originalObjectURL;
+
+  previewArea.classList.remove("hidden");
+
+  showStatus(
+    "ছবি প্রস্তুত। এখন Remove Background চাপুন। / Image ready.",
+    "success"
+  );
+
+});
+
+/* RESET BUTTON */
+
+resetBtn.addEventListener("click", resetTool);
+
+/* REMOVE BACKGROUND */
+
+removeBtn.addEventListener("click", async function() {
+
+  const token = getToken();
+
+  if (!token) {
+
+    window.location.href =
+      "login.html?next=" +
+      encodeURIComponent("background-effects-studio.html");
+
+    return;
+  }
+
+  const file = imageInput.files[0];
+
+  if (!file) {
+
+    showStatus(
+      "প্রথমে একটি ছবি নির্বাচন করুন। / Please select an image first.",
+      "error"
+    );
+
+    return;
+  }
+
+  const formData = new FormData();
+
+  formData.append("image", file, file.name);
+
+  removeBtn.disabled = true;
+
+  removeBtn.textContent =
+    "প্রসেস হচ্ছে... / Processing...";
+
+  showStatus(
+    "আপনার ছবি প্রসেস হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন। / Processing image...",
+    ""
+  );
+
+  try {
+
+    const response = await fetch(
+      API_URL + "/api/remove-background",
+      {
+        method: "POST",
+
+        headers: {
+          "Authorization": "Bearer " + token
+        },
+
+        body: formData
+      }
+    );
+
+    if (!response.ok) {
+
+      let message =
+        "ছবি প্রসেস করা যায়নি। / Image processing failed.";
+
+      try {
+
+        const data = await response.json();
+
+        if (data.message) {
+          message = data.message;
+        }
+
+      } catch (_) {}
+
+      if (response.status === 401) {
+
+        localStorage.removeItem("rifat_ai_token");
+        sessionStorage.removeItem("rifat_ai_token");
+
+        window.location.href =
+          "login.html?next=" +
+          encodeURIComponent("background-effects-studio.html");
+
+        return;
+      }
+
+      throw new Error(
+        message + " (HTTP " + response.status + ")"
+      );
+
+    }
+
+    const blob = await response.blob();
+
+    if (!blob.type.startsWith("image/")) {
+
+      throw new Error(
+        "সার্ভার থেকে সঠিক ছবি পাওয়া যায়নি। / Invalid image response."
+      );
+
+    }
+
+    clearResult();
+
+    resultObjectURL = URL.createObjectURL(blob);
+
+    resultPreview.src = resultObjectURL;
+
+    downloadBtn.href = resultObjectURL;
+
+    downloadBtn.classList.remove("hidden");
+
+    previewArea.classList.remove("hidden");
+
+    showStatus(
+      "সফল! আপনার ছবির ব্যাকগ্রাউন্ড সরানো হয়েছে। / Background removed successfully.",
+      "success"
+    );
+
+  } catch (error) {
+
+    showStatus(
+      error.message ||
+      "একটি সমস্যা হয়েছে। পরে আবার চেষ্টা করুন। / Something went wrong.",
+      "error"
+    );
+
+  } finally {
+
+    removeBtn.disabled = false;
+
+    removeBtn.textContent =
+      "ব্যাকগ্রাউন্ড সরান / Remove Background";
+
+  }
+
+});
+
+/* CLEANUP */
+
+window.addEventListener("beforeunload", function() {
+
+  if (originalObjectURL) {
+    URL.revokeObjectURL(originalObjectURL);
+  }
+
+  if (resultObjectURL) {
+    URL.revokeObjectURL(resultObjectURL);
+  }
+
+});
+
+</script>
 
 </body>
 </html>
