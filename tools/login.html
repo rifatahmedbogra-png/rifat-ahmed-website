@@ -10,16 +10,15 @@
 body{
  margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;
  background:linear-gradient(135deg,#071d35,#102a43,#1769aa);
- color:#fff;min-height:100vh;
- display:flex;align-items:center;justify-content:center;
- padding:25px 15px;
+ color:#fff;min-height:100vh;display:flex;
+ align-items:center;justify-content:center;padding:25px 15px;
 }
 .wrapper{width:100%;max-width:470px}
 .brand{text-align:center;margin-bottom:22px}
 .logo{
  width:65px;height:65px;border-radius:18px;
- background:#f0c040;color:#071d35;
- display:flex;align-items:center;justify-content:center;
+ background:#f0c040;color:#071d35;display:flex;
+ align-items:center;justify-content:center;
  font-size:30px;font-weight:bold;margin:auto auto 12px;
 }
 .brand h1{font-size:25px;margin:8px 0}
@@ -42,11 +41,8 @@ input:focus{border-color:#1769aa;box-shadow:0 0 0 3px #1769aa20}
  position:absolute;right:10px;top:50%;transform:translateY(-50%);
  border:0;background:none;color:#1769aa;cursor:pointer;font-weight:bold;
 }
-.options{
- display:flex;justify-content:space-between;align-items:center;
- gap:10px;margin-top:17px;font-size:12px;
-}
-.remember{display:flex;align-items:center;gap:6px;color:#64748b}
+.options{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:17px;font-size:12px}
+.remember{display:flex;align-items:center;gap:6px;color:#64748b;margin:0}
 .remember input{width:auto}
 a{color:#1769aa;text-decoration:none;font-weight:bold}
 .submit{
@@ -56,10 +52,7 @@ a{color:#1769aa;text-decoration:none;font-weight:bold}
  font-size:16px;font-weight:bold;cursor:pointer;
 }
 .submit:disabled{opacity:.65;cursor:wait}
-#message{
- display:none;padding:12px;border-radius:9px;
- margin-top:15px;font-size:14px;line-height:1.6;
-}
+#message{display:none;padding:12px;border-radius:9px;margin-top:15px;font-size:14px;line-height:1.6}
 .links{text-align:center;margin-top:20px;font-size:14px;line-height:2}
 .home{display:inline-block;margin-top:10px;color:#1769aa}
 .footer{text-align:center;color:#d5e7f7;font-size:12px;margin-top:20px}
@@ -81,14 +74,12 @@ a{color:#1769aa;text-decoration:none;font-weight:bold}
 
   <form id="loginForm">
    <label for="email">ইমেইল ঠিকানা | Email Address</label>
-   <input id="email" type="email"
-    placeholder="আপনার ইমেইল লিখুন"
+   <input id="email" type="email" placeholder="আপনার ইমেইল লিখুন"
     autocomplete="username" maxlength="254" required>
 
    <label for="password">পাসওয়ার্ড | Password</label>
    <div class="password-box">
-    <input id="password" type="password"
-     placeholder="আপনার পাসওয়ার্ড লিখুন"
+    <input id="password" type="password" placeholder="আপনার পাসওয়ার্ড লিখুন"
      autocomplete="current-password" required>
     <button class="toggle" type="button" id="togglePassword">দেখুন | Show</button>
    </div>
@@ -100,121 +91,166 @@ a{color:#1769aa;text-decoration:none;font-weight:bold}
     </label>
    </div>
 
-   <button class="submit" id="submitBtn" type="submit">
-    লগইন করুন | Login
-   </button>
+   <button class="submit" id="submitBtn" type="submit">লগইন করুন | Login</button>
    <div id="message" role="status" aria-live="polite"></div>
   </form>
 
   <div class="links">
    নতুন ব্যবহারকারী? | New User?
    <br>
-   <a href="registration.html">নতুন অ্যাকাউন্ট তৈরি করুন | Register</a>
+   <a id="registerLink" href="register.html">নতুন অ্যাকাউন্ট তৈরি করুন | Register</a>
    <br>
    <a class="home" href="index.html">← Back to Home</a>
   </div>
  </div>
 
- <div class="footer">
-  © 2026 Rifat AI Photo Studio. All Rights Reserved.
- </div>
+ <div class="footer">© 2026 Rifat AI Photo Studio. All Rights Reserved.</div>
 </div>
 
 <script>
-const API_URL="https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+"use strict";
 
-const form=document.getElementById("loginForm");
-const message=document.getElementById("message");
-const submitBtn=document.getElementById("submitBtn");
+const API_URL = "https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+const form = document.getElementById("loginForm");
+const message = document.getElementById("message");
+const submitBtn = document.getElementById("submitBtn");
 
-function showMessage(text,success){
- message.style.display="block";
- message.style.background=success?"#e7f8ed":"#fff0f0";
- message.style.color=success?"#176b36":"#b42318";
- message.textContent=text;
+/* Only allow a return destination inside /tools/.
+   Never allow login, registration or admin pages as user destinations. */
+function getSafeNext() {
+ const value = new URLSearchParams(window.location.search).get("next");
+ if (!value) return "index.html";
+
+ try {
+  const base = new URL("./", window.location.href);
+  const target = new URL(value, base);
+  const blocked = ["login.html","register.html","registration.html","admin.html"];
+
+  if (target.origin !== window.location.origin) return "index.html";
+  if (!target.pathname.startsWith(base.pathname)) return "index.html";
+  if (blocked.includes(target.pathname.split("/").pop().toLowerCase())) return "index.html";
+
+  return target.pathname + target.search + target.hash;
+ } catch {
+  return "index.html";
+ }
 }
 
-document.getElementById("togglePassword").addEventListener("click",function(){
- const field=document.getElementById("password");
- const show=field.type==="password";
- field.type=show?"text":"password";
- this.textContent=show?"লুকান | Hide":"দেখুন | Show";
+const nextDestination = getSafeNext();
+
+document.getElementById("registerLink").href =
+ "register.html?next=" + encodeURIComponent(nextDestination);
+
+function showMessage(text, success) {
+ message.style.display = "block";
+ message.style.background = success ? "#e7f8ed" : "#fff0f0";
+ message.style.color = success ? "#176b36" : "#b42318";
+ message.textContent = text;
+}
+
+document.getElementById("togglePassword").addEventListener("click", function() {
+ const field = document.getElementById("password");
+ const show = field.type === "password";
+ field.type = show ? "text" : "password";
+ this.textContent = show ? "লুকান | Hide" : "দেখুন | Show";
 });
 
-form.addEventListener("submit",async function(e){
- e.preventDefault();
+form.addEventListener("submit", async event => {
+ event.preventDefault();
 
- const email=document.getElementById("email").value.trim();
- const password=document.getElementById("password").value;
- const remember=document.getElementById("remember").checked;
+ const email = document.getElementById("email").value.trim();
+ const password = document.getElementById("password").value;
+ const remember = document.getElementById("remember").checked;
 
- if(!email||!password){
-  showMessage("ইমেইল ও পাসওয়ার্ড লিখুন।",false);
+ if (!email || !password) {
+  showMessage("ইমেইল ও পাসওয়ার্ড লিখুন।", false);
   return;
  }
 
- submitBtn.disabled=true;
- submitBtn.textContent="Logging in...";
- showMessage("Backend-এর সঙ্গে সংযোগ করা হচ্ছে...",true);
+ submitBtn.disabled = true;
+ submitBtn.textContent = "Logging in...";
+ showMessage("আপনার পরিচয় যাচাই করা হচ্ছে...", true);
 
- try{
-  const response=await fetch(API_URL+"/api/login",{
-   method:"POST",
-   headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({email,password})
+ let loginSucceeded = false;
+
+ try {
+  const response = await fetch(API_URL + "/api/login", {
+   method: "POST",
+   headers: {"Content-Type": "application/json"},
+   body: JSON.stringify({email, password})
   });
 
   let data;
-  try{
-   data=await response.json();
-  }catch{
+  try {
+   data = await response.json();
+  } catch {
    throw new Error("Backend থেকে সঠিক উত্তর পাওয়া যায়নি।");
   }
 
-  if(!response.ok||!data.success||!data.token){
-   throw new Error(data.message||"Login করা যায়নি।");
+  if (!response.ok || !data.success || !data.token) {
+   throw new Error(data.message || "ইমেইল অথবা পাসওয়ার্ড সঠিক নয়।");
   }
 
-  // Remember me: persistent storage, otherwise session-only.
-  const storage=remember?localStorage:sessionStorage;
-  const otherStorage=remember?sessionStorage:localStorage;
+  loginSucceeded = true;
+
+  /* Store the login token according to Remember Me selection.
+     Do not store passwords in browser storage. */
+  const storage = remember ? localStorage : sessionStorage;
+  const otherStorage = remember ? sessionStorage : localStorage;
 
   otherStorage.removeItem("rifat_ai_token");
   otherStorage.removeItem("rifat_ai_user");
 
-  storage.setItem("rifat_ai_token",data.token);
-  storage.setItem("rifat_ai_user",JSON.stringify(data.user));
+  storage.setItem("rifat_ai_token", data.token);
 
-  showMessage("Login successful! স্বাগতম, "+(data.user?.name||"User"),true);
-
-try {
-  const adminResponse = await fetch(API_URL + "/api/admin/me", {
-    method: "GET",
-    headers: {
-      "Authorization": "Bearer " + data.token
-    }
-  });
-
-  const adminData = await adminResponse.json();
-
-  if (adminResponse.ok && adminData.success &&
-      adminData.user?.role === "admin") {
-    window.location.href = "admin.html";
-  } else {
-    window.location.href = "index.html";
+  if (data.user) {
+   storage.setItem("rifat_ai_user", JSON.stringify(data.user));
   }
 
-} catch (error) {
-  showMessage("Login successful, কিন্তু পেজ খোলা যায়নি।", false);
-}
+  showMessage("Login সফল হয়েছে। আপনার অ্যাকাউন্ট যাচাই করা হচ্ছে...", true);
 
-  // Owner/Audience destination will be configured after
-  // the secure Owner role and protected pages are verified.
- }catch(error){
-  showMessage(error.message||"সংযোগ করা যাচ্ছে না। আবার চেষ্টা করুন।",false);
- }finally{
-  submitBtn.disabled=false;
-  submitBtn.textContent="লগইন করুন | Login";
+  /* Admin status must be confirmed by the Backend, never by
+     a role value supplied by the browser or a URL parameter. */
+  let isAdmin = false;
+
+  try {
+   const adminResponse = await fetch(API_URL + "/api/admin/me", {
+    method: "GET",
+    headers: {"Authorization": "Bearer " + data.token}
+   });
+
+   if (adminResponse.ok) {
+    const adminData = await adminResponse.json();
+    isAdmin = adminData.success === true &&
+              adminData.user?.role === "admin";
+   } else if (adminResponse.status !== 401 &&
+              adminResponse.status !== 403 &&
+              adminResponse.status !== 404) {
+    throw new Error("Admin পরিচয় যাচাই করা যাচ্ছে না।");
+   }
+  } catch (adminError) {
+   if (adminError.message === "Failed to fetch" ||
+       adminError instanceof TypeError) {
+    throw new Error("Login হয়েছে, কিন্তু সার্ভারের পরিচয় যাচাই সেবা পাওয়া যাচ্ছে না।");
+   }
+   throw adminError;
+  }
+
+  if (isAdmin) {
+   window.location.replace("admin.html");
+  } else {
+   window.location.replace(nextDestination);
+  }
+
+ } catch (error) {
+  showMessage(error.message || "সংযোগ করা যাচ্ছে না। আবার চেষ্টা করুন।", false);
+  if (loginSucceeded) {
+   /* Login succeeded but destination/role verification failed.
+      Keep the session token; do not silently grant Admin access. */
+  }
+ } finally {
+  submitBtn.disabled = false;
+  submitBtn.textContent = "লগইন করুন | Login";
  }
 });
 </script>
