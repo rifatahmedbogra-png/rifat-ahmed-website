@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rifat AI Background Studio</title>
+<meta name="description" content="Rifat AI Background Studio - Passport photo colors, Islamic scenery, natural backgrounds and AI background removal.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#071d35;color:#fff;line-height:1.7
+}
+nav{
+  background:#102a43;padding:13px;text-align:center;
+  border-bottom:1px solid #285477
+}
+nav a{
+  display:inline-block;background:#1769aa;color:white;
+  text-decoration:none;padding:8px 15px;
+  margin:4px;border-radius:8px
+}
+header{
+  text-align:center;padding:42px 15px;
+  background:linear-gradient(130deg,#071d35,#1769aa);
+  border-bottom:3px solid #f0c040
+}
+header h1{font-size:30px}
+header span{color:#f0c040}
+.container{max-width:1100px;margin:auto;padding:20px 14px}
+.panel{
+  background:#102a43;border:1px solid #285477;
+  border-radius:15px;padding:20px;margin-bottom:20px
+}
+h2,h3{color:#f0c040;margin-bottom:10px}
+p{color:#dbeafe}
+.btn{
+  display:inline-block;border:0;border-radius:8px;
+  padding:11px 17px;margin:5px;background:#1769aa;
+  color:white;font-weight:bold;cursor:pointer
+}
+.btn.gold{background:#f0c040;color:#071d35}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+input[type=file]{display:none}
+select{
+  background:#071d35;color:white;padding:10px;
+  border:1px solid #4383b2;border-radius:8px;
+  width:100%;margin:8px 0
+}
+.upload{
+  text-align:center;padding:25px 10px;
+  border:2px dashed #4383b2;border-radius:12px;
+  background:#0b223b;margin-top:15px
+}
+.message{
+  display:none;padding:12px;margin-top:14px;
+  border-radius:8px;background:#493d20;color:#ffe49a;
+  overflow-wrap:anywhere
+}
+.message.success{background:#123e32;color:#b8f5d7}
+.message.error{background:#55252b;color:#ffd5d5}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));
+  gap:12px;margin-top:15px
+}
+.color-item,.scene-item{
+  background:#0b223b;color:white;border:2px solid #4383b2;
+  padding:8px;border-radius:10px;cursor:pointer;text-align:center
+}
+.color-item.active,.scene-item.active{
+  border-color:#f0c040;box-shadow:0 0 0 2px #f0c040
+}
+.swatch{height:60px;border-radius:7px;border:1px solid #aaa}
+.scene-item img{
+  width:100%;height:90px;object-fit:cover;border-radius:6px
+}
+.scene-item small{display:block;color:#dbeafe}
+.preview-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;margin-top:18px
+}
+.preview-card{
+  background:#0b223b;padding:12px;border-radius:10px;
+  border:1px solid #285477;text-align:center
+}
+.preview-card img{
+  width:100%;max-height:330px;object-fit:contain;
+  background-color:white;border-radius:7px
+}
+#studio{display:none}
+.canvas-wrap{
+  background:#0b223b;border:1px solid #4383b2;
+  border-radius:12px;padding:12px;text-align:center;margin-top:18px
+}
+#finalCanvas{
+  width:100%;max-height:600px;object-fit:contain;
+  background-color:white;border-radius:8px
+}
+.note{font-size:13px;color:#b9cce0;margin-top:9px}
+footer{
+  text-align:center;padding:25px;background:#061629;
+  border-top:2px solid #1769aa;color:#9db5cc
+}
+@media(max-width:600px){
+  header h1{font-size:23px}
+  .panel{padding:14px}
+  .preview-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="../index.html">🏠 Home / হোম</a>
+  <a href="index.html">AI Tools</a>
+</nav>
+
+<header>
+  <h1>✂️ Rifat AI <span>Background Studio</span></h1>
+  <p>AI Background Removal, Passport Photo & Scenery Studio</p>
+  <p>ছবি সম্পাদনা করুন নিজের পছন্দমতো</p>
+</header>
+
+<main class="container">
+
+<section class="panel">
+  <h2>🌟 Welcome to Rifat AI Studio</h2>
+  <p>
+    আপনার ছবির ব্যাকগ্রাউন্ড সরান, পাসপোর্ট ছবির
+    রং নির্বাচন করুন অথবা প্রাকৃতিক ও ইসলামিক দৃশ্য
+    দিয়ে নতুন ছবি তৈরি করুন।
+  </p>
+  <p>
+    Remove backgrounds, create passport photos and
+    choose beautiful scenic backgrounds.
+  </p>
+</section>
+
+<section class="panel">
+  <h2>📸 ১. Upload Your Photo / ছবি আপলোড</h2>
+
+  <div class="upload">
+    <p style="font-size:35px">🖼️</p>
+    <p>JPG, PNG অথবা WEBP ছবি নির্বাচন করুন</p>
+    <label class="btn gold" for="photoInput">📁 Choose Photo</label>
+    <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp">
+    <p class="note">Maximum size: 10 MB</p>
+  </div>
+
+  <div class="preview-grid" id="beforeAfter" style="display:none">
+    <div class="preview-card">
+      <h3>Before / মূল ছবি</h3>
+      <img id="originalPreview" alt="Original photo">
+    </div>
+    <div class="preview-card">
+      <h3>After / Background Removed</h3>
+      <img id="cutoutPreview" alt="Background removed photo">
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:15px">
+    <button class="btn gold" id="removeBtn" disabled>✂️ Remove Background</button>
+    <button class="btn" id="newPhotoBtn">Change Photo</button>
+  </div>
+
+  <div id="message" class="message" role="status" aria-live="polite"></div>
+</section>
+
+<section class="panel" id="studio">
+
+  <h2>🎨 ২. Passport Photo Studio</h2>
+  <p>পাসপোর্ট ছবির জন্য পছন্দের ব্যাকগ্রাউন্ড রং নির্বাচন করুন।</p>
+
+  <div class="grid" id="colorGrid"></div>
+
+  <h3 style="margin-top:25px">📐 Passport Photo Size / ছবির মাপ</h3>
+  <select id="photoSize">
+    <option value="original">Original Size / মূল ছবির মাপ</option>
+    <option value="35x45">35 × 45 mm</option>
+    <option value="2x2">2 × 2 inch</option>
+    <option value="4x6">4 × 6 inch</option>
+  </select>
+  <p class="note">
+    নির্দিষ্ট মাপ নির্বাচন করলে 300 DPI অনুযায়ী ক্যানভাস তৈরি হবে।
+    প্রয়োজনীয় প্রতিষ্ঠানের ছবির নিয়ম আলাদাভাবে যাচাই করুন।
+  </p>
+
+  <div class="canvas-wrap">
+    <h3>Passport Photo Preview</h3>
+    <canvas id="passportCanvas"></canvas>
+  </div>
+
+  <button class="btn gold" id="downloadPassport">⬇️ Download Passport PNG</button>
+
+</section>
+
+<section class="panel" id="sceneryStudio">
+
+  <h2>🌄 ৩. Scenery Background Studio</h2>
+  <p>আপনার পছন্দের দৃশ্য নির্বাচন করুন।</p>
+
+  <h3 style="margin-top:15px">🌳 Natural Scenery / প্রাকৃতিক দৃশ্য</h3>
+  <div class="grid" id="naturalGrid"></div>
+
+  <h3 style="margin-top:25px">🕌 Islamic Scenery / ইসলামিক দৃশ্য</h3>
+  <div class="grid" id="islamicGrid"></div>
+
+  <h3 style="margin-top:25px">🏙️ City & Studio Backgrounds</h3>
+  <div class="grid" id="studioGrid"></div>
+
+  <h3 style="margin-top:25px">📁 নিজের ব্যাকগ্রাউন্ড আপলোড</h3>
+  <label class="btn gold" for="backgroundInput">Upload Your Background</label>
+  <input id="backgroundInput" type="file" accept="image/jpeg,image/png,image/webp">
+
+  <button class="btn" id="transparentBtn">↩️ Transparent Background</button>
+
+  <p class="note">
+    নিজের পছন্দের ছবি আপলোড করে ব্যক্তির পেছনে ব্যবহার করতে পারবেন।
+  </p>
+
+  <div class="canvas-wrap">
+    <h3>Scenery Preview / দৃশ্যের প্রিভিউ</h3>
+    <canvas id="sceneryCanvas"></canvas>
+  </div>
+
+  <button class="btn gold" id="downloadScenery">⬇️ Download Scenery PNG</button>
+</section>
+
+<section class="panel">
+  <h2>📖 ব্যবহারবিধি / How to Use</h2>
+  <ol style="padding-left:22px;color:#dbeafe">
+    <li>নিজের ছবি আপলোড করুন।</li>
+    <li>Remove Background বাটনে ক্লিক করুন।</li>
+    <li>Passport Studio থেকে পছন্দের রং ও মাপ নির্বাচন করুন।</li>
+    <li>Scenery Studio থেকে প্রাকৃতিক বা ইসলামিক দৃশ্য বেছে নিন।</li>
+    <li>নিজের ব্যাকগ্রাউন্ডও আপলোড করতে পারবেন।</li>
+    <li>প্রিভিউ দেখে PNG ডাউনলোড করুন।</li>
+  </ol>
+</section>
+
+<section class="panel">
+  <h2>🔐 Privacy & Security</h2>
+  <p>
+    আপনার ছবি নিরাপদ Backend-এর মাধ্যমে AI সার্ভিসে পাঠানো হয়।
+    API Key এই ওয়েবসাইটের HTML-এ রাখা হয়নি।
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Rifat AI Background Studio</p>
+  <p>Powered by Md Rifat Ahmed</p>
+  <p>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
+</footer>
+
+<script>
+"use strict";
+
+const API_URL =
+"https://rifat-ai-background-remover.rifatahmedbogra.workers.dev";
+
+const $ = id => document.getElementById(id);
+
+let selectedFile = null;
+let originalURL = null;
+let cutoutURL = null;
+let cutoutImage = null;
+let selectedColor = "#ffffff";
+let sceneryImage = null;
+let sceneryURL = null;
+let backgroundMode = "transparent";
+
+const colors = [
+  ["সাদা","#ffffff"],
+  ["আকাশি","#add8e6"],
+  ["নীল","#1769aa"],
+  ["হালকা নীল","#d9eaf7"],
+  ["ধূসর","#d3d3d3"],
+  ["গোলাপি","#f8c8dc"],
+  ["লাল","#e53935"],
+  ["সবুজ","#d9ead3"],
+  ["হালকা হলুদ","#fff2cc"],
+  ["ক্রিম","#fffdd0"],
+  ["বেগুনি","#d8c5f2"],
+  ["কালো","#222222"]
+];
+
+// All background images must be uploaded to GitHub.
+// Image file names below must match exactly.
+const naturalScenes = [
+  ["পাহাড় ও লেক","mountain-lake.jpg"],
+  ["সমুদ্রসৈকত","sea-beach.jpg"],
+  ["সবুজ বন","green-forest.jpg"],
+  ["ফুলের বাগান","flower-garden.jpg"],
+  ["নদীর দৃশ্য","river-view.jpg"],
+  ["সবুজ প্রকৃতি","green-nature.jpg"]
+];
+
+const islamicScenes = [
+  ["সুন্দর মসজিদ","mosque.jpg"],
+  ["মসজিদের আঙিনা","mosque-courtyard.jpg"],
+  ["ইসলামিক স্থাপত্য","islamic-architecture.jpg"],
+  ["মসজিদ ও সূর্যাস্ত","mosque-sunset.jpg"],
+  ["ইসলামিক বাগান","islamic-garden.jpg"],
+  ["মিনার ও আকাশ","mosque-minaret.jpg"]
+];
+
+const studioScenes = [
+  ["আধুনিক অফিস","modern-office.jpg"],
+  ["ফটো স্টুডিও","photo-studio.jpg"],
+  ["শহরের দৃশ্য","city-view.jpg"],
+  ["ইনডোর ব্যাকগ্রাউন্ড","indoor-room.jpg"]
+];
+
+function showMessage(text,type="error"){
+  $("message").textContent=text;
+  $("message").className="message "+type;
+  $("message").style.display="block";
+}
+
+function hideMessage(){
+  $("message").style.display="none";
+}
+
+function revoke(url){
+  if(url) URL.revokeObjectURL(url);
+}
+
+function loadImage(src){
+  return new Promise((resolve,reject)=>{
+    const image=new Image();
+    image.onload=()=>resolve(image);
+    image.onerror=()=>reject(new Error("ছবিটি লোড করা যায়নি।"));
+    image.src=src;
+  });
+}
+
+// Passport color options
+colors.forEach(([name,color])=>{
+  const button=document.createElement("button");
+  button.className="color-item";
+  button.innerHTML='<div class="swatch"></div><span></span>';
+  button.querySelector(".swatch").style.background=color;
+  button.querySelector("span").textContent=name;
+
+  button.addEventListener("click",()=>{
+    selectedColor=color;
+    backgroundMode="color";
+    document.querySelectorAll(".color-item")
+      .forEach(x=>x.classList.remove("active"));
+    button.classList.add("active");
+    renderAll();
+  });
+
+  $("colorGrid").appendChild(button);
+});
+
+// Create local scenery cards
+function buildSceneCards(items,containerId){
+  const container=$(containerId);
+
+  items.forEach(([name,file])=>{
+    const button=document.createElement("button");
+    button.className="scene-item";
+
+    const img=document.createElement("img");
+    img.src="../backgrounds/"+file;
+    img.alt=name;
+
+    const label=document.createElement("small");
+    label.textContent=name;
+
+    img.onerror=()=>{
+      img.style.display="none";
+      label.textContent=name+" — ছবি যোগ করা হয়নি";
+    };
+
+    button.appendChild(img);
+    button.appendChild(label);
+
+    button.addEventListener("click",async()=>{
+      try{
+        const image=await loadImage("../backgrounds/"+file);
+
+        sceneryImage=image;
+        backgroundMode="image";
+
+        document.querySelectorAll(".scene-item")
+          .forEach(x=>x.classList.remove("active"));
+
+        button.classList.add("active");
+        renderAll();
+        showMessage(name+" ব্যাকগ্রাউন্ড যুক্ত হয়েছে।","success");
+
+      }catch(error){
+        showMessage(
+          name+" ছবিটি এখনো Repository-তে যোগ করা হয়নি।",
+          "error"
+        );
+      }
+    });
+
+    container.appendChild(button);
+  });
+}
+
+buildSceneCards(naturalScenes,"naturalGrid");
+buildSceneCards(islamicScenes,"islamicGrid");
+buildSceneCards(studioScenes,"studioGrid");
+
+// Upload original photo
+$("photoInput").addEventListener("change",function(){
+  const file=this.files[0];
+  if(!file)return;
+
+  if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
+    showMessage("শুধু JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
+    this.value="";
+    return;
+  }
+
+  if(file.size>10*1024*1024){
+    showMessage("ছবির আকার সর্বোচ্চ 10 MB হতে পারবে।");
+    this.value="";
+    return;
+  }
+
+  revoke(originalURL);
+  revoke(cutoutURL);
+
+  originalURL=URL.createObjectURL(file);
+  cutoutURL=null;
+  cutoutImage=null;
+  selectedFile=file;
+
+  $("originalPreview").src=originalURL;
+  $("beforeAfter").style.display="grid";
+  $("studio").style.display="none";
+  $("sceneryStudio").style.display="none";
+  $("removeBtn").disabled=false;
+
+  hideMessage();
+});
+
+$("newPhotoBtn").addEventListener("click",()=>$("photoInput").click());
+
+// Remove background using existing Worker
+$("removeBtn").addEventListener("click",async()=>{
+  if(!selectedFile)return;
+
+  $("removeBtn").disabled=true;
+  $("removeBtn").textContent="⏳ Processing...";
+  showMessage("AI ব্যাকগ্রাউন্ড সরাচ্ছে। অপেক্ষা করুন।","success");
+
+  try{
+    const form=new FormData();
+    form.append("image_file",selectedFile,selectedFile.name);
+
+    const response=await fetch(API_URL,{
+      method:"POST",
+      body:form
+    });
+
+    if(!response.ok){
+      let error="Background removal ব্যর্থ হয়েছে।";
+      try{
+        const data=await response.json();
+        if(data.error)error=data.error;
+      }catch(e){}
+      throw new Error(error);
+    }
+
+    const type=response.headers.get("Content-Type")||"";
+    if(!type.includes("image/")){
+      throw new Error("সার্ভার থেকে ছবি পাওয়া যায়নি।");
+    }
+
+    const blob=await response.blob();
+    if(!blob.size)throw new Error("ছবির ফলাফল খালি।");
+
+    revoke(cutoutURL);
+    cutoutURL=URL.createObjectURL(blob);
+    cutoutImage=await loadImage(cutoutURL);
+
+    $("cutoutPreview").src=cutoutURL;
+    $("studio").style.display="block";
+    $("sceneryStudio").style.display="block";
+
+    renderAll();
+
+    showMessage("অভিনন্দন! AI ব্যাকগ্রাউন্ড সফলভাবে সরিয়েছে।","success");
+
+  }catch(error){
+    showMessage(error.message||"সার্ভারে সমস্যা হয়েছে।");
+  }finally{
+    $("removeBtn").disabled=false;
+    $("removeBtn").textContent="✂️ Remove Background";
+  }
+});
+
+// Draw background image covering canvas
+function drawCover(ctx,image,width,height){
+  const scale=Math.max(width/image.width,height/image.height);
+  const w=image.width*scale;
+  const h=image.height*scale;
+  ctx.drawImage(image,(width-w)/2,(height-h)/2,w,h);
+}
+
+// Draw person on top of selected background
+function drawPhoto(ctx,width,height){
+  ctx.clearRect(0,0,width,height);
+
+  if(backgroundMode==="color"){
+    ctx.fillStyle=selectedColor;
+    ctx.fillRect(0,0,width,height);
+  }
+
+  if(backgroundMode==="image"&&sceneryImage){
+    drawCover(ctx,sceneryImage,width,height);
+  }
+
+  if(cutoutImage){
+    const scale=Math.min(
+      width/cutoutImage.width,
+      height/cutoutImage.height
+    );
+
+    const w=cutoutImage.width*scale;
+    const h=cutoutImage.height*scale;
+
+    ctx.drawImage(
+      cutoutImage,
+      (width-w)/2,
+      (height-h)/2,
+      w,h
+    );
+  }
+}
+
+function sizeForPassport(){
+  const value=$("photoSize").value;
+
+  if(value==="35x45")return [413,531];
+  if(value==="2x2")return [600,600];
+  if(value==="4x6")return [1200,1800];
+
+  return [
+    cutoutImage.naturalWidth,
+    cutoutImage.naturalHeight
+  ];
+}
+
+function renderAll(){
+  if(!cutoutImage)return;
+
+  const [w,h]=sizeForPassport();
+  const passport=$("passportCanvas");
+
+  passport.width=w;
+  passport.height=h;
+
+  drawPhoto(passport.getContext("2d"),w,h);
+
+  const scenery=$("sceneryCanvas");
+  scenery.width=cutoutImage.naturalWidth;
+  scenery.height=cutoutImage.naturalHeight;
+
+  drawPhoto(
+    scenery.getContext("2d"),
+    scenery.width,
+    scenery.height
+  );
+}
+
+$("photoSize").addEventListener("change",renderAll);
+
+// Own background upload
+$("backgroundInput").addEventListener("change",async function(){
+  const file=this.files[0];
+  if(!file)return;
+
+  if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
+    showMessage("সঠিক ব্যাকগ্রাউন্ড ছবি নির্বাচন করুন।");
+    this.value="";
+    return;
+  }
+
+  if(file.size>10*1024*1024){
+    showMessage("ব্যাকগ্রাউন্ড ছবির আকার 10 MB-এর বেশি হতে পারবে না।");
+    this.value="";
+    return;
+  }
+
+  try{
+    revoke(sceneryURL);
+    sceneryURL=URL.createObjectURL(file);
+    sceneryImage=await loadImage(sceneryURL);
+    backgroundMode="image";
+
+    document.querySelectorAll(".scene-item")
+      .forEach(x=>x.classList.remove("active"));
+
+    renderAll();
+    showMessage("আপনার নিজের ব্যাকগ্রাউন্ড যুক্ত হয়েছে।","success");
+
+  }catch(error){
+    showMessage("ব্যাকগ্রাউন্ড ছবিটি খোলা যায়নি।");
+  }
+});
+
+// Transparent background
+$("transparentBtn").addEventListener("click",()=>{
+  backgroundMode="transparent";
+  sceneryImage=null;
+
+  document.querySelectorAll(".scene-item")
+    .forEach(x=>x.classList.remove("active"));
+
+  renderAll();
+  showMessage("স্বচ্ছ ব্যাকগ্রাউন্ড নির্বাচন করা হয়েছে।","success");
+});
+
+// Download helper
+function downloadCanvas(canvasId,filename){
+  const canvas=$(canvasId);
+
+  if(!cutoutImage){
+    showMessage("প্রথমে ছবির ব্যাকগ্রাউন্ড সরান।");
+    return;
+  }
+
+  canvas.toBlob(blob=>{
+    if(!blob){
+      showMessage("PNG তৈরি করা যায়নি।");
+      return;
+    }
+
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement("a");
+    link.href=url;
+    link.download=filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(()=>URL.revokeObjectURL(url),2000);
+
+    showMessage("আপনার PNG ছবি ডাউনলোড হয়েছে।","success");
+  },"image/png");
+}
+
+$("downloadPassport").addEventListener("click",()=>{
+  downloadCanvas("passportCanvas","rifat-passport-photo.png");
+});
+
+$("downloadScenery").addEventListener("click",()=>{
+  downloadCanvas("sceneryCanvas","rifat-scenery-photo.png");
+});
+
+window.addEventListener("beforeunload",()=>{
+  revoke(originalURL);
+  revoke(cutoutURL);
+  revoke(sceneryURL);
+});
+</script>
+
+</body>
+</html>
