@@ -4,669 +4,1000 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rifat AI Background Studio</title>
-<meta name="description" content="Rifat AI Background Studio - Passport photo colors, Islamic scenery, natural backgrounds and AI background removal.">
+<title>Rifat AI Background & Lighting Studio</title>
+<meta name="description" content="Rifat AI Background Studio - ছবি থেকে ব্যাকগ্রাউন্ড রিমুভ, পাসপোর্ট ছবি তৈরি, ব্যাকগ্রাউন্ড পরিবর্তন এবং প্রফেশনাল লাইটিং এডিট করুন।">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#071d35;
+  --blue:#1769aa;
+  --sky:#2196c8;
+  --gold:#f0c040;
+  --light:#f3f7fc;
+  --white:#ffffff;
+  --text:#172b40;
+  --muted:#68798b;
+  --border:#dce6f0;
+}
+*{box-sizing:border-box}
 body{
-  font-family:Arial,sans-serif;
-  background:#071d35;color:#fff;line-height:1.7
-}
-nav{
-  background:#102a43;padding:13px;text-align:center;
-  border-bottom:1px solid #285477
-}
-nav a{
-  display:inline-block;background:#1769aa;color:white;
-  text-decoration:none;padding:8px 15px;
-  margin:4px;border-radius:8px
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:var(--light);
+  color:var(--text);
 }
 header{
-  text-align:center;padding:42px 15px;
-  background:linear-gradient(130deg,#071d35,#1769aa);
-  border-bottom:3px solid #f0c040
+  background:linear-gradient(120deg,#071d35,#124e83,#2196c8);
+  color:white;
+  text-align:center;
+  padding:30px 15px;
 }
-header h1{font-size:30px}
-header span{color:#f0c040}
-.container{max-width:1100px;margin:auto;padding:20px 14px}
-.panel{
-  background:#102a43;border:1px solid #285477;
-  border-radius:15px;padding:20px;margin-bottom:20px
+header h1{margin:0 0 9px;font-size:27px}
+header p{margin:5px 0;color:#e5f3ff;line-height:1.7}
+.header-tag{
+  display:inline-block;
+  margin-top:10px;
+  padding:7px 15px;
+  background:#ffffff20;
+  border:1px solid #ffffff50;
+  border-radius:30px;
+  font-size:13px;
 }
-h2,h3{color:#f0c040;margin-bottom:10px}
-p{color:#dbeafe}
-.btn{
-  display:inline-block;border:0;border-radius:8px;
-  padding:11px 17px;margin:5px;background:#1769aa;
-  color:white;font-weight:bold;cursor:pointer
+.container{max-width:1150px;margin:25px auto;padding:0 14px}
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 5px 18px #0b31500b;
 }
-.btn.gold{background:#f0c040;color:#071d35}
-.btn:disabled{opacity:.5;cursor:not-allowed}
+.section-title{
+  margin:0 0 15px;
+  color:var(--navy);
+  font-size:21px;
+}
+.subtitle{color:var(--muted);font-size:13px;line-height:1.7}
+.tabs{
+  display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px;
+}
+.tab{
+  border:1px solid var(--border);
+  background:white;
+  color:var(--navy);
+  padding:11px 17px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.tab.active{background:var(--blue);color:white;border-color:var(--blue)}
+button,.upload-label{
+  cursor:pointer;
+  border:0;
+  border-radius:9px;
+  padding:11px 16px;
+  font-weight:bold;
+  font-size:14px;
+}
+.primary{background:var(--blue);color:white}
+.secondary{background:#e8f2fb;color:var(--blue)}
+.gold{background:var(--gold);color:#172b40}
+.danger{background:#fee9e9;color:#a52b2b}
+button:disabled{opacity:.5;cursor:not-allowed}
 input[type=file]{display:none}
-select{
-  background:#071d35;color:white;padding:10px;
-  border:1px solid #4383b2;border-radius:8px;
-  width:100%;margin:8px 0
+.upload-label{
+  display:inline-block;
+  background:#e8f2fb;
+  color:var(--blue);
 }
-.upload{
-  text-align:center;padding:25px 10px;
-  border:2px dashed #4383b2;border-radius:12px;
-  background:#0b223b;margin-top:15px
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.status{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:8px;
+  background:#edf5fc;
+  color:#245578;
+  font-size:13px;
+  line-height:1.6;
 }
-.message{
-  display:none;padding:12px;margin-top:14px;
-  border-radius:8px;background:#493d20;color:#ffe49a;
-  overflow-wrap:anywhere
+.status.error{background:#fff0f0;color:#a52b2b}
+.status.success{background:#eaf8ef;color:#17643a}
+.preview-wrap{
+  background:#e8edf3;
+  border:1px dashed #a9bacb;
+  border-radius:12px;
+  min-height:270px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px;
+  overflow:hidden;
 }
-.message.success{background:#123e32;color:#b8f5d7}
-.message.error{background:#55252b;color:#ffd5d5}
+canvas{
+  display:block;
+  max-width:100%;
+  max-height:620px;
+  height:auto;
+  background:white;
+  box-shadow:0 3px 15px #0002;
+}
+.empty-preview{text-align:center;color:#718196;line-height:1.8}
 .grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));
-  gap:12px;margin-top:15px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;
 }
-.color-item,.scene-item{
-  background:#0b223b;color:white;border:2px solid #4383b2;
-  padding:8px;border-radius:10px;cursor:pointer;text-align:center
+.field{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  padding:12px;
+  border-radius:10px;
 }
-.color-item.active,.scene-item.active{
-  border-color:#f0c040;box-shadow:0 0 0 2px #f0c040
+.field label{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:10px;
 }
-.swatch{height:60px;border-radius:7px;border:1px solid #aaa}
-.scene-item img{
-  width:100%;height:90px;object-fit:cover;border-radius:6px
+.field input[type=range]{width:100%;accent-color:var(--blue)}
+.field select{
+  width:100%;
+  padding:9px;
+  border:1px solid var(--border);
+  border-radius:7px;
 }
-.scene-item small{display:block;color:#dbeafe}
-.preview-grid{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;margin-top:18px
+.value{color:var(--blue)}
+.color-list,.preset-list{
+  display:flex;flex-wrap:wrap;gap:10px;
 }
-.preview-card{
-  background:#0b223b;padding:12px;border-radius:10px;
-  border:1px solid #285477;text-align:center
+.color-choice{
+  width:38px;height:38px;border-radius:50%;
+  border:3px solid white;
+  box-shadow:0 0 0 1px #bdc9d6;
+  cursor:pointer;
 }
-.preview-card img{
-  width:100%;max-height:330px;object-fit:contain;
-  background-color:white;border-radius:7px
+.color-choice.selected{box-shadow:0 0 0 3px var(--blue)}
+.scene-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:12px;
 }
-#studio{display:none}
-.canvas-wrap{
-  background:#0b223b;border:1px solid #4383b2;
-  border-radius:12px;padding:12px;text-align:center;margin-top:18px
+.scene{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:8px;
+  background:white;
+  cursor:pointer;
+  text-align:center;
 }
-#finalCanvas{
-  width:100%;max-height:600px;object-fit:contain;
-  background-color:white;border-radius:8px
+.scene img{
+  width:100%;height:95px;
+  object-fit:cover;
+  border-radius:7px;
+  background:#edf1f5;
 }
-.note{font-size:13px;color:#b9cce0;margin-top:9px}
+.scene span{display:block;font-size:12px;margin-top:7px;font-weight:bold}
+.scene.selected{border:2px solid var(--blue);background:#eff7ff}
+.scene small{color:#a36a24;font-size:10px}
+.preset{
+  padding:10px 13px;
+  border:1px solid var(--border);
+  background:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+.preset.active{border-color:var(--blue);background:#eaf4ff;color:var(--blue)}
+.note{
+  background:#fff8e6;
+  border-left:4px solid var(--gold);
+  padding:12px;
+  border-radius:7px;
+  font-size:13px;
+  line-height:1.7;
+}
+.hidden{display:none!important}
 footer{
-  text-align:center;padding:25px;background:#061629;
-  border-top:2px solid #1769aa;color:#9db5cc
+  text-align:center;
+  padding:24px 12px;
+  background:var(--navy);
+  color:white;
+  line-height:1.8;
+  font-size:13px;
 }
 @media(max-width:600px){
-  header h1{font-size:23px}
-  .panel{padding:14px}
-  .preview-grid{grid-template-columns:1fr}
+  header h1{font-size:22px}
+  .card{padding:14px}
+  .preview-wrap{min-height:200px}
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="../index.html">🏠 Home / হোম</a>
-  <a href="index.html">AI Tools</a>
-</nav>
-
 <header>
-  <h1>✂️ Rifat AI <span>Background Studio</span></h1>
-  <p>AI Background Removal, Passport Photo & Scenery Studio</p>
-  <p>ছবি সম্পাদনা করুন নিজের পছন্দমতো</p>
+  <h1>✨ Rifat AI Background Studio</h1>
+  <p>ছবি সম্পাদনা করুন সহজেই | Edit Your Photos Professionally</p>
+  <span class="header-tag">Background Remover • Passport Studio • Lighting Studio</span>
 </header>
 
 <main class="container">
 
-<section class="panel">
-  <h2>🌟 Welcome to Rifat AI Studio</h2>
-  <p>
-    আপনার ছবির ব্যাকগ্রাউন্ড সরান, পাসপোর্ট ছবির
-    রং নির্বাচন করুন অথবা প্রাকৃতিক ও ইসলামিক দৃশ্য
-    দিয়ে নতুন ছবি তৈরি করুন।
-  </p>
-  <p>
-    Remove backgrounds, create passport photos and
-    choose beautiful scenic backgrounds.
-  </p>
-</section>
+  <section class="card">
+    <h2 class="section-title">📸 ছবি আপলোড করুন | Upload Photo</h2>
+    <p class="subtitle">প্রথমে আপনার ছবি নির্বাচন করুন। তারপর AI দিয়ে ছবির ব্যাকগ্রাউন্ড সরান।</p>
 
-<section class="panel">
-  <h2>📸 ১. Upload Your Photo / ছবি আপলোড</h2>
+    <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp">
 
-  <div class="upload">
-    <p style="font-size:35px">🖼️</p>
-    <p>JPG, PNG অথবা WEBP ছবি নির্বাচন করুন</p>
-    <label class="btn gold" for="photoInput">📁 Choose Photo</label>
-    <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp">
-    <p class="note">Maximum size: 10 MB</p>
-  </div>
-
-  <div class="preview-grid" id="beforeAfter" style="display:none">
-    <div class="preview-card">
-      <h3>Before / মূল ছবি</h3>
-      <img id="originalPreview" alt="Original photo">
+    <div class="action-row">
+      <label class="upload-label" for="photoInput">📁 ছবি নির্বাচন করুন</label>
+      <button class="primary" id="removeBtn" disabled>✨ AI Background Remove</button>
     </div>
-    <div class="preview-card">
-      <h3>After / Background Removed</h3>
-      <img id="cutoutPreview" alt="Background removed photo">
+
+    <div id="status" class="status">এখনো কোনো ছবি নির্বাচন করা হয়নি।</div>
+  </section>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="passport">🪪 Passport Photo Studio</button>
+    <button class="tab" data-tab="scenery">🌿 Scenery Background Studio</button>
+    <button class="tab" data-tab="lighting">💡 Lighting Studio</button>
+  </div>
+
+  <!-- PASSPORT STUDIO -->
+  <section class="card tab-panel" id="passport">
+    <h2 class="section-title">🪪 Passport Photo Studio</h2>
+    <p class="subtitle">পাসপোর্ট ও পরিচয়পত্রের ছবির জন্য বিভিন্ন ব্যাকগ্রাউন্ড রং নির্বাচন করুন।</p>
+
+    <h3>ব্যাকগ্রাউন্ড রং | Background Colors</h3>
+    <div class="color-list" id="colorList"></div>
+
+    <div class="grid" style="margin-top:18px">
+      <div class="field">
+        <label for="passportSize">ছবির সাইজ | Photo Size</label>
+        <select id="passportSize">
+          <option value="original">Original Photo Size</option>
+          <option value="35x45">35 × 45 mm (413 × 531 px)</option>
+          <option value="2x2">2 × 2 inch (600 × 600 px)</option>
+          <option value="4x6">4 × 6 inch (1200 × 1800 px)</option>
+        </select>
+      </div>
     </div>
-  </div>
 
-  <div style="text-align:center;margin-top:15px">
-    <button class="btn gold" id="removeBtn" disabled>✂️ Remove Background</button>
-    <button class="btn" id="newPhotoBtn">Change Photo</button>
-  </div>
+    <div class="action-row">
+      <button class="primary" id="downloadPassport">⬇ Download Passport Photo</button>
+    </div>
+    <p class="subtitle">নির্বাচিত প্রতিষ্ঠানের নির্দিষ্ট ছবি ও মুখের মাপের নিয়ম আলাদাভাবে যাচাই করুন।</p>
+  </section>
 
-  <div id="message" class="message" role="status" aria-live="polite"></div>
-</section>
+  <!-- SCENERY STUDIO -->
+  <section class="card tab-panel hidden" id="scenery">
+    <h2 class="section-title">🌿 Scenery Background Studio</h2>
+    <p class="subtitle">নিজের পছন্দমতো প্রাকৃতিক, ইসলামিক অথবা প্রফেশনাল ব্যাকগ্রাউন্ড নির্বাচন করুন।</p>
 
-<section class="panel" id="studio">
+    <h3>নিজের ব্যাকগ্রাউন্ড আপলোড</h3>
+    <input type="file" id="backgroundInput" accept="image/*">
+    <label class="upload-label" for="backgroundInput">📁 নিজের Background নির্বাচন করুন</label>
 
-  <h2>🎨 ২. Passport Photo Studio</h2>
-  <p>পাসপোর্ট ছবির জন্য পছন্দের ব্যাকগ্রাউন্ড রং নির্বাচন করুন।</p>
+    <h3 style="margin-top:22px">প্রাকৃতিক দৃশ্য | Natural Scenery</h3>
+    <div class="scene-grid" id="natureScenes"></div>
 
-  <div class="grid" id="colorGrid"></div>
+    <h3 style="margin-top:22px">ইসলামিক দৃশ্য | Islamic Scenery</h3>
+    <div class="scene-grid" id="islamicScenes"></div>
 
-  <h3 style="margin-top:25px">📐 Passport Photo Size / ছবির মাপ</h3>
-  <select id="photoSize">
-    <option value="original">Original Size / মূল ছবির মাপ</option>
-    <option value="35x45">35 × 45 mm</option>
-    <option value="2x2">2 × 2 inch</option>
-    <option value="4x6">4 × 6 inch</option>
-  </select>
-  <p class="note">
-    নির্দিষ্ট মাপ নির্বাচন করলে 300 DPI অনুযায়ী ক্যানভাস তৈরি হবে।
-    প্রয়োজনীয় প্রতিষ্ঠানের ছবির নিয়ম আলাদাভাবে যাচাই করুন।
-  </p>
+    <h3 style="margin-top:22px">অফিস ও স্টুডিও | Office & Studio</h3>
+    <div class="scene-grid" id="officeScenes"></div>
 
-  <div class="canvas-wrap">
-    <h3>Passport Photo Preview</h3>
-    <canvas id="passportCanvas"></canvas>
-  </div>
+    <div class="action-row">
+      <button class="secondary" id="transparentBtn">স্বচ্ছ ব্যাকগ্রাউন্ড</button>
+      <button class="primary" id="downloadScenery">⬇ Download Scenery Photo</button>
+    </div>
+  </section>
 
-  <button class="btn gold" id="downloadPassport">⬇️ Download Passport PNG</button>
+  <!-- LIGHTING STUDIO -->
+  <section class="card tab-panel hidden" id="lighting">
+    <h2 class="section-title">💡 Rifat AI Lighting Studio</h2>
+    <p class="subtitle">ছবির আলো, উজ্জ্বলতা, রঙ ও আলো-ছায়া নিজের পছন্দমতো নিয়ন্ত্রণ করুন।</p>
 
-</section>
+    <h3>প্রফেশনাল লাইটিং ইফেক্ট | Lighting Effects</h3>
+    <div class="preset-list" id="presetList">
+      <button class="preset active" data-preset="none">Original</button>
+      <button class="preset" data-preset="soft">Soft Light</button>
+      <button class="preset" data-preset="warm">Warm Light</button>
+      <button class="preset" data-preset="cool">Cool Light</button>
+      <button class="preset" data-preset="golden">Golden Hour</button>
+      <button class="preset" data-preset="cinematic">Cinematic</button>
+      <button class="preset" data-preset="neon">Neon Light</button>
+      <button class="preset" data-preset="beauty">Beauty Light</button>
+      <button class="preset" data-preset="highkey">High-Key</button>
+      <button class="preset" data-preset="lowkey">Low-Key</button>
+      <button class="preset" data-preset="rim">Rim Light</button>
+      <button class="preset" data-preset="sunset">Sunset Glow</button>
+    </div>
 
-<section class="panel" id="sceneryStudio">
+    <h3 style="margin-top:25px">আলো নিয়ন্ত্রণ | Light Adjustments</h3>
+    <div class="grid" id="lightingControls"></div>
 
-  <h2>🌄 ৩. Scenery Background Studio</h2>
-  <p>আপনার পছন্দের দৃশ্য নির্বাচন করুন।</p>
+    <div class="action-row">
+      <button class="secondary" id="resetLighting">↺ Reset Lighting</button>
+      <button class="secondary" id="originalPreview">Original Preview</button>
+      <button class="primary" id="downloadLighting">⬇ Download Edited Photo</button>
+    </div>
 
-  <h3 style="margin-top:15px">🌳 Natural Scenery / প্রাকৃতিক দৃশ্য</h3>
-  <div class="grid" id="naturalGrid"></div>
+    <p class="note" style="margin-top:18px">
+      💡 Lighting Effect ছবির ওপর ডিজিটাল আলোর প্রভাব তৈরি করে। এটি প্রকৃত স্টুডিও লাইট বা AI দিয়ে নতুন আলো তৈরির সমতুল্য নয়।
+    </p>
+  </section>
 
-  <h3 style="margin-top:25px">🕌 Islamic Scenery / ইসলামিক দৃশ্য</h3>
-  <div class="grid" id="islamicGrid"></div>
+  <!-- COMMON PREVIEW -->
+  <section class="card">
+    <h2 class="section-title">🖼️ Live Photo Preview</h2>
+    <div class="preview-wrap" id="previewWrap">
+      <div class="empty-preview">
+        <div style="font-size:45px">📷</div>
+        প্রথমে ছবি আপলোড করুন এবং AI Background Remove করুন।
+        <br>Upload a photo to begin editing.
+      </div>
+      <canvas id="photoCanvas" class="hidden"></canvas>
+    </div>
+    <div class="action-row">
+      <button class="primary" id="downloadCurrent">⬇ Download Current Photo</button>
+    </div>
+  </section>
 
-  <h3 style="margin-top:25px">🏙️ City & Studio Backgrounds</h3>
-  <div class="grid" id="studioGrid"></div>
-
-  <h3 style="margin-top:25px">📁 নিজের ব্যাকগ্রাউন্ড আপলোড</h3>
-  <label class="btn gold" for="backgroundInput">Upload Your Background</label>
-  <input id="backgroundInput" type="file" accept="image/jpeg,image/png,image/webp">
-
-  <button class="btn" id="transparentBtn">↩️ Transparent Background</button>
-
-  <p class="note">
-    নিজের পছন্দের ছবি আপলোড করে ব্যক্তির পেছনে ব্যবহার করতে পারবেন।
-  </p>
-
-  <div class="canvas-wrap">
-    <h3>Scenery Preview / দৃশ্যের প্রিভিউ</h3>
-    <canvas id="sceneryCanvas"></canvas>
-  </div>
-
-  <button class="btn gold" id="downloadScenery">⬇️ Download Scenery PNG</button>
-</section>
-
-<section class="panel">
-  <h2>📖 ব্যবহারবিধি / How to Use</h2>
-  <ol style="padding-left:22px;color:#dbeafe">
-    <li>নিজের ছবি আপলোড করুন।</li>
-    <li>Remove Background বাটনে ক্লিক করুন।</li>
-    <li>Passport Studio থেকে পছন্দের রং ও মাপ নির্বাচন করুন।</li>
-    <li>Scenery Studio থেকে প্রাকৃতিক বা ইসলামিক দৃশ্য বেছে নিন।</li>
-    <li>নিজের ব্যাকগ্রাউন্ডও আপলোড করতে পারবেন।</li>
-    <li>প্রিভিউ দেখে PNG ডাউনলোড করুন।</li>
-  </ol>
-</section>
-
-<section class="panel">
-  <h2>🔐 Privacy & Security</h2>
-  <p>
-    আপনার ছবি নিরাপদ Backend-এর মাধ্যমে AI সার্ভিসে পাঠানো হয়।
-    API Key এই ওয়েবসাইটের HTML-এ রাখা হয়নি।
-  </p>
-</section>
+  <section class="card">
+    <h2 class="section-title">ℹ️ ব্যবহার নির্দেশিকা | Instructions</h2>
+    <ol style="line-height:2;font-size:14px">
+      <li>প্রথমে নিজের ছবি আপলোড করুন।</li>
+      <li>AI Background Remove বাটনে ক্লিক করুন।</li>
+      <li>Passport অথবা Scenery বিভাগ থেকে ব্যাকগ্রাউন্ড নির্বাচন করুন।</li>
+      <li>Lighting Studio থেকে আলোর সেটিং পরিবর্তন করুন।</li>
+      <li>Preview দেখে পছন্দ হলে PNG ডাউনলোড করুন।</li>
+    </ol>
+  </section>
 
 </main>
 
 <footer>
-  <p>© 2026 Rifat AI Background Studio</p>
-  <p>Powered by Md Rifat Ahmed</p>
-  <p>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
+  <strong>Rifat Tools & Documents</strong><br>
+  Rifat AI Background Studio<br>
+  Learn • Create • Edit • Improve<br>
+  © 2026 Rifat Ahmed. All Rights Reserved.
 </footer>
 
 <script>
-"use strict";
+/* =========================================
+   API CONNECTION
+   Existing Cloudflare Worker connection
+========================================= */
 
 const API_URL =
 "https://rifat-ai-background-remover.rifatahmedbogra.workers.dev";
 
-const $ = id => document.getElementById(id);
+/* =========================================
+   MAIN ELEMENTS
+========================================= */
 
-let selectedFile = null;
-let originalURL = null;
-let cutoutURL = null;
+const photoInput = document.getElementById("photoInput");
+const removeBtn = document.getElementById("removeBtn");
+const statusBox = document.getElementById("status");
+const canvas = document.getElementById("photoCanvas");
+const ctx = canvas.getContext("2d");
+
+let originalImage = null;
 let cutoutImage = null;
+let selectedBackground = {type:"color", value:"#ffffff"};
 let selectedColor = "#ffffff";
-let sceneryImage = null;
-let sceneryURL = null;
-let backgroundMode = "transparent";
+let customBackground = null;
+let currentPreset = "none";
+let originalMode = false;
 
-const colors = [
-  ["সাদা","#ffffff"],
-  ["আকাশি","#add8e6"],
-  ["নীল","#1769aa"],
-  ["হালকা নীল","#d9eaf7"],
-  ["ধূসর","#d3d3d3"],
-  ["গোলাপি","#f8c8dc"],
-  ["লাল","#e53935"],
-  ["সবুজ","#d9ead3"],
-  ["হালকা হলুদ","#fff2cc"],
-  ["ক্রিম","#fffdd0"],
-  ["বেগুনি","#d8c5f2"],
-  ["কালো","#222222"]
-];
+const defaultLighting = {
+ brightness:100,
+ exposure:0,
+ contrast:100,
+ saturation:100,
+ warmth:0,
+ tint:0,
+ highlights:0,
+ shadows:0,
+ glow:0,
+ vignette:0,
+ sharpness:0
+};
 
-// All background images must be uploaded to GitHub.
-// Image file names below must match exactly.
-const naturalScenes = [
-  ["পাহাড় ও লেক","mountain-lake.jpg"],
-  ["সমুদ্রসৈকত","sea-beach.jpg"],
-  ["সবুজ বন","green-forest.jpg"],
-  ["ফুলের বাগান","flower-garden.jpg"],
-  ["নদীর দৃশ্য","river-view.jpg"],
-  ["সবুজ প্রকৃতি","green-nature.jpg"]
-];
+let lighting = {...defaultLighting};
 
-const islamicScenes = [
-  ["সুন্দর মসজিদ","mosque.jpg"],
-  ["মসজিদের আঙিনা","mosque-courtyard.jpg"],
-  ["ইসলামিক স্থাপত্য","islamic-architecture.jpg"],
-  ["মসজিদ ও সূর্যাস্ত","mosque-sunset.jpg"],
-  ["ইসলামিক বাগান","islamic-garden.jpg"],
-  ["মিনার ও আকাশ","mosque-minaret.jpg"]
-];
+/* =========================================
+   STATUS
+========================================= */
 
-const studioScenes = [
-  ["আধুনিক অফিস","modern-office.jpg"],
-  ["ফটো স্টুডিও","photo-studio.jpg"],
-  ["শহরের দৃশ্য","city-view.jpg"],
-  ["ইনডোর ব্যাকগ্রাউন্ড","indoor-room.jpg"]
-];
-
-function showMessage(text,type="error"){
-  $("message").textContent=text;
-  $("message").className="message "+type;
-  $("message").style.display="block";
+function setStatus(message,type="normal"){
+ statusBox.textContent=message;
+ statusBox.className="status";
+ if(type==="error")statusBox.classList.add("error");
+ if(type==="success")statusBox.classList.add("success");
 }
 
-function hideMessage(){
-  $("message").style.display="none";
-}
+/* =========================================
+   TABS
+========================================= */
 
-function revoke(url){
-  if(url) URL.revokeObjectURL(url);
-}
+document.querySelectorAll(".tab").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".tab-panel").forEach(p=>p.classList.add("hidden"));
 
-function loadImage(src){
-  return new Promise((resolve,reject)=>{
-    const image=new Image();
-    image.onload=()=>resolve(image);
-    image.onerror=()=>reject(new Error("ছবিটি লোড করা যায়নি।"));
-    image.src=src;
-  });
-}
-
-// Passport color options
-colors.forEach(([name,color])=>{
-  const button=document.createElement("button");
-  button.className="color-item";
-  button.innerHTML='<div class="swatch"></div><span></span>';
-  button.querySelector(".swatch").style.background=color;
-  button.querySelector("span").textContent=name;
-
-  button.addEventListener("click",()=>{
-    selectedColor=color;
-    backgroundMode="color";
-    document.querySelectorAll(".color-item")
-      .forEach(x=>x.classList.remove("active"));
-    button.classList.add("active");
-    renderAll();
-  });
-
-  $("colorGrid").appendChild(button);
+  button.classList.add("active");
+  document.getElementById(button.dataset.tab).classList.remove("hidden");
+ });
 });
 
-// Create local scenery cards
-function buildSceneCards(items,containerId){
-  const container=$(containerId);
+/* =========================================
+   PHOTO UPLOAD
+========================================= */
 
-  items.forEach(([name,file])=>{
-    const button=document.createElement("button");
-    button.className="scene-item";
+photoInput.addEventListener("change",()=>{
+ const file=photoInput.files[0];
+ if(!file)return;
 
-    const img=document.createElement("img");
-    img.src="../backgrounds/"+file;
-    img.alt=name;
+ if(file.size>10*1024*1024){
+  setStatus("ছবির সাইজ ১০ MB-এর বেশি। ছোট ছবি নির্বাচন করুন।","error");
+  photoInput.value="";
+  return;
+ }
 
-    const label=document.createElement("small");
-    label.textContent=name;
+ const reader=new FileReader();
 
-    img.onerror=()=>{
-      img.style.display="none";
-      label.textContent=name+" — ছবি যোগ করা হয়নি";
-    };
+ reader.onload=()=>{
+  const img=new Image();
+  img.onload=()=>{
+   originalImage=img;
+   cutoutImage=null;
+   removeBtn.disabled=false;
+   setStatus("ছবি আপলোড হয়েছে। এখন AI Background Remove করুন।","success");
+   drawPreview();
+  };
+  img.onerror=()=>setStatus("ছবি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।","error");
+  img.src=reader.result;
+ };
+ reader.readAsDataURL(file);
+});
 
-    button.appendChild(img);
-    button.appendChild(label);
+/* =========================================
+   BACKGROUND REMOVE API
+========================================= */
 
-    button.addEventListener("click",async()=>{
-      try{
-        const image=await loadImage("../backgrounds/"+file);
+removeBtn.addEventListener("click",async()=>{
+ if(!photoInput.files[0]){
+  setStatus("প্রথমে একটি ছবি নির্বাচন করুন।","error");
+  return;
+ }
 
-        sceneryImage=image;
-        backgroundMode="image";
+ removeBtn.disabled=true;
+ setStatus("AI দিয়ে ছবির ব্যাকগ্রাউন্ড সরানো হচ্ছে...");
 
-        document.querySelectorAll(".scene-item")
-          .forEach(x=>x.classList.remove("active"));
+ try{
+  const formData=new FormData();
+  formData.append("image_file",photoInput.files[0]);
 
-        button.classList.add("active");
-        renderAll();
-        showMessage(name+" ব্যাকগ্রাউন্ড যুক্ত হয়েছে।","success");
-
-      }catch(error){
-        showMessage(
-          name+" ছবিটি এখনো Repository-তে যোগ করা হয়নি।",
-          "error"
-        );
-      }
-    });
-
-    container.appendChild(button);
+  const response=await fetch(API_URL,{
+   method:"POST",
+   body:formData
   });
-}
 
-buildSceneCards(naturalScenes,"naturalGrid");
-buildSceneCards(islamicScenes,"islamicGrid");
-buildSceneCards(studioScenes,"studioGrid");
+  if(!response.ok){
+   let errorMessage="Background remove করা যায়নি।";
+   try{
+    const data=await response.json();
+    errorMessage=data.error||errorMessage;
+   }catch(e){}
+   throw new Error(errorMessage);
+  }
 
-// Upload original photo
-$("photoInput").addEventListener("change",function(){
-  const file=this.files[0];
-  if(!file)return;
+  const blob=await response.blob();
 
-  if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
-    showMessage("শুধু JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
-    this.value="";
+  if(!blob.type.startsWith("image/")){
+   throw new Error("সার্ভার থেকে সঠিক ছবি পাওয়া যায়নি।");
+  }
+
+  const imageURL=URL.createObjectURL(blob);
+  const img=new Image();
+
+  img.onload=()=>{
+   cutoutImage=img;
+   drawPreview();
+   setStatus("আলহামদুলিল্লাহ! Background সফলভাবে Remove হয়েছে।","success");
+   URL.revokeObjectURL(imageURL);
+   removeBtn.disabled=false;
+  };
+
+  img.onerror=()=>{
+   URL.revokeObjectURL(imageURL);
+   throw new Error("প্রসেস করা ছবি খোলা যায়নি।");
+  };
+
+  img.src=imageURL;
+
+ }catch(error){
+  console.error(error);
+  setStatus("সমস্যা: "+error.message,"error");
+  removeBtn.disabled=false;
+ }
+});
+
+/* =========================================
+   PASSPORT COLORS
+========================================= */
+
+const colors=[
+ {name:"সাদা",value:"#ffffff"},
+ {name:"হালকা নীল",value:"#d9efff"},
+ {name:"নীল",value:"#2586d5"},
+ {name:"ধূসর",value:"#d1d5db"},
+ {name:"গোলাপি",value:"#f8d9e5"},
+ {name:"লাল",value:"#e64b4b"},
+ {name:"সবুজ",value:"#a8d9b0"},
+ {name:"হালকা হলুদ",value:"#fff0b8"},
+ {name:"ক্রিম",value:"#f5e8cf"},
+ {name:"বেগুনি",value:"#c8b5ed"},
+ {name:"কালো",value:"#20242b"}
+];
+
+const colorList=document.getElementById("colorList");
+
+colors.forEach(color=>{
+ const button=document.createElement("button");
+ button.className="color-choice";
+ button.style.background=color.value;
+ button.title=color.name;
+ if(color.value===selectedColor)button.classList.add("selected");
+
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".color-choice").forEach(b=>b.classList.remove("selected"));
+  button.classList.add("selected");
+  selectedColor=color.value;
+  selectedBackground={type:"color",value:color.value};
+  drawPreview();
+ });
+
+ colorList.appendChild(button);
+});
+
+/* =========================================
+   SCENERY BACKGROUNDS
+========================================= */
+
+const scenes={
+ nature:[
+  ["mountain-lake.jpg","পাহাড় ও লেক"],
+  ["sea-beach.jpg","সমুদ্র সৈকত"],
+  ["green-forest.jpg","সবুজ বন"],
+  ["flower-garden.jpg","ফুলের বাগান"],
+  ["river-view.jpg","নদীর দৃশ্য"],
+  ["green-nature.jpg","প্রাকৃতিক সবুজ"]
+ ],
+ islamic:[
+  ["mosque.jpg","সুন্দর মসজিদ"],
+  ["mosque-courtyard.jpg","মসজিদ প্রাঙ্গণ"],
+  ["islamic-architecture.jpg","ইসলামিক স্থাপত্য"],
+  ["mosque-sunset.jpg","সূর্যাস্তের মসজিদ"],
+  ["islamic-garden.jpg","ইসলামিক বাগান"],
+  ["mosque-minaret.jpg","মসজিদের মিনার"]
+ ],
+ office:[
+  ["modern-office.jpg","আধুনিক অফিস"],
+  ["photo-studio.jpg","ফটো স্টুডিও"],
+  ["city-view.jpg","শহরের দৃশ্য"],
+  ["indoor-room.jpg","সুন্দর রুম"]
+ ]
+};
+
+function createSceneCards(list,containerId){
+ const container=document.getElementById(containerId);
+
+ list.forEach(item=>{
+  const [file,name]=item;
+  const card=document.createElement("div");
+  card.className="scene";
+
+  const img=document.createElement("img");
+  img.alt=name;
+  img.src="../backgrounds/"+file;
+
+  const label=document.createElement("span");
+  label.textContent=name;
+
+  const note=document.createElement("small");
+  note.textContent="ছবি যোগ করা হয়নি";
+
+  img.onload=()=>{note.textContent="ব্যবহার করুন";};
+  img.onerror=()=>{img.style.display="none";};
+
+  card.append(img,label,note);
+
+  card.addEventListener("click",()=>{
+   if(!img.complete||!img.naturalWidth){
+    setStatus("এই ব্যাকগ্রাউন্ড ছবিটি এখনো backgrounds ফোল্ডারে যোগ করা হয়নি।","error");
     return;
-  }
+   }
 
-  if(file.size>10*1024*1024){
-    showMessage("ছবির আকার সর্বোচ্চ 10 MB হতে পারবে।");
-    this.value="";
-    return;
-  }
+   const bg=new Image();
+   bg.onload=()=>{
+    customBackground=bg;
+    selectedBackground={type:"image",value:bg};
+    document.querySelectorAll(".scene").forEach(s=>s.classList.remove("selected"));
+    card.classList.add("selected");
+    drawPreview();
+    setStatus(name+" ব্যাকগ্রাউন্ড নির্বাচন করা হয়েছে।","success");
+   };
+   bg.src=img.src;
+  });
 
-  revoke(originalURL);
-  revoke(cutoutURL);
+  container.appendChild(card);
+ });
+}
 
-  originalURL=URL.createObjectURL(file);
-  cutoutURL=null;
-  cutoutImage=null;
-  selectedFile=file;
+createSceneCards(scenes.nature,"natureScenes");
+createSceneCards(scenes.islamic,"islamicScenes");
+createSceneCards(scenes.office,"officeScenes");
 
-  $("originalPreview").src=originalURL;
-  $("beforeAfter").style.display="grid";
-  $("studio").style.display="none";
-  $("sceneryStudio").style.display="none";
-  $("removeBtn").disabled=false;
+/* =========================================
+   CUSTOM BACKGROUND UPLOAD
+========================================= */
 
-  hideMessage();
+document.getElementById("backgroundInput").addEventListener("change",e=>{
+ const file=e.target.files[0];
+ if(!file)return;
+
+ const reader=new FileReader();
+ reader.onload=()=>{
+  const img=new Image();
+  img.onload=()=>{
+   customBackground=img;
+   selectedBackground={type:"image",value:img};
+   drawPreview();
+   setStatus("নিজস্ব ব্যাকগ্রাউন্ড যোগ হয়েছে।","success");
+  };
+  img.src=reader.result;
+ };
+ reader.readAsDataURL(file);
 });
 
-$("newPhotoBtn").addEventListener("click",()=>$("photoInput").click());
+/* =========================================
+   TRANSPARENT BACKGROUND
+========================================= */
 
-// Remove background using existing Worker
-$("removeBtn").addEventListener("click",async()=>{
-  if(!selectedFile)return;
-
-  $("removeBtn").disabled=true;
-  $("removeBtn").textContent="⏳ Processing...";
-  showMessage("AI ব্যাকগ্রাউন্ড সরাচ্ছে। অপেক্ষা করুন।","success");
-
-  try{
-    const form=new FormData();
-    form.append("image_file",selectedFile,selectedFile.name);
-
-    const response=await fetch(API_URL,{
-      method:"POST",
-      body:form
-    });
-
-    if(!response.ok){
-      let error="Background removal ব্যর্থ হয়েছে।";
-      try{
-        const data=await response.json();
-        if(data.error)error=data.error;
-      }catch(e){}
-      throw new Error(error);
-    }
-
-    const type=response.headers.get("Content-Type")||"";
-    if(!type.includes("image/")){
-      throw new Error("সার্ভার থেকে ছবি পাওয়া যায়নি।");
-    }
-
-    const blob=await response.blob();
-    if(!blob.size)throw new Error("ছবির ফলাফল খালি।");
-
-    revoke(cutoutURL);
-    cutoutURL=URL.createObjectURL(blob);
-    cutoutImage=await loadImage(cutoutURL);
-
-    $("cutoutPreview").src=cutoutURL;
-    $("studio").style.display="block";
-    $("sceneryStudio").style.display="block";
-
-    renderAll();
-
-    showMessage("অভিনন্দন! AI ব্যাকগ্রাউন্ড সফলভাবে সরিয়েছে।","success");
-
-  }catch(error){
-    showMessage(error.message||"সার্ভারে সমস্যা হয়েছে।");
-  }finally{
-    $("removeBtn").disabled=false;
-    $("removeBtn").textContent="✂️ Remove Background";
-  }
+document.getElementById("transparentBtn").addEventListener("click",()=>{
+ selectedBackground={type:"transparent",value:null};
+ document.querySelectorAll(".scene").forEach(s=>s.classList.remove("selected"));
+ drawPreview();
+ setStatus("স্বচ্ছ ব্যাকগ্রাউন্ড নির্বাচন করা হয়েছে।","success");
 });
 
-// Draw background image covering canvas
-function drawCover(ctx,image,width,height){
-  const scale=Math.max(width/image.width,height/image.height);
-  const w=image.width*scale;
-  const h=image.height*scale;
-  ctx.drawImage(image,(width-w)/2,(height-h)/2,w,h);
+/* =========================================
+   PASSPORT SIZE
+========================================= */
+
+function getCanvasSize(){
+ const size=document.getElementById("passportSize").value;
+
+ if(size==="35x45")return [413,531];
+ if(size==="2x2")return [600,600];
+ if(size==="4x6")return [1200,1800];
+
+ if(cutoutImage)return [cutoutImage.naturalWidth,cutoutImage.naturalHeight];
+ if(originalImage)return [originalImage.naturalWidth,originalImage.naturalHeight];
+
+ return [800,1000];
 }
 
-// Draw person on top of selected background
-function drawPhoto(ctx,width,height){
-  ctx.clearRect(0,0,width,height);
+document.getElementById("passportSize").addEventListener("change",drawPreview);
 
-  if(backgroundMode==="color"){
-    ctx.fillStyle=selectedColor;
-    ctx.fillRect(0,0,width,height);
-  }
+/* =========================================
+   DRAW BACKGROUND
+========================================= */
 
-  if(backgroundMode==="image"&&sceneryImage){
-    drawCover(ctx,sceneryImage,width,height);
-  }
-
-  if(cutoutImage){
-    const scale=Math.min(
-      width/cutoutImage.width,
-      height/cutoutImage.height
-    );
-
-    const w=cutoutImage.width*scale;
-    const h=cutoutImage.height*scale;
-
-    ctx.drawImage(
-      cutoutImage,
-      (width-w)/2,
-      (height-h)/2,
-      w,h
-    );
-  }
+function drawCover(image,x,y,w,h){
+ const scale=Math.max(w/image.width,h/image.height);
+ const sw=image.width*scale;
+ const sh=image.height*scale;
+ ctx.drawImage(image,x+(w-sw)/2,y+(h-sh)/2,sw,sh);
 }
 
-function sizeForPassport(){
-  const value=$("photoSize").value;
-
-  if(value==="35x45")return [413,531];
-  if(value==="2x2")return [600,600];
-  if(value==="4x6")return [1200,1800];
-
-  return [
-    cutoutImage.naturalWidth,
-    cutoutImage.naturalHeight
-  ];
+function drawBackground(w,h){
+ if(selectedBackground.type==="color"){
+  ctx.fillStyle=selectedBackground.value;
+  ctx.fillRect(0,0,w,h);
+ }
+ else if(selectedBackground.type==="image" && selectedBackground.value){
+  drawCover(selectedBackground.value,0,0,w,h);
+ }
 }
 
-function renderAll(){
-  if(!cutoutImage)return;
+/* =========================================
+   LIGHTING PRESETS
+========================================= */
 
-  const [w,h]=sizeForPassport();
-  const passport=$("passportCanvas");
+const presets={
+ none:{},
+ soft:{brightness:108,contrast:94,glow:15},
+ warm:{warmth:30,brightness:105,saturation:108},
+ cool:{warmth:-25,tint:-5,brightness:105},
+ golden:{warmth:45,glow:25,brightness:108},
+ cinematic:{contrast:125,saturation:85,vignette:25},
+ neon:{tint:25,saturation:135,contrast:115,glow:20},
+ beauty:{brightness:110,contrast:95,shadows:15,glow:12},
+ highkey:{brightness:120,contrast:90,highlights:30},
+ lowkey:{brightness:85,contrast:130,vignette:35},
+ rim:{contrast:115,glow:30,highlights:25},
+ sunset:{warmth:55,tint:12,saturation:120,glow:25}
+};
 
-  passport.width=w;
-  passport.height=h;
+function applyPreset(name){
+ currentPreset=name;
+ lighting={...defaultLighting,...(presets[name]||{})};
 
-  drawPhoto(passport.getContext("2d"),w,h);
+ document.querySelectorAll(".preset").forEach(b=>{
+  b.classList.toggle("active",b.dataset.preset===name);
+ });
 
-  const scenery=$("sceneryCanvas");
-  scenery.width=cutoutImage.naturalWidth;
-  scenery.height=cutoutImage.naturalHeight;
+ updateLightingInputs();
+ drawPreview();
+}
 
-  drawPhoto(
-    scenery.getContext("2d"),
-    scenery.width,
-    scenery.height
+/* =========================================
+   LIGHTING SLIDERS
+========================================= */
+
+const controls=[
+ ["brightness","Brightness | উজ্জ্বলতা",50,160,100,"%"],
+ ["exposure","Exposure | আলোর পরিমাণ",-50,50,0,""],
+ ["contrast","Contrast | আলো-ছায়া",50,160,100,"%"],
+ ["saturation","Saturation | রঙের গভীরতা",0,180,100,"%"],
+ ["warmth","Temperature | উষ্ণতা",-100,100,0,""],
+ ["tint","Tint | আলোর রঙ",-100,100,0,""],
+ ["highlights","Highlights | উজ্জ্বল অংশ",-100,100,0,""],
+ ["shadows","Shadows | ছায়া",-100,100,0,""],
+ ["glow","Glow | আলোর আভা",0,100,0,"%"],
+ ["vignette","Vignette | চারপাশের ছায়া",0,100,0,"%"],
+ ["sharpness","Sharpness | তীক্ষ্ণতা",0,100,0,"%"]
+];
+
+const lightingControls=document.getElementById("lightingControls");
+
+controls.forEach(item=>{
+ const [key,label,min,max,initial,unit]=item;
+
+ const field=document.createElement("div");
+ field.className="field";
+
+ const title=document.createElement("label");
+ const name=document.createElement("span");
+ name.textContent=label;
+
+ const value=document.createElement("span");
+ value.className="value";
+ value.id="value-"+key;
+ value.textContent=initial+unit;
+
+ const input=document.createElement("input");
+ input.type="range";
+ input.min=min;
+ input.max=max;
+ input.value=initial;
+ input.id="light-"+key;
+
+ input.addEventListener("input",()=>{
+  lighting[key]=Number(input.value);
+  value.textContent=input.value+unit;
+  currentPreset="custom";
+  document.querySelectorAll(".preset").forEach(b=>b.classList.remove("active"));
+  drawPreview();
+ });
+
+ title.append(name,value);
+ field.append(title,input);
+ lightingControls.append(field);
+});
+
+function updateLightingInputs(){
+ controls.forEach(item=>{
+  const [key,,,,,unit]=item;
+  const input=document.getElementById("light-"+key);
+  const value=document.getElementById("value-"+key);
+  input.value=lighting[key];
+  value.textContent=lighting[key]+unit;
+ });
+}
+
+document.querySelectorAll(".preset").forEach(button=>{
+ button.addEventListener("click",()=>applyPreset(button.dataset.preset));
+});
+
+document.getElementById("resetLighting").addEventListener("click",()=>{
+ applyPreset("none");
+ originalMode=false;
+ setStatus("Lighting Reset করা হয়েছে।","success");
+});
+
+document.getElementById("originalPreview").addEventListener("click",()=>{
+ originalMode=!originalMode;
+ drawPreview();
+ document.getElementById("originalPreview").textContent=
+ originalMode?"Edited Preview":"Original Preview";
+});
+
+/* =========================================
+   RENDER PHOTO
+========================================= */
+
+function drawPreview(){
+ const subject=cutoutImage||originalImage;
+ if(!subject)return;
+
+ let [w,h]=getCanvasSize();
+
+ // Scenery mode uses original photo proportions
+ if(document.getElementById("scenery").classList.contains("hidden")===false){
+  w=subject.naturalWidth;
+  h=subject.naturalHeight;
+ }
+
+ canvas.width=w;
+ canvas.height=h;
+ canvas.classList.remove("hidden");
+
+ ctx.clearRect(0,0,w,h);
+
+ drawBackground(w,h);
+
+ const useOriginal=originalMode;
+ const L=useOriginal?defaultLighting:lighting;
+
+ const exposureFactor=Math.pow(2,L.exposure/50);
+ const brightness=L.brightness*exposureFactor;
+
+ const warm=Math.max(0,L.warmth);
+ const cool=Math.max(0,-L.warmth);
+ const sepia=Math.min(0.5,Math.abs(L.warmth)/200);
+
+ const hue=L.tint*0.35;
+
+ ctx.save();
+
+ ctx.filter=
+  `brightness(${brightness}%) `+
+  `contrast(${L.contrast}%) `+
+  `saturate(${L.saturation}%) `+
+  `sepia(${sepia}) `+
+  `hue-rotate(${hue}deg)`;
+
+ // Keep the original image proportions inside the output
+ const ratio=Math.min(w/subject.naturalWidth,h/subject.naturalHeight);
+ const dw=subject.naturalWidth*ratio;
+ const dh=subject.naturalHeight*ratio;
+ const dx=(w-dw)/2;
+ const dy=(h-dh)/2;
+
+ ctx.drawImage(subject,dx,dy,dw,dh);
+ ctx.restore();
+
+ // Warm/cool light tint
+ if(!useOriginal && (warm>0 || cool>0)){
+  ctx.save();
+  ctx.globalAlpha=Math.min(0.32,Math.abs(L.warmth)/350);
+  ctx.fillStyle=warm>0?"#ffad4d":"#68aaff";
+  ctx.fillRect(0,0,w,h);
+  ctx.restore();
+ }
+
+ // Highlights
+ if(!useOriginal && L.highlights!==0){
+  ctx.save();
+  ctx.globalAlpha=Math.abs(L.highlights)/300;
+  ctx.fillStyle=L.highlights>0?"white":"#252b38";
+  ctx.fillRect(0,0,w,h);
+  ctx.restore();
+ }
+
+ // Shadows
+ if(!useOriginal && L.shadows!==0){
+  ctx.save();
+  ctx.globalAlpha=Math.abs(L.shadows)/350;
+  ctx.fillStyle=L.shadows>0?"#ffffff":"#000000";
+  ctx.fillRect(0,0,w,h);
+  ctx.restore();
+ }
+
+ // Glow effect
+ if(!useOriginal && L.glow>0){
+  const gradient=ctx.createRadialGradient(
+   w*0.5,h*0.3,0,w*0.5,h*0.3,Math.max(w,h)*0.7
   );
+  gradient.addColorStop(0,"rgba(255,244,210,"+(L.glow/300)+")");
+  gradient.addColorStop(1,"rgba(255,244,210,0)");
+  ctx.fillStyle=gradient;
+  ctx.fillRect(0,0,w,h);
+ }
+
+ // Vignette
+ if(!useOriginal && L.vignette>0){
+  const gradient=ctx.createRadialGradient(
+   w/2,h/2,Math.min(w,h)*0.2,
+   w/2,h/2,Math.max(w,h)*0.75
+  );
+  gradient.addColorStop(0,"rgba(0,0,0,0)");
+  gradient.addColorStop(1,"rgba(0,0,0,"+(L.vignette/140)+")");
+  ctx.fillStyle=gradient;
+  ctx.fillRect(0,0,w,h);
+ }
+
+ // Sharpness control: mild contrast enhancement approximation
+ if(!useOriginal && L.sharpness>0){
+  // This control increases local-looking definition through contrast.
+  // It does not perform true pixel-level sharpening.
+  ctx.save();
+  ctx.globalAlpha=L.sharpness/500;
+  ctx.globalCompositeOperation="soft-light";
+  ctx.drawImage(canvas,0,0);
+  ctx.restore();
+ }
 }
 
-$("photoSize").addEventListener("change",renderAll);
+/* =========================================
+   DOWNLOAD
+========================================= */
 
-// Own background upload
-$("backgroundInput").addEventListener("change",async function(){
-  const file=this.files[0];
-  if(!file)return;
+function downloadCanvas(filename){
+ if(!cutoutImage && !originalImage){
+  setStatus("প্রথমে একটি ছবি আপলোড করুন।","error");
+  return;
+ }
 
-  if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
-    showMessage("সঠিক ব্যাকগ্রাউন্ড ছবি নির্বাচন করুন।");
-    this.value="";
-    return;
+ drawPreview();
+
+ canvas.toBlob(blob=>{
+  if(!blob){
+   setStatus("ছবি ডাউনলোড তৈরি করা যায়নি।","error");
+   return;
   }
 
-  if(file.size>10*1024*1024){
-    showMessage("ব্যাকগ্রাউন্ড ছবির আকার 10 MB-এর বেশি হতে পারবে না।");
-    this.value="";
-    return;
-  }
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;
+  a.download=filename+".png";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
 
-  try{
-    revoke(sceneryURL);
-    sceneryURL=URL.createObjectURL(file);
-    sceneryImage=await loadImage(sceneryURL);
-    backgroundMode="image";
-
-    document.querySelectorAll(".scene-item")
-      .forEach(x=>x.classList.remove("active"));
-
-    renderAll();
-    showMessage("আপনার নিজের ব্যাকগ্রাউন্ড যুক্ত হয়েছে।","success");
-
-  }catch(error){
-    showMessage("ব্যাকগ্রাউন্ড ছবিটি খোলা যায়নি।");
-  }
-});
-
-// Transparent background
-$("transparentBtn").addEventListener("click",()=>{
-  backgroundMode="transparent";
-  sceneryImage=null;
-
-  document.querySelectorAll(".scene-item")
-    .forEach(x=>x.classList.remove("active"));
-
-  renderAll();
-  showMessage("স্বচ্ছ ব্যাকগ্রাউন্ড নির্বাচন করা হয়েছে।","success");
-});
-
-// Download helper
-function downloadCanvas(canvasId,filename){
-  const canvas=$(canvasId);
-
-  if(!cutoutImage){
-    showMessage("প্রথমে ছবির ব্যাকগ্রাউন্ড সরান।");
-    return;
-  }
-
-  canvas.toBlob(blob=>{
-    if(!blob){
-      showMessage("PNG তৈরি করা যায়নি।");
-      return;
-    }
-
-    const url=URL.createObjectURL(blob);
-    const link=document.createElement("a");
-    link.href=url;
-    link.download=filename;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-
-    setTimeout(()=>URL.revokeObjectURL(url),2000);
-
-    showMessage("আপনার PNG ছবি ডাউনলোড হয়েছে।","success");
-  },"image/png");
+  setStatus("ছবি সফলভাবে ডাউনলোড হয়েছে।","success");
+ },"image/png");
 }
 
-$("downloadPassport").addEventListener("click",()=>{
-  downloadCanvas("passportCanvas","rifat-passport-photo.png");
+document.getElementById("downloadPassport").addEventListener("click",()=>{
+ downloadCanvas("Rifat-Passport-Photo");
 });
 
-$("downloadScenery").addEventListener("click",()=>{
-  downloadCanvas("sceneryCanvas","rifat-scenery-photo.png");
+document.getElementById("downloadScenery").addEventListener("click",()=>{
+ downloadCanvas("Rifat-Scenery-Photo");
 });
 
-window.addEventListener("beforeunload",()=>{
-  revoke(originalURL);
-  revoke(cutoutURL);
-  revoke(sceneryURL);
+document.getElementById("downloadLighting").addEventListener("click",()=>{
+ downloadCanvas("Rifat-Lighting-Photo");
 });
+
+document.getElementById("downloadCurrent").addEventListener("click",()=>{
+ downloadCanvas("Rifat-Edited-Photo");
+});
+
+/* =========================================
+   INITIAL STATE
+========================================= */
+
+applyPreset("none");
+
 </script>
-
 </body>
 </html>
