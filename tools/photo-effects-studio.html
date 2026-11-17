@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rifat Photo Effects Studio - Creative photo filters, artistic effects and professional editing tools.">
+<title>Photo Effects Studio | Rifat AI Photo Studio</title>
+
+<style>
+:root{
+ --navy:#071d35;
+ --blue:#1769aa;
+ --gold:#f0c040;
+ --light:#eaf3fb;
+ --text:#203247;
+ --muted:#65778a;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:#f3f7fb;
+ color:var(--text);
+}
+header{
+ background:linear-gradient(120deg,#071d35,#1769aa);
+ color:white;
+ text-align:center;
+ padding:28px 15px;
+}
+header h1{margin:8px 0;font-size:28px}
+header p{margin:5px 0;color:#e2edf8}
+.brand{color:var(--gold);font-weight:bold}
+.container{width:min(1150px,94%);margin:24px auto}
+.panel,.controls,.preview{
+ background:white;
+ border-radius:15px;
+ padding:20px;
+ box-shadow:0 4px 18px rgba(20,50,80,.07);
+}
+.panel{margin-bottom:20px}
+.workspace{
+ display:grid;
+ grid-template-columns:350px 1fr;
+ gap:20px;
+ align-items:start;
+}
+h2,h3{color:var(--navy);margin-top:0}
+.small{font-size:13px;line-height:1.7;color:var(--muted)}
+.field{margin:17px 0}
+label{
+ display:flex;
+ justify-content:space-between;
+ gap:8px;
+ font-size:13px;
+ font-weight:bold;
+ margin-bottom:8px;
+}
+input[type=file]{
+ width:100%;
+ padding:11px;
+ border:1px solid #d6e0ea;
+ border-radius:8px;
+ background:#f8fbfe;
+}
+input[type=range]{width:100%;accent-color:var(--blue)}
+.value{color:var(--blue)}
+.effect-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px;
+}
+.effect{
+ padding:12px 7px;
+ border:1px solid #d6e0ea;
+ border-radius:9px;
+ background:#f8fbfe;
+ cursor:pointer;
+ font-size:12px;
+ font-weight:bold;
+ color:var(--navy);
+}
+.effect.active{
+ background:#e4f1ff;
+ border:2px solid var(--blue);
+ color:var(--blue);
+}
+.preview{text-align:center;min-width:0}
+.canvas-wrap{
+ background:#e6edf4;
+ border-radius:10px;
+ overflow:hidden;
+}
+canvas{display:block;width:100%;height:auto}
+.button-row{
+ display:flex;
+ flex-wrap:wrap;
+ gap:10px;
+ margin-top:15px;
+}
+button{
+ border:0;
+ border-radius:9px;
+ padding:12px 15px;
+ font-size:14px;
+ font-weight:bold;
+ cursor:pointer;
+}
+.primary{background:var(--blue);color:white}
+.secondary{background:#e8f0f8;color:var(--navy)}
+.gold{background:var(--gold);color:#192b3d}
+button:disabled{opacity:.45;cursor:not-allowed}
+.notice{
+ background:#fff8df;
+ border-left:4px solid var(--gold);
+ padding:12px;
+ border-radius:7px;
+ font-size:13px;
+ line-height:1.7;
+ margin-top:15px;
+}
+.status{font-size:13px;color:var(--muted);min-height:20px;margin-top:12px}
+footer{
+ background:var(--navy);
+ color:#dce8f4;
+ text-align:center;
+ padding:24px 12px;
+ font-size:13px;
+ line-height:1.8;
+}
+@media(max-width:800px){
+ .workspace{grid-template-columns:1fr}
+ header h1{font-size:23px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="brand">RIFAT AI PHOTO STUDIO</div>
+ <h1>ফটো ইফেক্টস স্টুডিও</h1>
+ <p>Photo Effects Studio</p>
+ <p>আপনার ছবিতে যোগ করুন সৃজনশীল ও প্রফেশনাল ইফেক্ট</p>
+</header>
+
+<main class="container">
+
+<section class="panel">
+ <h2>স্বাগতম | Welcome</h2>
+ <p class="small">
+  এই স্টুডিওতে আপনার ছবিতে বিভিন্ন রঙ, সিনেমাটিক,
+  ভিনটেজ ও আর্টিস্টিক ইফেক্ট প্রয়োগ করতে পারবেন।
+ </p>
+ <p class="small">
+  Apply creative filters, cinematic styles, vintage looks
+  and artistic effects to your photos.
+ </p>
+</section>
+
+<div class="workspace">
+
+<section class="controls">
+
+<h3>ছবি আপলোড | Upload Photo</h3>
+
+<div class="field">
+ <label for="photoInput">আপনার ছবি নির্বাচন করুন</label>
+ <input type="file" id="photoInput" accept="image/*">
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>প্রফেশনাল ইফেক্ট | Professional Effects</h3>
+
+<div class="effect-grid">
+ <button class="effect active" data-effect="original">Original</button>
+ <button class="effect" data-effect="bw">Black & White</button>
+ <button class="effect" data-effect="sepia">Sepia</button>
+ <button class="effect" data-effect="vintage">Vintage</button>
+ <button class="effect" data-effect="cinematic">Cinematic</button>
+ <button class="effect" data-effect="hdr">HDR Style</button>
+ <button class="effect" data-effect="duotone">Duotone</button>
+ <button class="effect" data-effect="neon">Neon Style</button>
+ <button class="effect" data-effect="dreamy">Dreamy Glow</button>
+ <button class="effect" data-effect="dramatic">Dramatic</button>
+ <button class="effect" data-effect="fade">Matte Fade</button>
+ <button class="effect" data-effect="retro">Retro Film</button>
+ <button class="effect" data-effect="cold">Arctic Blue</button>
+ <button class="effect" data-effect="sunset">Sunset Glow</button>
+ <button class="effect" data-effect="pop">Color Pop</button>
+ <button class="effect" data-effect="noir">Film Noir</button>
+ <button class="effect" data-effect="romantic">Romantic</button>
+ <button class="effect" data-effect="moody">Moody</button>
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>ইফেক্ট নিয়ন্ত্রণ | Effect Controls</h3>
+
+<div class="field">
+ <label>Effect Strength <span class="value" id="strengthVal">100%</span></label>
+ <input type="range" id="strength" min="0" max="100" value="100">
+</div>
+
+<div class="field">
+ <label>Brightness <span class="value" id="brightnessVal">100%</span></label>
+ <input type="range" id="brightness" min="50" max="160" value="100">
+</div>
+
+<div class="field">
+ <label>Contrast <span class="value" id="contrastVal">100%</span></label>
+ <input type="range" id="contrast" min="50" max="180" value="100">
+</div>
+
+<div class="field">
+ <label>Saturation <span class="value" id="saturationVal">100%</span></label>
+ <input type="range" id="saturation" min="0" max="200" value="100">
+</div>
+
+<div class="field">
+ <label>Blur <span class="value" id="blurVal">0</span></label>
+ <input type="range" id="blur" min="0" max="10" value="0">
+</div>
+
+<div class="field">
+ <label>Vignette <span class="value" id="vignetteVal">0</span></label>
+ <input type="range" id="vignette" min="0" max="100" value="0">
+</div>
+
+<div class="field">
+ <label>Warmth <span class="value" id="warmthVal">0</span></label>
+ <input type="range" id="warmth" min="-50" max="50" value="0">
+</div>
+
+<div class="button-row">
+ <button type="button" class="secondary" id="resetBtn">সব রিসেট</button>
+</div>
+
+<div class="notice">
+ <strong>নোট:</strong> এই ইফেক্টগুলো ব্রাউজারের Canvas ব্যবহার করে তৈরি।
+ Duotone, Neon ও HDR Style হলো সাধারণ রঙের ইফেক্ট,
+ প্রকৃত AI বা পেশাদার HDR প্রসেসিং নয়।
+</div>
+
+<p class="status" id="status" aria-live="polite">প্রথমে ছবি আপলোড করুন।</p>
+
+</section>
+
+<section class="preview">
+
+<h3>লাইভ প্রিভিউ | Live Preview</h3>
+
+<div class="canvas-wrap">
+ <canvas id="photoCanvas" width="1200" height="800"></canvas>
+</div>
+
+<div class="button-row" style="justify-content:center">
+ <button type="button" class="secondary" id="beforeBtn" disabled>Before দেখুন</button>
+ <button type="button" class="secondary" id="afterBtn" disabled>After দেখুন</button>
+ <button type="button" class="primary" id="downloadBtn" disabled>PNG ডাউনলোড</button>
+</div>
+
+<p class="small">
+ Before এবং After বাটন দিয়ে আপনার ছবির পরিবর্তন তুলনা করুন।
+</p>
+
+</section>
+
+</div>
+
+<section class="panel" style="margin-top:20px">
+ <h2>ফটো ইফেক্ট শেখার গাইড | Photo Effects Guide</h2>
+ <p class="small">
+  Black & White ইফেক্ট ছবিকে সাদা-কালো করে।
+  Sepia ও Vintage পুরোনো দিনের ছবির মতো লুক তৈরি করে।
+  Cinematic ও Dramatic ইফেক্ট ছবিতে গভীর রঙের অনুভূতি দেয়।
+ </p>
+ <p class="small">
+  Experiment with different effects and strengths to create your
+  preferred photo style. Always keep an original copy of your photo.
+ </p>
+</section>
+
+</main>
+
+<footer>
+ <strong>Rifat AI Photo Studio</strong><br>
+ Create • Edit • Learn • Improve<br>
+ © 2026 Rifat Ahmed. All Rights Reserved.
+</footer>
+
+<script>
+const canvas=document.getElementById("photoCanvas");
+const ctx=canvas.getContext("2d");
+const photoInput=document.getElementById("photoInput");
+const statusText=document.getElementById("status");
+const downloadBtn=document.getElementById("downloadBtn");
+
+let photo=null;
+let photoURL=null;
+let showBefore=false;
+let selectedEffect="original";
+
+const defaults={
+ strength:100,
+ brightness:100,
+ contrast:100,
+ saturation:100,
+ blur:0,
+ vignette:0,
+ warmth:0
+};
+
+const effects={
+ original:{
+  brightness:100,contrast:100,saturation:100,warmth:0,vignette:0
+ },
+ bw:{
+  brightness:105,contrast:115,saturation:0,warmth:0,vignette:15
+ },
+ sepia:{
+  brightness:105,contrast:95,saturation:75,warmth:25,vignette:15
+ },
+ vintage:{
+  brightness:105,contrast:85,saturation:75,warmth:30,vignette:25
+ },
+ cinematic:{
+  brightness:95,contrast:125,saturation:90,warmth:-10,vignette:30
+ },
+ hdr:{
+  brightness:108,contrast:140,saturation:125,warmth:0,vignette:5
+ },
+ duotone:{
+  brightness:100,contrast:125,saturation:45,warmth:-25,vignette:10
+ },
+ neon:{
+  brightness:110,contrast:145,saturation:180,warmth:-25,vignette:30
+ },
+ dreamy:{
+  brightness:115,contrast:85,saturation:115,warmth:15,vignette:0,blur:1
+ },
+ dramatic:{
+  brightness:85,contrast:150,saturation:80,warmth:-5,vignette:45
+ },
+ fade:{
+  brightness:112,contrast:80,saturation:85,warmth:10,vignette:5
+ },
+ retro:{
+  brightness:105,contrast:95,saturation:90,warmth:20,vignette:20
+ },
+ cold:{
+  brightness:105,contrast:110,saturation:90,warmth:-35,vignette:10
+ },
+ sunset:{
+  brightness:110,contrast:110,saturation:125,warmth:40,vignette:10
+ },
+ pop:{
+  brightness:105,contrast:125,saturation:160,warmth:5,vignette:5
+ },
+ noir:{
+  brightness:90,contrast:150,saturation:0,warmth:0,vignette:45
+ },
+ romantic:{
+  brightness:112,contrast:90,saturation:110,warmth:25,vignette:10,blur:1
+ },
+ moody:{
+  brightness:85,contrast:130,saturation:80,warmth:-15,vignette:35
+ }
+};
+
+function value(id){
+ return Number(document.getElementById(id).value);
+}
+
+function drawCover(image){
+ const ratio=Math.max(
+  canvas.width/image.width,
+  canvas.height/image.height
+ );
+ const width=image.width*ratio;
+ const height=image.height*ratio;
+
+ ctx.drawImage(
+  image,
+  (canvas.width-width)/2,
+  (canvas.height-height)/2,
+  width,height
+ );
+}
+
+function drawOverlay(name,strength){
+ const alpha=strength/100;
+ if(alpha<=0)return;
+
+ ctx.save();
+
+ if(name==="sepia"||name==="vintage"||name==="retro"){
+  ctx.globalCompositeOperation="soft-light";
+  ctx.fillStyle="rgba(170,105,45,"+(alpha*0.28)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ if(name==="duotone"){
+  ctx.globalCompositeOperation="color";
+  ctx.fillStyle="rgba(60,100,190,"+(alpha*0.28)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ if(name==="neon"){
+  ctx.globalCompositeOperation="screen";
+  ctx.fillStyle="rgba(80,30,180,"+(alpha*0.14)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ if(name==="cinematic"||name==="moody"){
+  ctx.globalCompositeOperation="soft-light";
+  ctx.fillStyle="rgba(20,45,75,"+(alpha*0.22)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ if(name==="sunset"){
+  ctx.globalCompositeOperation="soft-light";
+  ctx.fillStyle="rgba(255,110,35,"+(alpha*0.20)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ if(name==="cold"){
+  ctx.globalCompositeOperation="soft-light";
+  ctx.fillStyle="rgba(40,130,220,"+(alpha*0.20)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ if(name==="romantic"||name==="dreamy"){
+  ctx.globalCompositeOperation="screen";
+  ctx.fillStyle="rgba(255,175,190,"+(alpha*0.13)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ ctx.restore();
+}
+
+function drawVignette(amount){
+ if(amount<=0)return;
+
+ const gradient=ctx.createRadialGradient(
+  600,400,160,
+  600,400,780
+ );
+
+ gradient.addColorStop(0,"rgba(0,0,0,0)");
+ gradient.addColorStop(1,"rgba(0,0,0,"+(amount/100)+")");
+
+ ctx.fillStyle=gradient;
+ ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+
+function render(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ if(!photo){
+  ctx.fillStyle="#eaf3fb";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#52718f";
+  ctx.textAlign="center";
+  ctx.font="bold 42px Arial";
+  ctx.fillText("Rifat Photo Effects Studio",600,365);
+  ctx.font="25px Arial";
+  ctx.fillText("ছবি আপলোড করুন",600,420);
+  downloadBtn.disabled=true;
+  return;
+ }
+
+ if(showBefore){
+  ctx.save();
+  ctx.filter="none";
+  drawCover(photo);
+  ctx.restore();
+  return;
+ }
+
+ const strength=value("strength");
+ const base=effects[selectedEffect]||effects.original;
+
+ const brightness=100+(base.brightness-100)*strength/100;
+ const contrast=100+(base.contrast-100)*strength/100;
+ const saturation=100+(base.saturation-100)*strength/100;
+ const warmth=(base.warmth||0)*strength/100+value("warmth");
+ const vignette=(base.vignette||0)*strength/100+value("vignette");
+ const blur=(base.blur||0)*strength/100+value("blur");
+
+ ctx.save();
+
+ ctx.filter=
+  "brightness("+brightness*value("brightness")/100+"%) "+
+  "contrast("+contrast*value("contrast")/100+"%) "+
+  "saturate("+saturation*value("saturation")/100+"%) "+
+  "blur("+Math.min(10,blur)+"px)";
+
+ drawCover(photo);
+ ctx.restore();
+
+ drawOverlay(selectedEffect,strength);
+
+ if(warmth!==0){
+  ctx.save();
+  ctx.globalCompositeOperation="soft-light";
+  ctx.fillStyle=warmth>0
+   ?"rgba(255,145,55,"+(Math.min(0.35,warmth/180)+")")
+   :"rgba(55,130,255,"+(Math.min(0.35,Math.abs(warmth)/180)+")");
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.restore();
+ }
+
+ drawVignette(Math.max(0,Math.min(100,vignette)));
+}
+
+function updateLabels(){
+ Object.keys(defaults).forEach(function(id){
+  document.getElementById(id+"Val").textContent=
+   value(id)+(id==="strength"||id==="brightness"||
+   id==="contrast"||id==="saturation"?"%":"");
+ });
+}
+
+function update(){
+ updateLabels();
+ showBefore=false;
+ render();
+}
+
+photoInput.addEventListener("change",function(){
+ const file=this.files[0];
+ if(!file)return;
+
+ if(!file.type.startsWith("image/")){
+  statusText.textContent="সঠিক ছবি নির্বাচন করুন।";
+  return;
+ }
+
+ const url=URL.createObjectURL(file);
+ const image=new Image();
+
+ image.onload=function(){
+  if(photoURL)URL.revokeObjectURL(photoURL);
+  photo=image;
+  photoURL=url;
+
+  render();
+
+  downloadBtn.disabled=false;
+  document.getElementById("beforeBtn").disabled=false;
+  document.getElementById("afterBtn").disabled=false;
+
+  statusText.textContent="ছবি সফলভাবে আপলোড হয়েছে।";
+ };
+
+ image.onerror=function(){
+  URL.revokeObjectURL(url);
+  statusText.textContent="ছবি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।";
+ };
+
+ image.src=url;
+});
+
+document.querySelectorAll(".effect").forEach(function(button){
+ button.addEventListener("click",function(){
+  selectedEffect=this.dataset.effect;
+
+  document.querySelectorAll(".effect").forEach(function(item){
+   item.classList.remove("active");
+  });
+
+  this.classList.add("active");
+  update();
+
+  statusText.textContent=selectedEffect+" effect চালু হয়েছে।";
+ });
+});
+
+Object.keys(defaults).forEach(function(id){
+ document.getElementById(id).addEventListener("input",function(){
+  update();
+ });
+});
+
+document.getElementById("resetBtn").addEventListener("click",function(){
+ Object.keys(defaults).forEach(function(id){
+  document.getElementById(id).value=defaults[id];
+ });
+
+ selectedEffect="original";
+
+ document.querySelectorAll(".effect").forEach(function(button){
+  button.classList.toggle("active",button.dataset.effect==="original");
+ });
+
+ update();
+ statusText.textContent="সব সেটিংস রিসেট হয়েছে।";
+});
+
+document.getElementById("beforeBtn").addEventListener("click",function(){
+ if(!photo)return;
+ showBefore=true;
+ render();
+ statusText.textContent="Original ছবি দেখানো হচ্ছে।";
+});
+
+document.getElementById("afterBtn").addEventListener("click",function(){
+ if(!photo)return;
+ showBefore=false;
+ render();
+ statusText.textContent="ইফেক্ট দেওয়া ছবি দেখানো হচ্ছে।";
+});
+
+downloadBtn.addEventListener("click",function(){
+ if(!photo)return;
+
+ showBefore=false;
+ render();
+
+ canvas.toBlob(function(blob){
+  if(!blob){
+   statusText.textContent="ছবি তৈরি করা যায়নি।";
+   return;
+  }
+
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement("a");
+
+  link.href=url;
+  link.download="rifat-photo-effects.png";
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(function(){
+   URL.revokeObjectURL(url);
+  },1500);
+
+  statusText.textContent="ছবি সফলভাবে ডাউনলোড হয়েছে।";
+ },"image/png");
+});
+
+render();
+updateLabels();
+</script>
+
+</body>
+</html>
