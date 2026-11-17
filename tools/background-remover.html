@@ -197,6 +197,59 @@ canvas{
   font-size:13px;
   line-height:1.7;
 }
+  /* SIX STUDIO CARDS */
+.studio-section{
+  margin-bottom:22px;
+}
+.studio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px;
+}
+.studio-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:19px;
+  box-shadow:0 5px 18px #0b31500b;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:transform .2s,box-shadow .2s;
+}
+.studio-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 9px 24px #0b31501c;
+}
+.studio-icon{
+  font-size:34px;
+}
+.studio-card h3{
+  margin:0;
+  color:var(--navy);
+  font-size:17px;
+}
+.studio-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+  flex:1;
+}
+.studio-card a{
+  display:inline-block;
+  text-align:center;
+  text-decoration:none;
+  background:var(--blue);
+  color:white;
+  padding:11px 14px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:bold;
+}
+.studio-card a:hover{
+  background:var(--navy);
+}
 .hidden{display:none!important}
 footer{
   text-align:center;
