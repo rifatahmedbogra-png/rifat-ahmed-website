@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rifat Passport Photo Studio - Create passport and ID photos with professional backgrounds and sizes.">
+<title>Passport Photo Studio | Rifat AI Photo Studio</title>
+
+<style>
+:root {
+  --navy:#071d35;
+  --blue:#1769aa;
+  --gold:#f0c040;
+  --light:#eaf3fb;
+  --text:#203247;
+  --muted:#65778a;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f3f7fb;
+  color:var(--text);
+}
+header {
+  background:linear-gradient(120deg,#071d35,#1769aa);
+  color:white;
+  padding:28px 15px;
+  text-align:center;
+}
+header h1 {margin:8px 0;font-size:28px}
+header p {margin:5px 0;color:#e2edf8}
+.brand {color:var(--gold);font-weight:bold}
+.container {width:min(1100px,94%);margin:24px auto}
+.panel,.controls,.preview {
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 4px 18px rgba(20,50,80,.07);
+}
+.panel {margin-bottom:20px}
+.workspace {
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:20px;
+  align-items:start;
+}
+h2,h3 {color:var(--navy);margin-top:0}
+.small {
+  font-size:13px;
+  line-height:1.7;
+  color:var(--muted);
+}
+.field {margin:17px 0}
+label {
+  display:block;
+  font-weight:bold;
+  font-size:14px;
+  margin-bottom:8px;
+}
+input[type=file],select {
+  width:100%;
+  padding:11px;
+  border:1px solid #d6e0ea;
+  border-radius:8px;
+  background:#f8fbfe;
+}
+input[type=range] {width:100%;accent-color:var(--blue)}
+.colors {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+}
+.color-option {
+  border:2px solid #dce5ed;
+  border-radius:9px;
+  padding:7px 3px;
+  cursor:pointer;
+  background:white;
+  font-size:11px;
+  text-align:center;
+}
+.color-option.active {border-color:var(--blue);background:#eef6ff}
+.swatch {
+  width:100%;
+  height:27px;
+  border-radius:5px;
+  display:block;
+  margin-bottom:5px;
+  border:1px solid #d3dce5;
+}
+.preview {
+  min-width:0;
+  text-align:center;
+}
+.canvas-wrap {
+  display:inline-block;
+  max-width:100%;
+  background-color:#e6edf4;
+  background-image:linear-gradient(45deg,#d5dfe8 25%,transparent 25%),linear-gradient(-45deg,#d5dfe8 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d5dfe8 75%),linear-gradient(-45deg,transparent 75%,#d5dfe8 75%);
+  background-size:24px 24px;
+  background-position:0 0,0 12px,12px -12px,-12px 0;
+  border-radius:8px;
+  overflow:hidden;
+}
+canvas {display:block;width:auto;max-width:100%;height:auto;max-height:570px}
+button,.link-button {
+  border:0;
+  border-radius:9px;
+  padding:12px 15px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+.primary {background:var(--blue);color:white}
+.secondary {background:#e8f0f8;color:var(--navy)}
+.gold {background:var(--gold);color:#192b3d}
+button:disabled {opacity:.45;cursor:not-allowed}
+.button-row {display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.notice {
+  background:#fff8df;
+  border-left:4px solid var(--gold);
+  padding:12px;
+  border-radius:7px;
+  font-size:13px;
+  line-height:1.7;
+  margin-top:15px;
+}
+.status {font-size:13px;color:var(--muted);min-height:20px;margin-top:12px}
+footer {
+  background:var(--navy);
+  color:#dce8f4;
+  text-align:center;
+  padding:24px 12px;
+  font-size:13px;
+  line-height:1.8;
+}
+@media(max-width:760px) {
+  .workspace {grid-template-columns:1fr}
+  header h1 {font-size:23px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">RIFAT AI PHOTO STUDIO</div>
+  <h1>পাসপোর্ট ফটো স্টুডিও</h1>
+  <p>Passport Photo Studio</p>
+  <p>প্রফেশনাল পাসপোর্ট, আইডি ও ভিসা ছবির ডিজাইন</p>
+</header>
+
+<main class="container">
+
+<section class="panel">
+  <h2>স্বাগতম | Welcome</h2>
+  <p class="small">
+    আপনার ছবি আপলোড করে ব্যাকগ্রাউন্ডের রং, ছবির সাইজ এবং অবস্থান পরিবর্তন করুন।
+    প্রয়োজন অনুযায়ী PNG ফাইল ডাউনলোড করতে পারবেন।
+  </p>
+  <p class="small">
+    Welcome to Rifat Passport Photo Studio. Upload your portrait, select a background
+    color and photo size, adjust the image, and download your result.
+  </p>
+</section>
+
+<div class="workspace">
+
+<section class="controls">
+  <h3>ছবির সেটিংস | Photo Settings</h3>
+
+  <div class="field">
+    <label for="photoInput">আপনার ছবি আপলোড করুন</label>
+    <input type="file" id="photoInput" accept="image/*">
+  </div>
+
+  <div class="field">
+    <label for="sizeSelect">ছবির সাইজ নির্বাচন করুন</label>
+    <select id="sizeSelect">
+      <option value="35x45">35 × 45 mm</option>
+      <option value="2x2">2 × 2 inch</option>
+      <option value="4x6">4 × 6 inch</option>
+      <option value="original">Original Image</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>ব্যাকগ্রাউন্ড কালার নির্বাচন করুন</label>
+    <div class="colors" id="colorOptions">
+      <button type="button" class="color-option active" data-color="#ffffff">
+        <span class="swatch" style="background:#ffffff"></span>White
+      </button>
+      <button type="button" class="color-option" data-color="#d9edff">
+        <span class="swatch" style="background:#d9edff"></span>Light Blue
+      </button>
+      <button type="button" class="color-option" data-color="#1769aa">
+        <span class="swatch" style="background:#1769aa"></span>Blue
+      </button>
+      <button type="button" class="color-option" data-color="#d3d3d3">
+        <span class="swatch" style="background:#d3d3d3"></span>Gray
+      </button>
+      <button type="button" class="color-option" data-color="#ffdce7">
+        <span class="swatch" style="background:#ffdce7"></span>Pink
+      </button>
+      <button type="button" class="color-option" data-color="#d92332">
+        <span class="swatch" style="background:#d92332"></span>Red
+      </button>
+      <button type="button" class="color-option" data-color="#c8f0d1">
+        <span class="swatch" style="background:#c8f0d1"></span>Green
+      </button>
+      <button type="button" class="color-option" data-color="#fff3c4">
+        <span class="swatch" style="background:#fff3c4"></span>Yellow
+      </button>
+      <button type="button" class="color-option" data-color="#f5e7cf">
+        <span class="swatch" style="background:#f5e7cf"></span>Cream
+      </button>
+      <button type="button" class="color-option" data-color="#dcd0ff">
+        <span class="swatch" style="background:#dcd0ff"></span>Purple
+      </button>
+      <button type="button" class="color-option" data-color="#222222">
+        <span class="swatch" style="background:#222222"></span>Black
+      </button>
+      <button type="button" class="color-option" data-color="#f2f2f2">
+        <span class="swatch" style="background:#f2f2f2"></span>Soft White
+      </button>
+    </div>
+  </div>
+
+  <hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+  <h3>ছবির অবস্থান | Position</h3>
+
+  <div class="field">
+    <label>ছবির আকার: <span id="scaleValue">100%</span></label>
+    <input type="range" id="scale" min="40" max="180" value="100">
+  </div>
+
+  <div class="field">
+    <label>ডানে-বামে: <span id="xValue">0</span></label>
+    <input type="range" id="posX" min="-100" max="100" value="0">
+  </div>
+
+  <div class="field">
+    <label>ওপরে-নিচে: <span id="yValue">0</span></label>
+    <input type="range" id="posY" min="-100" max="100" value="0">
+  </div>
+
+  <div class="button-row">
+    <button type="button" class="secondary" id="resetBtn">রিসেট করুন</button>
+    <button type="button" class="secondary" id="clearBtn">ছবি সরান</button>
+  </div>
+
+  <div class="notice">
+    <strong>গুরুত্বপূর্ণ:</strong> শুধু ব্যাকগ্রাউন্ডের রং পরিবর্তন করতে হলে
+    ছবির পেছনের অংশ আগে স্বচ্ছ PNG হতে হবে। JPG ছবির সাদা বা অন্য ব্যাকগ্রাউন্ড
+    এই টুল নিজে থেকে সরাতে পারে না।
+  </div>
+
+  <p class="status" id="status" aria-live="polite">আপনার ছবি নির্বাচন করুন।</p>
+</section>
+
+<section class="preview">
+  <h3>লাইভ প্রিভিউ | Live Preview</h3>
+  <div class="canvas-wrap">
+    <canvas id="photoCanvas" width="413" height="531"></canvas>
+  </div>
+  <div class="button-row" style="justify-content:center">
+    <button type="button" class="primary" id="downloadBtn" disabled>
+      PNG ডাউনলোড করুন
+    </button>
+  </div>
+  <p class="small">
+    নির্বাচিত সাইজ অনুযায়ী ক্যানভাস তৈরি হবে। ডাউনলোড করা ফাইল PNG ফরম্যাটে থাকবে।
+  </p>
+</section>
+
+</div>
+
+<section class="panel" style="margin-top:20px">
+  <h2>ব্যাকগ্রাউন্ড রিমুভার | Background Remover</h2>
+  <p class="small">
+    আপনার ছবির পেছনের ব্যাকগ্রাউন্ড সরাতে প্রথমে Background Remover ব্যবহার করুন।
+    স্বচ্ছ PNG ডাউনলোড করে এই স্টুডিওতে আপলোড করুন।
+  </p>
+  <a class="link-button gold" href="background-remover.html">
+    Background Remover খুলুন
+  </a>
+</section>
+
+<section class="panel">
+  <h2>শিক্ষামূলক নির্দেশনা | Learning Guide</h2>
+  <p class="small">
+    35 × 45 mm, 2 × 2 inch এবং 4 × 6 inch এখানে নির্দিষ্ট পিক্সেল মাত্রায় তৈরি করা হয়।
+    বিভিন্ন দেশ, দূতাবাস, ভিসা ও পরিচয়পত্রের নিয়ম আলাদা হতে পারে।
+    জমা দেওয়ার আগে সংশ্লিষ্ট কর্তৃপক্ষের ছবি, মুখের অবস্থান, ব্যাকগ্রাউন্ড,
+    DPI ও প্রিন্টের নির্দেশনা যাচাই করুন।
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <strong>Rifat AI Photo Studio</strong><br>
+  Create • Edit • Learn • Improve<br>
+  © 2026 Rifat Ahmed. All Rights Reserved.
+</footer>
+
+<script>
+const canvas = document.getElementById("photoCanvas");
+const ctx = canvas.getContext("2d");
+
+const photoInput = document.getElementById("photoInput");
+const sizeSelect = document.getElementById("sizeSelect");
+const scaleInput = document.getElementById("scale");
+const xInput = document.getElementById("posX");
+const yInput = document.getElementById("posY");
+const downloadBtn = document.getElementById("downloadBtn");
+const statusText = document.getElementById("status");
+
+let photo = null;
+let photoURL = null;
+let backgroundColor = "#ffffff";
+
+const sizes = {
+  "35x45": {width:413,height:531},
+  "2x2": {width:600,height:600},
+  "4x6": {width:1200,height:1800},
+  "original": null
+};
+
+function updateCanvasSize() {
+  const selected = sizes[sizeSelect.value];
+
+  if (selected) {
+    canvas.width = selected.width;
+    canvas.height = selected.height;
+  } else if (photo) {
+    canvas.width = photo.naturalWidth;
+    canvas.height = photo.naturalHeight;
+  } else {
+    canvas.width = 413;
+    canvas.height = 531;
+  }
+
+  render();
+}
+
+function render() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  if (!photo) {
+    ctx.fillStyle = "#52718f";
+    ctx.textAlign = "center";
+    ctx.font = "bold 25px Arial";
+    ctx.fillText("Passport Photo Studio",canvas.width/2,canvas.height/2-10);
+    ctx.font = "18px Arial";
+    ctx.fillText("ছবি আপলোড করুন",canvas.width/2,canvas.height/2+30);
+    downloadBtn.disabled = true;
+    return;
+  }
+
+  const fit = Math.min(
+    (canvas.width * 0.88) / photo.width,
+    (canvas.height * 0.88) / photo.height
+  );
+
+  const scale = Number(scaleInput.value) / 100;
+  const width = photo.width * fit * scale;
+  const height = photo.height * fit * scale;
+
+  const centerX = canvas.width/2 +
+    Number(xInput.value) * canvas.width/200;
+
+  const centerY = canvas.height/2 +
+    Number(yInput.value) * canvas.height/200;
+
+  ctx.drawImage(
+    photo,
+    centerX-width/2,
+    centerY-height/2,
+    width,
+    height
+  );
+
+  downloadBtn.disabled = false;
+}
+
+photoInput.addEventListener("change",function() {
+  const file = this.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    statusText.textContent = "সঠিক ছবির ফাইল নির্বাচন করুন।";
+    return;
+  }
+
+  const newURL = URL.createObjectURL(file);
+  const newPhoto = new Image();
+
+  newPhoto.onload = function() {
+    if (photoURL) URL.revokeObjectURL(photoURL);
+
+    photo = newPhoto;
+    photoURL = newURL;
+
+    updateCanvasSize();
+    statusText.textContent = "ছবি সফলভাবে আপলোড হয়েছে।";
+  };
+
+  newPhoto.onerror = function() {
+    URL.revokeObjectURL(newURL);
+    statusText.textContent = "ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।";
+  };
+
+  newPhoto.src = newURL;
+});
+
+sizeSelect.addEventListener("change",function() {
+  updateCanvasSize();
+  statusText.textContent = "ছবির সাইজ পরিবর্তন করা হয়েছে।";
+});
+
+document.querySelectorAll(".color-option").forEach(function(button) {
+  button.addEventListener("click",function() {
+    backgroundColor = this.dataset.color;
+
+    document.querySelectorAll(".color-option").forEach(function(item) {
+      item.classList.remove("active");
+    });
+
+    this.classList.add("active");
+    render();
+    statusText.textContent = "ব্যাকগ্রাউন্ডের রং পরিবর্তন হয়েছে।";
+  });
+});
+
+function updateValues() {
+  document.getElementById("scaleValue").textContent = scaleInput.value+"%";
+  document.getElementById("xValue").textContent = xInput.value;
+  document.getElementById("yValue").textContent = yInput.value;
+  render();
+}
+
+[scaleInput,xInput,yInput].forEach(function(input) {
+  input.addEventListener("input",updateValues);
+});
+
+document.getElementById("resetBtn").addEventListener("click",function() {
+  scaleInput.value = 100;
+  xInput.value = 0;
+  yInput.value = 0;
+  updateValues();
+  statusText.textContent = "ছবির অবস্থান ও আকার রিসেট হয়েছে।";
+});
+
+document.getElementById("clearBtn").addEventListener("click",function() {
+  if (photoURL) URL.revokeObjectURL(photoURL);
+
+  photo = null;
+  photoURL = null;
+  photoInput.value = "";
+
+  scaleInput.value = 100;
+  xInput.value = 0;
+  yInput.value = 0;
+
+  updateCanvasSize();
+  updateValues();
+  statusText.textContent = "ছবি সরানো হয়েছে।";
+});
+
+downloadBtn.addEventListener("click",function() {
+  if (!photo) return;
+
+  canvas.toBlob(function(blob) {
+    if (!blob) {
+      statusText.textContent = "ছবি তৈরি করা যায়নি। আবার চেষ্টা করুন।";
+      return;
+    }
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "rifat-passport-photo.png";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(function() {
+      URL.revokeObjectURL(url);
+    },1500);
+
+    statusText.textContent = "পাসপোর্ট ছবিটি ডাউনলোড হয়েছে।";
+  },"image/png");
+});
+
+render();
+</script>
+
+</body>
+</html>
