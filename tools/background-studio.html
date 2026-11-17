@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rifat Background Studio - Create professional photo backgrounds with your own images.">
+<title>Background Studio | Rifat AI Photo Studio</title>
+
+<style>
+:root {
+  --navy: #071d35;
+  --blue: #1769aa;
+  --light: #eaf3fb;
+  --gold: #f0c040;
+  --text: #203247;
+  --muted: #65778a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans Bengali", sans-serif;
+  background: #f3f7fb;
+  color: var(--text);
+}
+header {
+  background: linear-gradient(120deg, #071d35, #1769aa);
+  color: white;
+  padding: 28px 16px;
+  text-align: center;
+}
+header h1 { margin: 0 0 8px; font-size: 29px; }
+header p { margin: 5px 0; color: #e3edf8; }
+.brand { color: var(--gold); font-weight: bold; }
+.container {
+  width: min(1100px, 94%);
+  margin: 24px auto;
+}
+.intro, .panel {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(20,50,80,.07);
+  margin-bottom: 20px;
+}
+h2 { color: var(--navy); margin-top: 0; }
+h3 { margin: 0 0 12px; color: var(--navy); }
+.small { color: var(--muted); font-size: 14px; line-height: 1.7; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+.step {
+  background: var(--light);
+  border-radius: 10px;
+  padding: 13px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.controls {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(20,50,80,.07);
+}
+.field { margin: 17px 0; }
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d6e0ea;
+  border-radius: 8px;
+  background: #f8fbfe;
+}
+input[type="range"] { width: 100%; accent-color: var(--blue); }
+.range-value { color: var(--blue); font-weight: bold; }
+.preview-panel {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  box-shadow: 0 4px 18px rgba(20,50,80,.07);
+  min-width: 0;
+}
+.canvas-wrap {
+  width: 100%;
+  background-color: #e6edf4;
+  background-image:
+    linear-gradient(45deg,#d5dfe8 25%,transparent 25%),
+    linear-gradient(-45deg,#d5dfe8 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#d5dfe8 75%),
+    linear-gradient(-45deg,transparent 75%,#d5dfe8 75%);
+  background-size: 24px 24px;
+  background-position: 0 0,0 12px,12px -12px,-12px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+button, .link-button {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+.primary { background: var(--blue); color: white; }
+.secondary { background: #e8f0f8; color: var(--navy); }
+.gold { background: var(--gold); color: #192b3d; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+.notice {
+  background: #fff8df;
+  border-left: 4px solid var(--gold);
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+.status {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+  min-height: 20px;
+}
+footer {
+  text-align: center;
+  padding: 24px 12px;
+  background: var(--navy);
+  color: #dce8f4;
+  font-size: 13px;
+  line-height: 1.8;
+}
+@media(max-width: 760px) {
+  .workspace { grid-template-columns: 1fr; }
+  header h1 { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">RIFAT AI PHOTO STUDIO</div>
+  <h1>ব্যাকগ্রাউন্ড স্টুডিও</h1>
+  <p>Background Studio</p>
+  <p>আপনার ছবিকে দিন নতুন পরিবেশ ও প্রফেশনাল লুক</p>
+</header>
+
+<main class="container">
+
+  <section class="intro">
+    <h2>স্বাগতম | Welcome</h2>
+    <p class="small">
+      এই স্টুডিওতে নিজের পছন্দের ব্যাকগ্রাউন্ড ছবির ওপর একটি স্বচ্ছ PNG ছবি
+      বসিয়ে নতুন কম্পোজিশন তৈরি করতে পারবেন। ছবির অবস্থান ও আকারও পরিবর্তন করতে পারবেন।
+    </p>
+
+    <div class="steps">
+      <div class="step"><strong>ধাপ ১</strong><br>একটি ব্যাকগ্রাউন্ড ছবি নির্বাচন করুন।</div>
+      <div class="step"><strong>ধাপ ২</strong><br>একটি স্বচ্ছ PNG ছবি নির্বাচন করুন।</div>
+      <div class="step"><strong>ধাপ ৩</strong><br>ছবির আকার ও অবস্থান ঠিক করুন।</div>
+      <div class="step"><strong>ধাপ ৪</strong><br>তৈরি ছবি PNG হিসেবে ডাউনলোড করুন।</div>
+    </div>
+  </section>
+
+  <div class="workspace">
+
+    <section class="controls">
+      <h3>ছবি নির্বাচন করুন</h3>
+
+      <div class="field">
+        <label for="backgroundInput">১. ব্যাকগ্রাউন্ড ছবি</label>
+        <input type="file" id="backgroundInput" accept="image/*">
+        <p class="small">যেমন: প্রকৃতি, সমুদ্র, অফিস, স্টুডিও বা মসজিদের ছবি।</p>
+      </div>
+
+      <div class="field">
+        <label for="personInput">২. আপনার স্বচ্ছ PNG ছবি</label>
+        <input type="file" id="personInput" accept="image/png">
+        <p class="small">স্বচ্ছ ব্যাকগ্রাউন্ডযুক্ত PNG ছবি ব্যবহার করুন।</p>
+      </div>
+
+      <hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0;">
+
+      <h3>ছবির সমন্বয়</h3>
+
+      <div class="field">
+        <label>ছবির আকার: <span class="range-value" id="scaleValue">100%</span></label>
+        <input type="range" id="scale" min="20" max="180" value="100">
+      </div>
+
+      <div class="field">
+        <label>ডানে-বামে: <span class="range-value" id="xValue">0</span></label>
+        <input type="range" id="posX" min="-100" max="100" value="0">
+      </div>
+
+      <div class="field">
+        <label>ওপরে-নিচে: <span class="range-value" id="yValue">0</span></label>
+        <input type="range" id="posY" min="-100" max="100" value="0">
+      </div>
+
+      <div class="button-row">
+        <button class="secondary" id="resetBtn" type="button">রিসেট করুন</button>
+      </div>
+
+      <div class="notice">
+        <strong>মনে রাখবেন:</strong> ভালো ফলাফলের জন্য স্বচ্ছ PNG ছবি ব্যবহার করুন।
+        JPG ছবিতে স্বচ্ছ অংশ থাকে না।
+      </div>
+
+      <p class="status" id="status" aria-live="polite">ছবি নির্বাচন করার অপেক্ষায়...</p>
+    </section>
+
+    <section class="preview-panel">
+      <h3>লাইভ প্রিভিউ | Live Preview</h3>
+
+      <div class="canvas-wrap">
+        <canvas id="studioCanvas" width="1200" height="800"></canvas>
+      </div>
+
+      <div class="button-row">
+        <button class="primary" id="downloadBtn" type="button" disabled>
+          PNG ডাউনলোড করুন
+        </button>
+        <button class="secondary" id="clearBtn" type="button">
+          সব ছবি সরান
+        </button>
+      </div>
+
+      <p class="small">
+        প্রিভিউতে পরিবর্তনগুলো সঙ্গে সঙ্গে দেখা যাবে। ডাউনলোড করা ছবির আকার হবে
+        1200 × 800 পিক্সেল।
+      </p>
+    </section>
+
+  </div>
+
+  <section class="panel">
+    <h2>ব্যাকগ্রাউন্ড রিমুভার | Background Remover</h2>
+    <p class="small">
+      আপনার ছবির ব্যাকগ্রাউন্ড এখনো সরানো না থাকলে প্রথমে আমাদের Background Remover
+      ব্যবহার করুন। সেখান থেকে স্বচ্ছ PNG ডাউনলোড করে এই স্টুডিওতে আপলোড করুন।
+    </p>
+    <a class="link-button gold" href="background-remover.html">
+      Background Remover খুলুন
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <strong>Rifat AI Photo Studio</strong><br>
+  Create • Edit • Learn • Improve<br>
+  © 2026 Rifat Ahmed. All Rights Reserved.
+</footer>
+
+<script>
+const canvas = document.getElementById("studioCanvas");
+const ctx = canvas.getContext("2d");
+
+const backgroundInput = document.getElementById("backgroundInput");
+const personInput = document.getElementById("personInput");
+const scaleInput = document.getElementById("scale");
+const xInput = document.getElementById("posX");
+const yInput = document.getElementById("posY");
+
+const scaleValue = document.getElementById("scaleValue");
+const xValue = document.getElementById("xValue");
+const yValue = document.getElementById("yValue");
+const statusText = document.getElementById("status");
+const downloadBtn = document.getElementById("downloadBtn");
+
+let backgroundImage = null;
+let personImage = null;
+let backgroundURL = null;
+let personURL = null;
+
+function drawCover(image, width, height) {
+  const ratio = Math.max(width / image.width, height / image.height);
+  const drawWidth = image.width * ratio;
+  const drawHeight = image.height * ratio;
+  const x = (width - drawWidth) / 2;
+  const y = (height - drawHeight) / 2;
+  ctx.drawImage(image, x, y, drawWidth, drawHeight);
+}
+
+function renderCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (backgroundImage) {
+    drawCover(backgroundImage, canvas.width, canvas.height);
+  } else {
+    ctx.fillStyle = "#eaf3fb";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#52718f";
+    ctx.textAlign = "center";
+    ctx.font = "bold 42px Arial";
+    ctx.fillText("Rifat Background Studio", 600, 365);
+    ctx.font = "25px Arial";
+    ctx.fillText("ব্যাকগ্রাউন্ড ছবি নির্বাচন করুন", 600, 420);
+  }
+
+  if (personImage) {
+    const maxWidth = canvas.width * 0.65;
+    const maxHeight = canvas.height * 0.85;
+
+    const fitRatio = Math.min(
+      maxWidth / personImage.width,
+      maxHeight / personImage.height
+    );
+
+    const scale = Number(scaleInput.value) / 100;
+    const drawWidth = personImage.width * fitRatio * scale;
+    const drawHeight = personImage.height * fitRatio * scale;
+
+    const centerX = canvas.width / 2 +
+      (Number(xInput.value) / 100) * (canvas.width / 2);
+
+    const centerY = canvas.height / 2 +
+      (Number(yInput.value) / 100) * (canvas.height / 2);
+
+    ctx.drawImage(
+      personImage,
+      centerX - drawWidth / 2,
+      centerY - drawHeight / 2,
+      drawWidth,
+      drawHeight
+    );
+  }
+
+  downloadBtn.disabled = !backgroundImage || !personImage;
+}
+
+function loadImage(file, callback, type) {
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    statusText.textContent = "দয়া করে একটি সঠিক ছবি নির্বাচন করুন।";
+    return;
+  }
+
+  const url = URL.createObjectURL(file);
+  const image = new Image();
+
+  image.onload = function() {
+    callback(image, url);
+    renderCanvas();
+  };
+
+  image.onerror = function() {
+    URL.revokeObjectURL(url);
+    statusText.textContent = "ছবিটি খোলা যাচ্ছে না। অন্য ছবি চেষ্টা করুন।";
+  };
+
+  image.src = url;
+}
+
+backgroundInput.addEventListener("change", function() {
+  const file = this.files[0];
+  if (!file) return;
+
+  loadImage(file, function(image, url) {
+    if (backgroundURL) URL.revokeObjectURL(backgroundURL);
+    backgroundImage = image;
+    backgroundURL = url;
+    statusText.textContent = "ব্যাকগ্রাউন্ড ছবি যুক্ত হয়েছে।";
+  });
+});
+
+personInput.addEventListener("change", function() {
+  const file = this.files[0];
+  if (!file) return;
+
+  if (file.type !== "image/png") {
+    statusText.textContent = "দয়া করে স্বচ্ছ PNG ছবি নির্বাচন করুন।";
+    this.value = "";
+    return;
+  }
+
+  loadImage(file, function(image, url) {
+    if (personURL) URL.revokeObjectURL(personURL);
+    personImage = image;
+    personURL = url;
+    statusText.textContent = "আপনার PNG ছবি যুক্ত হয়েছে।";
+  });
+});
+
+function updateControls() {
+  scaleValue.textContent = scaleInput.value + "%";
+  xValue.textContent = xInput.value;
+  yValue.textContent = yInput.value;
+  renderCanvas();
+}
+
+[scaleInput, xInput, yInput].forEach(function(input) {
+  input.addEventListener("input", updateControls);
+});
+
+document.getElementById("resetBtn").addEventListener("click", function() {
+  scaleInput.value = 100;
+  xInput.value = 0;
+  yInput.value = 0;
+  updateControls();
+  statusText.textContent = "ছবির অবস্থান ও আকার রিসেট করা হয়েছে।";
+});
+
+document.getElementById("clearBtn").addEventListener("click", function() {
+  if (backgroundURL) URL.revokeObjectURL(backgroundURL);
+  if (personURL) URL.revokeObjectURL(personURL);
+
+  backgroundImage = null;
+  personImage = null;
+  backgroundURL = null;
+  personURL = null;
+
+  backgroundInput.value = "";
+  personInput.value = "";
+
+  scaleInput.value = 100;
+  xInput.value = 0;
+  yInput.value = 0;
+
+  updateControls();
+  statusText.textContent = "সব ছবি সরানো হয়েছে।";
+});
+
+downloadBtn.addEventListener("click", function() {
+  if (!backgroundImage || !personImage) return;
+
+  canvas.toBlob(function(blob) {
+    if (!blob) {
+      statusText.textContent = "ছবি তৈরি করা যায়নি। আবার চেষ্টা করুন।";
+      return;
+    }
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "rifat-background-studio.png";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(function() {
+      URL.revokeObjectURL(url);
+    }, 1500);
+
+    statusText.textContent = "আপনার ছবি ডাউনলোডের জন্য প্রস্তুত।";
+  }, "image/png");
+});
+
+renderCanvas();
+</script>
+
+</body>
+</html>
