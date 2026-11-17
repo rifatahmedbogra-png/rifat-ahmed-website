@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AI Background Remover | Rifat Tools & Documents</title>
-<meta name="description" content="Rifat AI Background Remover - সহজেই ছবির ব্যাকগ্রাউন্ড সরানোর AI টুল।">
+<meta name="description" content="Rifat AI Background Remover - AI প্রযুক্তির সাহায্যে ছবির ব্যাকগ্রাউন্ড সরান।">
 
 <style>
 * {
@@ -141,6 +141,11 @@ header p {
   background: #f0c040;
 }
 
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 #fileInput {
   display: none;
 }
@@ -158,6 +163,7 @@ header p {
 .image-preview {
   max-width: 100%;
   max-height: 380px;
+  object-fit: contain;
   border-radius: 12px;
   border: 1px solid #4383b2;
   background-color: white;
@@ -170,6 +176,18 @@ header p {
   background-position: 0 0,0 10px,10px -10px,-10px 0;
 }
 
+.result-box {
+  display: none;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #4383b2;
+}
+
+.result-box h3 {
+  color: #f0c040;
+  margin-bottom: 14px;
+}
+
 .message {
   margin-top: 18px;
   padding: 13px;
@@ -178,6 +196,13 @@ header p {
   border-radius: 9px;
   color: #ffe49a;
   display: none;
+  overflow-wrap: anywhere;
+}
+
+.message.success {
+  background: #123e32;
+  border-color: #25865c;
+  color: #b8f5d7;
 }
 
 .info {
@@ -253,7 +278,7 @@ footer {
     ব্যাকগ্রাউন্ড সরানোর সুবিধা।
   </p>
   <p>
-    Upload your image and prepare it for AI background removal.
+    Upload your image and remove its background using AI.
   </p>
 </section>
 
@@ -282,11 +307,12 @@ footer {
     >
 
     <p style="font-size:12px;margin-top:14px;">
-      Supported: JPG, PNG, WEBP
+      Supported: JPG, PNG, WEBP | Maximum 10 MB
     </p>
   </div>
 
   <div class="preview-box" id="previewBox">
+
     <h3>আপনার নির্বাচিত ছবি | Image Preview</h3>
 
     <img
@@ -296,6 +322,7 @@ footer {
     >
 
     <div style="margin-top:18px;">
+
       <button class="btn btn-gold" id="removeButton">
         ✂️ Remove Background
       </button>
@@ -303,13 +330,35 @@ footer {
       <button class="btn" id="changeButton">
         🔄 Change Image
       </button>
+
     </div>
   </div>
 
-  <div class="message" id="message">
-    AI Background Removal Backend এখনো সংযুক্ত হয়নি।
-    প্রকৃত ব্যাকগ্রাউন্ড সরানোর সুবিধা চালু করতে নিরাপদ
-    AI API সংযোগ প্রয়োজন।
+  <div class="message" id="message" role="status" aria-live="polite"></div>
+
+  <div class="result-box" id="resultBox">
+
+    <h3>🎉 ব্যাকগ্রাউন্ড সরানো ছবি | Background Removed</h3>
+
+    <img
+      id="resultImage"
+      class="image-preview"
+      alt="Background removed result"
+    >
+
+    <div style="margin-top:18px;">
+
+      <a
+        id="downloadButton"
+        class="btn btn-gold"
+        href="#"
+        download="rifat-no-background.png"
+      >
+        ⬇️ Download PNG
+      </a>
+
+    </div>
+
   </div>
 
 </section>
@@ -318,22 +367,23 @@ footer {
   <h2>💡 কীভাবে ব্যবহার করবেন? | How to Use</h2>
   <ul>
     <li>Choose Image বাটনে ক্লিক করুন।</li>
-    <li>আপনার পছন্দের ছবি নির্বাচন করুন।</li>
+    <li>আপনার পছন্দের JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।</li>
     <li>ছবির Preview দেখুন।</li>
-    <li>AI সংযোগ চালু হলে Remove Background বাটন ব্যবহার করুন।</li>
-    <li>স্বচ্ছ PNG ফাইল ডাউনলোড করুন।</li>
+    <li>Remove Background বাটনে ক্লিক করুন।</li>
+    <li>AI প্রক্রিয়া সম্পন্ন হলে PNG ছবি ডাউনলোড করুন।</li>
   </ul>
 </section>
 
 <section class="info">
   <h2>🔐 গোপনীয়তা ও নিরাপত্তা | Privacy & Security</h2>
   <p>
-    বর্তমানে নির্বাচিত ছবিটি শুধু আপনার ব্রাউজারে Preview
-    হিসেবে দেখানো হয়। কোনো AI সার্ভারে পাঠানো হয় না।
+    আপনার নির্বাচিত ছবি ব্যাকগ্রাউন্ড সরানোর জন্য
+    নিরাপদ Backend-এর মাধ্যমে remove.bg AI সার্ভিসে পাঠানো হবে।
   </p>
   <p>
-    Your selected image is currently previewed locally
-    in your browser. It is not uploaded to an AI server.
+    Your selected image is sent through our backend to
+    remove.bg for background removal. The API Key is
+    kept on the secure server and is not exposed in this page.
   </p>
 </section>
 
@@ -346,19 +396,49 @@ footer {
 </footer>
 
 <script>
+const API_URL =
+  "https://rifat-ai-background-remover.rifatahmedbogra.workers.dev";
+
 const fileInput = document.getElementById("fileInput");
 const previewBox = document.getElementById("previewBox");
 const previewImage = document.getElementById("previewImage");
 const message = document.getElementById("message");
 const removeButton = document.getElementById("removeButton");
 const changeButton = document.getElementById("changeButton");
+const resultBox = document.getElementById("resultBox");
+const resultImage = document.getElementById("resultImage");
+const downloadButton = document.getElementById("downloadButton");
 
 let currentImageURL = null;
+let resultImageURL = null;
+let selectedFile = null;
+
+function showMessage(text, type = "error") {
+  message.textContent = text;
+  message.className = "message";
+
+  if (type === "success") {
+    message.classList.add("success");
+  }
+
+  message.style.display = "block";
+}
+
+function clearResult() {
+  resultBox.style.display = "none";
+
+  if (resultImageURL) {
+    URL.revokeObjectURL(resultImageURL);
+    resultImageURL = null;
+  }
+
+  resultImage.removeAttribute("src");
+  downloadButton.removeAttribute("href");
+}
 
 fileInput.addEventListener("change", function() {
-  const file = this.files[0];
 
-  message.style.display = "none";
+  const file = this.files[0];
 
   if (!file) return;
 
@@ -369,13 +449,13 @@ fileInput.addEventListener("change", function() {
   ];
 
   if (!allowedTypes.includes(file.type)) {
-    alert("দয়া করে JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
+    showMessage("দয়া করে JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
     this.value = "";
     return;
   }
 
   if (file.size > 10 * 1024 * 1024) {
-    alert("ছবির সাইজ ১০ MB-এর কম হতে হবে।");
+    showMessage("ছবির সাইজ সর্বোচ্চ ১০ MB হতে পারবে।");
     this.value = "";
     return;
   }
@@ -384,13 +464,115 @@ fileInput.addEventListener("change", function() {
     URL.revokeObjectURL(currentImageURL);
   }
 
+  selectedFile = file;
   currentImageURL = URL.createObjectURL(file);
+
   previewImage.src = currentImageURL;
   previewBox.style.display = "block";
+
+  message.style.display = "none";
+  clearResult();
+
 });
 
-removeButton.addEventListener("click", function() {
-  message.style.display = "block";
+removeButton.addEventListener("click", async function() {
+
+  if (!selectedFile) {
+    showMessage("প্রথমে একটি ছবি নির্বাচন করুন।");
+    return;
+  }
+
+  removeButton.disabled = true;
+  changeButton.disabled = true;
+
+  removeButton.textContent = "⏳ Processing...";
+
+  showMessage(
+    "আপনার ছবির ব্যাকগ্রাউন্ড AI দিয়ে সরানো হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।",
+    "success"
+  );
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append(
+      "image_file",
+      selectedFile,
+      selectedFile.name
+    );
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      body: formData
+    });
+
+    if (!response.ok) {
+
+      let errorMessage = "AI দিয়ে ব্যাকগ্রাউন্ড সরানো যায়নি।";
+
+      try {
+        const errorData = await response.json();
+
+        if (errorData.error) {
+          errorMessage = errorData.error;
+        }
+
+      } catch (e) {
+        // Server returned a non-JSON error.
+      }
+
+      throw new Error(errorMessage);
+    }
+
+    const contentType =
+      response.headers.get("Content-Type") || "";
+
+    if (!contentType.includes("image/")) {
+      throw new Error("সার্ভার থেকে সঠিক ছবি পাওয়া যায়নি।");
+    }
+
+    const resultBlob = await response.blob();
+
+    if (!resultBlob.size) {
+      throw new Error("ফলাফলের ছবিটি খালি পাওয়া গেছে।");
+    }
+
+    clearResult();
+
+    resultImageURL = URL.createObjectURL(resultBlob);
+
+    resultImage.src = resultImageURL;
+    downloadButton.href = resultImageURL;
+
+    resultBox.style.display = "block";
+
+    showMessage(
+      "অভিনন্দন! আপনার ছবির ব্যাকগ্রাউন্ড সফলভাবে সরানো হয়েছে।",
+      "success"
+    );
+
+    resultBox.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  } catch (error) {
+
+    showMessage(
+      error.message ||
+      "সংযোগে সমস্যা হয়েছে। আবার চেষ্টা করুন।"
+    );
+
+  } finally {
+
+    removeButton.disabled = false;
+    changeButton.disabled = false;
+
+    removeButton.textContent = "✂️ Remove Background";
+
+  }
+
 });
 
 changeButton.addEventListener("click", function() {
@@ -398,9 +580,15 @@ changeButton.addEventListener("click", function() {
 });
 
 window.addEventListener("beforeunload", function() {
+
   if (currentImageURL) {
     URL.revokeObjectURL(currentImageURL);
   }
+
+  if (resultImageURL) {
+    URL.revokeObjectURL(resultImageURL);
+  }
+
 });
 </script>
 
