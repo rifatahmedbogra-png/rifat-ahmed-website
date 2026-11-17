@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Background Remover | Rifat Tools & Documents</title>
-<meta name="description" content="Rifat AI Background Remover - AI প্রযুক্তির সাহায্যে ছবির ব্যাকগ্রাউন্ড সরান।">
+<title>Rifat AI Background Studio | Rifat Tools & Documents</title>
+<meta name="description" content="Rifat AI Background Studio - Remove background, passport photo colors, scenic backgrounds and download PNG images.">
 
 <style>
 * {
@@ -23,109 +23,73 @@ body {
 
 nav {
   background: #102a43;
-  padding: 14px;
+  padding: 13px;
   text-align: center;
   border-bottom: 1px solid #285477;
 }
 
 nav a {
   display: inline-block;
-  text-decoration: none;
   color: white;
   background: #1769aa;
-  padding: 9px 18px;
+  padding: 9px 17px;
   margin: 4px;
   border-radius: 8px;
+  text-decoration: none;
   font-weight: bold;
 }
 
-nav a:hover {
-  background: #2196c8;
-}
-
 header {
-  background: linear-gradient(130deg, #071d35, #1769aa);
-  padding: 55px 15px;
+  background: linear-gradient(130deg,#071d35,#1769aa);
+  padding: 45px 15px;
   text-align: center;
   border-bottom: 3px solid #f0c040;
 }
 
 header h1 {
   font-size: 32px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 header h1 span {
   color: #f0c040;
 }
 
-header p {
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 15px;
+}
+
+.panel {
+  background: #102a43;
+  border: 1px solid #285477;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+h2, h3 {
+  color: #f0c040;
+  margin-bottom: 12px;
+}
+
+p {
   color: #dbeafe;
 }
 
-.container {
-  max-width: 1050px;
-  margin: auto;
-  padding: 30px 18px;
-}
-
-.intro {
-  text-align: center;
-  background: #102a43;
-  border: 1px solid #285477;
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 28px;
-}
-
-.intro h2 {
-  color: #f0c040;
-  margin-bottom: 10px;
-}
-
-.editor {
-  background: #102a43;
-  border: 1px solid #285477;
-  border-radius: 18px;
-  padding: 25px;
-  text-align: center;
-}
-
-.editor h2 {
-  color: #f0c040;
-  margin-bottom: 8px;
-}
-
-.upload-area {
-  margin-top: 22px;
-  padding: 35px 15px;
-  border: 2px dashed #4383b2;
-  border-radius: 15px;
-  background: #0b223b;
-}
-
-.upload-icon {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.upload-area p {
-  color: #c6d7e8;
-  margin-bottom: 16px;
-}
-
 .btn {
-  display: inline-block;
   border: none;
-  padding: 12px 22px;
+  padding: 11px 18px;
+  margin: 5px;
   border-radius: 9px;
   background: #1769aa;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  margin: 5px;
   text-decoration: none;
+  display: inline-block;
 }
 
 .btn:hover {
@@ -133,39 +97,76 @@ header p {
 }
 
 .btn-gold {
-  background: #d69e19;
+  background: #f0c040;
   color: #071d35;
 }
 
-.btn-gold:hover {
-  background: #f0c040;
-}
-
 .btn:disabled {
-  opacity: 0.55;
+  opacity: .5;
   cursor: not-allowed;
 }
 
-#fileInput {
+input[type=file] {
   display: none;
 }
 
-.preview-box {
-  margin-top: 25px;
-  display: none;
+.upload-area {
+  padding: 30px 15px;
+  margin-top: 18px;
+  border: 2px dashed #4383b2;
+  border-radius: 13px;
+  background: #0b223b;
+  text-align: center;
 }
 
-.preview-box h3 {
-  color: #f0c040;
-  margin-bottom: 12px;
+.upload-icon {
+  font-size: 45px;
+}
+
+.message {
+  display: none;
+  padding: 13px;
+  margin-top: 16px;
+  border-radius: 9px;
+  background: #493d20;
+  color: #ffe49a;
+  overflow-wrap: anywhere;
+}
+
+.message.success {
+  background: #123e32;
+  color: #b8f5d7;
+}
+
+.message.error {
+  background: #55252b;
+  color: #ffd5d5;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.preview-card {
+  background: #0b223b;
+  padding: 12px;
+  border: 1px solid #285477;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.preview-card h3 {
+  font-size: 16px;
 }
 
 .image-preview {
-  max-width: 100%;
-  max-height: 380px;
+  width: 100%;
+  max-height: 350px;
   object-fit: contain;
-  border-radius: 12px;
-  border: 1px solid #4383b2;
+  border-radius: 9px;
   background-color: white;
   background-image:
     linear-gradient(45deg,#ddd 25%,transparent 25%),
@@ -176,63 +177,91 @@ header p {
   background-position: 0 0,0 10px,10px -10px,-10px 0;
 }
 
-.result-box {
+#editorSection {
   display: none;
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid #4383b2;
 }
 
-.result-box h3 {
-  color: #f0c040;
-  margin-bottom: 14px;
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(105px,1fr));
+  gap: 12px;
+  margin-top: 15px;
 }
 
-.message {
-  margin-top: 18px;
-  padding: 13px;
-  background: #493d20;
-  border: 1px solid #8b722c;
-  border-radius: 9px;
-  color: #ffe49a;
-  display: none;
-  overflow-wrap: anywhere;
+.color-option {
+  border: 2px solid #4383b2;
+  border-radius: 10px;
+  padding: 9px;
+  cursor: pointer;
+  background: #0b223b;
+  color: white;
+  text-align: center;
 }
 
-.message.success {
-  background: #123e32;
-  border-color: #25865c;
-  color: #b8f5d7;
+.color-option:hover,
+.color-option.active {
+  border-color: #f0c040;
+  box-shadow: 0 0 0 2px #f0c040;
 }
 
-.info {
-  margin-top: 28px;
-  background: #102a43;
-  padding: 24px;
-  border-radius: 14px;
-  border: 1px solid #285477;
+.color-swatch {
+  height: 55px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+  border: 1px solid #aaa;
 }
 
-.info h2 {
-  color: #f0c040;
-  margin-bottom: 12px;
+.scene-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
+  gap: 12px;
+  margin-top: 15px;
 }
 
-.info p, .info li {
-  color: #c6d7e8;
-  margin-bottom: 8px;
+.scene-option {
+  padding: 6px;
+  background: #0b223b;
+  color: white;
+  border: 2px solid #4383b2;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
 }
 
-.info ul {
-  padding-left: 22px;
+.scene-option img {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.scene-option:hover,
+.scene-option.active {
+  border-color: #f0c040;
+}
+
+.canvas-wrap {
+  text-align: center;
+  padding: 15px;
+  margin-top: 15px;
+  background: #0b223b;
+  border-radius: 12px;
+  border: 1px solid #4383b2;
+}
+
+#finalCanvas {
+  width: 100%;
+  max-height: 550px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: white;
 }
 
 footer {
-  margin-top: 35px;
-  background: #061629;
-  border-top: 2px solid #1769aa;
   text-align: center;
   padding: 25px 12px;
+  background: #061629;
+  border-top: 2px solid #1769aa;
   color: #9db5cc;
 }
 
@@ -241,16 +270,16 @@ footer {
     font-size: 24px;
   }
 
+  .panel {
+    padding: 15px;
+  }
+
+  .preview-grid {
+    grid-template-columns: 1fr;
+  }
+
   .container {
-    padding: 18px 12px;
-  }
-
-  .editor {
-    padding: 17px 12px;
-  }
-
-  .upload-area {
-    padding: 25px 10px;
+    padding: 15px 10px;
   }
 }
 </style>
@@ -264,37 +293,34 @@ footer {
 </nav>
 
 <header>
-  <h1>✂️ AI <span>Background Remover</span></h1>
-  <p>ছবির ব্যাকগ্রাউন্ড সরান সহজেই</p>
-  <p>Remove Image Backgrounds with AI Technology</p>
+  <h1>✂️ Rifat AI <span>Background Studio</span></h1>
+  <p>ব্যাকগ্রাউন্ড সরান, রং পরিবর্তন করুন, নতুন দৃশ্য যুক্ত করুন</p>
+  <p>Remove • Recolor • Replace • Download</p>
 </header>
 
 <main class="container">
 
-<section class="intro">
-  <h2>✨ Welcome to Rifat AI Photo Studio</h2>
+<section class="panel">
+  <h2>✨ Rifat AI Photo Studio</h2>
   <p>
-    আপনার ছবির মূল বিষয়বস্তু অক্ষত রেখে
-    ব্যাকগ্রাউন্ড সরানোর সুবিধা।
+    আপনার ছবির ব্যাকগ্রাউন্ড সরিয়ে পছন্দের রং,
+    প্রাকৃতিক দৃশ্য অথবা নিজের ছবি দিয়ে নতুন
+    ব্যাকগ্রাউন্ড তৈরি করুন।
   </p>
   <p>
-    Upload your image and remove its background using AI.
+    Remove your background and create a new photo
+    with beautiful colors and scenic backgrounds.
   </p>
 </section>
 
-<section class="editor">
+<section class="panel">
 
-  <h2>📸 আপনার ছবি নির্বাচন করুন</h2>
-  <p>Choose an image from your device</p>
+  <h2>📸 ১. আপনার ছবি নির্বাচন করুন</h2>
+  <p>Choose your photo / আপনার ছবি আপলোড করুন</p>
 
   <div class="upload-area">
     <div class="upload-icon">🖼️</div>
-
-    <p>
-      এখানে আপনার ছবি নির্বাচন করুন
-      <br>
-      Select an image to get started
-    </p>
+    <p>JPG, PNG অথবা WEBP ছবি নির্বাচন করুন</p>
 
     <label for="fileInput" class="btn btn-gold">
       📁 Choose Image / ছবি নির্বাচন
@@ -303,87 +329,111 @@ footer {
     <input
       type="file"
       id="fileInput"
-      accept="image/png,image/jpeg,image/webp"
+      accept="image/jpeg,image/png,image/webp"
     >
 
-    <p style="font-size:12px;margin-top:14px;">
-      Supported: JPG, PNG, WEBP | Maximum 10 MB
+    <p style="font-size:12px;margin-top:12px;">
+      Maximum image size: 10 MB
     </p>
   </div>
 
-  <div class="preview-box" id="previewBox">
+  <div class="preview-grid" id="beforeAfter" style="display:none;">
 
-    <h3>আপনার নির্বাচিত ছবি | Image Preview</h3>
-
-    <img
-      id="previewImage"
-      class="image-preview"
-      alt="Selected image preview"
-    >
-
-    <div style="margin-top:18px;">
-
-      <button class="btn btn-gold" id="removeButton">
-        ✂️ Remove Background
-      </button>
-
-      <button class="btn" id="changeButton">
-        🔄 Change Image
-      </button>
-
+    <div class="preview-card">
+      <h3>Original Photo / মূল ছবি</h3>
+      <img id="originalPreview" class="image-preview" alt="Original photo">
     </div>
-  </div>
 
-  <div class="message" id="message" role="status" aria-live="polite"></div>
-
-  <div class="result-box" id="resultBox">
-
-    <h3>🎉 ব্যাকগ্রাউন্ড সরানো ছবি | Background Removed</h3>
-
-    <img
-      id="resultImage"
-      class="image-preview"
-      alt="Background removed result"
-    >
-
-    <div style="margin-top:18px;">
-
-      <a
-        id="downloadButton"
-        class="btn btn-gold"
-        href="#"
-        download="rifat-no-background.png"
-      >
-        ⬇️ Download PNG
-      </a>
-
+    <div class="preview-card">
+      <h3>Background Removed / ব্যাকগ্রাউন্ড ছাড়া</h3>
+      <img id="transparentPreview" class="image-preview" alt="Transparent photo">
     </div>
 
   </div>
 
+  <div style="text-align:center;margin-top:18px;">
+    <button class="btn btn-gold" id="removeButton" disabled>
+      ✂️ Remove Background
+    </button>
+
+    <button class="btn" id="changeButton">
+      🔄 Change Image
+    </button>
+  </div>
+
+  <div id="message" class="message" role="status" aria-live="polite"></div>
+
 </section>
 
-<section class="info">
-  <h2>💡 কীভাবে ব্যবহার করবেন? | How to Use</h2>
-  <ul>
-    <li>Choose Image বাটনে ক্লিক করুন।</li>
-    <li>আপনার পছন্দের JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।</li>
-    <li>ছবির Preview দেখুন।</li>
-    <li>Remove Background বাটনে ক্লিক করুন।</li>
-    <li>AI প্রক্রিয়া সম্পন্ন হলে PNG ছবি ডাউনলোড করুন।</li>
-  </ul>
-</section>
+<section class="panel" id="editorSection">
 
-<section class="info">
-  <h2>🔐 গোপনীয়তা ও নিরাপত্তা | Privacy & Security</h2>
+  <h2>🎨 ২. Passport Photo Background Colors</h2>
+  <p>আপনার পছন্দের ব্যাকগ্রাউন্ড কালার নির্বাচন করুন।</p>
+
+  <div class="color-grid" id="colorGrid"></div>
+
+  <h2 style="margin-top:30px;">🌄 ৩. Scenic & Location Backgrounds</h2>
   <p>
-    আপনার নির্বাচিত ছবি ব্যাকগ্রাউন্ড সরানোর জন্য
-    নিরাপদ Backend-এর মাধ্যমে remove.bg AI সার্ভিসে পাঠানো হবে।
+    পাহাড়, সমুদ্র, প্রকৃতি, শহরসহ বিভিন্ন দৃশ্য নির্বাচন করুন।
+  </p>
+
+  <div class="scene-grid" id="sceneGrid"></div>
+
+  <div style="margin-top:20px;">
+    <h3>📁 নিজের ব্যাকগ্রাউন্ড ছবি ব্যবহার করুন</h3>
+    <p>Upload your own background image.</p>
+
+    <label for="backgroundInput" class="btn btn-gold">
+      🖼️ Upload Background
+    </label>
+
+    <input
+      type="file"
+      id="backgroundInput"
+      accept="image/jpeg,image/png,image/webp"
+    >
+
+    <button class="btn" id="clearBackground">
+      ↩️ Transparent Background
+    </button>
+  </div>
+
+  <div class="canvas-wrap">
+    <h3>👀 Live Photo Preview / ছবির প্রিভিউ</h3>
+    <canvas id="finalCanvas"></canvas>
+  </div>
+
+  <div style="text-align:center;margin-top:20px;">
+    <button class="btn btn-gold" id="downloadFinal">
+      ⬇️ Download Final PNG
+    </button>
+  </div>
+
+</section>
+
+<section class="panel">
+  <h2>💡 ব্যবহারের নিয়ম | How to Use</h2>
+  <ol style="padding-left:22px;color:#dbeafe;">
+    <li>প্রথমে নিজের ছবি নির্বাচন করুন।</li>
+    <li>Remove Background বাটনে ক্লিক করুন।</li>
+    <li>AI ছবির ব্যাকগ্রাউন্ড সরিয়ে দেবে।</li>
+    <li>মূল ছবি ও পরিবর্তিত ছবি পাশাপাশি দেখুন।</li>
+    <li>পছন্দের রং অথবা দৃশ্য নির্বাচন করুন।</li>
+    <li>নিজের ব্যাকগ্রাউন্ড ছবিও আপলোড করতে পারবেন।</li>
+    <li>সবশেষে Download Final PNG বাটনে ক্লিক করুন।</li>
+  </ol>
+</section>
+
+<section class="panel">
+  <h2>🔐 Privacy & Security / গোপনীয়তা</h2>
+  <p>
+    আপনার নির্বাচিত ছবি নিরাপদ Backend-এর মাধ্যমে
+    remove.bg AI সার্ভিসে পাঠানো হয়।
+    API Key এই ওয়েব পেজে প্রকাশ করা হয় না।
   </p>
   <p>
-    Your selected image is sent through our backend to
-    remove.bg for background removal. The API Key is
-    kept on the secure server and is not exposed in this page.
+    Your image is processed through our backend.
+    The private API key is not exposed on this webpage.
   </p>
 </section>
 
@@ -396,87 +446,139 @@ footer {
 </footer>
 
 <script>
+"use strict";
+
+// Existing secure Cloudflare Worker API
 const API_URL =
   "https://rifat-ai-background-remover.rifatahmedbogra.workers.dev";
 
 const fileInput = document.getElementById("fileInput");
-const previewBox = document.getElementById("previewBox");
-const previewImage = document.getElementById("previewImage");
-const message = document.getElementById("message");
+const backgroundInput = document.getElementById("backgroundInput");
+const originalPreview = document.getElementById("originalPreview");
+const transparentPreview = document.getElementById("transparentPreview");
+const beforeAfter = document.getElementById("beforeAfter");
 const removeButton = document.getElementById("removeButton");
 const changeButton = document.getElementById("changeButton");
-const resultBox = document.getElementById("resultBox");
-const resultImage = document.getElementById("resultImage");
-const downloadButton = document.getElementById("downloadButton");
+const message = document.getElementById("message");
+const editorSection = document.getElementById("editorSection");
+const canvas = document.getElementById("finalCanvas");
+const ctx = canvas.getContext("2d");
 
-let currentImageURL = null;
-let resultImageURL = null;
 let selectedFile = null;
+let originalURL = null;
+let transparentURL = null;
+let cutoutImage = null;
+let backgroundImage = null;
+let backgroundMode = "transparent";
+let selectedColor = "#ffffff";
+let selectedScene = null;
+let backgroundLoadId = 0;
+
+const colors = [
+  {name:"সাদা", value:"#ffffff"},
+  {name:"আকাশি", value:"#add8e6"},
+  {name:"নীল", value:"#1769aa"},
+  {name:"লাল", value:"#e53935"},
+  {name:"ধূসর", value:"#d3d3d3"},
+  {name:"গোলাপি", value:"#f8c8dc"},
+  {name:"হালকা সবুজ", value:"#d9ead3"},
+  {name:"হালকা হলুদ", value:"#fff2cc"}
+];
+
+// Online scenic photographs.
+// Internet connection is required for these presets.
+const scenes = [
+  {
+    name:"পাহাড়",
+    url:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200"
+  },
+  {
+    name:"সমুদ্র",
+    url:"https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200"
+  },
+  {
+    name:"লেক ও প্রকৃতি",
+    url:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1200"
+  },
+  {
+    name:"সবুজ বন",
+    url:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200"
+  },
+  {
+    name:"প্রাকৃতিক দৃশ্য",
+    url:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200"
+  },
+  {
+    name:"পার্ক",
+    url:"https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1200"
+  }
+];
 
 function showMessage(text, type = "error") {
   message.textContent = text;
-  message.className = "message";
-
-  if (type === "success") {
-    message.classList.add("success");
-  }
-
+  message.className = "message " + type;
   message.style.display = "block";
 }
 
-function clearResult() {
-  resultBox.style.display = "none";
+function hideMessage() {
+  message.style.display = "none";
+}
 
-  if (resultImageURL) {
-    URL.revokeObjectURL(resultImageURL);
-    resultImageURL = null;
-  }
+function cleanupURL(url) {
+  if (url) URL.revokeObjectURL(url);
+}
 
-  resultImage.removeAttribute("src");
-  downloadButton.removeAttribute("href");
+function clearEditor() {
+  backgroundLoadId++;
+  backgroundImage = null;
+  cutoutImage = null;
+  selectedScene = null;
+  backgroundMode = "transparent";
+  editorSection.style.display = "none";
+  beforeAfter.style.display = "none";
+  transparentPreview.removeAttribute("src");
+  canvas.width = 0;
+  canvas.height = 0;
 }
 
 fileInput.addEventListener("change", function() {
-
   const file = this.files[0];
-
   if (!file) return;
 
-  const allowedTypes = [
-    "image/jpeg",
-    "image/png",
-    "image/webp"
-  ];
+  const allowed = ["image/jpeg","image/png","image/webp"];
 
-  if (!allowedTypes.includes(file.type)) {
-    showMessage("দয়া করে JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
+  if (!allowed.includes(file.type)) {
+    showMessage("শুধু JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
     this.value = "";
     return;
   }
 
   if (file.size > 10 * 1024 * 1024) {
-    showMessage("ছবির সাইজ সর্বোচ্চ ১০ MB হতে পারবে।");
+    showMessage("ছবির আকার সর্বোচ্চ 10 MB হতে পারবে।");
     this.value = "";
     return;
   }
 
-  if (currentImageURL) {
-    URL.revokeObjectURL(currentImageURL);
-  }
+  cleanupURL(originalURL);
+  cleanupURL(transparentURL);
 
+  originalURL = URL.createObjectURL(file);
+  transparentURL = null;
   selectedFile = file;
-  currentImageURL = URL.createObjectURL(file);
 
-  previewImage.src = currentImageURL;
-  previewBox.style.display = "block";
+  originalPreview.src = originalURL;
+  beforeAfter.style.display = "grid";
 
-  message.style.display = "none";
-  clearResult();
+  clearEditor();
+  removeButton.disabled = false;
+  hideMessage();
+});
 
+changeButton.addEventListener("click", function() {
+  fileInput.click();
 });
 
 removeButton.addEventListener("click", async function() {
-
   if (!selectedFile) {
     showMessage("প্রথমে একটি ছবি নির্বাচন করুন।");
     return;
@@ -484,16 +586,14 @@ removeButton.addEventListener("click", async function() {
 
   removeButton.disabled = true;
   changeButton.disabled = true;
-
   removeButton.textContent = "⏳ Processing...";
 
   showMessage(
-    "আপনার ছবির ব্যাকগ্রাউন্ড AI দিয়ে সরানো হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।",
+    "AI আপনার ছবির ব্যাকগ্রাউন্ড সরাচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।",
     "success"
   );
 
   try {
-
     const formData = new FormData();
 
     formData.append(
@@ -508,87 +608,301 @@ removeButton.addEventListener("click", async function() {
     });
 
     if (!response.ok) {
-
-      let errorMessage = "AI দিয়ে ব্যাকগ্রাউন্ড সরানো যায়নি।";
+      let errorText = "AI দিয়ে ব্যাকগ্রাউন্ড সরানো যায়নি।";
 
       try {
-        const errorData = await response.json();
+        const data = await response.json();
+        if (data.error) errorText = data.error;
+      } catch (e) {}
 
-        if (errorData.error) {
-          errorMessage = errorData.error;
-        }
-
-      } catch (e) {
-        // Server returned a non-JSON error.
-      }
-
-      throw new Error(errorMessage);
+      throw new Error(errorText);
     }
 
-    const contentType =
-      response.headers.get("Content-Type") || "";
+    const contentType = response.headers.get("Content-Type") || "";
 
     if (!contentType.includes("image/")) {
       throw new Error("সার্ভার থেকে সঠিক ছবি পাওয়া যায়নি।");
     }
 
-    const resultBlob = await response.blob();
+    const blob = await response.blob();
 
-    if (!resultBlob.size) {
-      throw new Error("ফলাফলের ছবিটি খালি পাওয়া গেছে।");
+    if (!blob.size) {
+      throw new Error("ফলাফলের ছবি খালি পাওয়া গেছে।");
     }
 
-    clearResult();
+    cleanupURL(transparentURL);
+    transparentURL = URL.createObjectURL(blob);
 
-    resultImageURL = URL.createObjectURL(resultBlob);
+    const image = new Image();
 
-    resultImage.src = resultImageURL;
-    downloadButton.href = resultImageURL;
+    image.onload = function() {
+      cutoutImage = image;
+      transparentPreview.src = transparentURL;
 
-    resultBox.style.display = "block";
+      beforeAfter.style.display = "grid";
+      editorSection.style.display = "block";
 
-    showMessage(
-      "অভিনন্দন! আপনার ছবির ব্যাকগ্রাউন্ড সফলভাবে সরানো হয়েছে।",
-      "success"
-    );
+      renderCanvas();
 
-    resultBox.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
+      showMessage(
+        "অভিনন্দন! ব্যাকগ্রাউন্ড সফলভাবে সরানো হয়েছে। এখন রং বা দৃশ্য নির্বাচন করুন।",
+        "success"
+      );
+
+      editorSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+    };
+
+    image.onerror = function() {
+      throw new Error("AI ফলাফলের ছবি লোড করা যায়নি।");
+    };
+
+    image.src = transparentURL;
 
   } catch (error) {
-
     showMessage(
-      error.message ||
-      "সংযোগে সমস্যা হয়েছে। আবার চেষ্টা করুন।"
+      error.message || "সংযোগে সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      "error"
     );
-
   } finally {
-
     removeButton.disabled = false;
     changeButton.disabled = false;
-
     removeButton.textContent = "✂️ Remove Background";
-
   }
-
 });
 
-changeButton.addEventListener("click", function() {
-  fileInput.click();
+// Build passport color choices
+const colorGrid = document.getElementById("colorGrid");
+
+colors.forEach(function(item) {
+  const button = document.createElement("button");
+  button.className = "color-option";
+
+  button.innerHTML =
+    '<div class="color-swatch"></div><span></span>';
+
+  button.querySelector(".color-swatch").style.background = item.value;
+  button.querySelector("span").textContent = item.name;
+
+  button.addEventListener("click", function() {
+    backgroundMode = "color";
+    selectedColor = item.value;
+    backgroundImage = null;
+    selectedScene = null;
+
+    document.querySelectorAll(".color-option,.scene-option")
+      .forEach(el => el.classList.remove("active"));
+
+    button.classList.add("active");
+    renderCanvas();
+  });
+
+  colorGrid.appendChild(button);
+});
+
+// Build scenic background choices
+const sceneGrid = document.getElementById("sceneGrid");
+
+scenes.forEach(function(scene) {
+  const button = document.createElement("button");
+  button.className = "scene-option";
+  button.innerHTML = '<img alt=""><span></span>';
+
+  const thumbnail = button.querySelector("img");
+  thumbnail.src = scene.url;
+  thumbnail.alt = scene.name;
+  button.querySelector("span").textContent = scene.name;
+
+  button.addEventListener("click", function() {
+    loadBackground(scene.url, button, scene.name);
+  });
+
+  sceneGrid.appendChild(button);
+});
+
+// Load a scenic or uploaded background safely
+function loadBackground(source, button, name) {
+  const loadId = ++backgroundLoadId;
+  const image = new Image();
+  image.crossOrigin = "anonymous";
+
+  image.onload = function() {
+    if (loadId !== backgroundLoadId) return;
+
+    backgroundImage = image;
+    backgroundMode = "image";
+    selectedScene = name;
+
+    document.querySelectorAll(".color-option,.scene-option")
+      .forEach(el => el.classList.remove("active"));
+
+    if (button) button.classList.add("active");
+
+    renderCanvas();
+    showMessage("নতুন ব্যাকগ্রাউন্ড সফলভাবে যুক্ত হয়েছে।", "success");
+  };
+
+  image.onerror = function() {
+    if (loadId !== backgroundLoadId) return;
+
+    showMessage(
+      "এই ব্যাকগ্রাউন্ডটি লোড করা যায়নি। অন্য দৃশ্য অথবা নিজের ছবি চেষ্টা করুন।",
+      "error"
+    );
+  };
+
+  image.src = source;
+}
+
+// Upload personal background
+backgroundInput.addEventListener("change", function() {
+  const file = this.files[0];
+  if (!file) return;
+
+  if (!["image/jpeg","image/png","image/webp"].includes(file.type)) {
+    showMessage("সঠিক JPG, PNG অথবা WEBP ব্যাকগ্রাউন্ড নির্বাচন করুন।");
+    this.value = "";
+    return;
+  }
+
+  if (file.size > 10 * 1024 * 1024) {
+    showMessage("ব্যাকগ্রাউন্ড ছবির আকার সর্বোচ্চ 10 MB হতে পারবে।");
+    this.value = "";
+    return;
+  }
+
+  const url = URL.createObjectURL(file);
+  const loadId = ++backgroundLoadId;
+  const image = new Image();
+
+  image.onload = function() {
+    if (loadId !== backgroundLoadId) {
+      cleanupURL(url);
+      return;
+    }
+
+    backgroundImage = image;
+    backgroundMode = "image";
+    selectedScene = "নিজের ছবি";
+
+    document.querySelectorAll(".color-option,.scene-option")
+      .forEach(el => el.classList.remove("active"));
+
+    renderCanvas();
+    showMessage("আপনার আপলোড করা ব্যাকগ্রাউন্ড যুক্ত হয়েছে।", "success");
+
+    cleanupURL(url);
+  };
+
+  image.onerror = function() {
+    cleanupURL(url);
+    showMessage("আপনার ব্যাকগ্রাউন্ড ছবিটি খোলা যায়নি।", "error");
+  };
+
+  image.src = url;
+});
+
+// Draw image using cover fitting
+function drawCover(ctx, image, width, height) {
+  const scale = Math.max(
+    width / image.width,
+    height / image.height
+  );
+
+  const drawWidth = image.width * scale;
+  const drawHeight = image.height * scale;
+
+  const x = (width - drawWidth) / 2;
+  const y = (height - drawHeight) / 2;
+
+  ctx.drawImage(image, x, y, drawWidth, drawHeight);
+}
+
+// Render final photo
+function renderCanvas() {
+  if (!cutoutImage) return;
+
+  const width = cutoutImage.naturalWidth;
+  const height = cutoutImage.naturalHeight;
+
+  canvas.width = width;
+  canvas.height = height;
+
+  ctx.clearRect(0, 0, width, height);
+
+  if (backgroundMode === "color") {
+    ctx.fillStyle = selectedColor;
+    ctx.fillRect(0, 0, width, height);
+  }
+
+  if (backgroundMode === "image" && backgroundImage) {
+    drawCover(ctx, backgroundImage, width, height);
+  }
+
+  // Keep the original person/photo cutout above the background
+  ctx.drawImage(cutoutImage, 0, 0, width, height);
+}
+
+// Return to transparent background
+document.getElementById("clearBackground")
+.addEventListener("click", function() {
+  backgroundLoadId++;
+  backgroundMode = "transparent";
+  backgroundImage = null;
+  selectedScene = null;
+
+  document.querySelectorAll(".color-option,.scene-option")
+    .forEach(el => el.classList.remove("active"));
+
+  renderCanvas();
+  showMessage("স্বচ্ছ ব্যাকগ্রাউন্ড নির্বাচন করা হয়েছে।", "success");
+});
+
+// Download final PNG
+document.getElementById("downloadFinal")
+.addEventListener("click", function() {
+  if (!cutoutImage) {
+    showMessage("প্রথমে ছবির ব্যাকগ্রাউন্ড সরান।");
+    return;
+  }
+
+  try {
+    canvas.toBlob(function(blob) {
+      if (!blob) {
+        showMessage("PNG তৈরি করা যায়নি। আবার চেষ্টা করুন।");
+        return;
+      }
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = "rifat-ai-photo.png";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(function() {
+        URL.revokeObjectURL(url);
+      }, 2000);
+
+      showMessage("আপনার নতুন PNG ছবি ডাউনলোড হয়েছে।", "success");
+
+    }, "image/png");
+
+  } catch (error) {
+    showMessage(
+      "ছবি তৈরি করা যায়নি। অনলাইন ব্যাকগ্রাউন্ডের পরিবর্তে নিজের ছবি ব্যবহার করে দেখুন।",
+      "error"
+    );
+  }
 });
 
 window.addEventListener("beforeunload", function() {
-
-  if (currentImageURL) {
-    URL.revokeObjectURL(currentImageURL);
-  }
-
-  if (resultImageURL) {
-    URL.revokeObjectURL(resultImageURL);
-  }
-
+  cleanupURL(originalURL);
+  cleanupURL(transparentURL);
 });
 </script>
 
