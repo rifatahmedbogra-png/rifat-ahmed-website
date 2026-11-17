@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rifat Photo Adjustment Studio - Crop, resize, rotate and adjust photos online.">
+<title>Photo Adjustment Studio | Rifat AI Photo Studio</title>
+
+<style>
+:root{
+ --navy:#071d35;
+ --blue:#1769aa;
+ --gold:#f0c040;
+ --text:#203247;
+ --muted:#65778a;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:#f3f7fb;
+ color:var(--text);
+}
+header{
+ background:linear-gradient(120deg,#071d35,#1769aa);
+ color:white;
+ text-align:center;
+ padding:28px 15px;
+}
+header h1{margin:8px 0;font-size:28px}
+header p{margin:5px 0;color:#e2edf8}
+.brand{color:var(--gold);font-weight:bold}
+.container{width:min(1150px,94%);margin:24px auto}
+.panel,.controls,.preview{
+ background:white;
+ border-radius:15px;
+ padding:20px;
+ box-shadow:0 4px 18px rgba(20,50,80,.07);
+}
+.panel{margin-bottom:20px}
+.workspace{
+ display:grid;
+ grid-template-columns:350px 1fr;
+ gap:20px;
+ align-items:start;
+}
+h2,h3{color:var(--navy);margin-top:0}
+.small{font-size:13px;line-height:1.7;color:var(--muted)}
+.field{margin:17px 0}
+label{
+ display:flex;
+ justify-content:space-between;
+ gap:8px;
+ font-size:13px;
+ font-weight:bold;
+ margin-bottom:8px;
+}
+input[type=file],select,input[type=number]{
+ width:100%;
+ padding:11px;
+ border:1px solid #d6e0ea;
+ border-radius:8px;
+ background:#f8fbfe;
+}
+input[type=range]{width:100%;accent-color:var(--blue)}
+.value{color:var(--blue)}
+.button-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px;
+}
+button{
+ border:0;
+ border-radius:9px;
+ padding:12px 10px;
+ font-size:13px;
+ font-weight:bold;
+ cursor:pointer;
+}
+.action{
+ background:#e8f0f8;
+ color:var(--navy);
+}
+.action:hover{background:#d7e9fa}
+.primary{background:var(--blue);color:white}
+.gold{background:var(--gold);color:#192b3d}
+button:disabled{opacity:.45;cursor:not-allowed}
+.preview{text-align:center;min-width:0}
+.canvas-wrap{
+ background:#e6edf4;
+ border-radius:10px;
+ overflow:hidden;
+}
+canvas{display:block;width:100%;height:auto}
+.button-row{
+ display:flex;
+ flex-wrap:wrap;
+ gap:10px;
+ margin-top:15px;
+}
+.notice{
+ background:#fff8df;
+ border-left:4px solid var(--gold);
+ padding:12px;
+ border-radius:7px;
+ font-size:13px;
+ line-height:1.7;
+ margin-top:15px;
+}
+.status{font-size:13px;color:var(--muted);min-height:20px;margin-top:12px}
+footer{
+ background:var(--navy);
+ color:#dce8f4;
+ text-align:center;
+ padding:24px 12px;
+ font-size:13px;
+ line-height:1.8;
+}
+@media(max-width:800px){
+ .workspace{grid-template-columns:1fr}
+ header h1{font-size:23px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="brand">RIFAT AI PHOTO STUDIO</div>
+ <h1>ফটো অ্যাডজাস্টমেন্ট স্টুডিও</h1>
+ <p>Photo Adjustment Studio</p>
+ <p>ছবির সাইজ, অবস্থান, রং ও আকৃতি পরিবর্তন করুন</p>
+</header>
+
+<main class="container">
+
+<section class="panel">
+ <h2>স্বাগতম | Welcome</h2>
+ <p class="small">
+  এই স্টুডিওতে আপনার ছবির Crop, Resize, Rotate, Flip,
+  Brightness, Contrast এবং অন্যান্য সেটিংস নিয়ন্ত্রণ করতে পারবেন।
+ </p>
+ <p class="small">
+  Upload your photo and adjust its dimensions, orientation,
+  colors and appearance.
+ </p>
+</section>
+
+<div class="workspace">
+
+<section class="controls">
+
+<h3>ছবি আপলোড | Upload Photo</h3>
+
+<div class="field">
+ <label for="photoInput">আপনার ছবি নির্বাচন করুন</label>
+ <input type="file" id="photoInput" accept="image/*">
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>ছবির অবস্থান | Image Transform</h3>
+
+<div class="button-grid">
+ <button class="action" id="rotateLeft">↶ Rotate Left</button>
+ <button class="action" id="rotateRight">↷ Rotate Right</button>
+ <button class="action" id="flipH">↔ Flip Horizontal</button>
+ <button class="action" id="flipV">↕ Flip Vertical</button>
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>ছবি Crop | Crop Photo</h3>
+
+<div class="field">
+ <label for="aspectRatio">Aspect Ratio নির্বাচন করুন</label>
+ <select id="aspectRatio">
+  <option value="free">Free Crop</option>
+  <option value="1">1:1 Square</option>
+  <option value="4/5">4:5 Portrait</option>
+  <option value="3/4">3:4 Portrait</option>
+  <option value="9/16">9:16 Story</option>
+  <option value="4/3">4:3 Landscape</option>
+  <option value="16/9">16:9 Landscape</option>
+ </select>
+</div>
+
+<div class="field">
+ <label>Crop Width <span class="value" id="cropWVal">100%</span></label>
+ <input type="range" id="cropW" min="10" max="100" value="100">
+</div>
+
+<div class="field">
+ <label>Crop Height <span class="value" id="cropHVal">100%</span></label>
+ <input type="range" id="cropH" min="10" max="100" value="100">
+</div>
+
+<div class="field">
+ <label>Horizontal Position <span class="value" id="cropXVal">50%</span></label>
+ <input type="range" id="cropX" min="0" max="100" value="50">
+</div>
+
+<div class="field">
+ <label>Vertical Position <span class="value" id="cropYVal">50%</span></label>
+ <input type="range" id="cropY" min="0" max="100" value="50">
+</div>
+
+<div class="button-row">
+ <button class="action" id="resetCrop">Reset Crop</button>
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>ছবির সাইজ | Resize Photo</h3>
+
+<div class="field">
+ <label for="resizePreset">সাইজ নির্বাচন করুন</label>
+ <select id="resizePreset">
+  <option value="original">Original Size</option>
+  <option value="800x800">800 × 800</option>
+  <option value="1080x1080">1080 × 1080</option>
+  <option value="1200x1200">1200 × 1200</option>
+  <option value="1200x1800">1200 × 1800</option>
+  <option value="1920x1080">1920 × 1080</option>
+  <option value="custom">Custom Size</option>
+ </select>
+</div>
+
+<div class="field">
+ <label for="resizeWidth">Width (Pixels)</label>
+ <input type="number" id="resizeWidth" min="1" max="6000" value="1200">
+</div>
+
+<div class="field">
+ <label for="resizeHeight">Height (Pixels)</label>
+ <input type="number" id="resizeHeight" min="1" max="6000" value="800">
+</div>
+
+<div class="field">
+ <label>
+  <span>Keep Aspect Ratio</span>
+  <input type="checkbox" id="keepRatio" checked>
+ </label>
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>ছবির রং | Image Adjustments</h3>
+
+<div class="field">
+ <label>Brightness <span class="value" id="brightnessVal">100%</span></label>
+ <input type="range" id="brightness" min="30" max="180" value="100">
+</div>
+
+<div class="field">
+ <label>Contrast <span class="value" id="contrastVal">100%</span></label>
+ <input type="range" id="contrast" min="30" max="180" value="100">
+</div>
+
+<div class="field">
+ <label>Saturation <span class="value" id="saturationVal">100%</span></label>
+ <input type="range" id="saturation" min="0" max="200" value="100">
+</div>
+
+<div class="field">
+ <label>Sharpness Effect <span class="value" id="sharpnessVal">0</span></label>
+ <input type="range" id="sharpness" min="0" max="10" value="0">
+</div>
+
+<div class="field">
+ <label>Warmth <span class="value" id="warmthVal">0</span></label>
+ <input type="range" id="warmth" min="-50" max="50" value="0">
+</div>
+
+<div class="button-row">
+ <button class="action" id="resetAdjust">Reset Adjustments</button>
+ <button class="gold" id="resetAll">সবকিছু রিসেট</button>
+</div>
+
+<div class="notice">
+ <strong>গুরুত্বপূর্ণ:</strong> Crop, Resize, Rotate এবং Flip
+ বাস্তবভাবে ছবির Canvas-এ প্রয়োগ করা হয়। Sharpness এখানে
+ সাধারণ sharpening effect; এটি পেশাদার AI enhancement নয়।
+ PNG ফাইলের Pixel Size পরিবর্তিত হবে, তবে DPI/প্রিন্ট রেজোলিউশন
+ মেটাডেটা নিশ্চিত করা হয় না।
+</div>
+
+<p class="status" id="status" aria-live="polite">প্রথমে ছবি আপলোড করুন।</p>
+
+</section>
+
+<section class="preview">
+
+<h3>লাইভ প্রিভিউ | Live Preview</h3>
+
+<div class="canvas-wrap">
+ <canvas id="photoCanvas" width="1200" height="800"></canvas>
+</div>
+
+<p class="small" id="dimensionInfo">ছবির মাপ: 1200 × 800 px</p>
+
+<div class="button-row" style="justify-content:center">
+ <button class="action" id="beforeBtn" disabled>Before দেখুন</button>
+ <button class="action" id="afterBtn" disabled>After দেখুন</button>
+ <button class="primary" id="downloadBtn" disabled>PNG ডাউনলোড</button>
+</div>
+
+<p class="small">
+ Before ও After বাটন দিয়ে আগের ছবি এবং পরিবর্তিত ছবি তুলনা করুন।
+ </p>
+
+</section>
+
+</div>
+
+<section class="panel" style="margin-top:20px">
+ <h2>Photo Adjustment Guide</h2>
+ <p class="small">
+  Crop দিয়ে ছবির প্রয়োজনীয় অংশ নির্বাচন করুন। Resize দিয়ে
+  ছবির Pixel Size পরিবর্তন করুন। Rotate ও Flip দিয়ে ছবির দিক
+  পরিবর্তন করুন। Brightness, Contrast ও Saturation ব্যবহার করে
+  ছবির রং সুন্দর করুন।
+ </p>
+ <p class="small">
+  Use the adjustment tools carefully and keep a copy of your
+  original photo before editing.
+ </p>
+</section>
+
+</main>
+
+<footer>
+ <strong>Rifat AI Photo Studio</strong><br>
+ Create • Edit • Learn • Improve<br>
+ © 2026 Rifat Ahmed. All Rights Reserved.
+</footer>
+
+<script>
+const canvas=document.getElementById("photoCanvas");
+const ctx=canvas.getContext("2d");
+const photoInput=document.getElementById("photoInput");
+const statusText=document.getElementById("status");
+const downloadBtn=document.getElementById("downloadBtn");
+
+let photo=null;
+let photoURL=null;
+let showBefore=false;
+
+let rotation=0;
+let flipH=false;
+let flipV=false;
+
+const defaults={
+ cropW:100,cropH:100,cropX:50,cropY:50,
+ brightness:100,contrast:100,saturation:100,
+ sharpness:0,warmth:0
+};
+
+function val(id){
+ return Number(document.getElementById(id).value);
+}
+
+function getCrop(){
+ if(!photo)return null;
+
+ const sourceRatio=photo.width/photo.height;
+ const aspect=document.getElementById("aspectRatio").value;
+
+ let width=photo.width*val("cropW")/100;
+ let height=photo.height*val("cropH")/100;
+
+ if(aspect!=="free"){
+  const parts=aspect.split("/");
+  const target=Number(parts[0])/Number(parts[1]);
+
+  if(width/height>target){
+   width=height*target;
+  }else{
+   height=width/target;
+  }
+ }
+
+ const left=(photo.width-width)*val("cropX")/100;
+ const top=(photo.height-height)*val("cropY")/100;
+
+ return {
+  x:Math.max(0,Math.min(photo.width-width,left)),
+  y:Math.max(0,Math.min(photo.height-height,top)),
+  width:width,
+  height:height
+ };
+}
+
+function getOutputSize(){
+ const crop=getCrop();
+ if(!crop)return {width:1200,height:800};
+
+ let width=Math.round(crop.width);
+ let height=Math.round(crop.height);
+
+ const preset=document.getElementById("resizePreset").value;
+
+ if(preset==="original"){
+  return {width:width,height:height};
+ }
+
+ if(preset!=="custom"){
+  const parts=preset.split("x");
+  return {width:Number(parts[0]),height:Number(parts[1])};
+ }
+
+ const customW=Number(document.getElementById("resizeWidth").value);
+ const customH=Number(document.getElementById("resizeHeight").value);
+
+ if(customW<1||customH<1||customW>6000||customH>6000){
+  return {width:width,height:height};
+ }
+
+ if(document.getElementById("keepRatio").checked){
+  const ratio=width/height;
+  const adjustedH=Math.round(customW/ratio);
+  return {width:customW,height:adjustedH};
+ }
+
+ return {width:customW,height:customH};
+}
+
+function render(targetCanvas,original=false){
+ const target=targetCanvas||canvas;
+ const context=target.getContext("2d");
+
+ context.clearRect(0,0,target.width,target.height);
+
+ if(!photo){
+  context.fillStyle="#eaf3fb";
+  context.fillRect(0,0,target.width,target.height);
+  context.fillStyle="#52718f";
+  context.textAlign="center";
+  context.font="bold 35px Arial";
+  context.fillText("Rifat Photo Adjustment Studio",target.width/2,target.height/2);
+  return;
+ }
+
+ const crop=original
+  ?{x:0,y:0,width:photo.width,height:photo.height}
+  :getCrop();
+
+ const size=original
+  ?{width:photo.width,height:photo.height}
+  :getOutputSize();
+
+ const outW=size.width;
+ const outH=size.height;
+
+ if(target.width!==outW)target.width=outW;
+ if(target.height!==outH)target.height=outH;
+
+ context.save();
+
+ if(!original){
+  context.filter=
+   "brightness("+val("brightness")+"%) "+
+   "contrast("+val("contrast")+"%) "+
+   "saturate("+val("saturation")+"%)";
+ }
+
+ context.translate(outW/2,outH/2);
+ context.rotate(original?0:rotation*Math.PI/180);
+ context.scale(original?1:(flipH?-1:1),original?1:(flipV?-1:1));
+
+ let drawW=outW;
+ let drawH=outH;
+
+ if(rotation%180!==0){
+  drawW=outH;
+  drawH=outW;
+ }
+
+ context.drawImage(
+  photo,
+  crop.x,crop.y,crop.width,crop.height,
+  -drawW/2,-drawH/2,drawW,drawH
+ );
+
+ context.restore();
+
+ if(!original){
+  const warmth=val("warmth");
+
+  if(warmth!==0){
+   context.save();
+   context.globalCompositeOperation="soft-light";
+   context.fillStyle=warmth>0
+    ?"rgba(255,145,55,"+(Math.abs(warmth)/200)+")"
+    :"rgba(55,130,255,"+(Math.abs(warmth)/200)+")";
+   context.fillRect(0,0,outW,outH);
+   context.restore();
+  }
+
+  const sharp=val("sharpness");
+
+  if(sharp>0){
+   context.save();
+   context.globalCompositeOperation="soft-light";
+   context.globalAlpha=sharp/100;
+   context.filter="contrast("+(100+sharp*8)+"%)";
+   context.drawImage(target,0,0,outW,outH);
+   context.restore();
+  }
+ }
+}
+
+function updateLabels(){
+ Object.keys(defaults).forEach(function(id){
+  const output=document.getElementById(id+"Val");
+  if(output){
+   const value=val(id);
+   output.textContent=
+    ["brightness","contrast","saturation"].includes(id)
+    ?value+"%"
+    :id==="cropW"||id==="cropH"||id==="cropX"||id==="cropY"
+    ?value+"%"
+    :value;
+  }
+ });
+}
+
+function update(){
+ if(!photo)return;
+
+ showBefore=false;
+ render(canvas);
+ updateLabels();
+
+ document.getElementById("dimensionInfo").textContent=
+  "ছবির মাপ: "+canvas.width+" × "+canvas.height+" px";
+}
+
+photoInput.addEventListener("change",function(){
+ const file=this.files[0];
+ if(!file)return;
+
+ if(!file.type.startsWith("image/")){
+  statusText.textContent="সঠিক ছবি নির্বাচন করুন।";
+  return;
+ }
+
+ const url=URL.createObjectURL(file);
+ const image=new Image();
+
+ image.onload=function(){
+  if(photoURL)URL.revokeObjectURL(photoURL);
+  photo=image;
+  photoURL=url;
+
+  rotation=0;
+  flipH=false;
+  flipV=false;
+
+  Object.keys(defaults).forEach(function(id){
+   document.getElementById(id).value=defaults[id];
+  });
+
+  document.getElementById("aspectRatio").value="free";
+  document.getElementById("resizePreset").value="original";
+  document.getElementById("resizeWidth").value=image.width;
+  document.getElementById("resizeHeight").value=image.height;
+
+  render(canvas);
+  updateLabels();
+
+  downloadBtn.disabled=false;
+  document.getElementById("beforeBtn").disabled=false;
+  document.getElementById("afterBtn").disabled=false;
+
+  document.getElementById("dimensionInfo").textContent=
+   "Original Size: "+image.width+" × "+image.height+" px";
+
+  statusText.textContent="ছবি সফলভাবে আপলোড হয়েছে।";
+ };
+
+ image.onerror=function(){
+  URL.revokeObjectURL(url);
+  statusText.textContent="ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।";
+ };
+
+ image.src=url;
+});
+
+document.getElementById("rotateLeft").addEventListener("click",function(){
+ if(!photo)return;
+ rotation=(rotation-90+360)%360;
+ update();
+ statusText.textContent="ছবি বাম দিকে ঘোরানো হয়েছে।";
+});
+
+document.getElementById("rotateRight").addEventListener("click",function(){
+ if(!photo)return;
+ rotation=(rotation+90)%360;
+ update();
+ statusText.textContent="ছবি ডান দিকে ঘোরানো হয়েছে।";
+});
+
+document.getElementById("flipH").addEventListener("click",function(){
+ if(!photo)return;
+ flipH=!flipH;
+ update();
+ statusText.textContent="Horizontal Flip প্রয়োগ হয়েছে।";
+});
+
+document.getElementById("flipV").addEventListener("click",function(){
+ if(!photo)return;
+ flipV=!flipV;
+ update();
+ statusText.textContent="Vertical Flip প্রয়োগ হয়েছে।";
+});
+
+Object.keys(defaults).forEach(function(id){
+ document.getElementById(id).addEventListener("input",function(){
+  update();
+ });
+});
+
+document.getElementById("aspectRatio").addEventListener("change",update);
+
+document.getElementById("resizePreset").addEventListener("change",function(){
+ const preset=this.value;
+
+ if(preset==="custom")return;
+
+ if(preset==="original"&&photo){
+  document.getElementById("resizeWidth").value=photo.width;
+  document.getElementById("resizeHeight").value=photo.height;
+ }else if(preset!=="original"){
+  const parts=preset.split("x");
+  document.getElementById("resizeWidth").value=parts[0];
+  document.getElementById("resizeHeight").value=parts[1];
+ }
+
+ update();
+});
+
+document.getElementById("resizeWidth").addEventListener("input",function(){
+ document.getElementById("resizePreset").value="custom";
+ update();
+});
+
+document.getElementById("resizeHeight").addEventListener("input",function(){
+ document.getElementById("resizePreset").value="custom";
+ update();
+});
+
+document.getElementById("keepRatio").addEventListener("change",update);
+
+document.getElementById("resetCrop").addEventListener("click",function(){
+ ["cropW","cropH"].forEach(id=>{
+  document.getElementById(id).value=100;
+ });
+ document.getElementById("cropX").value=50;
+ document.getElementById("cropY").value=50;
+ document.getElementById("aspectRatio").value="free";
+ update();
+ statusText.textContent="Crop সেটিংস রিসেট হয়েছে।";
+});
+
+document.getElementById("resetAdjust").addEventListener("click",function(){
+ ["brightness","contrast","saturation","sharpness","warmth"].forEach(function(id){
+  document.getElementById(id).value=defaults[id];
+ });
+ update();
+ statusText.textContent="Color adjustments রিসেট হয়েছে।";
+});
+
+document.getElementById("resetAll").addEventListener("click",function(){
+ Object.keys(defaults).forEach(function(id){
+  document.getElementById(id).value=defaults[id];
+ });
+
+ rotation=0;
+ flipH=false;
+ flipV=false;
+
+ document.getElementById("aspectRatio").value="free";
+ document.getElementById("resizePreset").value="original";
+
+ if(photo){
+  document.getElementById("resizeWidth").value=photo.width;
+  document.getElementById("resizeHeight").value=photo.height;
+ }
+
+ update();
+ statusText.textContent="সব সেটিংস রিসেট হয়েছে।";
+});
+
+document.getElementById("beforeBtn").addEventListener("click",function(){
+ if(!photo)return;
+
+ showBefore=true;
+ render(canvas,true);
+ statusText.textContent="Original ছবি দেখানো হচ্ছে।";
+});
+
+document.getElementById("afterBtn").addEventListener("click",function(){
+ if(!photo)return;
+
+ showBefore=false;
+ render(canvas);
+ statusText.textContent="Edited ছবি দেখানো হচ্ছে।";
+});
+
+downloadBtn.addEventListener("click",function(){
+ if(!photo)return;
+
+ showBefore=false;
+ render(canvas);
+
+ canvas.toBlob(function(blob){
+  if(!blob){
+   statusText.textContent="ছবি তৈরি করা যায়নি।";
+   return;
+  }
+
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement("a");
+
+  link.href=url;
+  link.download="rifat-photo-adjusted.png";
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(function(){
+   URL.revokeObjectURL(url);
+  },1500);
+
+  statusText.textContent="পরিবর্তিত ছবি ডাউনলোড হয়েছে।";
+ },"image/png");
+});
+
+render(canvas);
+updateLabels();
+</script>
+
+</body>
+</html>
