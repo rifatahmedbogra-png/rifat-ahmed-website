@@ -259,7 +259,40 @@
                 padding: 17px;
             }
         }
-    </style>
+
+/* Cover Photo Slider */
+.cover-slider {
+    width: 100%;
+    max-width: 1000px;
+    height: 280px;
+    margin: 0 auto 25px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.cover-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.cover-slide.active {
+    opacity: 1;
+}
+
+@media (max-width: 650px) {
+    .cover-slider {
+        height: 160px;
+    }
+}
+
+</style>
 </head>
 
 <body>
