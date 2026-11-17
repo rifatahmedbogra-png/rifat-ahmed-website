@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Background Remover | Rifat Tools & Documents</title>
+<meta name="description" content="Rifat AI Background Remover - সহজেই ছবির ব্যাকগ্রাউন্ড সরানোর AI টুল।">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #071d35;
+  color: #fff;
+  line-height: 1.7;
+}
+
+nav {
+  background: #102a43;
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #285477;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #1769aa;
+  padding: 9px 18px;
+  margin: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background: #2196c8;
+}
+
+header {
+  background: linear-gradient(130deg, #071d35, #1769aa);
+  padding: 55px 15px;
+  text-align: center;
+  border-bottom: 3px solid #f0c040;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+header h1 span {
+  color: #f0c040;
+}
+
+header p {
+  color: #dbeafe;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 30px 18px;
+}
+
+.intro {
+  text-align: center;
+  background: #102a43;
+  border: 1px solid #285477;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 28px;
+}
+
+.intro h2 {
+  color: #f0c040;
+  margin-bottom: 10px;
+}
+
+.editor {
+  background: #102a43;
+  border: 1px solid #285477;
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+}
+
+.editor h2 {
+  color: #f0c040;
+  margin-bottom: 8px;
+}
+
+.upload-area {
+  margin-top: 22px;
+  padding: 35px 15px;
+  border: 2px dashed #4383b2;
+  border-radius: 15px;
+  background: #0b223b;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.upload-area p {
+  color: #c6d7e8;
+  margin-bottom: 16px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 9px;
+  background: #1769aa;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #2196c8;
+}
+
+.btn-gold {
+  background: #d69e19;
+  color: #071d35;
+}
+
+.btn-gold:hover {
+  background: #f0c040;
+}
+
+#fileInput {
+  display: none;
+}
+
+.preview-box {
+  margin-top: 25px;
+  display: none;
+}
+
+.preview-box h3 {
+  color: #f0c040;
+  margin-bottom: 12px;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 380px;
+  border-radius: 12px;
+  border: 1px solid #4383b2;
+  background-color: white;
+  background-image:
+    linear-gradient(45deg,#ddd 25%,transparent 25%),
+    linear-gradient(-45deg,#ddd 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#ddd 75%),
+    linear-gradient(-45deg,transparent 75%,#ddd 75%);
+  background-size: 20px 20px;
+  background-position: 0 0,0 10px,10px -10px,-10px 0;
+}
+
+.message {
+  margin-top: 18px;
+  padding: 13px;
+  background: #493d20;
+  border: 1px solid #8b722c;
+  border-radius: 9px;
+  color: #ffe49a;
+  display: none;
+}
+
+.info {
+  margin-top: 28px;
+  background: #102a43;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #285477;
+}
+
+.info h2 {
+  color: #f0c040;
+  margin-bottom: 12px;
+}
+
+.info p, .info li {
+  color: #c6d7e8;
+  margin-bottom: 8px;
+}
+
+.info ul {
+  padding-left: 22px;
+}
+
+footer {
+  margin-top: 35px;
+  background: #061629;
+  border-top: 2px solid #1769aa;
+  text-align: center;
+  padding: 25px 12px;
+  color: #9db5cc;
+}
+
+@media(max-width:600px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  .container {
+    padding: 18px 12px;
+  }
+
+  .editor {
+    padding: 17px 12px;
+  }
+
+  .upload-area {
+    padding: 25px 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="../index.html">🏠 Home / হোম</a>
+  <a href="index.html">🤖 AI Tools</a>
+</nav>
+
+<header>
+  <h1>✂️ AI <span>Background Remover</span></h1>
+  <p>ছবির ব্যাকগ্রাউন্ড সরান সহজেই</p>
+  <p>Remove Image Backgrounds with AI Technology</p>
+</header>
+
+<main class="container">
+
+<section class="intro">
+  <h2>✨ Welcome to Rifat AI Photo Studio</h2>
+  <p>
+    আপনার ছবির মূল বিষয়বস্তু অক্ষত রেখে
+    ব্যাকগ্রাউন্ড সরানোর সুবিধা।
+  </p>
+  <p>
+    Upload your image and prepare it for AI background removal.
+  </p>
+</section>
+
+<section class="editor">
+
+  <h2>📸 আপনার ছবি নির্বাচন করুন</h2>
+  <p>Choose an image from your device</p>
+
+  <div class="upload-area">
+    <div class="upload-icon">🖼️</div>
+
+    <p>
+      এখানে আপনার ছবি নির্বাচন করুন
+      <br>
+      Select an image to get started
+    </p>
+
+    <label for="fileInput" class="btn btn-gold">
+      📁 Choose Image / ছবি নির্বাচন
+    </label>
+
+    <input
+      type="file"
+      id="fileInput"
+      accept="image/png,image/jpeg,image/webp"
+    >
+
+    <p style="font-size:12px;margin-top:14px;">
+      Supported: JPG, PNG, WEBP
+    </p>
+  </div>
+
+  <div class="preview-box" id="previewBox">
+    <h3>আপনার নির্বাচিত ছবি | Image Preview</h3>
+
+    <img
+      id="previewImage"
+      class="image-preview"
+      alt="Selected image preview"
+    >
+
+    <div style="margin-top:18px;">
+      <button class="btn btn-gold" id="removeButton">
+        ✂️ Remove Background
+      </button>
+
+      <button class="btn" id="changeButton">
+        🔄 Change Image
+      </button>
+    </div>
+  </div>
+
+  <div class="message" id="message">
+    AI Background Removal Backend এখনো সংযুক্ত হয়নি।
+    প্রকৃত ব্যাকগ্রাউন্ড সরানোর সুবিধা চালু করতে নিরাপদ
+    AI API সংযোগ প্রয়োজন।
+  </div>
+
+</section>
+
+<section class="info">
+  <h2>💡 কীভাবে ব্যবহার করবেন? | How to Use</h2>
+  <ul>
+    <li>Choose Image বাটনে ক্লিক করুন।</li>
+    <li>আপনার পছন্দের ছবি নির্বাচন করুন।</li>
+    <li>ছবির Preview দেখুন।</li>
+    <li>AI সংযোগ চালু হলে Remove Background বাটন ব্যবহার করুন।</li>
+    <li>স্বচ্ছ PNG ফাইল ডাউনলোড করুন।</li>
+  </ul>
+</section>
+
+<section class="info">
+  <h2>🔐 গোপনীয়তা ও নিরাপত্তা | Privacy & Security</h2>
+  <p>
+    বর্তমানে নির্বাচিত ছবিটি শুধু আপনার ব্রাউজারে Preview
+    হিসেবে দেখানো হয়। কোনো AI সার্ভারে পাঠানো হয় না।
+  </p>
+  <p>
+    Your selected image is currently previewed locally
+    in your browser. It is not uploaded to an AI server.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Rifat AI Photo Studio</p>
+  <p>Powered by Md Rifat Ahmed</p>
+  <p>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
+</footer>
+
+<script>
+const fileInput = document.getElementById("fileInput");
+const previewBox = document.getElementById("previewBox");
+const previewImage = document.getElementById("previewImage");
+const message = document.getElementById("message");
+const removeButton = document.getElementById("removeButton");
+const changeButton = document.getElementById("changeButton");
+
+let currentImageURL = null;
+
+fileInput.addEventListener("change", function() {
+  const file = this.files[0];
+
+  message.style.display = "none";
+
+  if (!file) return;
+
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ];
+
+  if (!allowedTypes.includes(file.type)) {
+    alert("দয়া করে JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
+    this.value = "";
+    return;
+  }
+
+  if (file.size > 10 * 1024 * 1024) {
+    alert("ছবির সাইজ ১০ MB-এর কম হতে হবে।");
+    this.value = "";
+    return;
+  }
+
+  if (currentImageURL) {
+    URL.revokeObjectURL(currentImageURL);
+  }
+
+  currentImageURL = URL.createObjectURL(file);
+  previewImage.src = currentImageURL;
+  previewBox.style.display = "block";
+});
+
+removeButton.addEventListener("click", function() {
+  message.style.display = "block";
+});
+
+changeButton.addEventListener("click", function() {
+  fileInput.click();
+});
+
+window.addEventListener("beforeunload", function() {
+  if (currentImageURL) {
+    URL.revokeObjectURL(currentImageURL);
+  }
+});
+</script>
+
+</body>
+</html>
