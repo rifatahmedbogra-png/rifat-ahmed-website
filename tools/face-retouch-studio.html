@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rifat Face Retouch Studio - Professional portrait and skin photo editing tools.">
+<title>Face Retouch Studio | Rifat AI Photo Studio</title>
+
+<style>
+:root{
+  --navy:#071d35;
+  --blue:#1769aa;
+  --gold:#f0c040;
+  --light:#eaf3fb;
+  --text:#203247;
+  --muted:#65778a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f3f7fb;
+  color:var(--text);
+}
+header{
+  background:linear-gradient(120deg,#071d35,#1769aa);
+  color:white;
+  text-align:center;
+  padding:28px 15px;
+}
+header h1{margin:8px 0;font-size:28px}
+header p{margin:5px 0;color:#e2edf8}
+.brand{color:var(--gold);font-weight:bold}
+.container{width:min(1150px,94%);margin:24px auto}
+.panel,.controls,.preview{
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 4px 18px rgba(20,50,80,.07);
+}
+.panel{margin-bottom:20px}
+.workspace{
+  display:grid;
+  grid-template-columns:340px 1fr;
+  gap:20px;
+  align-items:start;
+}
+h2,h3{color:var(--navy);margin-top:0}
+.small{font-size:13px;line-height:1.7;color:var(--muted)}
+.field{margin:17px 0}
+label{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+input[type=file]{
+  width:100%;
+  padding:11px;
+  border:1px solid #d6e0ea;
+  border-radius:8px;
+  background:#f8fbfe;
+}
+input[type=range]{width:100%;accent-color:var(--blue)}
+.value{color:var(--blue)}
+.preset-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+.preset{
+  padding:11px 7px;
+  border:1px solid #d6e0ea;
+  border-radius:9px;
+  background:#f8fbfe;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:bold;
+  color:var(--navy);
+}
+.preset.active{
+  background:#e4f1ff;
+  border:2px solid var(--blue);
+  color:var(--blue);
+}
+.preview{text-align:center;min-width:0}
+.canvas-wrap{
+  background:#e6edf4;
+  border-radius:10px;
+  overflow:hidden;
+}
+canvas{display:block;width:100%;height:auto}
+.button-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:15px;
+}
+button,.link-button{
+  border:0;
+  border-radius:9px;
+  padding:12px 15px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+.primary{background:var(--blue);color:white}
+.secondary{background:#e8f0f8;color:var(--navy)}
+.gold{background:var(--gold);color:#192b3d}
+button:disabled{opacity:.45;cursor:not-allowed}
+.notice{
+  background:#fff8df;
+  border-left:4px solid var(--gold);
+  padding:12px;
+  border-radius:7px;
+  font-size:13px;
+  line-height:1.7;
+  margin-top:15px;
+}
+.status{font-size:13px;color:var(--muted);min-height:20px;margin-top:12px}
+footer{
+  background:var(--navy);
+  color:#dce8f4;
+  text-align:center;
+  padding:24px 12px;
+  font-size:13px;
+  line-height:1.8;
+}
+@media(max-width:800px){
+  .workspace{grid-template-columns:1fr}
+  header h1{font-size:23px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">RIFAT AI PHOTO STUDIO</div>
+  <h1>ফেস রিটাচ স্টুডিও</h1>
+  <p>Face Retouch Studio</p>
+  <p>আপনার পোর্ট্রেট ছবিকে দিন সুন্দর ও প্রাকৃতিক লুক</p>
+</header>
+
+<main class="container">
+
+<section class="panel">
+  <h2>স্বাগতম | Welcome</h2>
+  <p class="small">
+    Face Retouch Studio-তে আপনি পোর্ট্রেট ছবির উজ্জ্বলতা, সফটনেস,
+    কালার ও বিভিন্ন ভিজ্যুয়াল ইফেক্ট নিয়ন্ত্রণ করতে পারবেন।
+  </p>
+  <p class="small">
+    Upload your portrait and use simple retouching controls to create a
+    natural-looking photo.
+  </p>
+</section>
+
+<div class="workspace">
+
+<section class="controls">
+
+<h3>ছবি আপলোড | Upload Photo</h3>
+
+<div class="field">
+<label for="photoInput">আপনার পোর্ট্রেট ছবি নির্বাচন করুন</label>
+<input type="file" id="photoInput" accept="image/*">
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>রিটাচ প্রিসেট | Retouch Presets</h3>
+
+<div class="preset-grid">
+<button class="preset active" data-preset="original">Original</button>
+<button class="preset" data-preset="natural">Natural Retouch</button>
+<button class="preset" data-preset="soft">Skin Softness</button>
+<button class="preset" data-preset="bright">Face Brightening</button>
+<button class="preset" data-preset="beauty">Beauty Look</button>
+<button class="preset" data-preset="portrait">Portrait Glow</button>
+<button class="preset" data-preset="warm">Warm Portrait</button>
+<button class="preset" data-preset="cool">Cool Portrait</button>
+<button class="preset" data-preset="studio">Studio Portrait</button>
+<button class="preset" data-preset="glamour">Glamour Look</button>
+</div>
+
+<hr style="border:0;border-top:1px solid #e5edf4;margin:20px 0">
+
+<h3>ম্যানুয়াল রিটাচ | Manual Retouch</h3>
+
+<div class="field">
+<label>Skin Smooth <span class="value" id="smoothVal">0</span></label>
+<input type="range" id="smooth" min="0" max="30" value="0">
+</div>
+
+<div class="field">
+<label>Face Brightening <span class="value" id="brightnessVal">100%</span></label>
+<input type="range" id="brightness" min="60" max="150" value="100">
+</div>
+
+<div class="field">
+<label>Portrait Softness <span class="value" id="softnessVal">0</span></label>
+<input type="range" id="softness" min="0" max="20" value="0">
+</div>
+
+<div class="field">
+<label>Contrast <span class="value" id="contrastVal">100%</span></label>
+<input type="range" id="contrast" min="50" max="160" value="100">
+</div>
+
+<div class="field">
+<label>Saturation <span class="value" id="saturationVal">100%</span></label>
+<input type="range" id="saturation" min="0" max="160" value="100">
+</div>
+
+<div class="field">
+<label>Warmth <span class="value" id="warmthVal">0</span></label>
+<input type="range" id="warmth" min="-50" max="50" value="0">
+</div>
+
+<div class="field">
+<label>Glow <span class="value" id="glowVal">0</span></label>
+<input type="range" id="glow" min="0" max="30" value="0">
+</div>
+
+<div class="field">
+<label>Vignette <span class="value" id="vignetteVal">0</span></label>
+<input type="range" id="vignette" min="0" max="70" value="0">
+</div>
+
+<div class="field">
+<label>Color Softness <span class="value" id="colorSoftVal">0</span></label>
+<input type="range" id="colorSoft" min="0" max="50" value="0">
+</div>
+
+<div class="button-row">
+<button type="button" class="secondary" id="resetBtn">সব রিসেট</button>
+</div>
+
+<div class="notice">
+  <strong>গুরুত্বপূর্ণ:</strong> এই সংস্করণে সাধারণ ছবির ইফেক্ট ব্যবহার করা হয়েছে।
+  এটি এখনো মুখ শনাক্তকারী AI নয়। তাই ত্বক, চোখ, দাঁত বা নির্দিষ্ট দাগ
+  আলাদাভাবে শনাক্ত করে পরিবর্তন করে না।
+</div>
+
+<p class="status" id="status" aria-live="polite">প্রথমে ছবি আপলোড করুন।</p>
+
+</section>
+
+<section class="preview">
+
+<h3>লাইভ প্রিভিউ | Live Preview</h3>
+
+<div class="canvas-wrap">
+<canvas id="photoCanvas" width="1200" height="800"></canvas>
+</div>
+
+<div class="button-row" style="justify-content:center">
+<button type="button" class="secondary" id="beforeBtn" disabled>
+Before দেখুন
+</button>
+<button type="button" class="secondary" id="afterBtn" disabled>
+After দেখুন
+</button>
+<button type="button" class="primary" id="downloadBtn" disabled>
+PNG ডাউনলোড
+</button>
+</div>
+
+<p class="small">
+  Before ও After বাটন দিয়ে আগের ছবি এবং এডিট করা ছবি তুলনা করুন।
+</p>
+
+</section>
+
+</div>
+
+<section class="panel" style="margin-top:20px">
+<h2>রিটাচিং শেখার গাইড | Retouching Guide</h2>
+<p class="small">
+  Natural Retouch ব্যবহার করে অল্প পরিবর্তন করুন। অতিরিক্ত Smooth বা Glow
+  ব্যবহার করলে ছবির স্বাভাবিক চেহারা নষ্ট হতে পারে। ভালো ফলাফলের জন্য
+  ধীরে ধীরে স্লাইডার পরিবর্তন করুন।
+</p>
+<p class="small">
+  Use subtle adjustments for a natural result. Excessive smoothing and
+  glow can make a portrait look artificial.
+</p>
+</section>
+
+</main>
+
+<footer>
+<strong>Rifat AI Photo Studio</strong><br>
+Create • Edit • Learn • Improve<br>
+© 2026 Rifat Ahmed. All Rights Reserved.
+</footer>
+
+<script>
+const canvas=document.getElementById("photoCanvas");
+const ctx=canvas.getContext("2d");
+
+const photoInput=document.getElementById("photoInput");
+const statusText=document.getElementById("status");
+const downloadBtn=document.getElementById("downloadBtn");
+
+let photo=null;
+let photoURL=null;
+let showBefore=false;
+
+const defaults={
+ smooth:0,
+ brightness:100,
+ softness:0,
+ contrast:100,
+ saturation:100,
+ warmth:0,
+ glow:0,
+ vignette:0,
+ colorSoft:0
+};
+
+const presets={
+ original:{},
+ natural:{
+  smooth:3,brightness:105,softness:2,contrast:100,
+  saturation:105,warmth:5,glow:2
+ },
+ soft:{
+  smooth:10,brightness:108,softness:8,contrast:95,
+  saturation:100,glow:8
+ },
+ bright:{
+  smooth:3,brightness:120,softness:3,contrast:95,
+  saturation:105,glow:5
+ },
+ beauty:{
+  smooth:12,brightness:112,softness:10,contrast:95,
+  saturation:105,warmth:8,glow:12
+ },
+ portrait:{
+  smooth:6,brightness:110,softness:5,contrast:105,
+  saturation:110,warmth:10,glow:15,vignette:15
+ },
+ warm:{
+  smooth:3,brightness:108,softness:3,contrast:105,
+  saturation:110,warmth:30,glow:8
+ },
+ cool:{
+  smooth:3,brightness:105,softness:3,contrast:110,
+  saturation:95,warmth:-25
+ },
+ studio:{
+  smooth:4,brightness:115,softness:3,contrast:115,
+  saturation:100,warmth:2,vignette:12
+ },
+ glamour:{
+  smooth:15,brightness:118,softness:12,contrast:90,
+  saturation:110,warmth:12,glow:18
+ }
+};
+
+function getValue(id){
+ return Number(document.getElementById(id).value);
+}
+
+function drawCover(image){
+ const ratio=Math.max(
+  canvas.width/image.width,
+  canvas.height/image.height
+ );
+ const width=image.width*ratio;
+ const height=image.height*ratio;
+ ctx.drawImage(
+  image,
+  (canvas.width-width)/2,
+  (canvas.height-height)/2,
+  width,height
+ );
+}
+
+function render(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ if(!photo){
+  ctx.fillStyle="#eaf3fb";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#52718f";
+  ctx.textAlign="center";
+  ctx.font="bold 42px Arial";
+  ctx.fillText("Rifat Face Retouch Studio",600,365);
+  ctx.font="25px Arial";
+  ctx.fillText("ছবি আপলোড করুন",600,420);
+  downloadBtn.disabled=true;
+  return;
+ }
+
+ if(showBefore){
+  ctx.save();
+  ctx.filter="none";
+  drawCover(photo);
+  ctx.restore();
+  return;
+ }
+
+ const brightness=getValue("brightness");
+ const contrast=getValue("contrast");
+ const saturation=getValue("saturation");
+ const smooth=getValue("smooth");
+ const softness=getValue("softness");
+ const colorSoft=getValue("colorSoft");
+
+ ctx.save();
+ ctx.filter=
+  "brightness("+brightness+"%) "+
+  "contrast("+contrast+"%) "+
+  "saturate("+saturation+"%)";
+ drawCover(photo);
+ ctx.restore();
+
+ // General softness effect
+ const totalSoftness=Math.min(
+  3,
+  smooth/15+softness/10
+ );
+
+ if(totalSoftness>0){
+  ctx.save();
+  ctx.globalAlpha=Math.min(0.32,totalSoftness*0.07);
+  ctx.filter="blur("+totalSoftness+"px)";
+  drawCover(photo);
+  ctx.restore();
+ }
+
+ // Glow overlay
+ const glow=getValue("glow");
+
+ if(glow>0){
+  ctx.save();
+  ctx.globalCompositeOperation="screen";
+  ctx.globalAlpha=glow/100;
+  ctx.filter="blur(18px)";
+  drawCover(photo);
+  ctx.restore();
+ }
+
+ // Warmth
+ const warmth=getValue("warmth");
+
+ if(warmth!==0){
+  ctx.save();
+  ctx.globalCompositeOperation="soft-light";
+  ctx.fillStyle=warmth>0
+   ?"rgba(255,150,65,"+(warmth/180)+")"
+   :"rgba(65,145,255,"+(Math.abs(warmth)/180)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.restore();
+ }
+
+ // Color softness
+ if(colorSoft>0){
+  ctx.save();
+  ctx.globalCompositeOperation="soft-light";
+  ctx.fillStyle="rgba(255,255,255,"+(colorSoft/250)+")";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.restore();
+ }
+
+ // Vignette
+ const vignette=getValue("vignette");
+
+ if(vignette>0){
+  const gradient=ctx.createRadialGradient(
+   600,400,150,600,400,750
+  );
+  gradient.addColorStop(0,"rgba(0,0,0,0)");
+  gradient.addColorStop(1,"rgba(0,0,0,"+(vignette/100)+")");
+  ctx.fillStyle=gradient;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+ }
+
+ ctx.textAlign="left";
+}
+
+function updateLabels(){
+ Object.keys(defaults).forEach(function(id){
+  const output=document.getElementById(id+"Val");
+  const value=getValue(id);
+  if(output){
+   output.textContent=
+    (id==="brightness"||id==="contrast"||id==="saturation")
+    ?value+"%"
+    :value;
+  }
+ });
+}
+
+function update(){
+ updateLabels();
+ showBefore=false;
+ render();
+}
+
+photoInput.addEventListener("change",function(){
+ const file=this.files[0];
+ if(!file)return;
+
+ if(!file.type.startsWith("image/")){
+  statusText.textContent="সঠিক ছবি নির্বাচন করুন।";
+  return;
+ }
+
+ const url=URL.createObjectURL(file);
+ const image=new Image();
+
+ image.onload=function(){
+  if(photoURL)URL.revokeObjectURL(photoURL);
+  photo=image;
+  photoURL=url;
+  render();
+  downloadBtn.disabled=false;
+  document.getElementById("beforeBtn").disabled=false;
+  document.getElementById("afterBtn").disabled=false;
+  statusText.textContent="ছবি সফলভাবে আপলোড হয়েছে।";
+ };
+
+ image.onerror=function(){
+  URL.revokeObjectURL(url);
+  statusText.textContent="ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।";
+ };
+
+ image.src=url;
+});
+
+Object.keys(defaults).forEach(function(id){
+ document.getElementById(id).addEventListener("input",function(){
+  document.querySelectorAll(".preset").forEach(function(button){
+   button.classList.remove("active");
+  });
+  update();
+ });
+});
+
+document.querySelectorAll(".preset").forEach(function(button){
+ button.addEventListener("click",function(){
+  const name=this.dataset.preset;
+  const values=Object.assign({},defaults,presets[name]||{});
+
+  Object.keys(defaults).forEach(function(id){
+   document.getElementById(id).value=values[id];
+  });
+
+  document.querySelectorAll(".preset").forEach(function(item){
+   item.classList.remove("active");
+  });
+
+  this.classList.add("active");
+  update();
+  statusText.textContent=name+" preset চালু হয়েছে।";
+ });
+});
+
+document.getElementById("resetBtn").addEventListener("click",function(){
+ Object.keys(defaults).forEach(function(id){
+  document.getElementById(id).value=defaults[id];
+ });
+
+ document.querySelectorAll(".preset").forEach(function(button){
+  button.classList.remove("active");
+ });
+
+ document.querySelector('[data-preset="original"]').classList.add("active");
+
+ update();
+ statusText.textContent="সব সেটিংস রিসেট হয়েছে।";
+});
+
+document.getElementById("beforeBtn").addEventListener("click",function(){
+ if(!photo)return;
+ showBefore=true;
+ render();
+ statusText.textContent="আগের ছবি দেখানো হচ্ছে।";
+});
+
+document.getElementById("afterBtn").addEventListener("click",function(){
+ if(!photo)return;
+ showBefore=false;
+ render();
+ statusText.textContent="এডিট করা ছবি দেখানো হচ্ছে।";
+});
+
+downloadBtn.addEventListener("click",function(){
+ if(!photo)return;
+
+ showBefore=false;
+ render();
+
+ canvas.toBlob(function(blob){
+  if(!blob){
+   statusText.textContent="ছবি তৈরি করা যায়নি।";
+   return;
+  }
+
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement("a");
+  link.href=url;
+  link.download="rifat-face-retouch.png";
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(function(){
+   URL.revokeObjectURL(url);
+  },1500);
+
+  statusText.textContent="রিটাচ করা ছবি ডাউনলোড হয়েছে।";
+ },"image/png");
+});
+
+render();
+updateLabels();
+</script>
+
+</body>
+</html>
