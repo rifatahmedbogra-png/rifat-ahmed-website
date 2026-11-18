@@ -198,8 +198,12 @@ const form = document.getElementById("registerForm");
 const message = document.getElementById("message");
 const submitBtn = document.getElementById("submitBtn");
 
+let isSubmitting = false;
+
 function getSafeNext() {
- const value = new URLSearchParams(window.location.search).get("next");
+ const value = new URLSearchParams(
+  window.location.search
+ ).get("next");
 
  if (!value) return "index.html";
 
@@ -214,15 +218,19 @@ function getSafeNext() {
    "admin.html"
   ];
 
-  if (target.origin !== window.location.origin)
+  if (target.origin !== window.location.origin) {
    return "index.html";
+  }
 
-  if (!target.pathname.startsWith(base.pathname))
+  if (!target.pathname.startsWith(base.pathname)) {
    return "index.html";
+  }
 
   if (blocked.includes(
    target.pathname.split("/").pop().toLowerCase()
-  )) return "index.html";
+  )) {
+   return "index.html";
+  }
 
   return target.pathname + target.search + target.hash;
 
@@ -240,7 +248,10 @@ document.querySelectorAll(".toggle").forEach(button => {
 
  button.addEventListener("click", () => {
 
-  const field = document.getElementById(button.dataset.target);
+  const field = document.getElementById(
+   button.dataset.target
+  );
+
   const show = field.type === "password";
 
   field.type = show ? "text" : "password";
@@ -253,9 +264,27 @@ document.querySelectorAll(".toggle").forEach(button => {
 function showMessage(text, success) {
 
  message.style.display = "block";
- message.style.background = success ? "#e7f8ed" : "#fff0f0";
- message.style.color = success ? "#176b36" : "#b42318";
+
+ message.style.background = success
+  ? "#e7f8ed"
+  : "#fff0f0";
+
+ message.style.color = success
+  ? "#176b36"
+  : "#b42318";
+
  message.textContent = text;
+
+}
+
+function setSubmitting(state) {
+
+ isSubmitting = state;
+ submitBtn.disabled = state;
+
+ submitBtn.textContent = state
+  ? "Creating Account..."
+  : "Create Account | অ্যাকাউন্ট তৈরি করুন";
 
 }
 
@@ -263,86 +292,129 @@ form.addEventListener("submit", async event => {
 
  event.preventDefault();
 
- const name = document.getElementById("name").value.trim();
- const email = document.getElementById("email").value.trim();
- const password = document.getElementById("password").value;
+ if (isSubmitting) {
+  return;
+ }
+
+ const name = document.getElementById("name")
+  .value.trim();
+
+ const email = document.getElementById("email")
+  .value.trim().toLowerCase();
+
+ const password = document.getElementById("password")
+  .value;
+
  const confirmPassword =
   document.getElementById("confirmPassword").value;
 
  if (!name || !email || !password) {
-  showMessage("সব তথ্য সঠিকভাবে পূরণ করুন।", false);
+  showMessage(
+   "সব তথ্য সঠিকভাবে পূরণ করুন।",
+   false
+  );
   return;
  }
 
- if (password.length < 8) {
-  showMessage("পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে।", false);
+ if (name.length < 2 || name.length > 80) {
+  showMessage(
+   "নাম কমপক্ষে ২ এবং সর্বোচ্চ ৮০ অক্ষরের হতে হবে।",
+   false
+  );
+  return;
+ }
+
+ if (password.length < 8 || password.length > 128) {
+  showMessage(
+   "পাসওয়ার্ড ৮ থেকে ১২৮ অক্ষরের মধ্যে হতে হবে।",
+   false
+  );
   return;
  }
 
  if (password !== confirmPassword) {
-  showMessage("দুইটি পাসওয়ার্ড মিলছে না। আবার চেষ্টা করুন।", false);
+  showMessage(
+   "দুইটি পাসওয়ার্ড মিলছে না। আবার চেষ্টা করুন।",
+   false
+  );
   return;
  }
 
- submitBtn.disabled = true;
- submitBtn.textContent = "Creating Account...";
+ if (!form.reportValidity()) {
+  return;
+ }
 
- showMessage("আপনার অ্যাকাউন্ট তৈরি করা হচ্ছে...", true);
+ setSubmitting(true);
+
+ showMessage(
+  "আপনার অ্যাকাউন্ট তৈরি করা হচ্ছে...",
+  true
+ );
+
+ let registrationSuccessful = false;
 
  try {
 
-  const response = await fetch(API_URL + "/api/register", {
-   method: "POST",
-   headers: {
-    "Content-Type": "application/json"
-   },
-   body: JSON.stringify({
-    name,
-    email,
-    password
-   })
-  });
+  const response = await fetch(
+   API_URL + "/api/register",
+   {
+    method: "POST",
+    headers: {
+     "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+     name,
+     email,
+     password
+    })
+   }
+  );
 
   let data;
 
   try {
    data = await response.json();
   } catch {
-   throw new Error("সার্ভার থেকে সঠিক উত্তর পাওয়া যায়নি।");
+   throw new Error(
+    "সার্ভার থেকে সঠিক উত্তর পাওয়া যায়নি।"
+   );
   }
 
   if (!response.ok || data.success !== true) {
    throw new Error(
-    data.message || data.error || "Registration করা যায়নি।"
+    data.message ||
+    "Registration করা যায়নি।"
    );
   }
 
+  registrationSuccessful = true;
+
   showMessage(
-   "Registration সফল হয়েছে। এখন Login পেজে নেওয়া হচ্ছে...",
+   "অ্যাকাউন্ট তৈরি সফল হয়েছে। এখন Login পেজে নেওয়া হচ্ছে...",
    true
   );
 
   form.reset();
 
   const loginUrl =
-   "login.html?next=" + encodeURIComponent(nextDestination);
+   "login.html?next=" +
+   encodeURIComponent(nextDestination);
 
-  window.setTimeout(() => {
-   window.location.replace(loginUrl);
-  }, 1200);
+  window.location.replace(loginUrl);
 
  } catch (error) {
 
   showMessage(
-   error.message || "সার্ভারের সঙ্গে সংযোগ করা যাচ্ছে না।",
+   error.message ||
+   "সার্ভারের সঙ্গে সংযোগ করা যাচ্ছে না।",
    false
   );
 
  } finally {
 
-  submitBtn.disabled = false;
-  submitBtn.textContent =
-   "Create Account | অ্যাকাউন্ট তৈরি করুন";
+  if (!registrationSuccessful) {
+   setSubmitting(false);
+  }
 
  }
 
