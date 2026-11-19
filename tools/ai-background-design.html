@@ -3,1411 +3,1100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AI Background Design | Rifat AI Photo Studio</title>
-<meta name="description" content="Rifat AI Photo Studio - AI Background Design. Create creative photo backgrounds with AI.">
-<meta name="robots" content="index, follow">
+<title>Rifat AI Photo Studio | Photo Editing & Printing Tools</title>
+<meta name="description" content="Rifat AI Photo Studio - AI background design, photo enhancement, passport photo and photo printing tools.">
+<meta name="robots" content="noindex,nofollow">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-:root{
-  --navy:#071d35;
-  --blue:#1769aa;
-  --gold:#f0c040;
-  --text:#e8f1fb;
-  --muted:#a9bfd5;
-}
-
-body{
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:var(--navy);
-  color:var(--text);
-  line-height:1.7;
-  min-height:100vh;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button,input,textarea,select{
-  font:inherit;
-}
-
-.topbar{
-  background:#06172b;
-  border-bottom:1px solid #ffffff18;
-  padding:17px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo{
-  width:45px;
-  height:45px;
-  border-radius:13px;
-  background:linear-gradient(135deg,#f0c040,#d99a18);
-  display:grid;
-  place-items:center;
-  color:#071d35;
-  font-size:23px;
-  font-weight:bold;
-}
-
-.brand h1{
-  font-size:19px;
-  color:white;
-}
-
-.brand p{
-  font-size:11px;
-  color:var(--muted);
-}
-
-.home-link{
-  border:1px solid #ffffff35;
-  border-radius:8px;
-  padding:9px 15px;
-  font-size:13px;
-  color:#fff;
-}
-
-.home-link:hover{
-  background:var(--blue);
-}
-
-.hero{
-  padding:55px 20px 38px;
-  text-align:center;
-  background:
-    radial-gradient(ellipse at top,#1769aa55,transparent 65%),
-    linear-gradient(180deg,#0b2947,#071d35);
-}
-
-.tag{
-  display:inline-block;
-  border:1px solid #f0c04070;
-  color:var(--gold);
-  background:#f0c04012;
-  padding:6px 15px;
-  border-radius:30px;
-  font-size:12px;
-  margin-bottom:17px;
-}
-
-.hero h2{
-  font-size:clamp(28px,5vw,43px);
-  color:#fff;
-  line-height:1.25;
-  margin-bottom:13px;
-}
-
-.hero h2 span{
-  color:var(--gold);
-}
-
-.hero p{
-  max-width:680px;
-  margin:auto;
-  color:#c0d3e7;
-  font-size:15px;
-}
-
-.container{
-  width:min(1100px,92%);
-  margin:35px auto 60px;
-}
-
-.section-title{
-  margin-bottom:20px;
-}
-
-.section-title h2{
-  font-size:22px;
-  color:white;
-  margin-bottom:5px;
-}
-
-.section-title p{
-  color:var(--muted);
-  font-size:13px;
-}
-
-.studio{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  align-items:start;
-}
-
-.panel{
-  background:#102a43;
-  border:1px solid #ffffff18;
-  border-radius:17px;
-  padding:23px;
-  box-shadow:0 12px 35px #0003;
-}
-
-.panel h3{
-  color:white;
-  font-size:18px;
-  margin-bottom:5px;
-}
-
-.panel-subtitle{
-  color:var(--muted);
-  font-size:12px;
-  margin-bottom:19px;
-}
-
-.upload-area{
-  min-height:210px;
-  border:2px dashed #4b83b5;
-  border-radius:13px;
-  background:#071d35;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.upload-area:hover{
-  border-color:var(--gold);
-  background:#102d4c;
-}
-
-.upload-icon{
-  width:58px;
-  height:58px;
-  display:grid;
-  place-items:center;
-  border-radius:17px;
-  background:#1769aa35;
-  color:var(--gold);
-  font-size:29px;
-  margin-bottom:12px;
-}
-
-.upload-area strong{
-  color:white;
-  font-size:15px;
-}
-
-.upload-area p{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:6px;
-}
-
-.upload-area input{
-  display:none;
-}
-
-.preview-wrap{
-  display:none;
-  margin-top:15px;
-  text-align:center;
-}
-
-.preview-wrap img{
-  max-width:100%;
-  max-height:270px;
-  object-fit:contain;
-  border-radius:11px;
-  background:#06172b;
-  border:1px solid #ffffff25;
-}
-
-.remove-btn{
-  margin-top:10px;
-  padding:8px 15px;
-  border-radius:8px;
-  border:1px solid #ef7777;
-  background:#ef444420;
-  color:#ffb4b4;
-  cursor:pointer;
-  font-size:12px;
-}
-
-.field-label{
-  display:block;
-  color:#e6f0fa;
-  font-size:13px;
-  font-weight:bold;
-  margin:20px 0 9px;
-}
-
-select,textarea{
-  width:100%;
-  background:#071d35;
-  color:white;
-  border:1px solid #ffffff2b;
-  border-radius:9px;
-  padding:12px;
-  outline:none;
-}
-
-select:focus,textarea:focus{
-  border-color:var(--gold);
-}
-
-textarea{
-  resize:vertical;
-  min-height:100px;
-}
-
-select option{
-  background:#071d35;
-  color:white;
-}
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin-top:10px;
-}
-
-.category{
-  border:1px solid #ffffff25;
-  background:#071d35;
-  border-radius:10px;
-  padding:12px 10px;
-  color:#dce9f6;
-  text-align:left;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.category:hover,
-.category.active{
-  border-color:var(--gold);
-  background:#f0c04013;
-  color:var(--gold);
-}
-
-.category .emoji{
-  display:block;
-  font-size:22px;
-  margin-bottom:5px;
-}
-
-.category small{
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.prompt-hint{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:7px;
-}
-
-.generate-btn{
-  width:100%;
-  border:0;
-  border-radius:10px;
-  padding:14px;
-  margin-top:22px;
-  background:linear-gradient(120deg,#f0c040,#d99a18);
-  color:#071d35;
-  font-weight:bold;
-  font-size:15px;
-  cursor:pointer;
-  transition:transform .2s,opacity .2s;
-}
-
-.generate-btn:hover:not(:disabled){
-  transform:translateY(-2px);
-}
-
-.generate-btn:disabled{
-  cursor:not-allowed;
-  opacity:.55;
-}
-
-.message-box{
-  display:none;
-  margin-top:13px;
-  padding:11px 13px;
-  border-radius:9px;
-  font-size:12px;
-  white-space:pre-wrap;
-}
-
-.message-box.info{
-  display:block;
-  background:#1769aa22;
-  border:1px solid #1769aa;
-  color:#cfe7ff;
-}
-
-.message-box.error{
-  display:block;
-  background:#ef444420;
-  border:1px solid #ef7777;
-  color:#ffc1c1;
-}
-
-.message-box.success{
-  display:block;
-  background:#16a34a20;
-  border:1px solid #4ade80;
-  color:#bbf7d0;
-}
-
-.service-status{
-  margin-top:13px;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-}
-
-.service-status a{
-  color:var(--gold);
-  text-decoration:underline;
-  font-weight:bold;
-}
-
-.preview-stage{
-  min-height:300px;
-  border-radius:13px;
-  border:1px solid #ffffff20;
-  background:linear-gradient(135deg,#102a43,#071d35);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:22px;
-}
-
-.stage-icon{
-  font-size:55px;
-  margin-bottom:12px;
-}
-
-.preview-stage h4{
-  font-size:17px;
-  color:white;
-  margin-bottom:7px;
-}
-
-.preview-stage p{
-  font-size:12px;
-  color:var(--muted);
-  max-width:350px;
-}
-
-.status-pill{
-  display:inline-block;
-  margin-top:15px;
-  background:#f0c04018;
-  color:var(--gold);
-  border:1px solid #f0c04060;
-  border-radius:25px;
-  padding:5px 13px;
-  font-size:11px;
-}
-
-.result-image{
-  display:block;
-  max-width:100%;
-  max-height:520px;
-  margin:0 auto 14px;
-  object-fit:contain;
-  border-radius:11px;
-  border:1px solid #ffffff25;
-}
-
-.download-btn{
-  display:inline-block;
-  margin-top:12px;
-  padding:10px 17px;
-  border:1px solid var(--gold);
-  border-radius:9px;
-  background:#f0c04018;
-  color:var(--gold);
-  font-weight:bold;
-}
-
-.auth-box{
-  margin-bottom:18px;
-  padding:13px 15px;
-  border:1px solid #f0c04055;
-  border-radius:10px;
-  background:#f0c04012;
-  color:#f3dfa0;
-  font-size:12px;
-}
-
-.auth-box a{
-  color:var(--gold);
-  text-decoration:underline;
-  font-weight:bold;
-}
-
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:27px;
-}
-
-.info-card{
-  background:#102a43;
-  border:1px solid #ffffff16;
-  padding:18px;
-  border-radius:13px;
-}
-
-.info-card span{
-  font-size:25px;
-}
-
-.info-card h4{
-  color:white;
-  font-size:14px;
-  margin:8px 0 5px;
-}
-
-.info-card p{
-  color:var(--muted);
-  font-size:11px;
-}
-
-.notice{
-  margin-top:27px;
-  padding:17px;
-  border-radius:12px;
-  background:#f0c04012;
-  border:1px solid #f0c04045;
-  color:#e9dba9;
-  font-size:12px;
-}
-
-.notice strong{
-  color:var(--gold);
-}
-
-footer{
-  text-align:center;
-  padding:27px 15px;
-  background:#06172b;
-  border-top:1px solid #ffffff15;
-  color:var(--muted);
-  font-size:12px;
-}
-
-footer strong{
-  color:var(--gold);
-}
-
-@media(max-width:760px){
-  .studio{
-    grid-template-columns:1fr;
-  }
-  .info-grid{
-    grid-template-columns:1fr;
-  }
-  .hero{
-    padding-top:40px;
-  }
-  .panel{
-    padding:18px;
-  }
-}
-
-@media(max-width:420px){
-  .brand h1{
-    font-size:16px;
-  }
-  .categories{
-    grid-template-columns:1fr 1fr;
-  }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#071d35;--blue:#1769aa;--gold:#f0c040;--text:#e8f1fb;--muted:#a9bfd5;--panel:#102a43;--line:#ffffff20}
+body{font-family:Arial,"Noto Sans Bengali",sans-serif;background:var(--navy);color:var(--text);line-height:1.65;min-height:100vh}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.topbar{background:#06172b;border-bottom:1px solid var(--line);padding:15px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,#f0c040,#d99a18);display:grid;place-items:center;color:#071d35;font-size:23px;font-weight:bold}
+.brand h1{font-size:19px;color:#fff}
+.brand p{font-size:11px;color:var(--muted)}
+.home-link{border:1px solid #ffffff35;border-radius:8px;padding:8px 14px;font-size:13px;color:white;text-decoration:none}
+.hero{text-align:center;padding:40px 18px 30px;background:radial-gradient(ellipse at top,#1769aa55,transparent 65%),linear-gradient(180deg,#0b2947,#071d35)}
+.tag{display:inline-block;border:1px solid #f0c04070;color:var(--gold);background:#f0c04012;padding:5px 14px;border-radius:30px;font-size:12px;margin-bottom:12px}
+.hero h2{font-size:clamp(26px,5vw,40px);color:white;line-height:1.25}
+.hero h2 span{color:var(--gold)}
+.hero p{max-width:720px;margin:10px auto 0;color:#c0d3e7;font-size:14px}
+.container{width:min(1160px,94%);margin:28px auto 55px}
+.auth-box,.notice{padding:13px 15px;border:1px solid #f0c04055;border-radius:10px;background:#f0c04012;color:#f3dfa0;font-size:12px;margin-bottom:18px}
+.auth-box a{color:var(--gold);text-decoration:underline;font-weight:bold}
+.auth-box strong,.notice strong{color:var(--gold)}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
+.tab{border:1px solid #ffffff30;background:#102a43;color:#dce9f6;padding:10px 15px;border-radius:9px;font-size:13px}
+.tab.active,.tab:hover{border-color:var(--gold);background:#f0c04018;color:var(--gold)}
+.tab:disabled{opacity:.5;cursor:not-allowed}
+.tool-section{display:none}
+.tool-section.active{display:block}
+.section-head{margin:5px 0 18px}
+.section-head h2{font-size:22px;color:white}
+.section-head p{font-size:13px;color:var(--muted)}
+.studio{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 12px 35px #0003}
+.panel h3{font-size:17px;color:white;margin-bottom:4px}
+.sub{font-size:12px;color:var(--muted);margin-bottom:15px}
+.upload{min-height:145px;border:2px dashed #4b83b5;border-radius:12px;background:#071d35;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;cursor:pointer}
+.upload:hover{border-color:var(--gold);background:#102d4c}
+.upload b{color:white}
+.upload small{color:var(--muted);font-size:11px}
+.upload input{display:none}
+.preview{display:none;margin-top:13px;text-align:center}
+.preview img{max-width:100%;max-height:280px;object-fit:contain;border-radius:10px;background:#06172b;border:1px solid var(--line)}
+.label{display:block;color:#e6f0fa;font-size:13px;font-weight:bold;margin:17px 0 7px}
+select,input[type="number"],input[type="text"],textarea{width:100%;background:#071d35;color:white;border:1px solid #ffffff2b;border-radius:8px;padding:10px;outline:none}
+textarea{resize:vertical;min-height:82px}
+select:focus,input:focus,textarea:focus{border-color:var(--gold)}
+select option{background:#071d35;color:white}
+.btn{border:0;border-radius:9px;padding:11px 15px;background:linear-gradient(120deg,#f0c040,#d99a18);color:#071d35;font-weight:bold;font-size:13px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.secondary{background:#1769aa;color:white}
+.btn.ghost{background:#071d35;border:1px solid #ffffff35;color:#e8f1fb}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.message{display:none;margin-top:12px;padding:10px 12px;border-radius:8px;font-size:12px;white-space:pre-wrap}
+.message.info{display:block;background:#1769aa22;border:1px solid #1769aa;color:#cfe7ff}
+.message.error{display:block;background:#ef444420;border:1px solid #ef7777;color:#ffc1c1}
+.message.success{display:block;background:#16a34a20;border:1px solid #4ade80;color:#bbf7d0}
+.stage{min-height:290px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(135deg,#102a43,#071d35);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px}
+.stage img{max-width:100%;max-height:440px;object-fit:contain;border-radius:9px}
+.stage p{font-size:12px;color:var(--muted);margin-top:7px}
+.range-row{display:grid;grid-template-columns:1fr 55px;gap:10px;align-items:center;margin:10px 0}
+.range-row label{font-size:12px;color:#dce9f6}
+.range-row input{width:100%;accent-color:var(--gold)}
+.range-row output{font-size:12px;color:var(--gold);text-align:right}
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.tool-card{background:#102a43;border:1px solid var(--line);padding:15px;border-radius:12px}
+.tool-card span{font-size:23px}
+.tool-card h4{font-size:13px;color:white;margin:5px 0}
+.tool-card p{font-size:11px;color:var(--muted)}
+.small-note{font-size:11px;color:var(--muted);margin-top:8px}
+footer{text-align:center;padding:25px 15px;background:#06172b;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+footer strong{color:var(--gold)}
+@media(max-width:760px){.studio{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr 1fr}.panel{padding:16px}}
+@media(max-width:430px){.tool-grid{grid-template-columns:1fr}.tab{flex:1 1 45%}.brand h1{font-size:16px}}
 </style>
 </head>
 
 <body>
 
 <header class="topbar">
-  <div class="brand">
-    <div class="logo">R</div>
-    <div>
-      <h1>Rifat AI Photo Studio</h1>
-      <p>Creative Digital Photo Solutions</p>
-    </div>
+ <div class="brand">
+  <div class="logo">R</div>
+  <div>
+   <h1>Rifat AI Photo Studio</h1>
+   <p>Creative Digital Photo Solutions</p>
   </div>
-
-  <a class="home-link" href="index.html">
-    ← Back to Tools
-  </a>
+ </div>
+ <a class="home-link" href="index.html">← Back to Tools</a>
 </header>
 
 <section class="hero">
-  <div class="tag">✦ AI CREATIVE STUDIO</div>
-
-  <h2>AI <span>Background Design</span></h2>
-
-  <p>
-    আপনার ছবির জন্য তৈরি করুন নতুন সৃজনশীল ব্যাকগ্রাউন্ড।
-    Upload your photo and explore creative AI background designs.
-  </p>
+ <div class="tag">✦ ADMIN TESTING STUDIO</div>
+ <h2>Rifat <span>AI Photo Studio</span></h2>
+ <p>ছবি সম্পাদনা, আলো-রং ঠিক করা, পাসপোর্ট ছবি তৈরি এবং প্রিন্ট সাইজ প্রস্তুত করার এক জায়গার স্টুডিও।</p>
 </section>
 
 <main class="container">
 
-  <div class="section-title">
-    <h2>আপনার ডিজাইন স্টুডিও | Your Design Studio</h2>
-    <p>ছবি আপলোড করুন, ব্যাকগ্রাউন্ড নির্বাচন করুন এবং AI দিয়ে ডিজাইন তৈরি করুন।</p>
-  </div>
+ <div class="auth-box">
+  <strong>🔒 Admin Testing Mode</strong><br>
+  এই স্টুডিওটি আপাতত শুধু Admin-এর পরীক্ষার জন্য।
+  সাধারণ User অ্যাকাউন্ট দিয়ে কোনো টুল ব্যবহার করা যাবে না।
+  <br><a href="login.html">Admin Login করুন | Login</a>
+  <div id="authStatus" style="margin-top:6px">Admin access যাচাই করা হচ্ছে...</div>
+ </div>
 
-  <div class="auth-box">
-    <strong>🔒 Admin Testing Mode</strong><br>
-    এই AI সুবিধাটি আপাতত শুধু Admin-এর পরীক্ষার জন্য চালু।
-    সাধারণ User অ্যাকাউন্ট দিয়ে Generate করা যাবে না।
-    <br>
-    <a href="login.html">Admin Login করুন | Login</a>
+ <nav class="toolbar">
+  <button class="tab active" data-tab="background" disabled>🎨 AI Background</button>
+  <button class="tab" data-tab="enhance" disabled>✨ Photo Enhance</button>
+  <button class="tab" data-tab="print" disabled>🖨️ Print & Passport</button>
+  <button class="tab" data-tab="edit" disabled>✂️ Photo Editor</button>
+  <button class="tab" data-tab="future" disabled>🤖 More AI Tools</button>
+ </nav>
+
+ <!-- AI BACKGROUND DESIGN -->
+ <section class="tool-section active" id="background">
+  <div class="section-head">
+   <h2>AI Background Design</h2>
+   <p>মূল AI Background Design সুবিধা — বিদ্যমান Worker API ব্যবহার করে।</p>
   </div>
 
   <div class="studio">
+   <section class="panel">
+    <h3>01. Upload Your Photo</h3>
+    <p class="sub">JPG, PNG, WEBP | Maximum 8 MB</p>
 
-    <section class="panel">
+    <label class="upload" for="bgInput">
+     <b>⬆ ছবি আপলোড করুন</b>
+     <small>Click to browse your photo</small>
+     <input type="file" id="bgInput" accept="image/jpeg,image/png,image/webp">
+    </label>
 
-      <h3>01. Upload Your Photo</h3>
-      <p class="panel-subtitle">
-        আপনার ছবি নির্বাচন করুন | Select an image from your device
-      </p>
+    <div class="preview" id="bgPreviewWrap">
+     <img id="bgPreview" alt="Uploaded photo">
+     <div class="actions">
+      <button class="btn ghost" id="bgRemove" type="button">Remove Photo</button>
+     </div>
+    </div>
 
-      <label class="upload-area" for="photoInput">
-        <div class="upload-icon">↑</div>
-        <strong>ছবি আপলোড করুন</strong>
-        <p>
-          Click to browse your photo<br>
-          JPG, PNG, WEBP | Maximum 8 MB
-        </p>
+    <label class="label" for="bgCategory">02. Background Category</label>
+    <select id="bgCategory">
+     <option value="">ব্যাকগ্রাউন্ড নির্বাচন করুন</option>
+     <option value="studio">Professional Studio</option>
+     <option value="nature">Nature & Landscape</option>
+     <option value="office">Modern Office</option>
+     <option value="luxury">Luxury Interior</option>
+     <option value="passport">Passport Photo Background</option>
+     <option value="abstract">Creative Abstract</option>
+     <option value="custom">Custom Design</option>
+    </select>
 
-        <input
-          type="file"
-          id="photoInput"
-          accept="image/jpeg,image/png,image/webp"
-        >
-      </label>
+    <label class="label" for="bgPrompt">03. Describe Your Background</label>
+    <textarea id="bgPrompt" maxlength="500" placeholder="আপনার পছন্দের ব্যাকগ্রাউন্ড কেমন হবে লিখুন..."></textarea>
 
-      <div class="preview-wrap" id="previewWrap">
-        <img id="photoPreview" alt="Uploaded photo preview">
-        <br>
-        <button type="button" class="remove-btn" id="removePhoto">
-          ✕ Remove Photo
-        </button>
-      </div>
+    <button class="btn" id="bgGenerate" type="button" disabled style="width:100%;margin-top:15px">✦ Generate AI Background</button>
+    <div class="message" id="bgMessage" role="status" aria-live="polite"></div>
+   </section>
 
-      <label class="field-label" for="backgroundType">
-        02. Background Category
-      </label>
+   <section class="panel">
+    <h3>Design Preview</h3>
+    <p class="sub">AI তৈরি করা ফলাফল এখানে দেখা যাবে।</p>
+    <div class="stage" id="bgStage">
+     <div style="font-size:48px">🖼️</div>
+     <h3>Your Creative Workspace</h3>
+     <p>ছবি আপলোড করে AI Background তৈরি করুন।</p>
+    </div>
+   </section>
+  </div>
+ </section>
 
-      <select id="backgroundType">
-        <option value="">ব্যাকগ্রাউন্ড নির্বাচন করুন</option>
-        <option value="studio">Professional Studio</option>
-        <option value="nature">Nature & Landscape</option>
-        <option value="office">Modern Office</option>
-        <option value="luxury">Luxury Interior</option>
-        <option value="passport">Passport Photo Background</option>
-        <option value="abstract">Creative Abstract</option>
-        <option value="custom">Custom Design</option>
-      </select>
-
-      <label class="field-label">
-        03. Quick Design Ideas
-      </label>
-
-      <div class="categories">
-
-        <button class="category" type="button" data-value="studio">
-          <span class="emoji">📸</span>
-          Studio
-          <small>Professional look</small>
-        </button>
-
-        <button class="category" type="button" data-value="nature">
-          <span class="emoji">🌳</span>
-          Nature
-          <small>Natural scenery</small>
-        </button>
-
-        <button class="category" type="button" data-value="office">
-          <span class="emoji">🏢</span>
-          Office
-          <small>Modern workspace</small>
-        </button>
-
-        <button class="category" type="button" data-value="luxury">
-          <span class="emoji">✨</span>
-          Luxury
-          <small>Elegant interior</small>
-        </button>
-
-        <button class="category" type="button" data-value="passport">
-          <span class="emoji">🪪</span>
-          Passport
-          <small>Clean background</small>
-        </button>
-
-        <button class="category" type="button" data-value="abstract">
-          <span class="emoji">🎨</span>
-          Creative
-          <small>Artistic design</small>
-        </button>
-
-      </div>
-
-      <label class="field-label" for="prompt">
-        04. Describe Your Background
-      </label>
-
-      <textarea
-        id="prompt"
-        maxlength="500"
-        placeholder="আপনার পছন্দের ব্যাকগ্রাউন্ড কেমন হবে লিখুন...&#10;Example: A beautiful modern photography studio with soft lighting."
-      ></textarea>
-
-      <p class="prompt-hint">
-        সর্বোচ্চ ৫০০ অক্ষর | Maximum 500 characters
-      </p>
-
-      <button
-        class="generate-btn"
-        id="generateBtn"
-        type="button"
-        disabled
-      >
-        ✦ Generate AI Background
-      </button>
-
-      <div
-        class="message-box"
-        id="messageBox"
-        role="status"
-        aria-live="polite"
-      ></div>
-
-      <p class="service-status" id="serviceStatus">
-        🔒 Admin access যাচাই করা হচ্ছে...
-      </p>
-
-    </section>
-
-    <section class="panel">
-
-      <h3>Design Preview</h3>
-      <p class="panel-subtitle">
-        আপনার নির্বাচিত ছবি এবং AI তৈরি করা ফলাফল এখানে দেখা যাবে।
-      </p>
-
-      <div class="preview-stage" id="previewStage">
-        <div class="stage-icon">🖼️</div>
-        <h4>Your Creative Workspace</h4>
-        <p>
-          আপনার ছবি Upload করলে এখানে Preview দেখতে পারবেন।
-          AI-generated image will appear here.
-        </p>
-        <div class="status-pill">● Admin AI Studio</div>
-      </div>
-
-      <div class="notice">
-        <strong>গুরুত্বপূর্ণ তথ্য | Important Notice</strong>
-        <br><br>
-        ছবি নির্বাচন করলে শুধু আপনার ব্রাউজারে Preview দেখানো হয়।
-        আপনি Generate বোতামে ক্লিক করলেই ছবিটি AI তৈরির জন্য
-        Cloudflare Worker-এর মাধ্যমে Cloudflare AI-তে পাঠানো হবে।
-        <br><br>
-        AI মডেল ছবির মুখ, পোশাক বা অন্যান্য বিবরণে পরিবর্তন আনতে পারে।
-        তাই ফলাফল আপনার মূল ছবির সঙ্গে পুরোপুরি একরকম থাকবে—এমন নিশ্চয়তা নেই।
-        <br><br>
-        Your photo is sent for AI processing only after you click Generate.
-      </div>
-
-    </section>
-
+ <!-- PHOTO ENHANCEMENT -->
+ <section class="tool-section" id="enhance">
+  <div class="section-head">
+   <h2>Photo Enhancement</h2>
+   <p>অন্ধকার ছবি উজ্জ্বল করুন, রং ও কনট্রাস্ট ঠিক করুন এবং শার্পনেস সামঞ্জস্য করুন।</p>
   </div>
 
-  <section class="info-grid">
+  <div class="studio">
+   <section class="panel">
+    <h3>01. Select Photo</h3>
+    <p class="sub">এই প্রসেসিং আপনার ব্রাউজারেই হবে; ছবি সার্ভারে পাঠানো হবে না।</p>
 
-    <div class="info-card">
-      <span>📷</span>
-      <h4>Photo Upload</h4>
-      <p>নিজের ডিভাইস থেকে ছবি নির্বাচন ও Preview করুন।</p>
+    <label class="upload" for="enhInput">
+     <b>⬆ ছবি নির্বাচন করুন</b>
+     <small>JPG, PNG, WEBP | Maximum 15 MB</small>
+     <input type="file" id="enhInput" accept="image/jpeg,image/png,image/webp">
+    </label>
+
+    <div class="range-row">
+     <label for="brightness">Brightness / উজ্জ্বলতা</label>
+     <output id="brightnessOut">100%</output>
+     <input id="brightness" type="range" min="50" max="180" value="100">
     </div>
 
-    <div class="info-card">
-      <span>🎨</span>
-      <h4>Creative Backgrounds</h4>
-      <p>বিভিন্ন ধরনের ব্যাকগ্রাউন্ড ডিজাইনের ধারণা বেছে নিন।</p>
+    <div class="range-row">
+     <label for="contrast">Contrast / কনট্রাস্ট</label>
+     <output id="contrastOut">100%</output>
+     <input id="contrast" type="range" min="50" max="180" value="100">
     </div>
 
-    <div class="info-card">
-      <span>🤖</span>
-      <h4>AI Background Design</h4>
-      <p>Admin পরীক্ষামূলকভাবে AI দিয়ে নতুন ব্যাকগ্রাউন্ড তৈরি করতে পারবেন।</p>
+    <div class="range-row">
+     <label for="saturation">Color / রং</label>
+     <output id="saturationOut">100%</output>
+     <input id="saturation" type="range" min="0" max="200" value="100">
     </div>
 
-  </section>
+    <div class="range-row">
+     <label for="sharpness">Sharpness / শার্পনেস</label>
+     <output id="sharpnessOut">0</output>
+     <input id="sharpness" type="range" min="0" max="100" value="0">
+    </div>
 
+    <div class="actions">
+     <button class="btn" id="enhApply">Apply Enhancement</button>
+     <button class="btn ghost" id="enhReset">Reset</button>
+     <button class="btn secondary" id="enhDownload">Download Enhanced</button>
+    </div>
+    <div class="message" id="enhMessage"></div>
+   </section>
+
+   <section class="panel">
+    <h3>Before / After Preview</h3>
+    <p class="sub">স্লাইডার পরিবর্তন করলে ফলাফল আপডেট হবে।</p>
+    <div class="stage" style="gap:10px">
+     <div>
+      <b>Original / মূল ছবি</b><br>
+      <img id="enhOriginal" alt="Original photo" style="display:none;max-width:100%;max-height:190px;object-fit:contain">
+     </div>
+     <div>
+      <b>Enhanced / উন্নত ছবি</b><br>
+      <canvas id="enhCanvas" style="display:none;max-width:100%;max-height:230px"></canvas>
+     </div>
+     <p id="enhEmpty">ছবি নির্বাচন করলে এখানে Preview দেখা যাবে।</p>
+    </div>
+   </section>
+  </div>
+ </section>
+
+ <!-- PRINT AND PASSPORT -->
+ <section class="tool-section" id="print">
+  <div class="section-head">
+   <h2>Passport & Photo Print Studio</h2>
+   <p>নির্বাচিত মাপ অনুযায়ী ছবি Crop/Resize করে প্রিন্টের জন্য ডাউনলোড করুন।</p>
+  </div>
+
+  <div class="studio">
+   <section class="panel">
+    <h3>01. Upload Photo</h3>
+    <p class="sub">একটি ছবি নির্বাচন করুন।</p>
+
+    <label class="upload" for="printInput">
+     <b>⬆ ছবি নির্বাচন করুন</b>
+     <small>JPG, PNG, WEBP | Maximum 15 MB</small>
+     <input type="file" id="printInput" accept="image/jpeg,image/png,image/webp">
+    </label>
+
+    <label class="label" for="printSize">02. Print Size</label>
+    <select id="printSize">
+     <option value="passport">Passport / ID Photo (45 × 55 mm)*</option>
+     <option value="3r">3R — 3.5 × 5 inch</option>
+     <option value="4r" selected>4R — 4 × 6 inch</option>
+     <option value="5r">5R — 5 × 7 inch</option>
+     <option value="6r">6R — 6 × 8 inch</option>
+     <option value="8r">8R — 8 × 10 inch</option>
+     <option value="custom">Custom Size</option>
+    </select>
+
+    <div id="customSize" style="display:none">
+     <label class="label" for="customWidth">Width (inch)</label>
+     <input type="number" id="customWidth" min="0.5" max="20" step="0.1" value="4">
+     <label class="label" for="customHeight">Height (inch)</label>
+     <input type="number" id="customHeight" min="0.5" max="20" step="0.1" value="6">
+    </div>
+
+    <label class="label" for="printFit">03. Image Fit</label>
+    <select id="printFit">
+     <option value="cover">Fill frame (crop edges)</option>
+     <option value="contain">Fit whole photo (may leave margins)</option>
+    </select>
+
+    <label class="label" for="printBg">Background color for margins</label>
+    <input type="color" id="printBg" value="#ffffff" style="width:100%;height:42px;background:#071d35;border:1px solid #ffffff2b;border-radius:8px;padding:4px">
+
+    <div class="actions">
+     <button class="btn" id="makePrint">Create Print Image</button>
+     <button class="btn secondary" id="downloadPrint">Download 300 DPI Image</button>
+    </div>
+
+    <div class="message" id="printMessage"></div>
+    <p class="small-note">*Passport photo size must match the specific authority's current requirements. Verify official specifications before submission.</p>
+   </section>
+
+   <section class="panel">
+    <h3>Print Preview</h3>
+    <p class="sub">প্রিন্টের অনুপাত অনুযায়ী ফলাফল।</p>
+    <div class="stage">
+     <canvas id="printCanvas" style="display:none;max-width:100%;max-height:440px;object-fit:contain"></canvas>
+     <p id="printEmpty">ছবি ও সাইজ নির্বাচন করে Create Print Image চাপুন।</p>
+     <p id="printDimensions"></p>
+    </div>
+   </section>
+  </div>
+ </section>
+
+ <!-- BASIC PHOTO EDITOR -->
+ <section class="tool-section" id="edit">
+  <div class="section-head">
+   <h2>Basic Photo Editor</h2>
+   <p>Rotate, Flip, Filter এবং Watermark যুক্ত করুন।</p>
+  </div>
+
+  <div class="studio">
+   <section class="panel">
+    <h3>01. Upload Photo</h3>
+    <p class="sub">ছবিটি আপনার ব্রাউজারেই সম্পাদিত হবে।</p>
+
+    <label class="upload" for="editInput">
+     <b>⬆ ছবি নির্বাচন করুন</b>
+     <small>JPG, PNG, WEBP | Maximum 15 MB</small>
+     <input type="file" id="editInput" accept="image/jpeg,image/png,image/webp">
+    </label>
+
+    <label class="label" for="editFilter">02. Photo Filter</label>
+    <select id="editFilter">
+     <option value="none">Original</option>
+     <option value="grayscale">Black & White</option>
+     <option value="sepia">Sepia</option>
+     <option value="vivid">Vivid</option>
+    </select>
+
+    <label class="label" for="watermark">03. Text / Watermark (optional)</label>
+    <input type="text" id="watermark" maxlength="50" placeholder="আপনার নাম বা লেখা">
+
+    <div class="actions">
+     <button class="btn ghost" id="rotateLeft">↶ Rotate Left</button>
+     <button class="btn ghost" id="rotateRight">↷ Rotate Right</button>
+     <button class="btn ghost" id="flipH">↔ Flip</button>
+     <button class="btn" id="renderEdit">Apply Edit</button>
+     <button class="btn secondary" id="downloadEdit">Download Edited</button>
+    </div>
+    <div class="message" id="editMessage"></div>
+   </section>
+
+   <section class="panel">
+    <h3>Editor Preview</h3>
+    <p class="sub">সম্পাদিত ছবি এখানে দেখা যাবে।</p>
+    <div class="stage">
+     <canvas id="editCanvas" style="display:none;max-width:100%;max-height:440px"></canvas>
+     <p id="editEmpty">ছবি আপলোড করুন।</p>
+    </div>
+   </section>
+  </div>
+ </section>
+
+ <!-- FUTURE AI TOOLS -->
+ <section class="tool-section" id="future">
+  <div class="section-head">
+   <h2>More AI Photo Tools</h2>
+   <p>ভবিষ্যৎ AI মডিউলের তালিকা। প্রয়োজনীয় AI সার্ভিস যুক্ত না হওয়া পর্যন্ত এগুলো চালু নয়।</p>
+  </div>
+
+  <div class="tool-grid">
+   <article class="tool-card">
+    <span>🧹</span><h4>AI Background Remover</h4>
+    <p>ছবির বিষয়বস্তু আলাদা করা। আলাদা segmentation service প্রয়োজন।</p>
+   </article>
+   <article class="tool-card">
+    <span>🪄</span><h4>Object Removal</h4>
+    <p>ছবির অনাকাঙ্ক্ষিত বস্তু মুছতে inpainting model প্রয়োজন।</p>
+   </article>
+   <article class="tool-card">
+    <span>🕰️</span><h4>Old Photo Restoration</h4>
+    <p>পুরোনো ও ক্ষতিগ্রস্ত ছবি পুনরুদ্ধারের AI মডেল প্রয়োজন।</p>
+   </article>
+   <article class="tool-card">
+    <span>🌈</span><h4>Black & White to Color</h4>
+    <p>সাদা-কালো ছবিতে স্বাভাবিক রং যোগ করতে colorization model প্রয়োজন।</p>
+   </article>
+   <article class="tool-card">
+    <span>🔍</span><h4>AI Upscaler</h4>
+    <p>ছবির রেজোলিউশন বাড়াতে dedicated upscaling model প্রয়োজন।</p>
+   </article>
+   <article class="tool-card">
+    <span>🙂</span><h4>AI Face Restoration</h4>
+    <p>মুখের সূক্ষ্ম বিবরণ উন্নত করতে face restoration model প্রয়োজন।</p>
+   </article>
+   <article class="tool-card">
+    <span>🧩</span><h4>Photo Collage</h4>
+    <p>একাধিক ছবি দিয়ে Collage layout তৈরি — পরবর্তী মডিউলে যুক্ত হবে।</p>
+   </article>
+   <article class="tool-card">
+    <span>🖼️</span><h4>Frames & Borders</h4>
+    <p>বিভিন্ন ফ্রেম ও বর্ডার টেমপ্লেট — পরবর্তী মডিউলে যুক্ত হবে।</p>
+   </article>
+   <article class="tool-card">
+    <span>📄</span><h4>Multiple Photo Sheet</h4>
+    <p>এক পৃষ্ঠায় একাধিক পাসপোর্ট/আইডি ছবি বসানো — পরবর্তী মডিউলে যুক্ত হবে।</p>
+   </article>
+  </div>
+
+  <div class="notice">
+   <strong>সতর্কতা:</strong>
+   এই কার্ডগুলো এখন তথ্য/পরিকল্পনা হিসেবে দেখানো হচ্ছে, কার্যকর AI টুল নয়।
+   প্রতিটি AI ফিচার চালুর আগে উপযুক্ত মডেল, Worker API এবং নিরাপত্তা পরীক্ষা করতে হবে।
+  </div>
+ </section>
+
+ <div class="notice">
+  <strong>Privacy & Usage Notice:</strong>
+  Enhancement, Print এবং Basic Editor টুলের কাজ আপনার ব্রাউজারের Canvas-এ হয়।
+  AI Background Design-এ Generate চাপলে নির্বাচিত ছবিটি বিদ্যমান Cloudflare Worker API-তে পাঠানো হয়।
+  AI ফলাফলে মূল মুখ বা ছবির বিবরণ বদলে যেতে পারে।
+ </div>
 </main>
 
 <footer>
-  <strong>Rifat AI Photo Studio</strong>
-  <br>
-  Creative Digital Tools & Services
-  <br><br>
-  © 2026 Rifat Tools & Documents. All Rights Reserved.
+ <strong>Rifat AI Photo Studio</strong><br>
+ Creative Digital Tools & Services<br><br>
+ © 2026 Rifat Tools & Documents. All Rights Reserved.
 </footer>
 
 <script>
 "use strict";
 
-/* Cloudflare Worker address */
-const API_URL =
-  "https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+const API_URL="https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+const $=id=>document.getElementById(id);
+let adminVerified=false;
 
-/* Page elements */
-const photoInput = document.getElementById("photoInput");
-const photoPreview = document.getElementById("photoPreview");
-const previewWrap = document.getElementById("previewWrap");
-const previewStage = document.getElementById("previewStage");
-const removePhoto = document.getElementById("removePhoto");
-const backgroundType = document.getElementById("backgroundType");
-const promptInput = document.getElementById("prompt");
-const generateBtn = document.getElementById("generateBtn");
-const messageBox = document.getElementById("messageBox");
-const serviceStatus = document.getElementById("serviceStatus");
-
-/* Current page state */
-let selectedFile = null;
-let currentImageURL = null;
-let generatedImageURL = null;
-let adminVerified = false;
-
-/* Get login token */
+/* Admin verification */
 function getToken(){
-  return localStorage.getItem("rifat_ai_token") ||
-         sessionStorage.getItem("rifat_ai_token") ||
-         "";
+ return localStorage.getItem("rifat_ai_token") ||
+        sessionStorage.getItem("rifat_ai_token") || "";
 }
 
-/* Show message */
-function showMessage(message, type="info"){
-  messageBox.textContent = message;
-  messageBox.className = "message-box " + type;
-}
-
-/* Clear message */
-function clearMessage(){
-  messageBox.textContent = "";
-  messageBox.className = "message-box";
-}
-
-/* Login link */
-function addLoginLink(){
-
-  const link = document.createElement("a");
-
-  link.href =
-    "login.html?next=" +
-    encodeURIComponent("ai-background-design.html");
-
-  link.textContent = " Login Page";
-
-  serviceStatus.appendChild(link);
-}
-
-/* Preview placeholder */
-function setPreviewPlaceholder(){
-  previewStage.innerHTML = `
-    <div class="stage-icon">🖼️</div>
-    <h4>Your Creative Workspace</h4>
-    <p>AI দিয়ে তৈরি করা ছবি এখানে দেখা যাবে। Generated image will appear here.</p>
-    <div class="status-pill">● Admin AI Studio</div>
-  `;
-}
-
-/* Update Generate button */
-function updateGenerateButton(){
-
-  const hasPhoto = Boolean(selectedFile);
-  const isBusy = generateBtn.dataset.busy === "true";
-
-  generateBtn.disabled = !hasPhoto || isBusy;
-}
-
-/* Verify Admin using Worker */
 async function verifyAdmin(){
+ const token=getToken();
+ adminVerified=false;
 
-  const token = getToken();
+ document.querySelectorAll(".tab").forEach(b=>b.disabled=true);
 
-  adminVerified = false;
-  updateGenerateButton();
+ if(!token){
+  $("authStatus").textContent="🔒 Admin হিসেবে Login করুন।";
+  return;
+ }
 
-  if(!token){
-    serviceStatus.textContent =
-      "🔒 প্রথমে Admin হিসেবে Login করুন | Please login as Admin.";
-
-    addLoginLink();
-
-    showMessage(
-      "এই AI টুলটি আপাতত শুধু Admin-এর পরীক্ষার জন্য। Login করার পর এই পেজে ফিরে আসুন।",
-      "error"
-    );
-
-    return;
-  }
-
-  try{
-
-    const response = await fetch(API_URL + "/api/admin/me", {
-      method:"GET",
-      headers:{
-        "Authorization":"Bearer " + token
-      }
-    });
-
-    const data = await response.json().catch(() => ({}));
-
-    if(!response.ok || !data.success){
-
-      if(response.status === 401){
-
-        serviceStatus.textContent =
-          "🔒 Login session শেষ হয়েছে | Please login again.";
-
-        addLoginLink();
-
-        showMessage(
-          "আপনার Login session আর বৈধ নেই। আবার Login করুন।",
-          "error"
-        );
-
-      }else if(response.status === 403){
-
-        serviceStatus.textContent =
-          "⛔ Admin access required.";
-
-        showMessage(
-          "এই সুবিধাটি শুধু Admin ব্যবহার করতে পারবেন। সাধারণ User অ্যাকাউন্ট দিয়ে AI Generate করা যাবে না।",
-          "error"
-        );
-
-      }else{
-
-        serviceStatus.textContent =
-          "⚠️ Admin যাচাই করা যায়নি | Admin verification failed.";
-
-        showMessage(
-          data.message || "সার্ভারের সঙ্গে যোগাযোগ করা যায়নি। পরে আবার চেষ্টা করুন।",
-          "error"
-        );
-      }
-
-      return;
-    }
-
-    adminVerified = true;
-
-    serviceStatus.textContent =
-      "✓ Admin verified | AI service ready for controlled testing.";
-
-    showMessage(
-      "Admin access সফলভাবে যাচাই হয়েছে। ছবি নির্বাচন করে Generate করতে পারবেন।",
-      "success"
-    );
-
-    updateGenerateButton();
-
-  }catch(error){
-
-    console.error("Admin verification error:", error);
-
-    serviceStatus.textContent =
-      "⚠️ সংযোগ সমস্যা | Connection problem.";
-
-    showMessage(
-      "Worker-এর সঙ্গে সংযোগ করা যায়নি। ইন্টারনেট ও Worker URL পরীক্ষা করুন।",
-      "error"
-    );
-  }
-}
-
-/* Photo upload */
-photoInput.addEventListener("change", function(){
-
-  const file = this.files && this.files[0];
-
-  if(!file) return;
-
-  const allowedTypes = [
-    "image/jpeg",
-    "image/png",
-    "image/webp"
-  ];
-
-  if(!allowedTypes.includes(file.type)){
-
-    showMessage(
-      "শুধু JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।",
-      "error"
-    );
-
-    this.value = "";
-    selectedFile = null;
-    updateGenerateButton();
-    return;
-  }
-
-  if(file.size > 8 * 1024 * 1024){
-
-    showMessage(
-      "ছবির সাইজ সর্বোচ্চ 8 MB হতে পারবে।",
-      "error"
-    );
-
-    this.value = "";
-    selectedFile = null;
-    updateGenerateButton();
-    return;
-  }
-
-  selectedFile = file;
-
-  if(currentImageURL){
-    URL.revokeObjectURL(currentImageURL);
-  }
-
-  currentImageURL = URL.createObjectURL(file);
-
-  photoPreview.src = currentImageURL;
-  previewWrap.style.display = "block";
-
-  clearMessage();
-
-  previewStage.innerHTML = "";
-
-  const image = document.createElement("img");
-  image.src = currentImageURL;
-  image.alt = "Selected photo preview";
-  image.style.maxWidth = "100%";
-  image.style.maxHeight = "260px";
-  image.style.objectFit = "contain";
-  image.style.borderRadius = "10px";
-
-  const title = document.createElement("h4");
-  title.textContent = "Your Uploaded Photo";
-  title.style.marginTop = "12px";
-
-  const note = document.createElement("p");
-  note.textContent =
-    "এটি আপনার মূল ছবির Preview। Generate চাপার আগে ছবিটি AI সার্ভারে পাঠানো হবে না।";
-
-  previewStage.append(image, title, note);
-
-  updateGenerateButton();
-});
-
-/* Remove selected photo */
-removePhoto.addEventListener("click", function(){
-
-  photoInput.value = "";
-  selectedFile = null;
-
-  photoPreview.removeAttribute("src");
-  previewWrap.style.display = "none";
-
-  if(currentImageURL){
-    URL.revokeObjectURL(currentImageURL);
-    currentImageURL = null;
-  }
-
-  if(generatedImageURL){
-    URL.revokeObjectURL(generatedImageURL);
-    generatedImageURL = null;
-  }
-
-  setPreviewPlaceholder();
-  clearMessage();
-  updateGenerateButton();
-});
-
-/* Quick category buttons */
-document.querySelectorAll(".category").forEach(button => {
-
-  button.addEventListener("click", function(){
-
-    backgroundType.value = this.dataset.value;
-
-    document.querySelectorAll(".category").forEach(item => {
-      item.classList.remove("active");
-    });
-
-    this.classList.add("active");
+ try{
+  const r=await fetch(API_URL+"/api/admin/me",{
+   method:"GET",
+   headers:{"Authorization":"Bearer "+token}
   });
 
-});
+  const d=await r.json().catch(()=>({}));
 
-/* Category dropdown */
-backgroundType.addEventListener("change", function(){
-
-  document.querySelectorAll(".category").forEach(item => {
-
-    item.classList.toggle(
-      "active",
-      item.dataset.value === this.value
-    );
-
-  });
-
-});
-
-/* Load image for resizing */
-function loadImageForResize(file){
-
-  if("createImageBitmap" in window){
-    return createImageBitmap(file);
+  if(!r.ok || !d.success){
+   $("authStatus").textContent=
+    r.status===403
+    ?"⛔ Admin access required."
+    :"🔒 Login session বৈধ নয়। আবার Admin Login করুন।";
+   return;
   }
 
-  return new Promise((resolve, reject) => {
+  adminVerified=true;
+  $("authStatus").textContent=
+   "✓ Admin verified | সব পরীক্ষামূলক টুল ব্যবহারের অনুমতি আছে।";
 
-    const image = new Image();
-    const tempURL = URL.createObjectURL(file);
+  document.querySelectorAll(".tab").forEach(b=>b.disabled=false);
 
-    image.onload = () => {
-      URL.revokeObjectURL(tempURL);
-      resolve(image);
-    };
+  $("bgGenerate").disabled=!bgFile;
 
-    image.onerror = () => {
-      URL.revokeObjectURL(tempURL);
-      reject(new Error("ছবিটি পড়া যাচ্ছে না। অন্য ছবি নির্বাচন করুন।"));
-    };
-
-    image.src = tempURL;
-
-  });
+ }catch(e){
+  $("authStatus").textContent="⚠️ Worker-এর সঙ্গে সংযোগ করা যায়নি।";
+ }
 }
 
-/* Convert image to small JPEG for AI model */
-async function prepareSmallImage(file){
-
-  const image = await loadImageForResize(file);
-
-  const originalWidth = image.width || image.naturalWidth;
-  const originalHeight = image.height || image.naturalHeight;
-
-  if(!originalWidth || !originalHeight){
-    throw new Error("ছবির সঠিক মাপ পাওয়া যায়নি।");
-  }
-
-  /* AI input image must remain below 512 x 512 */
-  const maxSide = 480;
-
-  const scale = Math.min(
-    1,
-    maxSide / Math.max(originalWidth, originalHeight)
-  );
-
-  const width = Math.max(1, Math.round(originalWidth * scale));
-  const height = Math.max(1, Math.round(originalHeight * scale));
-
-  const canvas = document.createElement("canvas");
-
-  canvas.width = width;
-  canvas.height = height;
-
-  const context = canvas.getContext("2d");
-
-  if(!context){
-    throw new Error("ছবি প্রস্তুত করা যাচ্ছে না।");
-  }
-
-  context.drawImage(image, 0, 0, width, height);
-
-  if(typeof image.close === "function"){
-    image.close();
-  }
-
-  /* First attempt */
-  let blob = await new Promise((resolve, reject) => {
-
-    canvas.toBlob(result => {
-      if(result) resolve(result);
-      else reject(new Error("ছবি ছোট করে তৈরি করা যায়নি।"));
-    }, "image/jpeg", 0.85);
-
-  });
-
-  /* If still over 1 MB, reduce quality */
-  if(blob.size > 1024 * 1024){
-
-    blob = await new Promise((resolve, reject) => {
-
-      canvas.toBlob(result => {
-        if(result) resolve(result);
-        else reject(new Error("ছবি কমপ্রেস করা যায়নি।"));
-      }, "image/jpeg", 0.65);
-
-    });
-
-  }
-
-  if(width >= 512 || height >= 512){
-    throw new Error("ছবির মাপ 512 পিক্সেলের কম হতে হবে।");
-  }
-
-  if(blob.size > 1024 * 1024){
-    throw new Error(
-      "ছোট করার পরও ছবির ফাইল 1 MB-এর বেশি হয়েছে। অন্য ছবি ব্যবহার করুন।"
-    );
-  }
-
-  return blob;
+function setMessage(id,msg,type="info"){
+ const e=$(id);
+ e.textContent=msg;
+ e.className="message "+type;
 }
 
-/* Convert base64 result to Blob */
-function base64ToBlob(base64, mimeType){
-
-  const binary = atob(base64);
-  const bytes = new Uint8Array(binary.length);
-
-  for(let i = 0; i < binary.length; i++){
-    bytes[i] = binary.charCodeAt(i);
-  }
-
-  return new Blob(
-    [bytes],
-    {type:mimeType || "image/png"}
-  );
+function clearMessage(id){
+ $(id).textContent="";
+ $(id).className="message";
 }
 
-/* Show generated AI image */
-function showGeneratedImage(base64, mimeType){
-
-  const blob = base64ToBlob(base64, mimeType);
-
-  if(generatedImageURL){
-    URL.revokeObjectURL(generatedImageURL);
-  }
-
-  generatedImageURL = URL.createObjectURL(blob);
-
-  previewStage.innerHTML = "";
-
-  const image = document.createElement("img");
-  image.className = "result-image";
-  image.src = generatedImageURL;
-  image.alt = "AI generated background result";
-
-  const title = document.createElement("h4");
-  title.textContent = "AI Generated Result";
-
-  const note = document.createElement("p");
-  note.textContent =
-    "ফলাফল পছন্দ হলে নিচের Download বোতামে ক্লিক করুন।";
-
-  const download = document.createElement("a");
-  download.className = "download-btn";
-  download.href = generatedImageURL;
-  download.download = "rifat-ai-background.png";
-  download.textContent = "⬇ Download Image";
-
-  previewStage.append(
-    image,
-    title,
-    note,
-    download
-  );
-}
-
-/* Generate AI background */
-generateBtn.addEventListener("click", async function(){
-
+/* Tool navigation */
+document.querySelectorAll(".tab").forEach(btn=>{
+ btn.addEventListener("click",()=>{
   if(!adminVerified){
-
-    showMessage(
-      "প্রথমে Admin হিসেবে Login এবং যাচাই সম্পন্ন করুন।",
-      "error"
-    );
-
-    return;
+   alert("শুধু যাচাইকৃত Admin এই টুল ব্যবহার করতে পারবেন।");
+   return;
   }
 
-  if(!selectedFile){
+  document.querySelectorAll(".tab").forEach(x=>{
+   x.classList.toggle("active",x===btn);
+  });
 
-    showMessage(
-      "প্রথমে একটি ছবি আপলোড করুন।",
-      "error"
-    );
-
-    return;
-  }
-
-  if(!backgroundType.value){
-
-    showMessage(
-      "একটি Background Category নির্বাচন করুন।",
-      "error"
-    );
-
-    return;
-  }
-
-  if(promptInput.value.length > 500){
-
-    showMessage(
-      "Prompt সর্বোচ্চ 500 অক্ষরের হতে পারবে।",
-      "error"
-    );
-
-    return;
-  }
-
-  const token = getToken();
-
-  if(!token){
-
-    adminVerified = false;
-    updateGenerateButton();
-
-    showMessage(
-      "Login session পাওয়া যায়নি। আবার Login করুন।",
-      "error"
-    );
-
-    return;
-  }
-
-  generateBtn.dataset.busy = "true";
-  generateBtn.disabled = true;
-  generateBtn.textContent = "⏳ AI ছবি তৈরি করছে...";
-
-  showMessage(
-    "আপনার ছবি ছোট করে AI সার্ভারে পাঠানো হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।",
-    "info"
-  );
-
-  try{
-
-    /* Resize before sending */
-    const smallImage = await prepareSmallImage(selectedFile);
-
-    const formData = new FormData();
-
-    formData.append(
-      "image",
-      smallImage,
-      "input-photo.jpg"
-    );
-
-    formData.append(
-      "category",
-      backgroundType.value
-    );
-
-    formData.append(
-      "prompt",
-      promptInput.value.trim()
-    );
-
-    /* Send request to Cloudflare Worker */
-    const response = await fetch(
-      API_URL + "/api/edit-image",
-      {
-        method:"POST",
-
-        headers:{
-          "Authorization":"Bearer " + token
-        },
-
-        body:formData
-      }
-    );
-
-    const data = await response.json().catch(() => ({}));
-
-    if(!response.ok || !data.success){
-
-      if(response.status === 401 || response.status === 403){
-
-        adminVerified = false;
-
-        serviceStatus.textContent =
-          "🔒 Admin session/access যাচাই প্রয়োজন।";
-      }
-
-      throw new Error(
-        data.message || "AI ছবি তৈরি করা যায়নি। আবার চেষ্টা করুন।"
-      );
-    }
-
-    if(typeof data.image !== "string" || !data.image){
-
-      throw new Error(
-        "AI থেকে বৈধ ছবি পাওয়া যায়নি।"
-      );
-    }
-
-    showGeneratedImage(
-      data.image,
-      data.mimeType || "image/png"
-    );
-
-    showMessage(
-      "AI ছবি তৈরি হয়েছে। চাইলে Download Image বোতামে ক্লিক করুন।",
-      "success"
-    );
-
-  }catch(error){
-
-    console.error("AI generation error:", error);
-
-    showMessage(
-      error.message || "একটি সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।",
-      "error"
-    );
-
-  }finally{
-
-    generateBtn.dataset.busy = "false";
-    generateBtn.textContent = "✦ Generate AI Background";
-
-    updateGenerateButton();
-  }
-
+  document.querySelectorAll(".tool-section").forEach(x=>{
+   x.classList.toggle("active",x.id===btn.dataset.tab);
+  });
+ });
 });
 
-/* Initial page setup */
-setPreviewPlaceholder();
+/* Image helper */
+function readImage(file,maxMB=15){
+ return new Promise((resolve,reject)=>{
+
+  if(!file || !["image/jpeg","image/png","image/webp"].includes(file.type)){
+   return reject(new Error("JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।"));
+  }
+
+  if(file.size>maxMB*1024*1024){
+   return reject(new Error("ছবির সাইজ সর্বোচ্চ "+maxMB+" MB হতে পারবে।"));
+  }
+
+  const url=URL.createObjectURL(file);
+  const img=new Image();
+
+  img.onload=()=>{
+   URL.revokeObjectURL(url);
+   resolve(img);
+  };
+
+  img.onerror=()=>{
+   URL.revokeObjectURL(url);
+   reject(new Error("ছবিটি খোলা যাচ্ছে না। অন্য ছবি নির্বাচন করুন।"));
+  };
+
+  img.src=url;
+ });
+}
+
+function canvasBlob(canvas,type="image/jpeg",quality=.92){
+ return new Promise((resolve,reject)=>{
+  canvas.toBlob(b=>{
+   if(b)resolve(b);
+   else reject(new Error("ছবি Export করা যায়নি।"));
+  },type,quality);
+ });
+}
+
+function downloadCanvas(canvas,name,type="image/jpeg"){
+ canvasBlob(canvas,type).then(blob=>{
+  const u=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=u;
+  a.download=name;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(u),1500);
+ }).catch(e=>alert(e.message));
+}
+
+/* AI Background Design */
+let bgFile=null;
+let bgPreviewURL=null;
+let bgResultURL=null;
+
+$("bgInput").addEventListener("change",async()=>{
+ const f=$("bgInput").files[0];
+ if(!f)return;
+
+ try{
+  await readImage(f,8);
+  bgFile=f;
+
+  if(bgPreviewURL)URL.revokeObjectURL(bgPreviewURL);
+
+  bgPreviewURL=URL.createObjectURL(f);
+  $("bgPreview").src=bgPreviewURL;
+  $("bgPreviewWrap").style.display="block";
+  $("bgGenerate").disabled=!adminVerified;
+
+  clearMessage("bgMessage");
+
+ }catch(e){
+  setMessage("bgMessage",e.message,"error");
+  $("bgInput").value="";
+  bgFile=null;
+ }
+});
+
+$("bgRemove").addEventListener("click",()=>{
+ bgFile=null;
+ $("bgInput").value="";
+ $("bgPreviewWrap").style.display="none";
+ $("bgGenerate").disabled=true;
+
+ if(bgPreviewURL)URL.revokeObjectURL(bgPreviewURL);
+ bgPreviewURL=null;
+
+ $("bgStage").innerHTML=
+  "<div style='font-size:48px'>🖼️</div><h3>Your Creative Workspace</h3><p>ছবি আপলোড করে AI Background তৈরি করুন।</p>";
+});
+
+async function prepareSmallImage(file){
+ const img=await readImage(file,8);
+ const max=480;
+
+ const scale=Math.min(
+  1,
+  max/Math.max(img.naturalWidth,img.naturalHeight)
+ );
+
+ const w=Math.max(1,Math.round(img.naturalWidth*scale));
+ const h=Math.max(1,Math.round(img.naturalHeight*scale));
+
+ const c=document.createElement("canvas");
+ c.width=w;
+ c.height=h;
+
+ c.getContext("2d").drawImage(img,0,0,w,h);
+
+ const blob=await canvasBlob(c,"image/jpeg",.82);
+
+ if(blob.size>1024*1024){
+  throw new Error("ছবি 1 MB-এর মধ্যে প্রস্তুত করা যায়নি। অন্য ছবি ব্যবহার করুন।");
+ }
+
+ return blob;
+}
+
+$("bgGenerate").addEventListener("click",async()=>{
+
+ if(!adminVerified || !bgFile)return;
+
+ if(!$("bgCategory").value){
+  setMessage("bgMessage","একটি Background Category নির্বাচন করুন।","error");
+  return;
+ }
+
+ const token=getToken();
+
+ if(!token){
+  setMessage("bgMessage","Admin Login session পাওয়া যায়নি।","error");
+  return;
+ }
+
+ const btn=$("bgGenerate");
+
+ btn.disabled=true;
+ btn.textContent="⏳ AI তৈরি করছে...";
+
+ setMessage(
+  "bgMessage",
+  "ছবি প্রস্তুত করে AI সার্ভারে পাঠানো হচ্ছে। অপেক্ষা করুন...",
+  "info"
+ );
+
+ try{
+
+  const small=await prepareSmallImage(bgFile);
+  const fd=new FormData();
+
+  fd.append("image",small,"input-photo.jpg");
+  fd.append("category",$("bgCategory").value);
+  fd.append("prompt",$("bgPrompt").value.trim());
+
+  const r=await fetch(API_URL+"/api/edit-image",{
+   method:"POST",
+   headers:{"Authorization":"Bearer "+token},
+   body:fd
+  });
+
+  const d=await r.json().catch(()=>({}));
+
+  if(!r.ok || !d.success){
+
+   if(r.status===401 || r.status===403){
+    adminVerified=false;
+    $("authStatus").textContent="Admin session/access যাচাই প্রয়োজন।";
+   }
+
+   throw new Error(d.message||"AI ছবি তৈরি করা যায়নি।");
+  }
+
+  if(typeof d.image!=="string" || !d.image){
+   throw new Error("AI থেকে বৈধ ছবি পাওয়া যায়নি।");
+  }
+
+  const binary=atob(d.image);
+  const bytes=new Uint8Array(binary.length);
+
+  for(let i=0;i<binary.length;i++){
+   bytes[i]=binary.charCodeAt(i);
+  }
+
+  const blob=new Blob([bytes],{
+   type:d.mimeType||"image/png"
+  });
+
+  if(bgResultURL)URL.revokeObjectURL(bgResultURL);
+
+  bgResultURL=URL.createObjectURL(blob);
+
+  $("bgStage").innerHTML="";
+
+  const im=document.createElement("img");
+  im.src=bgResultURL;
+  im.alt="AI generated image";
+
+  const a=document.createElement("a");
+  a.href=bgResultURL;
+  a.download="rifat-ai-background.png";
+  a.className="btn";
+  a.textContent="⬇ Download Image";
+  a.style.marginTop="12px";
+
+  $("bgStage").append(im,a);
+
+  setMessage("bgMessage","AI ছবি তৈরি হয়েছে। Download করতে পারেন।","success");
+
+ }catch(e){
+
+  setMessage("bgMessage",e.message||"সমস্যা হয়েছে।","error");
+
+ }finally{
+
+  btn.disabled=!bgFile || !adminVerified;
+  btn.textContent="✦ Generate AI Background";
+ }
+});
+
+/* Photo Enhancement */
+let enhImg=null;
+const enhCanvas=$("enhCanvas");
+const enhCtx=enhCanvas.getContext("2d");
+
+function drawEnhanced(){
+
+ if(!enhImg)return;
+
+ const max=1800;
+
+ const s=Math.min(
+  1,
+  max/Math.max(enhImg.naturalWidth,enhImg.naturalHeight)
+ );
+
+ enhCanvas.width=Math.round(enhImg.naturalWidth*s);
+ enhCanvas.height=Math.round(enhImg.naturalHeight*s);
+
+ enhCtx.filter=
+  `brightness(${$("brightness").value}%) contrast(${$("contrast").value}%) saturate(${$("saturation").value}%)`;
+
+ enhCtx.drawImage(enhImg,0,0,enhCanvas.width,enhCanvas.height);
+
+ enhCtx.filter="none";
+
+ $("enhCanvas").style.display="block";
+ $("enhEmpty").style.display="none";
+
+ ["brightness","contrast","saturation","sharpness"].forEach(id=>{
+  $(id+"Out").textContent=
+   $(id).value+(id==="sharpness"?"":"%");
+ });
+
+ const amount=Number($("sharpness").value);
+
+ if(amount>0){
+
+  const src=enhCtx.getImageData(0,0,enhCanvas.width,enhCanvas.height);
+  const out=enhCtx.createImageData(src.width,src.height);
+
+  const d=src.data;
+  const o=out.data;
+  const k=amount/100;
+
+  for(let y=1;y<src.height-1;y++){
+   for(let x=1;x<src.width-1;x++){
+
+    for(let c=0;c<3;c++){
+
+     const i=(y*src.width+x)*4;
+
+     const v=
+      d[i+c]*(1+4*k)-
+      k*(
+       d[i-4+c]+
+       d[i+4+c]+
+       d[i-src.width*4+c]+
+       d[i+src.width*4+c]
+      );
+
+     o[i+c]=Math.max(0,Math.min(255,v));
+     o[i+3]=d[i+3];
+    }
+   }
+  }
+
+  for(let x=0;x<src.width;x++){
+   for(let y of [0,src.height-1]){
+    let i=(y*src.width+x)*4;
+    for(let c=0;c<4;c++)o[i+c]=d[i+c];
+   }
+  }
+
+  for(let y=0;y<src.height;y++){
+   for(let x of [0,src.width-1]){
+    let i=(y*src.width+x)*4;
+    for(let c=0;c<4;c++)o[i+c]=d[i+c];
+   }
+  }
+
+  enhCtx.putImageData(out,0,0);
+ }
+}
+
+$("enhInput").addEventListener("change",async()=>{
+
+ try{
+
+  enhImg=await readImage($("enhInput").files[0]);
+
+  $("enhOriginal").src=URL.createObjectURL($("enhInput").files[0]);
+  $("enhOriginal").style.display="inline-block";
+
+  drawEnhanced();
+
+  setMessage("enhMessage","ছবি প্রস্তুত। স্লাইডার ব্যবহার করে পরিবর্তন করুন।","success");
+
+ }catch(e){
+
+  setMessage("enhMessage",e.message,"error");
+ }
+});
+
+["brightness","contrast","saturation","sharpness"].forEach(id=>{
+ $(id).addEventListener("input",drawEnhanced);
+});
+
+$("enhApply").addEventListener("click",()=>{
+ if(!enhImg){
+  return setMessage("enhMessage","আগে ছবি নির্বাচন করুন।","error");
+ }
+
+ drawEnhanced();
+ setMessage("enhMessage","Enhancement প্রয়োগ করা হয়েছে।","success");
+});
+
+$("enhReset").addEventListener("click",()=>{
+ ["brightness","contrast","saturation"].forEach(id=>$(id).value=100);
+ $("sharpness").value=0;
+ drawEnhanced();
+ clearMessage("enhMessage");
+});
+
+$("enhDownload").addEventListener("click",()=>{
+ if(!enhImg){
+  return setMessage("enhMessage","আগে ছবি নির্বাচন করুন।","error");
+ }
+
+ downloadCanvas(enhCanvas,"rifat-enhanced-photo.jpg");
+});
+
+/* Print and Passport */
+let printImg=null;
+
+const printCanvas=$("printCanvas");
+const printCtx=printCanvas.getContext("2d");
+
+const printSizes={
+ passport:[45/25.4,55/25.4],
+ "3r":[3.5,5],
+ "4r":[4,6],
+ "5r":[5,7],
+ "6r":[6,8],
+ "8r":[8,10]
+};
+
+$("printInput").addEventListener("change",async()=>{
+
+ try{
+
+  printImg=await readImage($("printInput").files[0]);
+
+  setMessage("printMessage","ছবি লোড হয়েছে। সাইজ নির্বাচন করুন।","success");
+
+ }catch(e){
+
+  setMessage("printMessage",e.message,"error");
+ }
+});
+
+$("printSize").addEventListener("change",()=>{
+ $("customSize").style.display=
+  $("printSize").value==="custom"?"block":"none";
+});
+
+$("makePrint").addEventListener("click",()=>{
+
+ if(!printImg){
+  return setMessage("printMessage","আগে ছবি নির্বাচন করুন।","error");
+ }
+
+ let size=printSizes[$("printSize").value];
+
+ if($("printSize").value==="custom"){
+  size=[
+   Number($("customWidth").value),
+   Number($("customHeight").value)
+  ];
+ }
+
+ if(!size || size.some(v=>!Number.isFinite(v)||v<=0||v>20)){
+  return setMessage("printMessage","সঠিক Custom Size দিন (0.5–20 inch)।","error");
+ }
+
+ const w=Math.round(size[0]*300);
+ const h=Math.round(size[1]*300);
+
+ if(w*h>18000000){
+  return setMessage("printMessage","এই মাপটি খুব বড়। ছোট মাপ নির্বাচন করুন।","error");
+ }
+
+ printCanvas.width=w;
+ printCanvas.height=h;
+
+ printCtx.fillStyle=$("printBg").value;
+ printCtx.fillRect(0,0,w,h);
+
+ const fit=$("printFit").value;
+
+ const ratio=fit==="cover"
+  ?Math.max(w/printImg.naturalWidth,h/printImg.naturalHeight)
+  :Math.min(w/printImg.naturalWidth,h/printImg.naturalHeight);
+
+ const dw=printImg.naturalWidth*ratio;
+ const dh=printImg.naturalHeight*ratio;
+
+ printCtx.drawImage(
+  printImg,
+  (w-dw)/2,
+  (h-dh)/2,
+  dw,
+  dh
+ );
+
+ printCanvas.style.display="block";
+ $("printEmpty").style.display="none";
+
+ $("printDimensions").textContent=
+  `${w} × ${h} pixels | 300 DPI | ${size[0].toFixed(2)} × ${size[1].toFixed(2)} inch`;
+
+ setMessage("printMessage","Print image তৈরি হয়েছে। Download করতে পারেন।","success");
+});
+
+$("downloadPrint").addEventListener("click",()=>{
+
+ if(!printCanvas.width){
+  return setMessage("printMessage","আগে Create Print Image চাপুন।","error");
+ }
+
+ downloadCanvas(printCanvas,"rifat-photo-print-300dpi.jpg");
+});
+
+/* Basic Photo Editor */
+let editImg=null;
+let rotation=0;
+let flip=false;
+
+const editCanvas=$("editCanvas");
+const editCtx=editCanvas.getContext("2d");
+
+$("editInput").addEventListener("change",async()=>{
+
+ try{
+
+  editImg=await readImage($("editInput").files[0]);
+
+  rotation=0;
+  flip=false;
+
+  renderEditor();
+
+  setMessage("editMessage","ছবি লোড হয়েছে।","success");
+
+ }catch(e){
+
+  setMessage("editMessage",e.message,"error");
+ }
+});
+
+function renderEditor(){
+
+ if(!editImg)return;
+
+ const swap=Math.abs(rotation)%180===90;
+ const max=1800;
+
+ const scale=Math.min(
+  1,
+  max/Math.max(editImg.naturalWidth,editImg.naturalHeight)
+ );
+
+ const iw=Math.round(editImg.naturalWidth*scale);
+ const ih=Math.round(editImg.naturalHeight*scale);
+
+ editCanvas.width=swap?ih:iw;
+ editCanvas.height=swap?iw:ih;
+
+ editCtx.save();
+
+ editCtx.translate(
+  editCanvas.width/2,
+  editCanvas.height/2
+ );
+
+ editCtx.rotate(rotation*Math.PI/180);
+ editCtx.scale(flip?-1:1,1);
+
+ const filter=$("editFilter").value;
+
+ editCtx.filter=
+  filter==="grayscale"?"grayscale(100%)":
+  filter==="sepia"?"sepia(100%)":
+  filter==="vivid"?"saturate(150%) contrast(110%)":
+  "none";
+
+ editCtx.drawImage(editImg,-iw/2,-ih/2,iw,ih);
+
+ editCtx.restore();
+ editCtx.filter="none";
+
+ const text=$("watermark").value.trim();
+
+ if(text){
+
+  const size=Math.max(18,Math.round(editCanvas.width*.035));
+
+  editCtx.font=`bold ${size}px Arial`;
+  editCtx.textAlign="right";
+  editCtx.fillStyle="rgba(255,255,255,.8)";
+  editCtx.shadowColor="#000";
+  editCtx.shadowBlur=4;
+
+  editCtx.fillText(
+   text,
+   editCanvas.width-18,
+   editCanvas.height-22
+  );
+
+  editCtx.shadowBlur=0;
+ }
+
+ editCanvas.style.display="block";
+ $("editEmpty").style.display="none";
+}
+
+$("rotateLeft").addEventListener("click",()=>{
+ if(editImg){
+  rotation=(rotation+270)%360;
+  renderEditor();
+ }
+});
+
+$("rotateRight").addEventListener("click",()=>{
+ if(editImg){
+  rotation=(rotation+90)%360;
+  renderEditor();
+ }
+});
+
+$("flipH").addEventListener("click",()=>{
+ if(editImg){
+  flip=!flip;
+  renderEditor();
+ }
+});
+
+$("renderEdit").addEventListener("click",()=>{
+ if(!editImg){
+  return setMessage("editMessage","আগে ছবি নির্বাচন করুন।","error");
+ }
+
+ renderEditor();
+ setMessage("editMessage","Edit প্রয়োগ করা হয়েছে।","success");
+});
+
+$("editFilter").addEventListener("change",renderEditor);
+$("watermark").addEventListener("input",renderEditor);
+
+$("downloadEdit").addEventListener("click",()=>{
+ if(!editCanvas.width){
+  return setMessage("editMessage","আগে ছবি নির্বাচন করুন।","error");
+ }
+
+ downloadCanvas(editCanvas,"rifat-edited-photo.jpg");
+});
+
+/* Initial setup */
 verifyAdmin();
 
 </script>
-
 </body>
 </html>
