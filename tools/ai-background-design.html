@@ -830,9 +830,15 @@ function clearMessage(){
 
 /* Login link */
 function addLoginLink(){
+
   const link = document.createElement("a");
-  link.href = "login.html";
+
+  link.href =
+    "login.html?next=" +
+    encodeURIComponent("ai-background-design.html");
+
   link.textContent = " Login Page";
+
   serviceStatus.appendChild(link);
 }
 
