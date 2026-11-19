@@ -848,9 +848,11 @@ function setPreviewPlaceholder(){
 
 /* Update Generate button */
 function updateGenerateButton(){
-  generateBtn.disabled =
-    !(adminVerified && selectedFile) ||
-    generateBtn.dataset.busy === "true";
+
+  const hasPhoto = Boolean(selectedFile);
+  const isBusy = generateBtn.dataset.busy === "true";
+
+  generateBtn.disabled = !hasPhoto || isBusy;
 }
 
 /* Verify Admin using Worker */
