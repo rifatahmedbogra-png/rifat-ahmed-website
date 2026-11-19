@@ -3,310 +3,350 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rifat AI Photo Studio | Rifat Online Tools</title>
+<title>Rifat AI Photo Studio | Professional Photo Editor</title>
 
 <style>
 *{box-sizing:border-box}
-
+:root{
+ --bg:#071525;
+ --panel:#10263d;
+ --panel2:#0b1d31;
+ --blue:#1769aa;
+ --cyan:#2196c8;
+ --gold:#f0c040;
+ --white:#f5f8fc;
+ --muted:#a9bfd4;
+ --border:#244765;
+}
 body{
  margin:0;
  font-family:Arial,sans-serif;
- background:#071d35;
- color:#fff;
+ background:var(--bg);
+ color:var(--white);
 }
-
+button,input,select{font:inherit}
+button{cursor:pointer}
 header{
  text-align:center;
- padding:28px 15px;
+ padding:22px 14px;
  background:linear-gradient(120deg,#071d35,#1769aa);
 }
-
 header img{
  width:100%;
  max-width:1000px;
- border-radius:14px;
+ border-radius:12px;
 }
-
-header h1{
- margin:20px 0 8px;
- color:#f0c040;
-}
-
-header p{line-height:1.7}
-
-nav{text-align:center;padding:15px}
-
+header h1{color:var(--gold);margin:16px 0 7px}
+header p{line-height:1.7;margin:5px}
+nav{text-align:center;padding:13px}
 nav a{
  display:inline-block;
- background:#1769aa;
  color:white;
+ background:var(--blue);
  text-decoration:none;
- padding:11px 22px;
+ padding:10px 20px;
  border-radius:8px;
 }
-
-main{
- max-width:1100px;
- margin:auto;
- padding:15px;
-}
-
-.hero{
- text-align:center;
- padding:25px 10px;
- line-height:1.8;
-}
-
-.hero h2{color:#f0c040}
-
+main{max-width:1450px;margin:auto;padding:16px}
+.hero{text-align:center;line-height:1.8;padding:18px 8px}
+.hero h2{color:var(--gold)}
 .tools{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:16px;
+ grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:14px;
 }
-
 .card{
- background:#102a43;
- border:1px solid #1769aa;
+ background:var(--panel);
+ border:1px solid var(--border);
  border-radius:12px;
- padding:22px;
+ padding:20px;
  text-align:center;
 }
-
-.symbol{font-size:38px}
-
-.card h3{color:#f0c040}
-
-.card p{
- color:#d7e5f5;
- line-height:1.6;
- min-height:48px;
-}
-
+.card h3{color:var(--gold)}
+.card p{color:#d7e5f5;line-height:1.6}
+.symbol{font-size:36px}
 .status{
  display:inline-block;
+ padding:7px 12px;
+ border-radius:20px;
  background:#35485b;
  color:#ffe08a;
- padding:7px 13px;
- border-radius:20px;
- font-size:13px;
+ font-size:12px;
 }
-
-.account{
- margin:28px 0;
- background:#102a43;
- border:1px solid #1769aa;
- padding:22px;
+.card-link{
+ display:inline-block;
+ background:var(--gold);
+ color:#071d35;
+ padding:10px 15px;
+ border-radius:7px;
+ text-decoration:none;
+ font-weight:bold;
+ margin-top:10px;
+}
+.account,.notice{
+ margin:25px 0;
+ padding:20px;
+ background:var(--panel);
+ border:1px solid var(--border);
  border-radius:12px;
  text-align:center;
  line-height:1.8;
 }
-
 .account a{
  display:inline-block;
- background:#1769aa;
+ background:var(--blue);
  color:white;
- text-decoration:none;
- padding:10px 18px;
+ padding:10px 17px;
+ margin:5px;
  border-radius:7px;
- margin:6px;
+ text-decoration:none;
 }
-
 .notice{
- margin:25px 0;
- background:#102a43;
- padding:20px;
- border-left:4px solid #f0c040;
- border-radius:8px;
- line-height:1.8;
+ text-align:left;
+ border-left:4px solid var(--gold);
 }
-
 footer{
  text-align:center;
  padding:25px;
- color:#cbd9e8;
- border-top:1px solid #1769aa;
+ color:var(--muted);
+ border-top:1px solid var(--border);
  line-height:1.8;
 }
 
-/* PHOTO EDITOR */
-
-.editor-section{
- margin:35px 0;
- padding:22px;
- background:#102a43;
- border:1px solid #2196c8;
+/* PROFESSIONAL EDITOR */
+.editor-shell{
+ margin:30px 0;
+ border:1px solid #2c5275;
  border-radius:16px;
-}
-
-.editor-heading{
- text-align:center;
- margin-bottom:25px;
-}
-
-.editor-heading h2{color:#f0c040}
-
-.editor-heading p{
- color:#d7e5f5;
- line-height:1.7;
-}
-
-.editor-workspace{
- display:grid;
- grid-template-columns:1fr 300px;
- gap:20px;
-}
-
-.preview-panel,
-.control-panel{
- background:#071d35;
- border:1px solid #1769aa;
- border-radius:12px;
- padding:18px;
-}
-
-.preview-panel h3,
-.control-panel h3{
- color:#f0c040;
- margin-top:0;
-}
-
-.canvas-area{
- min-height:300px;
- display:flex;
- align-items:center;
- justify-content:center;
- background:
- repeating-conic-gradient(#142b40 0% 25%,#0d2135 0% 50%)
- 50%/22px 22px;
- border-radius:10px;
  overflow:hidden;
- padding:10px;
+ background:#091a2c;
+ box-shadow:0 15px 45px #0005;
 }
-
+.editor-topbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:12px;
+ padding:15px;
+ background:#102a43;
+ border-bottom:1px solid var(--border);
+}
+.brand-title{
+ color:var(--gold);
+ font-weight:bold;
+ font-size:18px;
+}
+.top-actions,.button-row{
+ display:flex;
+ flex-wrap:wrap;
+ gap:7px;
+ align-items:center;
+}
+.btn{
+ border:1px solid #32618a;
+ background:#173b5b;
+ color:white;
+ padding:9px 13px;
+ border-radius:7px;
+ font-size:13px;
+}
+.btn:hover{filter:brightness(1.2)}
+.btn.gold{
+ background:var(--gold);
+ color:#071525;
+ border-color:var(--gold);
+ font-weight:bold;
+}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.editor-layout{
+ display:grid;
+ grid-template-columns:75px minmax(0,1fr) 300px;
+ min-height:620px;
+}
+.left-tools{
+ background:#0d2136;
+ border-right:1px solid var(--border);
+ padding:12px 7px;
+}
+.tool-button{
+ width:100%;
+ min-height:58px;
+ margin-bottom:8px;
+ border:1px solid transparent;
+ border-radius:8px;
+ background:transparent;
+ color:#c9d9e9;
+ font-size:11px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ gap:5px;
+}
+.tool-button span{font-size:21px}
+.tool-button.active{
+ background:#17466c;
+ border-color:var(--cyan);
+ color:white;
+}
+.canvas-workspace{
+ min-width:0;
+ padding:15px;
+ display:flex;
+ flex-direction:column;
+}
+.canvas-toolbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-bottom:12px;
+}
+.canvas-toolbar small{color:var(--muted)}
+.canvas-stage{
+ flex:1;
+ min-height:450px;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ overflow:auto;
+ padding:20px;
+ border:1px solid #274762;
+ border-radius:10px;
+ background-color:#14283c;
+ background-image:
+ linear-gradient(45deg,#1b3045 25%,transparent 25%),
+ linear-gradient(-45deg,#1b3045 25%,transparent 25%),
+ linear-gradient(45deg,transparent 75%,#1b3045 75%),
+ linear-gradient(-45deg,transparent 75%,#1b3045 75%);
+ background-size:24px 24px;
+ background-position:0 0,0 12px,12px -12px,-12px 0;
+}
 #photoCanvas{
  display:none;
  max-width:100%;
- max-height:550px;
- object-fit:contain;
+ max-height:650px;
+ width:auto;
+ height:auto;
+ background:white;
+ box-shadow:0 8px 30px #0008;
+ transform-origin:center;
 }
-
-.upload-box{
- border:2px dashed #2196c8;
- border-radius:12px;
- padding:25px 12px;
+.empty-state{
  text-align:center;
- margin-bottom:18px;
- line-height:1.7;
+ color:#b9ccdd;
+ line-height:2;
 }
-
-.upload-box input{max-width:100%}
-
-.empty-preview{
- color:#cbd9e8;
- text-align:center;
- line-height:1.8;
+.empty-state .big{font-size:65px}
+.empty-state strong{color:var(--gold)}
+.right-panel{
+ background:#0d2136;
+ border-left:1px solid var(--border);
+ padding:16px;
 }
-
-.control-group{
- margin:18px 0;
+.panel-heading{
+ color:var(--gold);
+ margin:0 0 15px;
+ font-size:17px;
 }
-
-.control-group label{
+.panel-section{
+ border-bottom:1px solid #29445e;
+ padding:13px 0;
+}
+.panel-section h4{
+ margin:0 0 13px;
+ font-size:13px;
+ color:#d9e9f7;
+}
+.adjustment{margin:14px 0}
+.adjustment label{
  display:flex;
  justify-content:space-between;
  gap:8px;
- margin-bottom:9px;
- color:#e5f1ff;
- font-size:14px;
+ color:#d1dfed;
+ font-size:12px;
+ margin-bottom:8px;
 }
-
-.control-group input[type="range"]{
+.adjustment output{color:var(--gold)}
+input[type=range]{
  width:100%;
- accent-color:#f0c040;
+ accent-color:var(--gold);
 }
-
-.crop-grid{
+.field-grid{
  display:grid;
  grid-template-columns:1fr 1fr;
- gap:10px;
+ gap:9px;
 }
-
-.crop-grid label{
- display:block;
- font-size:13px;
- color:#d7e5f5;
+.field-grid label{
+ font-size:11px;
+ color:var(--muted);
 }
-
-.crop-grid input,
-.resize-grid input{
+.field-grid input{
  width:100%;
- margin-top:6px;
- padding:10px;
- border:1px solid #1769aa;
- border-radius:7px;
- background:#102a43;
+ margin-top:5px;
+ padding:9px;
+ border:1px solid var(--border);
+ border-radius:6px;
+ background:#071525;
  color:white;
 }
-
-.resize-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:10px;
-}
-
-.editor-btn{
- border:none;
- border-radius:8px;
- padding:11px 14px;
- background:#1769aa;
- color:white;
- font-weight:bold;
- cursor:pointer;
- margin:4px 2px;
-}
-
-.editor-btn:hover{filter:brightness(1.2)}
-
-.editor-btn.gold{
- background:#f0c040;
- color:#071d35;
-}
-
-.editor-btn:disabled{
- opacity:.45;
- cursor:not-allowed;
-}
-
-.button-row{
- display:flex;
- flex-wrap:wrap;
- gap:5px;
- margin-top:15px;
-}
-
-.editor-message{
+.editor-status{
  color:#ffe08a;
- font-size:13px;
+ font-size:12px;
  line-height:1.6;
  margin-top:12px;
 }
-
-.editor-info{
- color:#bcd4e9;
+.ai-panel{
+ background:#122d46;
+ border:1px solid #8a702d;
+ border-radius:9px;
+ padding:12px;
+ margin-top:14px;
+}
+.ai-panel h4{color:var(--gold);margin:0 0 8px}
+.ai-panel p{font-size:12px;color:#c7d8e8;line-height:1.6}
+.ai-panel .btn{width:100%;margin-top:5px}
+.comparison{
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-top:13px;
+ padding:12px;
+ background:#102a43;
+ border-radius:9px;
  font-size:12px;
- line-height:1.6;
+ color:#cbd9e8;
 }
-
-@media(max-width:750px){
- .editor-workspace{grid-template-columns:1fr}
+.upload-area{
+ border:1px dashed var(--cyan);
+ border-radius:9px;
+ padding:14px;
+ margin-bottom:12px;
+ text-align:center;
 }
-
-@media(max-width:480px){
- .card{padding:19px}
- .editor-section{padding:13px}
- .preview-panel,.control-panel{padding:13px}
- .canvas-area{min-height:220px}
+.upload-area input{max-width:100%;font-size:12px}
+footer strong{color:var(--gold)}
+@media(max-width:950px){
+ .editor-layout{grid-template-columns:65px minmax(0,1fr)}
+ .right-panel{
+  grid-column:1/-1;
+  border-left:0;
+  border-top:1px solid var(--border);
+ }
+}
+@media(max-width:550px){
+ main{padding:9px}
+ .editor-layout{grid-template-columns:55px minmax(0,1fr)}
+ .left-tools{padding:8px 4px}
+ .tool-button{font-size:9px;min-height:53px}
+ .tool-button span{font-size:18px}
+ .canvas-workspace{padding:8px}
+ .canvas-stage{min-height:280px;padding:8px}
+ .editor-topbar{padding:11px}
+ .btn{padding:8px 9px;font-size:11px}
 }
 </style>
 </head>
@@ -314,7 +354,7 @@ footer{
 <body>
 
 <header>
-<img src="tools-cover.png" alt="Rifat Online Tools & Documents Cover">
+<img src="tools-cover.png" alt="Rifat Online Tools and Documents Cover">
 <h1>Rifat AI Photo Studio</h1>
 <p>আপনার ছবির সৃজনশীল সম্পাদনার নতুন ঠিকানা</p>
 <p>Your Creative AI Photo Editing Studio</p>
@@ -327,9 +367,9 @@ footer{
 <main>
 
 <section class="hero">
-<h2>Welcome to Rifat AI Photo Studio</h2>
-<p>সহজে ছবি সম্পাদনা, ব্যাকগ্রাউন্ড পরিবর্তন, ডিজাইন এবং AI-ভিত্তিক সৃজনশীল কাজের পরিকল্পনা নিয়ে তৈরি হচ্ছে আমাদের স্টুডিও।</p>
-<p>We are building a simple and creative photo editing experience for everyone.</p>
+<h2 style="color:#f0c040">Welcome to Rifat AI Photo Studio</h2>
+<p>আপনার ছবিকে দিন নতুন রূপ। সহজে সম্পাদনা করুন, রং পরিবর্তন করুন এবং নিজের পছন্দমতো ছবি তৈরি করুন।</p>
+<p>Professional photo editing tools for your creative journey.</p>
 </section>
 
 <section class="tools">
@@ -337,62 +377,29 @@ footer{
 <div class="card">
 <div class="symbol">🖼️</div>
 <h3>AI Photo Editing</h3>
-<p>AI প্রযুক্তির সাহায্যে ছবির সৃজনশীল সম্পাদনা।</p>
-<span class="status" style="background:#145c3b;color:#d9ffe8;">
-Available Now | এখন ব্যবহার করুন
-</span>
-<br><br>
-<a href="#photo-editor"
-style="display:inline-block;background:#f0c040;color:#071d35;
-text-decoration:none;padding:11px 18px;border-radius:8px;
-font-weight:bold;">
-Open AI Photo Editor ↗
-</a>
+<p>ছবির আলো, রং, আকার ও সৃজনশীল সম্পাদনা।</p>
+<span class="status" style="background:#145c3b;color:#d9ffe8">Available Now</span>
+<br>
+<a class="card-link" href="#photo-editor">Open Photo Editor ↗</a>
 </div>
 
 <div class="card">
 <div class="symbol">✂️</div>
 <h3>Background Remover</h3>
-<p>
-ছবির ব্যাকগ্রাউন্ড সরান এবং নতুন ব্যাকগ্রাউন্ড যোগ করুন।
+<p>ছবির ব্যাকগ্রাউন্ড সরান এবং নতুন ব্যাকগ্রাউন্ড যোগ করুন।</p>
+<span class="status" style="background:#145c3b;color:#d9ffe8">Available Now</span>
 <br>
-Remove photo backgrounds and explore six professional editing studios.
-</p>
-<span class="status" style="background:#145c3b;color:#d9ffe8;">
-Available Now | এখন ব্যবহার করুন
-</span>
-<br><br>
-<a href="background-remover.html"
-style="display:inline-block;background:#f0c040;color:#071d35;
-text-decoration:none;padding:11px 18px;border-radius:8px;
-font-weight:bold;">
-Open Background Studio ↗
-</a>
+<a class="card-link" href="background-remover.html">Open Background Studio ↗</a>
 </div>
-
-<!-- AI Background Design -->
 
 <div class="card">
 <div class="symbol">🎨</div>
 <h3>AI Background Design</h3>
 <p>নতুন নতুন ব্যাকগ্রাউন্ড তৈরি ও পরিবর্তন।</p>
-
-<span class="status" style="background:#145c3b;color:#d9ffe8;">
-Available Now | এখন ব্যবহার করুন
-</span>
-
-<br><br>
-
-<a href="ai-background-design.html"
-style="display:inline-block;background:#f0c040;color:#071d35;
-text-decoration:none;padding:11px 18px;border-radius:8px;
-font-weight:bold;">
-Open AI Background Studio ↗
-</a>
-
-<p style="font-size:12px;color:#ffe08a;margin-top:12px;">
-Admin Testing Mode | বর্তমানে Admin পরীক্ষার জন্য
-</p>
+<span class="status" style="background:#145c3b;color:#d9ffe8">Available Now</span>
+<br>
+<a class="card-link" href="ai-background-design.html">Open AI Background Studio ↗</a>
+<p style="font-size:12px;color:#ffe08a">Admin Testing Mode</p>
 </div>
 
 <div class="card">
@@ -418,177 +425,203 @@ Admin Testing Mode | বর্তমানে Admin পরীক্ষার জ
 
 </section>
 
-<!-- AI PHOTO EDITING WORKSPACE -->
+<!-- PROFESSIONAL PHOTO EDITOR -->
 
-<section class="editor-section" id="photo-editor">
+<section class="editor-shell" id="photo-editor">
 
-<div class="editor-heading">
-<h2>🖼️ AI Photo Editing Studio</h2>
-<p>
-আপনার ছবি আপলোড করুন এবং সহজেই ছবির আলো, রং, আকার ও অবস্থান পরিবর্তন করুন।
+<div class="editor-topbar">
+<div class="brand-title">✦ RIFAT PHOTO EDITOR PRO</div>
+
+<div class="top-actions">
+<button class="btn" id="undoBtn" disabled>↶ Undo</button>
+<button class="btn" id="redoBtn" disabled>↷ Redo</button>
+<button class="btn" id="zoomOutBtn" disabled>−</button>
+<span id="zoomValue">100%</span>
+<button class="btn" id="zoomInBtn" disabled>+</button>
+<button class="btn gold" id="downloadBtn" disabled>⬇ Export Photo</button>
+</div>
+</div>
+
+<div class="editor-layout">
+
+<!-- LEFT TOOLBAR -->
+
+<aside class="left-tools">
+<button class="tool-button active" data-tool="select">
+<span>↖</span>Select
+</button>
+<button class="tool-button" data-tool="crop">
+<span>▣</span>Crop
+</button>
+<button class="tool-button" data-tool="rotate">
+<span>⟳</span>Rotate
+</button>
+<button class="tool-button" data-tool="color">
+<span>◉</span>Color
+</button>
+<button class="tool-button" data-tool="resize">
+<span>⤢</span>Resize
+</button>
+<button class="tool-button" data-tool="flip">
+<span>⇋</span>Flip
+</button>
+<button class="tool-button" data-tool="reset">
+<span>↺</span>Reset
+</button>
+</aside>
+
+<!-- CENTER CANVAS -->
+
+<div class="canvas-workspace">
+
+<div class="canvas-toolbar">
+<div>
+<strong>Canvas Workspace</strong><br>
+<small>আপনার ছবির সম্পাদনার জায়গা</small>
+</div>
+<div class="top-actions">
+<button class="btn" id="uploadButton">＋ Upload Photo</button>
+<input type="file" id="photoUpload" accept="image/*" hidden>
+</div>
+</div>
+
+<div class="canvas-stage">
+<div class="empty-state" id="emptyPreview">
+<div class="big">🖼️</div>
+<strong>Welcome to Photo Editor Pro</strong>
 <br>
-Upload your photo and customize brightness, colors, size and orientation.
-</p>
-</div>
-
-<div class="editor-workspace">
-
-<div class="preview-panel">
-
-<h3>Photo Preview | ছবির প্রিভিউ</h3>
-
-<div class="upload-box">
-<strong>📁 Upload Your Photo</strong>
-<p>আপনার কম্পিউটার থেকে ছবি নির্বাচন করুন</p>
-<input type="file" id="photoUpload" accept="image/*">
-</div>
-
-<div class="canvas-area">
-
-<div class="empty-preview" id="emptyPreview">
-<div style="font-size:55px">🖼️</div>
-এখানে আপনার ছবির প্রিভিউ দেখা যাবে।
+প্রথমে আপনার ছবি আপলোড করুন।
 <br>
-Your photo preview will appear here.
+Upload an image to start editing.
 </div>
-
 <canvas id="photoCanvas"></canvas>
-
 </div>
 
-<div class="button-row">
-<button class="editor-btn" id="originalBtn" disabled>
-Original | আসল ছবি
-</button>
-
-<button class="editor-btn" id="editedBtn" disabled>
-Edited | সম্পাদিত ছবি
-</button>
+<div class="comparison">
+<span>Original / Edited Preview</span>
+<div class="top-actions">
+<button class="btn" id="originalBtn" disabled>Original</button>
+<button class="btn" id="editedBtn" disabled>Edited</button>
+</div>
 </div>
 
-<div class="editor-message" id="editorMessage">
-প্রথমে একটি ছবি আপলোড করুন।
+<div class="editor-status" id="statusMessage">
+Studio Ready | ছবি আপলোড করার অপেক্ষায়।
 </div>
 
 </div>
 
-<div class="control-panel">
+<!-- RIGHT ADJUSTMENT PANEL -->
 
-<h3>Editing Tools | সম্পাদনার টুলস</h3>
+<aside class="right-panel">
 
-<div class="control-group">
-<label>
-<span>Brightness | উজ্জ্বলতা</span>
-<span id="brightnessValue">100%</span>
-</label>
+<h3 class="panel-heading">Adjustment Panel</h3>
+
+<div class="upload-area">
+<strong>📁 Upload Your Photo</strong>
+<p style="font-size:12px;color:#a9bfd4">JPG, PNG, WebP</p>
+<input type="file" id="photoUploadSide" accept="image/*">
+</div>
+
+<div class="panel-section">
+<h4>☀ LIGHT & EXPOSURE</h4>
+
+<div class="adjustment">
+<label>Brightness <output id="brightnessOut">100%</output></label>
 <input type="range" id="brightness" min="0" max="200" value="100">
 </div>
 
-<div class="control-group">
-<label>
-<span>Contrast | কনট্রাস্ট</span>
-<span id="contrastValue">100%</span>
-</label>
+<div class="adjustment">
+<label>Exposure <output id="exposureOut">0</output></label>
+<input type="range" id="exposure" min="-100" max="100" value="0">
+</div>
+
+<div class="adjustment">
+<label>Contrast <output id="contrastOut">100%</output></label>
 <input type="range" id="contrast" min="0" max="200" value="100">
 </div>
 
-<div class="control-group">
-<label>
-<span>Saturation | রঙের উজ্জ্বলতা</span>
-<span id="saturationValue">100%</span>
-</label>
+<div class="adjustment">
+<label>Highlights <output id="highlightsOut">0</output></label>
+<input type="range" id="highlights" min="-100" max="100" value="0">
+</div>
+
+<div class="adjustment">
+<label>Shadows <output id="shadowsOut">0</output></label>
+<input type="range" id="shadows" min="-100" max="100" value="0">
+</div>
+</div>
+
+<div class="panel-section">
+<h4>🎨 COLOR ADJUSTMENT</h4>
+
+<div class="adjustment">
+<label>Saturation <output id="saturationOut">100%</output></label>
 <input type="range" id="saturation" min="0" max="200" value="100">
 </div>
 
-<hr style="border-color:#1769aa">
-
-<h3>Crop Photo | ছবি কাটুন</h3>
-
-<p class="editor-info">
-নিচের মানগুলো পিক্সেলে দিন। Crop Apply চাপলে নির্বাচিত অংশ রাখা হবে।
-</p>
-
-<div class="crop-grid">
-<label>
-X Position
-<input type="number" id="cropX" min="0" value="0">
-</label>
-
-<label>
-Y Position
-<input type="number" id="cropY" min="0" value="0">
-</label>
-
-<label>
-Crop Width
-<input type="number" id="cropWidth" min="1" value="0">
-</label>
-
-<label>
-Crop Height
-<input type="number" id="cropHeight" min="1" value="0">
-</label>
+<div class="adjustment">
+<label>Temperature <output id="temperatureOut">0</output></label>
+<input type="range" id="temperature" min="-100" max="100" value="0">
 </div>
 
+<div class="adjustment">
+<label>Tint <output id="tintOut">0</output></label>
+<input type="range" id="tint" min="-100" max="100" value="0">
+</div>
+</div>
+
+<div class="panel-section">
+<h4>🔍 DETAIL</h4>
+<div class="adjustment">
+<label>Sharpness <output id="sharpnessOut">0</output></label>
+<input type="range" id="sharpness" min="0" max="100" value="0">
+</div>
+<p style="font-size:11px;color:#9fb4c8">Sharpness উন্নত ফিল্টার পরবর্তী সংস্করণে যুক্ত হবে।</p>
+</div>
+
+<div class="panel-section">
+<h4>✂ CROP & RESIZE</h4>
+<div class="field-grid">
+<label>Crop X<input id="cropX" type="number" min="0" value="0"></label>
+<label>Crop Y<input id="cropY" type="number" min="0" value="0"></label>
+<label>Width<input id="cropW" type="number" min="1" value="0"></label>
+<label>Height<input id="cropH" type="number" min="1" value="0"></label>
+</div>
+<div class="button-row" style="margin-top:10px">
+<button class="btn" id="applyCropBtn" disabled>Apply Crop</button>
+<button class="btn" id="resetCropBtn" disabled>Reset Crop</button>
+</div>
+<div class="field-grid" style="margin-top:12px">
+<label>Resize W<input id="resizeW" type="number" min="1" max="8000" value="800"></label>
+<label>Resize H<input id="resizeH" type="number" min="1" max="8000" value="600"></label>
+</div>
+<button class="btn" id="applyResizeBtn" disabled style="margin-top:10px">Apply Resize</button>
+</div>
+
+<div class="panel-section">
+<h4>🔄 TRANSFORM</h4>
 <div class="button-row">
-<button class="editor-btn" id="applyCropBtn" disabled>
-Apply Crop
-</button>
-<button class="editor-btn" id="resetCropBtn" disabled>
-Reset Crop
-</button>
+<button class="btn" id="rotateLeftBtn" disabled>↶ Left</button>
+<button class="btn" id="rotateRightBtn" disabled>↷ Right</button>
+<button class="btn" id="flipHBtn" disabled>↔ Flip H</button>
+<button class="btn" id="flipVBtn" disabled>↕ Flip V</button>
+</div>
 </div>
 
-<hr style="border-color:#1769aa">
-
-<h3>Resize Photo | ছবির আকার</h3>
-
-<div class="resize-grid">
-<label>
-Width (px)
-<input type="number" id="resizeWidth" min="1" max="8000" value="800">
-</label>
-
-<label>
-Height (px)
-<input type="number" id="resizeHeight" min="1" max="8000" value="600">
-</label>
+<div class="ai-panel">
+<h4>✦ AI CREATIVE TOOLS</h4>
+<p>AI Retouch, Face Enhancement এবং Creative AI Editing পরবর্তী ধাপে নিরাপদ AI সংযোগের মাধ্যমে যুক্ত করা হবে।</p>
+<button class="btn" disabled>AI Retouch — Coming Soon</button>
+<button class="btn" disabled>AI Enhance — Coming Soon</button>
 </div>
 
-<div class="button-row">
-<button class="editor-btn" id="applyResizeBtn" disabled>
-Apply Resize
-</button>
+<div class="button-row" style="margin-top:17px">
+<button class="btn" id="resetAllBtn" disabled>Reset All</button>
+<button class="btn gold" id="downloadSideBtn" disabled>Download Photo</button>
 </div>
 
-<hr style="border-color:#1769aa">
-
-<h3>Rotate & Flip</h3>
-
-<div class="button-row">
-<button class="editor-btn" id="rotateLeftBtn" disabled>↶ Rotate Left</button>
-<button class="editor-btn" id="rotateRightBtn" disabled>↷ Rotate Right</button>
-<button class="editor-btn" id="flipHBtn" disabled>↔ Flip H</button>
-<button class="editor-btn" id="flipVBtn" disabled>↕ Flip V</button>
-</div>
-
-<hr style="border-color:#1769aa">
-
-<div class="button-row">
-<button class="editor-btn" id="resetBtn" disabled>
-Reset All | সব রিসেট
-</button>
-
-<button class="editor-btn gold" id="downloadBtn" disabled>
-⬇ Download Photo
-</button>
-</div>
-
-<p class="editor-info">
-আপনার ছবি এই ব্রাউজারেই সম্পাদনা করা হয়। এই সাধারণ এডিটিং সুবিধার জন্য ছবি কোনো সার্ভারে আপলোড করা হয় না।
-</p>
-
-</div>
+</aside>
 </div>
 </section>
 
@@ -599,27 +632,13 @@ Reset All | সব রিসেট
 <a href="login.html">Login | লগইন</a>
 </section>
 
-<div class="notice">
-<strong>স্টুডিওর বর্তমান অবস্থা:</strong><br>
-
-Background Remover সফলভাবে চালু হয়েছে।
-ব্যবহারকারীরা Background Studio-এর ছয়টি আলাদা টুল ব্যবহার করতে পারবেন।
-
-AI Background Design-ও চালু রয়েছে এবং বর্তমানে Admin Testing Mode-এ পরীক্ষা করা হচ্ছে।
-
-AI Photo Editing-এর সাধারণ সম্পাদনা সুবিধাগুলো এখন যুক্ত করা হয়েছে।
-উন্নত AI ফিচারগুলো ধাপে ধাপে যুক্ত করা হবে।
-
-<br><br>
-
-<strong>Studio Status:</strong><br>
-
-Background Remover is now available.
-Users can explore six separate tools inside Background Studio.
-AI Background Design is available for controlled Admin testing.
-Basic Photo Editing tools are now available.
-Advanced AI features will be introduced gradually.
-</div>
+<section class="notice">
+<strong>Studio Status | স্টুডিওর অবস্থা</strong><br>
+Background Remover চালু রয়েছে।
+AI Background Design বর্তমানে Admin Testing Mode-এ রয়েছে।
+Professional Photo Editor-এর সাধারণ সম্পাদনা সুবিধাগুলো এখানে যুক্ত করা হচ্ছে।
+উন্নত AI ফিচার ধাপে ধাপে যুক্ত হবে।
+</section>
 
 </main>
 
@@ -630,366 +649,383 @@ Advanced AI features will be introduced gradually.
 </footer>
 
 <script>
-const upload = document.getElementById("photoUpload");
-const canvas = document.getElementById("photoCanvas");
+const $ = id => document.getElementById(id);
+const canvas = $("photoCanvas");
 const ctx = canvas.getContext("2d");
 
-const emptyPreview = document.getElementById("emptyPreview");
-const message = document.getElementById("editorMessage");
-
-let originalImage = null;
-let imageURL = null;
-
-let crop = {x:0,y:0,w:0,h:0};
+let image = null;
+let sourceURL = null;
+let crop = null;
 let rotation = 0;
 let flipH = false;
 let flipV = false;
-let resize = null;
-let showingOriginal = false;
+let zoom = 100;
+let originalMode = false;
+let history = [];
+let historyIndex = -1;
 
-const $ = id => document.getElementById(id);
+const defaults = {
+ brightness:100,
+ exposure:0,
+ contrast:100,
+ highlights:0,
+ shadows:0,
+ saturation:100,
+ temperature:0,
+ tint:0,
+ sharpness:0
+};
 
-const controlIds = [
-"originalBtn","editedBtn","applyCropBtn","resetCropBtn",
-"applyResizeBtn","rotateLeftBtn","rotateRightBtn",
-"flipHBtn","flipVBtn","resetBtn","downloadBtn"
-];
+const sliderIds = Object.keys(defaults);
 
-function enableControls(enabled){
- controlIds.forEach(id => $(id).disabled = !enabled);
+function getSettings(){
+ const s={};
+ sliderIds.forEach(id=>s[id]=Number($(id).value));
+ return s;
 }
 
-function updateCropInputs(){
- $("cropX").value = crop.x;
- $("cropY").value = crop.y;
- $("cropWidth").value = crop.w;
- $("cropHeight").value = crop.h;
+function setSettings(s){
+ sliderIds.forEach(id=>$(id).value=s[id]);
+ updateOutputs();
 }
 
-function updateResizeInputs(){
- $("resizeWidth").value = resize ? resize.w : crop.w;
- $("resizeHeight").value = resize ? resize.h : crop.h;
+function snapshot(){
+ return {
+  crop:{...crop},
+  rotation,
+  flipH,
+  flipV,
+  settings:getSettings()
+ };
 }
 
-function setMessage(text){
- message.textContent = text;
+function saveHistory(){
+ if(!image) return;
+ history=history.slice(0,historyIndex+1);
+ history.push(snapshot());
+ if(history.length>40) history.shift();
+ historyIndex=history.length-1;
+ updateHistoryButtons();
 }
 
-upload.addEventListener("change",function(){
- const file = this.files[0];
+function restoreHistory(item){
+ crop={...item.crop};
+ rotation=item.rotation;
+ flipH=item.flipH;
+ flipV=item.flipV;
+ setSettings(item.settings);
+ updateCropFields();
+ render();
+ updateHistoryButtons();
+}
 
- if(!file) return;
+function updateHistoryButtons(){
+ $("undoBtn").disabled=historyIndex<=0;
+ $("redoBtn").disabled=historyIndex>=history.length-1;
+}
 
+function updateOutputs(){
+ sliderIds.forEach(id=>{
+  const value=$(id).value;
+  $(id+"Out").textContent=
+   ["brightness","contrast","saturation"].includes(id)
+   ? value+"%"
+   : value;
+ });
+}
+
+function updateCropFields(){
+ $("cropX").value=crop.x;
+ $("cropY").value=crop.y;
+ $("cropW").value=crop.w;
+ $("cropH").value=crop.h;
+}
+
+function setStatus(t){
+ $("statusMessage").textContent=t;
+}
+
+function enableEditor(v){
+ [
+ "undoBtn","redoBtn","zoomInBtn","zoomOutBtn",
+ "downloadBtn","originalBtn","editedBtn",
+ "applyCropBtn","resetCropBtn","applyResizeBtn",
+ "rotateLeftBtn","rotateRightBtn","flipHBtn",
+ "flipVBtn","resetAllBtn","downloadSideBtn"
+ ].forEach(id=>$(id).disabled=!v);
+}
+
+function loadPhoto(file){
+ if(!file)return;
  if(!file.type.startsWith("image/")){
-  alert("দয়া করে একটি সঠিক ছবি নির্বাচন করুন।");
+  alert("দয়া করে একটি ছবি নির্বাচন করুন।");
   return;
  }
-
- if(file.size > 20 * 1024 * 1024){
-  alert("সর্বোচ্চ ২০ MB ছবি আপলোড করুন।");
-  this.value = "";
+ if(file.size>20*1024*1024){
+  alert("সর্বোচ্চ ২০ MB ছবি নির্বাচন করুন।");
   return;
  }
-
- if(imageURL) URL.revokeObjectURL(imageURL);
-
- imageURL = URL.createObjectURL(file);
- const img = new Image();
-
- img.onload = function(){
-  originalImage = img;
-
-  crop = {
-   x:0,
-   y:0,
-   w:img.naturalWidth,
-   h:img.naturalHeight
-  };
-
-  rotation = 0;
-  flipH = false;
-  flipV = false;
-  resize = null;
-
-  $("brightness").value = 100;
-  $("contrast").value = 100;
-  $("saturation").value = 100;
-
-  updateSliderLabels();
-  updateCropInputs();
-  updateResizeInputs();
-
-  emptyPreview.style.display = "none";
-  canvas.style.display = "block";
-
-  enableControls(true);
-  renderImage();
-
-  setMessage(
-   "ছবি সফলভাবে আপলোড হয়েছে। এখন সম্পাদনা শুরু করুন।"
-  );
+ if(sourceURL)URL.revokeObjectURL(sourceURL);
+ sourceURL=URL.createObjectURL(file);
+ const img=new Image();
+ img.onload=()=>{
+  image=img;
+  crop={x:0,y:0,w:img.naturalWidth,h:img.naturalHeight};
+  rotation=0;
+  flipH=false;
+  flipV=false;
+  zoom=100;
+  $("zoomValue").textContent="100%";
+  setSettings(defaults);
+  updateCropFields();
+  $("resizeW").value=crop.w;
+  $("resizeH").value=crop.h;
+  $("emptyPreview").style.display="none";
+  canvas.style.display="block";
+  enableEditor(true);
+  history=[];
+  historyIndex=-1;
+  saveHistory();
+  render();
+  setStatus("ছবি সফলভাবে আপলোড হয়েছে। Editing শুরু করুন।");
  };
-
- img.onerror = function(){
-  alert("ছবিটি খোলা যাচ্ছে না। অন্য একটি ছবি চেষ্টা করুন।");
- };
-
- img.src = imageURL;
-});
-
-function updateSliderLabels(){
- $("brightnessValue").textContent = $("brightness").value + "%";
- $("contrastValue").textContent = $("contrast").value + "%";
- $("saturationValue").textContent = $("saturation").value + "%";
+ img.onerror=()=>alert("ছবিটি খোলা যাচ্ছে না। অন্য ছবি চেষ্টা করুন।");
+ img.src=sourceURL;
 }
 
-function renderImage(){
- if(!originalImage) return;
+$("uploadButton").onclick=()=>$("photoUpload").click();
+$("photoUpload").onchange=e=>loadPhoto(e.target.files[0]);
+$("photoUploadSide").onchange=e=>loadPhoto(e.target.files[0]);
 
- if(showingOriginal){
-  renderOriginal();
-  return;
- }
+function render(){
+ if(!image)return;
 
- const source = document.createElement("canvas");
- source.width = crop.w;
- source.height = crop.h;
+ const s=getSettings();
+ const isSideways=Math.abs(rotation%180)===90;
+ const w=crop.w;
+ const h=crop.h;
 
- const sctx = source.getContext("2d");
+ const temp=document.createElement("canvas");
+ temp.width=w;
+ temp.height=h;
+ const tctx=temp.getContext("2d");
 
- sctx.drawImage(
-  originalImage,
-  crop.x,crop.y,crop.w,crop.h,
-  0,0,crop.w,crop.h
- );
+ tctx.drawImage(image,crop.x,crop.y,w,h,0,0,w,h);
 
- const finalW = resize ? resize.w : crop.w;
- const finalH = resize ? resize.h : crop.h;
-
- const isSideways = Math.abs(rotation % 180) === 90;
-
- canvas.width = isSideways ? finalH : finalW;
- canvas.height = isSideways ? finalW : finalH;
+ canvas.width=isSideways?h:w;
+ canvas.height=isSideways?w:h;
 
  ctx.clearRect(0,0,canvas.width,canvas.height);
-
- ctx.save();
-
- ctx.translate(canvas.width/2,canvas.height/2);
- ctx.rotate(rotation * Math.PI / 180);
-
- ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
-
- ctx.filter =
-  "brightness(" + $("brightness").value + "%) " +
-  "contrast(" + $("contrast").value + "%) " +
-  "saturate(" + $("saturation").value + "%)";
-
- ctx.drawImage(
-  source,
-  -finalW/2,
-  -finalH/2,
-  finalW,
-  finalH
- );
-
- ctx.restore();
- ctx.filter = "none";
-}
-
-function renderOriginal(){
- if(!originalImage) return;
-
- const isSideways = Math.abs(rotation % 180) === 90;
-
- canvas.width = isSideways ? crop.h : crop.w;
- canvas.height = isSideways ? crop.w : crop.h;
-
  ctx.save();
  ctx.translate(canvas.width/2,canvas.height/2);
- ctx.rotate(rotation * Math.PI / 180);
- ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+ ctx.rotate(rotation*Math.PI/180);
+ ctx.scale(flipH?-1:1,flipV?-1:1);
 
- ctx.drawImage(
-  originalImage,
-  crop.x,crop.y,crop.w,crop.h,
-  -crop.w/2,-crop.h/2,crop.w,crop.h
- );
+ if(originalMode){
+  ctx.filter="none";
+ }else{
+  const brightness=Math.max(0,s.brightness+s.exposure);
+  ctx.filter=
+   "brightness("+brightness+"%) "+
+   "contrast("+s.contrast+"%) "+
+   "saturate("+s.saturation+"%)";
+ }
 
+ ctx.drawImage(temp,-w/2,-h/2,w,h);
  ctx.restore();
+ ctx.filter="none";
+
+ canvas.style.transform="scale("+zoom/100+")";
+ $("zoomValue").textContent=zoom+"%";
 }
 
-["brightness","contrast","saturation"].forEach(id=>{
- $(id).addEventListener("input",function(){
-  updateSliderLabels();
-  showingOriginal = false;
-  renderImage();
+sliderIds.forEach(id=>{
+ $(id).addEventListener("input",()=>{
+  if(!image)return;
+  originalMode=false;
+  updateOutputs();
+  render();
+ });
+ $(id).addEventListener("change",()=>{
+  if(image){
+   saveHistory();
+   setStatus("Adjustment সংরক্ষণ করা হয়েছে।");
+  }
  });
 });
 
-$("originalBtn").addEventListener("click",function(){
- showingOriginal = true;
- renderOriginal();
- setMessage("Original Preview | আসল ছবির প্রিভিউ");
-});
+$("originalBtn").onclick=()=>{
+ originalMode=true;
+ render();
+ setStatus("Original Preview");
+};
 
-$("editedBtn").addEventListener("click",function(){
- showingOriginal = false;
- renderImage();
- setMessage("Edited Preview | সম্পাদিত ছবির প্রিভিউ");
-});
+$("editedBtn").onclick=()=>{
+ originalMode=false;
+ render();
+ setStatus("Edited Preview");
+};
 
-$("applyCropBtn").addEventListener("click",function(){
- if(!originalImage) return;
+$("undoBtn").onclick=()=>{
+ if(historyIndex>0){
+  historyIndex--;
+  restoreHistory(history[historyIndex]);
+  setStatus("Undo করা হয়েছে।");
+ }
+};
 
- const x = Number($("cropX").value);
- const y = Number($("cropY").value);
- const w = Number($("cropWidth").value);
- const h = Number($("cropHeight").value);
+$("redoBtn").onclick=()=>{
+ if(historyIndex<history.length-1){
+  historyIndex++;
+  restoreHistory(history[historyIndex]);
+  setStatus("Redo করা হয়েছে।");
+ }
+};
+
+$("zoomInBtn").onclick=()=>{
+ zoom=Math.min(200,zoom+10);
+ render();
+};
+$("zoomOutBtn").onclick=()=>{
+ zoom=Math.max(30,zoom-10);
+ render();
+};
+
+$("applyCropBtn").onclick=()=>{
+ if(!image)return;
+ const x=Number($("cropX").value);
+ const y=Number($("cropY").value);
+ const w=Number($("cropW").value);
+ const h=Number($("cropH").value);
 
  if(
-  !Number.isInteger(x) || !Number.isInteger(y) ||
-  !Number.isInteger(w) || !Number.isInteger(h) ||
-  x < 0 || y < 0 || w < 1 || h < 1 ||
-  x + w > originalImage.naturalWidth ||
-  y + h > originalImage.naturalHeight
+  ![x,y,w,h].every(Number.isInteger)||
+  x<0||y<0||w<1||h<1||
+  x+w>image.naturalWidth||
+  y+h>image.naturalHeight
  ){
-  alert("Crop-এর মান ছবির সীমার মধ্যে সঠিকভাবে দিন।");
+  alert("Crop-এর মান ছবির সীমার মধ্যে দিন।");
   return;
  }
+ crop={x,y,w,h};
+ originalMode=false;
+ render();
+ saveHistory();
+ setStatus("Crop সফলভাবে প্রয়োগ হয়েছে।");
+};
 
- crop = {x,y,w,h};
- resize = null;
+$("resetCropBtn").onclick=()=>{
+ if(!image)return;
+ crop={x:0,y:0,w:image.naturalWidth,h:image.naturalHeight};
+ updateCropFields();
+ render();
+ saveHistory();
+ setStatus("Crop Reset হয়েছে।");
+};
 
- updateResizeInputs();
- showingOriginal = false;
- renderImage();
-
- setMessage("Crop সফলভাবে প্রয়োগ হয়েছে।");
-});
-
-$("resetCropBtn").addEventListener("click",function(){
- if(!originalImage) return;
-
- crop = {
-  x:0,
-  y:0,
-  w:originalImage.naturalWidth,
-  h:originalImage.naturalHeight
- };
-
- resize = null;
-
- updateCropInputs();
- updateResizeInputs();
- renderImage();
-
- setMessage("Crop Reset করা হয়েছে।");
-});
-
-$("applyResizeBtn").addEventListener("click",function(){
- if(!originalImage) return;
-
- const w = Number($("resizeWidth").value);
- const h = Number($("resizeHeight").value);
-
- if(
-  !Number.isInteger(w) || !Number.isInteger(h) ||
-  w < 1 || h < 1 || w > 8000 || h > 8000
- ){
+$("applyResizeBtn").onclick=()=>{
+ if(!image)return;
+ const w=Number($("resizeW").value);
+ const h=Number($("resizeH").value);
+ if(!Number.isInteger(w)||!Number.isInteger(h)||w<1||h<1||w>8000||h>8000){
   alert("Width ও Height ১ থেকে ৮০০০ পিক্সেলের মধ্যে দিন।");
   return;
  }
-
- resize = {w,h};
-
- showingOriginal = false;
- renderImage();
-
- setMessage("Resize সফলভাবে প্রয়োগ হয়েছে।");
-});
-
-$("rotateLeftBtn").addEventListener("click",function(){
- rotation = (rotation - 90 + 360) % 360;
- showingOriginal = false;
- renderImage();
-});
-
-$("rotateRightBtn").addEventListener("click",function(){
- rotation = (rotation + 90) % 360;
- showingOriginal = false;
- renderImage();
-});
-
-$("flipHBtn").addEventListener("click",function(){
- flipH = !flipH;
- showingOriginal = false;
- renderImage();
-});
-
-$("flipVBtn").addEventListener("click",function(){
- flipV = !flipV;
- showingOriginal = false;
- renderImage();
-});
-
-$("resetBtn").addEventListener("click",function(){
- if(!originalImage) return;
-
- crop = {
-  x:0,
-  y:0,
-  w:originalImage.naturalWidth,
-  h:originalImage.naturalHeight
+ crop.w=w;
+ crop.h=h;
+ const temp=document.createElement("canvas");
+ temp.width=w;
+ temp.height=h;
+ const tc=temp.getContext("2d");
+ tc.drawImage(image,crop.x,crop.y,crop.w,crop.h,0,0,w,h);
+ const resized=new Image();
+ resized.onload=()=>{
+  image=resized;
+  crop={x:0,y:0,w,h};
+  updateCropFields();
+  render();
+  saveHistory();
+  setStatus("Resize প্রয়োগ হয়েছে।");
  };
+ resized.src=temp.toDataURL("image/png");
+};
 
- rotation = 0;
- flipH = false;
- flipV = false;
- resize = null;
- showingOriginal = false;
+function transform(){
+ originalMode=false;
+ render();
+ saveHistory();
+}
 
- $("brightness").value = 100;
- $("contrast").value = 100;
- $("saturation").value = 100;
+$("rotateLeftBtn").onclick=()=>{rotation=(rotation-90+360)%360;transform()};
+$("rotateRightBtn").onclick=()=>{rotation=(rotation+90)%360;transform()};
+$("flipHBtn").onclick=()=>{flipH=!flipH;transform()};
+$("flipVBtn").onclick=()=>{flipV=!flipV;transform()};
 
- updateSliderLabels();
- updateCropInputs();
- updateResizeInputs();
+$("resetAllBtn").onclick=()=>{
+ if(!image)return;
+ crop={x:0,y:0,w:image.naturalWidth,h:image.naturalHeight};
+ rotation=0;
+ flipH=false;
+ flipV=false;
+ zoom=100;
+ originalMode=false;
+ setSettings(defaults);
+ updateCropFields();
+ render();
+ saveHistory();
+ setStatus("সব সেটিংস Reset হয়েছে।");
+};
 
- renderImage();
-
- setMessage("সব সম্পাদনা Reset করা হয়েছে।");
-});
-
-$("downloadBtn").addEventListener("click",function(){
- if(!originalImage) return;
-
- showingOriginal = false;
- renderImage();
-
- canvas.toBlob(function(blob){
+function downloadPhoto(){
+ if(!image)return;
+ originalMode=false;
+ render();
+ canvas.toBlob(blob=>{
   if(!blob){
-   alert("ছবি ডাউনলোড করা যাচ্ছে না।");
+   alert("ছবি Export করা যাচ্ছে না।");
    return;
   }
-
-  const link = document.createElement("a");
-  const url = URL.createObjectURL(blob);
-
-  link.href = url;
-  link.download = "rifat-ai-edited-photo.png";
-
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-
-  setMessage("আপনার সম্পাদিত ছবি ডাউনলোড হয়েছে।");
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;
+  a.download="rifat-ai-photo-edited.png";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  setStatus("ছবি সফলভাবে Download হয়েছে।");
  },"image/png");
+}
+
+$("downloadBtn").onclick=downloadPhoto;
+$("downloadSideBtn").onclick=downloadPhoto;
+
+document.querySelectorAll(".tool-button").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  document.querySelectorAll(".tool-button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  const tool=btn.dataset.tool;
+  const labels={
+   select:"Select Tool নির্বাচিত হয়েছে।",
+   crop:"Crop Panel থেকে ছবির অংশ নির্বাচন করুন।",
+   rotate:"Rotate Tool নির্বাচিত হয়েছে।",
+   color:"Color Adjustment Panel ব্যবহার করুন।",
+   resize:"Resize Panel ব্যবহার করুন।",
+   flip:"Flip Tool নির্বাচিত হয়েছে।",
+   reset:"Reset All চাপলে সম্পাদনা রিসেট হবে।"
+  };
+  setStatus(labels[tool]||"Tool নির্বাচিত হয়েছে।");
+  if(tool==="crop")$("cropX").focus();
+  if(tool==="resize")$("resizeW").focus();
+  if(tool==="color")$("brightness").focus();
+  if(tool==="rotate")$("rotateRightBtn").focus();
+  if(tool==="flip")$("flipHBtn").focus();
+  if(tool==="reset")$("resetAllBtn").focus();
+ });
 });
 
+updateOutputs();
+enableEditor(false);
 </script>
 
 </body>
