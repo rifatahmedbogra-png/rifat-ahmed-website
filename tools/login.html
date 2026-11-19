@@ -585,22 +585,25 @@ form.addEventListener("submit", async event => {
   }
 
 
-  /* Step 4: Redirect */
+/* Step 4: Redirect */
 
-  showMessage(
-   "Login সফল হয়েছে। আপনাকে নিয়ে যাওয়া হচ্ছে...",
-   true
-  );
+showMessage(
+  "Login সফল হয়েছে। আপনাকে নিয়ে যাওয়া হচ্ছে...",
+  true
+);
 
-  if (isAdmin) {
+const requestedNext =
+  new URLSearchParams(window.location.search).get("next");
 
-   window.location.replace("admin.html");
+if (isAdmin && !requestedNext) {
 
-  } else {
+  window.location.replace("admin.html");
 
-   window.location.replace(nextDestination);
+} else {
 
-  }
+  window.location.replace(nextDestination);
+
+}
 
 
  } catch (error) {
