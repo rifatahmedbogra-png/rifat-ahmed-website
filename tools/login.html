@@ -319,14 +319,11 @@ const API_URL =
  "https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
 
 const form = document.getElementById("loginForm");
-
 const message = document.getElementById("message");
-
 const submitBtn = document.getElementById("submitBtn");
 
 
-/* Only allow a return destination inside /tools/.
-   Never allow login, registration or admin pages as user destinations. */
+/* Safe return destination */
 
 function getSafeNext() {
 
@@ -338,7 +335,6 @@ function getSafeNext() {
  try {
 
   const base = new URL("./", window.location.href);
-
   const target = new URL(value, base);
 
   const blocked = [
@@ -358,8 +354,7 @@ function getSafeNext() {
    blocked.includes(
     target.pathname.split("/").pop().toLowerCase()
    )
-  )
-   return "index.html";
+  ) return "index.html";
 
   return target.pathname + target.search + target.hash;
 
@@ -373,11 +368,12 @@ function getSafeNext() {
 
 const nextDestination = getSafeNext();
 
-
 document.getElementById("registerLink").href =
  "register.html?next=" +
  encodeURIComponent(nextDestination);
 
+
+/* Message */
 
 function showMessage(text, success) {
 
@@ -390,6 +386,23 @@ function showMessage(text, success) {
   success ? "#176b36" : "#b42318";
 
  message.textContent = text;
+
+}
+
+
+/* Clear saved login session */
+
+function clearSavedSession() {
+
+ try {
+  localStorage.removeItem("rifat_ai_token");
+  localStorage.removeItem("rifat_ai_user");
+ } catch (error) {}
+
+ try {
+  sessionStorage.removeItem("rifat_ai_token");
+  sessionStorage.removeItem("rifat_ai_user");
+ } catch (error) {}
 
 }
 
@@ -426,21 +439,14 @@ form.addEventListener("submit", async event => {
  const remember =
   document.getElementById("remember").checked;
 
-
  if (!email || !password) {
 
-  showMessage(
-   "ইমেইল ও পাসওয়ার্ড লিখুন।",
-   false
-  );
-
+  showMessage("ইমেইল ও পাসওয়ার্ড লিখুন।", false);
   return;
 
  }
 
-
  submitBtn.disabled = true;
-
  submitBtn.textContent = "Logging in...";
 
  showMessage(
@@ -448,62 +454,112 @@ form.addEventListener("submit", async event => {
   true
  );
 
-
- let loginSucceeded = false;
-
+ let sessionSaved = false;
 
  try {
+
+  /* Step 1: Verify login */
 
   const response = await fetch(
    API_URL + "/api/login",
    {
     method: "POST",
-
     headers: {
      "Content-Type": "application/json"
     },
-
     body: JSON.stringify({
-     email,
-     password
+     email: email,
+     password: password
     })
    }
   );
 
-
   let data;
 
   try {
-
    data = await response.json();
-
   } catch {
-
    throw new Error(
-    "Backend থেকে সঠিক উত্তর পাওয়া যায়নি।"
+    "সার্ভার থেকে সঠিক উত্তর পাওয়া যায়নি।"
    );
-
   }
-
 
   if (
    !response.ok ||
-   !data.success ||
+   data.success !== true ||
    !data.token
   ) {
-
    throw new Error(
     data.message ||
     "ইমেইল অথবা পাসওয়ার্ড সঠিক নয়।"
    );
+  }
+
+
+  /* Step 2: Verify admin status on server */
+
+  showMessage(
+   "সার্ভার থেকে অ্যাকাউন্টের অনুমতি যাচাই করা হচ্ছে...",
+   true
+  );
+
+  const adminResponse = await fetch(
+   API_URL + "/api/admin/me",
+   {
+    method: "GET",
+    headers: {
+     "Authorization": "Bearer " + data.token
+    }
+   }
+  );
+
+  let isAdmin = false;
+
+  if (adminResponse.status === 403) {
+
+   /* Authenticated user, but not an admin */
+   isAdmin = false;
+
+  } else if (adminResponse.status === 401) {
+
+   throw new Error(
+    "আপনার Login Session যাচাই করা যায়নি। আবার Login করুন।"
+   );
+
+  } else if (!adminResponse.ok) {
+
+   throw new Error(
+    "সার্ভারের Admin যাচাই সেবা এখন পাওয়া যাচ্ছে না। পরে চেষ্টা করুন।"
+   );
+
+  } else {
+
+   let adminData;
+
+   try {
+    adminData = await adminResponse.json();
+   } catch {
+    throw new Error(
+     "Admin যাচাইয়ের উত্তর সঠিক নয়।"
+    );
+   }
+
+   if (
+    adminData.success !== true ||
+    !adminData.user ||
+    adminData.user.role !== "admin"
+   ) {
+    throw new Error(
+     "সার্ভারের Admin পরিচয় নিশ্চিত করা যায়নি।"
+    );
+   }
+
+   isAdmin = true;
 
   }
 
 
-  loginSucceeded = true;
-
-
-  /* Preserve existing storage keys for compatibility */
+  /* Step 3: Save session only after verification */
 
   const storage =
    remember ? localStorage : sessionStorage;
@@ -511,91 +567,30 @@ form.addEventListener("submit", async event => {
   const otherStorage =
    remember ? sessionStorage : localStorage;
 
-
   otherStorage.removeItem("rifat_ai_token");
-
   otherStorage.removeItem("rifat_ai_user");
 
+  sessionSaved = true;
 
   storage.setItem(
    "rifat_ai_token",
    data.token
   );
 
-
   if (data.user) {
-
    storage.setItem(
     "rifat_ai_user",
     JSON.stringify(data.user)
    );
-
   }
 
+
+  /* Step 4: Redirect */
 
   showMessage(
-   "Login সফল হয়েছে। আপনার অ্যাকাউন্ট যাচাই করা হচ্ছে...",
+   "Login সফল হয়েছে। আপনাকে নিয়ে যাওয়া হচ্ছে...",
    true
   );
-
-
-  /* Admin access must be verified by Backend */
-
-  let isAdmin = false;
-
-
-  try {
-
-   const adminResponse = await fetch(
-    API_URL + "/api/admin/me",
-    {
-     method: "GET",
-
-     headers: {
-      "Authorization": "Bearer " + data.token
-     }
-    }
-   );
-
-
-   if (adminResponse.ok) {
-
-    const adminData =
-     await adminResponse.json();
-
-    isAdmin =
-     adminData.success === true &&
-     adminData.user?.role === "admin";
-
-   } else if (
-    adminResponse.status !== 401 &&
-    adminResponse.status !== 403 &&
-    adminResponse.status !== 404
-   ) {
-
-    throw new Error(
-     "Admin পরিচয় যাচাই করা যাচ্ছে না।"
-    );
-
-   }
-
-  } catch (adminError) {
-
-   if (
-    adminError.message === "Failed to fetch" ||
-    adminError instanceof TypeError
-   ) {
-
-    throw new Error(
-     "Login হয়েছে, কিন্তু সার্ভারের পরিচয় যাচাই সেবা পাওয়া যাচ্ছে না।"
-    );
-
-   }
-
-   throw adminError;
-
-  }
-
 
   if (isAdmin) {
 
@@ -610,18 +605,15 @@ form.addEventListener("submit", async event => {
 
  } catch (error) {
 
+  if (sessionSaved) {
+   clearSavedSession();
+  }
+
   showMessage(
    error.message ||
    "সংযোগ করা যাচ্ছে না। আবার চেষ্টা করুন।",
    false
   );
-
-  if (loginSucceeded) {
-
-   /* Do not grant Admin access if verification fails.
-      The session token is retained for compatibility. */
-
-  }
 
  } finally {
 
