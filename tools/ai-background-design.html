@@ -5,468 +5,546 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AI Background Design | Rifat AI Photo Studio</title>
-
-<meta name="description" content="Rifat AI Photo Studio - AI Background Design. Upload your photo and explore creative background design possibilities.">
+<meta name="description" content="Rifat AI Photo Studio - AI Background Design. Create creative photo backgrounds with AI.">
 <meta name="robots" content="index, follow">
 
 <style>
 *{
- box-sizing:border-box;
- margin:0;
- padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 :root{
- --navy:#071d35;
- --blue:#1769aa;
- --gold:#f0c040;
- --light:#eaf2fa;
- --text:#e8f1fb;
- --muted:#a9bfd5;
+  --navy:#071d35;
+  --blue:#1769aa;
+  --gold:#f0c040;
+  --text:#e8f1fb;
+  --muted:#a9bfd5;
 }
 
 body{
- font-family:Arial,"Noto Sans Bengali",sans-serif;
- background:#071d35;
- color:var(--text);
- line-height:1.7;
- min-height:100vh;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:var(--navy);
+  color:var(--text);
+  line-height:1.7;
+  min-height:100vh;
 }
 
 a{
- color:inherit;
- text-decoration:none;
+  color:inherit;
+  text-decoration:none;
 }
 
-button,input,textarea{
- font:inherit;
+button,input,textarea,select{
+  font:inherit;
 }
 
 .topbar{
- background:#06172b;
- border-bottom:1px solid #ffffff18;
- padding:17px 5%;
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:15px;
- flex-wrap:wrap;
+  background:#06172b;
+  border-bottom:1px solid #ffffff18;
+  padding:17px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
 .brand{
- display:flex;
- align-items:center;
- gap:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
 .logo{
- width:45px;
- height:45px;
- border-radius:13px;
- background:linear-gradient(135deg,#f0c040,#d99a18);
- display:grid;
- place-items:center;
- color:#071d35;
- font-size:23px;
- font-weight:bold;
+  width:45px;
+  height:45px;
+  border-radius:13px;
+  background:linear-gradient(135deg,#f0c040,#d99a18);
+  display:grid;
+  place-items:center;
+  color:#071d35;
+  font-size:23px;
+  font-weight:bold;
 }
 
 .brand h1{
- font-size:19px;
- color:white;
+  font-size:19px;
+  color:white;
 }
 
 .brand p{
- font-size:11px;
- color:var(--muted);
+  font-size:11px;
+  color:var(--muted);
 }
 
 .home-link{
- border:1px solid #ffffff35;
- border-radius:8px;
- padding:9px 15px;
- font-size:13px;
- color:#fff;
+  border:1px solid #ffffff35;
+  border-radius:8px;
+  padding:9px 15px;
+  font-size:13px;
+  color:#fff;
 }
 
 .home-link:hover{
- background:#1769aa;
+  background:var(--blue);
 }
 
 .hero{
- padding:55px 20px 38px;
- text-align:center;
- background:
- radial-gradient(ellipse at top,#1769aa55,transparent 65%),
- linear-gradient(180deg,#0b2947,#071d35);
+  padding:55px 20px 38px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at top,#1769aa55,transparent 65%),
+    linear-gradient(180deg,#0b2947,#071d35);
 }
 
 .tag{
- display:inline-block;
- border:1px solid #f0c04070;
- color:var(--gold);
- background:#f0c04012;
- padding:6px 15px;
- border-radius:30px;
- font-size:12px;
- letter-spacing:.5px;
- margin-bottom:17px;
+  display:inline-block;
+  border:1px solid #f0c04070;
+  color:var(--gold);
+  background:#f0c04012;
+  padding:6px 15px;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:17px;
 }
 
 .hero h2{
- font-size:clamp(28px,5vw,43px);
- color:#fff;
- line-height:1.25;
- margin-bottom:13px;
+  font-size:clamp(28px,5vw,43px);
+  color:#fff;
+  line-height:1.25;
+  margin-bottom:13px;
 }
 
 .hero h2 span{
- color:var(--gold);
+  color:var(--gold);
 }
 
 .hero p{
- max-width:680px;
- margin:auto;
- color:#c0d3e7;
- font-size:15px;
+  max-width:680px;
+  margin:auto;
+  color:#c0d3e7;
+  font-size:15px;
 }
 
 .container{
- width:min(1100px,92%);
- margin:35px auto 60px;
+  width:min(1100px,92%);
+  margin:35px auto 60px;
 }
 
 .section-title{
- margin-bottom:20px;
+  margin-bottom:20px;
 }
 
 .section-title h2{
- font-size:22px;
- color:white;
- margin-bottom:5px;
+  font-size:22px;
+  color:white;
+  margin-bottom:5px;
 }
 
 .section-title p{
- color:var(--muted);
- font-size:13px;
+  color:var(--muted);
+  font-size:13px;
 }
 
 .studio{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:22px;
- align-items:start;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  align-items:start;
 }
 
 .panel{
- background:#102a43;
- border:1px solid #ffffff18;
- border-radius:17px;
- padding:23px;
- box-shadow:0 12px 35px #0003;
+  background:#102a43;
+  border:1px solid #ffffff18;
+  border-radius:17px;
+  padding:23px;
+  box-shadow:0 12px 35px #0003;
 }
 
 .panel h3{
- color:white;
- font-size:18px;
- margin-bottom:5px;
+  color:white;
+  font-size:18px;
+  margin-bottom:5px;
 }
 
 .panel-subtitle{
- color:var(--muted);
- font-size:12px;
- margin-bottom:19px;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:19px;
 }
 
 .upload-area{
- min-height:225px;
- border:2px dashed #4b83b5;
- border-radius:13px;
- background:#071d35;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:20px;
- cursor:pointer;
- transition:.2s;
+  min-height:210px;
+  border:2px dashed #4b83b5;
+  border-radius:13px;
+  background:#071d35;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .upload-area:hover{
- border-color:var(--gold);
- background:#102d4c;
+  border-color:var(--gold);
+  background:#102d4c;
 }
 
 .upload-icon{
- width:58px;
- height:58px;
- display:grid;
- place-items:center;
- border-radius:17px;
- background:#1769aa35;
- color:var(--gold);
- font-size:29px;
- margin-bottom:12px;
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border-radius:17px;
+  background:#1769aa35;
+  color:var(--gold);
+  font-size:29px;
+  margin-bottom:12px;
 }
 
 .upload-area strong{
- color:white;
- font-size:15px;
+  color:white;
+  font-size:15px;
 }
 
 .upload-area p{
- color:var(--muted);
- font-size:12px;
- margin-top:6px;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:6px;
 }
 
 .upload-area input{
- display:none;
+  display:none;
 }
 
 .preview-wrap{
- display:none;
- margin-top:15px;
- text-align:center;
+  display:none;
+  margin-top:15px;
+  text-align:center;
 }
 
 .preview-wrap img{
- max-width:100%;
- max-height:270px;
- object-fit:contain;
- border-radius:11px;
- background:#06172b;
- border:1px solid #ffffff25;
+  max-width:100%;
+  max-height:270px;
+  object-fit:contain;
+  border-radius:11px;
+  background:#06172b;
+  border:1px solid #ffffff25;
 }
 
 .remove-btn{
- margin-top:10px;
- padding:8px 15px;
- border-radius:8px;
- border:1px solid #ef7777;
- background:#ef444420;
- color:#ffb4b4;
- cursor:pointer;
- font-size:12px;
+  margin-top:10px;
+  padding:8px 15px;
+  border-radius:8px;
+  border:1px solid #ef7777;
+  background:#ef444420;
+  color:#ffb4b4;
+  cursor:pointer;
+  font-size:12px;
 }
 
 .field-label{
- display:block;
- color:#e6f0fa;
- font-size:13px;
- font-weight:bold;
- margin:20px 0 9px;
+  display:block;
+  color:#e6f0fa;
+  font-size:13px;
+  font-weight:bold;
+  margin:20px 0 9px;
 }
 
 select,textarea{
- width:100%;
- background:#071d35;
- color:white;
- border:1px solid #ffffff2b;
- border-radius:9px;
- padding:12px;
- outline:none;
+  width:100%;
+  background:#071d35;
+  color:white;
+  border:1px solid #ffffff2b;
+  border-radius:9px;
+  padding:12px;
+  outline:none;
 }
 
 select:focus,textarea:focus{
- border-color:var(--gold);
+  border-color:var(--gold);
 }
 
 textarea{
- resize:vertical;
- min-height:100px;
+  resize:vertical;
+  min-height:100px;
 }
 
 select option{
- background:#071d35;
- color:white;
+  background:#071d35;
+  color:white;
 }
 
 .categories{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:10px;
- margin-top:10px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:10px;
 }
 
 .category{
- border:1px solid #ffffff25;
- background:#071d35;
- border-radius:10px;
- padding:12px 10px;
- color:#dce9f6;
- text-align:left;
- cursor:pointer;
- transition:.2s;
+  border:1px solid #ffffff25;
+  background:#071d35;
+  border-radius:10px;
+  padding:12px 10px;
+  color:#dce9f6;
+  text-align:left;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .category:hover,
 .category.active{
- border-color:var(--gold);
- background:#f0c04013;
- color:var(--gold);
+  border-color:var(--gold);
+  background:#f0c04013;
+  color:var(--gold);
 }
 
 .category .emoji{
- display:block;
- font-size:22px;
- margin-bottom:5px;
+  display:block;
+  font-size:22px;
+  margin-bottom:5px;
 }
 
 .category small{
- display:block;
- color:var(--muted);
- font-size:11px;
+  display:block;
+  color:var(--muted);
+  font-size:11px;
 }
 
 .prompt-hint{
- font-size:11px;
- color:var(--muted);
- margin-top:7px;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:7px;
 }
 
 .generate-btn{
- width:100%;
- border:0;
- border-radius:10px;
- padding:14px;
- margin-top:22px;
- background:linear-gradient(120deg,#f0c040,#d99a18);
- color:#071d35;
- font-weight:bold;
- font-size:15px;
- cursor:not-allowed;
- opacity:.85;
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:14px;
+  margin-top:22px;
+  background:linear-gradient(120deg,#f0c040,#d99a18);
+  color:#071d35;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+  transition:transform .2s,opacity .2s;
 }
 
-.coming-note{
- margin-top:12px;
- text-align:center;
- color:#f5d879;
- font-size:12px;
+.generate-btn:hover:not(:disabled){
+  transform:translateY(-2px);
+}
+
+.generate-btn:disabled{
+  cursor:not-allowed;
+  opacity:.55;
+}
+
+.message-box{
+  display:none;
+  margin-top:13px;
+  padding:11px 13px;
+  border-radius:9px;
+  font-size:12px;
+  white-space:pre-wrap;
+}
+
+.message-box.info{
+  display:block;
+  background:#1769aa22;
+  border:1px solid #1769aa;
+  color:#cfe7ff;
+}
+
+.message-box.error{
+  display:block;
+  background:#ef444420;
+  border:1px solid #ef7777;
+  color:#ffc1c1;
+}
+
+.message-box.success{
+  display:block;
+  background:#16a34a20;
+  border:1px solid #4ade80;
+  color:#bbf7d0;
+}
+
+.service-status{
+  margin-top:13px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.service-status a{
+  color:var(--gold);
+  text-decoration:underline;
+  font-weight:bold;
 }
 
 .preview-stage{
- min-height:300px;
- border-radius:13px;
- border:1px solid #ffffff20;
- background:
- linear-gradient(135deg,#102a43,#071d35);
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:22px;
+  min-height:300px;
+  border-radius:13px;
+  border:1px solid #ffffff20;
+  background:linear-gradient(135deg,#102a43,#071d35);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:22px;
 }
 
 .stage-icon{
- font-size:55px;
- margin-bottom:12px;
+  font-size:55px;
+  margin-bottom:12px;
 }
 
 .preview-stage h4{
- font-size:17px;
- color:white;
- margin-bottom:7px;
+  font-size:17px;
+  color:white;
+  margin-bottom:7px;
 }
 
 .preview-stage p{
- font-size:12px;
- color:var(--muted);
- max-width:300px;
+  font-size:12px;
+  color:var(--muted);
+  max-width:350px;
 }
 
 .status-pill{
- display:inline-block;
- margin-top:15px;
- background:#f0c04018;
- color:var(--gold);
- border:1px solid #f0c04060;
- border-radius:25px;
- padding:5px 13px;
- font-size:11px;
+  display:inline-block;
+  margin-top:15px;
+  background:#f0c04018;
+  color:var(--gold);
+  border:1px solid #f0c04060;
+  border-radius:25px;
+  padding:5px 13px;
+  font-size:11px;
+}
+
+.result-image{
+  display:block;
+  max-width:100%;
+  max-height:520px;
+  margin:0 auto 14px;
+  object-fit:contain;
+  border-radius:11px;
+  border:1px solid #ffffff25;
+}
+
+.download-btn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 17px;
+  border:1px solid var(--gold);
+  border-radius:9px;
+  background:#f0c04018;
+  color:var(--gold);
+  font-weight:bold;
+}
+
+.auth-box{
+  margin-bottom:18px;
+  padding:13px 15px;
+  border:1px solid #f0c04055;
+  border-radius:10px;
+  background:#f0c04012;
+  color:#f3dfa0;
+  font-size:12px;
+}
+
+.auth-box a{
+  color:var(--gold);
+  text-decoration:underline;
+  font-weight:bold;
 }
 
 .info-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:15px;
- margin-top:27px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:27px;
 }
 
 .info-card{
- background:#102a43;
- border:1px solid #ffffff16;
- padding:18px;
- border-radius:13px;
+  background:#102a43;
+  border:1px solid #ffffff16;
+  padding:18px;
+  border-radius:13px;
 }
 
 .info-card span{
- font-size:25px;
+  font-size:25px;
 }
 
 .info-card h4{
- color:white;
- font-size:14px;
- margin:8px 0 5px;
+  color:white;
+  font-size:14px;
+  margin:8px 0 5px;
 }
 
 .info-card p{
- color:var(--muted);
- font-size:11px;
+  color:var(--muted);
+  font-size:11px;
 }
 
 .notice{
- margin-top:27px;
- padding:17px;
- border-radius:12px;
- background:#f0c04012;
- border:1px solid #f0c04045;
- color:#e9dba9;
- font-size:12px;
+  margin-top:27px;
+  padding:17px;
+  border-radius:12px;
+  background:#f0c04012;
+  border:1px solid #f0c04045;
+  color:#e9dba9;
+  font-size:12px;
 }
 
 .notice strong{
- color:var(--gold);
+  color:var(--gold);
 }
 
 footer{
- text-align:center;
- padding:27px 15px;
- background:#06172b;
- border-top:1px solid #ffffff15;
- color:var(--muted);
- font-size:12px;
+  text-align:center;
+  padding:27px 15px;
+  background:#06172b;
+  border-top:1px solid #ffffff15;
+  color:var(--muted);
+  font-size:12px;
 }
 
 footer strong{
- color:var(--gold);
+  color:var(--gold);
 }
 
 @media(max-width:760px){
- .studio{
-  grid-template-columns:1fr;
- }
- .info-grid{
-  grid-template-columns:1fr;
- }
- .hero{
-  padding-top:40px;
- }
- .panel{
-  padding:18px;
- }
+  .studio{
+    grid-template-columns:1fr;
+  }
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+  .hero{
+    padding-top:40px;
+  }
+  .panel{
+    padding:18px;
+  }
 }
 
 @media(max-width:420px){
- .brand h1{
-  font-size:16px;
- }
- .categories{
-  grid-template-columns:1fr 1fr;
- }
+  .brand h1{
+    font-size:16px;
+  }
+  .categories{
+    grid-template-columns:1fr 1fr;
+  }
 }
 </style>
 </head>
@@ -474,388 +552,852 @@ footer strong{
 <body>
 
 <header class="topbar">
-
- <div class="brand">
-  <div class="logo">R</div>
-  <div>
-   <h1>Rifat AI Photo Studio</h1>
-   <p>Creative Digital Photo Solutions</p>
+  <div class="brand">
+    <div class="logo">R</div>
+    <div>
+      <h1>Rifat AI Photo Studio</h1>
+      <p>Creative Digital Photo Solutions</p>
+    </div>
   </div>
- </div>
 
- <a class="home-link" href="index.html">
-  ← Back to Tools
- </a>
-
+  <a class="home-link" href="index.html">
+    ← Back to Tools
+  </a>
 </header>
 
-
 <section class="hero">
+  <div class="tag">✦ AI CREATIVE STUDIO</div>
 
- <div class="tag">✦ AI CREATIVE STUDIO</div>
+  <h2>AI <span>Background Design</span></h2>
 
- <h2>AI <span>Background Design</span></h2>
-
- <p>
-  আপনার ছবির জন্য তৈরি করুন নতুন সৃজনশীল ব্যাকগ্রাউন্ডের ধারণা।
-  Upload your photo and explore creative background design possibilities.
- </p>
-
+  <p>
+    আপনার ছবির জন্য তৈরি করুন নতুন সৃজনশীল ব্যাকগ্রাউন্ড।
+    Upload your photo and explore creative AI background designs.
+  </p>
 </section>
-
 
 <main class="container">
 
- <div class="section-title">
-  <h2>আপনার ডিজাইন স্টুডিও</h2>
-  <p>আপনার ছবি আপলোড করুন এবং পছন্দের ব্যাকগ্রাউন্ড নির্বাচন করুন।</p>
- </div>
+  <div class="section-title">
+    <h2>আপনার ডিজাইন স্টুডিও | Your Design Studio</h2>
+    <p>ছবি আপলোড করুন, ব্যাকগ্রাউন্ড নির্বাচন করুন এবং AI দিয়ে ডিজাইন তৈরি করুন।</p>
+  </div>
 
-
- <div class="studio">
-
-  <section class="panel">
-
-   <h3>01. Upload Your Photo</h3>
-
-   <p class="panel-subtitle">
-    আপনার ছবি নির্বাচন করুন | Select an image from your device
-   </p>
-
-   <label class="upload-area" for="photoInput">
-
-    <div class="upload-icon">↑</div>
-
-    <strong>ছবি আপলোড করুন</strong>
-
-    <p>
-     Click to browse your photo<br>
-     JPG, PNG, WEBP
-    </p>
-
-    <input
-     type="file"
-     id="photoInput"
-     accept="image/jpeg,image/png,image/webp"
-    >
-
-   </label>
-
-   <div class="preview-wrap" id="previewWrap">
-
-    <img id="photoPreview" alt="Uploaded photo preview">
-
+  <div class="auth-box">
+    <strong>🔒 Admin Testing Mode</strong><br>
+    এই AI সুবিধাটি আপাতত শুধু Admin-এর পরীক্ষার জন্য চালু।
+    সাধারণ User অ্যাকাউন্ট দিয়ে Generate করা যাবে না।
     <br>
+    <a href="login.html">Admin Login করুন | Login</a>
+  </div>
 
-    <button
-     type="button"
-     class="remove-btn"
-     id="removePhoto"
-    >
-     ✕ Remove Photo
-    </button>
+  <div class="studio">
 
-   </div>
+    <section class="panel">
 
+      <h3>01. Upload Your Photo</h3>
+      <p class="panel-subtitle">
+        আপনার ছবি নির্বাচন করুন | Select an image from your device
+      </p>
 
-   <label class="field-label" for="backgroundType">
-    02. Background Category
-   </label>
+      <label class="upload-area" for="photoInput">
+        <div class="upload-icon">↑</div>
+        <strong>ছবি আপলোড করুন</strong>
+        <p>
+          Click to browse your photo<br>
+          JPG, PNG, WEBP | Maximum 8 MB
+        </p>
 
-   <select id="backgroundType">
-    <option value="">ব্যাকগ্রাউন্ড নির্বাচন করুন</option>
-    <option value="studio">Professional Studio</option>
-    <option value="nature">Nature & Landscape</option>
-    <option value="office">Modern Office</option>
-    <option value="luxury">Luxury Interior</option>
-    <option value="passport">Passport Photo Background</option>
-    <option value="abstract">Creative Abstract</option>
-    <option value="custom">Custom Design</option>
-   </select>
+        <input
+          type="file"
+          id="photoInput"
+          accept="image/jpeg,image/png,image/webp"
+        >
+      </label>
 
+      <div class="preview-wrap" id="previewWrap">
+        <img id="photoPreview" alt="Uploaded photo preview">
+        <br>
+        <button type="button" class="remove-btn" id="removePhoto">
+          ✕ Remove Photo
+        </button>
+      </div>
 
-   <label class="field-label">
-    03. Quick Design Ideas
-   </label>
+      <label class="field-label" for="backgroundType">
+        02. Background Category
+      </label>
 
-   <div class="categories">
+      <select id="backgroundType">
+        <option value="">ব্যাকগ্রাউন্ড নির্বাচন করুন</option>
+        <option value="studio">Professional Studio</option>
+        <option value="nature">Nature & Landscape</option>
+        <option value="office">Modern Office</option>
+        <option value="luxury">Luxury Interior</option>
+        <option value="passport">Passport Photo Background</option>
+        <option value="abstract">Creative Abstract</option>
+        <option value="custom">Custom Design</option>
+      </select>
 
-    <button class="category" type="button" data-value="studio">
-     <span class="emoji">📸</span>
-     Studio
-     <small>Professional look</small>
-    </button>
+      <label class="field-label">
+        03. Quick Design Ideas
+      </label>
 
-    <button class="category" type="button" data-value="nature">
-     <span class="emoji">🌳</span>
-     Nature
-     <small>Natural scenery</small>
-    </button>
+      <div class="categories">
 
-    <button class="category" type="button" data-value="office">
-     <span class="emoji">🏢</span>
-     Office
-     <small>Modern workspace</small>
-    </button>
+        <button class="category" type="button" data-value="studio">
+          <span class="emoji">📸</span>
+          Studio
+          <small>Professional look</small>
+        </button>
 
-    <button class="category" type="button" data-value="luxury">
-     <span class="emoji">✨</span>
-     Luxury
-     <small>Elegant interior</small>
-    </button>
+        <button class="category" type="button" data-value="nature">
+          <span class="emoji">🌳</span>
+          Nature
+          <small>Natural scenery</small>
+        </button>
 
-    <button class="category" type="button" data-value="passport">
-     <span class="emoji">🪪</span>
-     Passport
-     <small>Clean background</small>
-    </button>
+        <button class="category" type="button" data-value="office">
+          <span class="emoji">🏢</span>
+          Office
+          <small>Modern workspace</small>
+        </button>
 
-    <button class="category" type="button" data-value="abstract">
-     <span class="emoji">🎨</span>
-     Creative
-     <small>Artistic design</small>
-    </button>
+        <button class="category" type="button" data-value="luxury">
+          <span class="emoji">✨</span>
+          Luxury
+          <small>Elegant interior</small>
+        </button>
 
-   </div>
+        <button class="category" type="button" data-value="passport">
+          <span class="emoji">🪪</span>
+          Passport
+          <small>Clean background</small>
+        </button>
 
+        <button class="category" type="button" data-value="abstract">
+          <span class="emoji">🎨</span>
+          Creative
+          <small>Artistic design</small>
+        </button>
 
-   <label class="field-label" for="prompt">
-    04. Describe Your Background
-   </label>
+      </div>
 
-   <textarea
-    id="prompt"
-    maxlength="500"
-    placeholder="আপনার পছন্দের ব্যাকগ্রাউন্ড কেমন হবে লিখুন...&#10;Example: A beautiful modern photography studio with soft lighting."
-   ></textarea>
+      <label class="field-label" for="prompt">
+        04. Describe Your Background
+      </label>
 
-   <p class="prompt-hint">
-    সর্বোচ্চ ৫০০ অক্ষর | Maximum 500 characters
-   </p>
+      <textarea
+        id="prompt"
+        maxlength="500"
+        placeholder="আপনার পছন্দের ব্যাকগ্রাউন্ড কেমন হবে লিখুন...&#10;Example: A beautiful modern photography studio with soft lighting."
+      ></textarea>
 
+      <p class="prompt-hint">
+        সর্বোচ্চ ৫০০ অক্ষর | Maximum 500 characters
+      </p>
 
-   <button
-    class="generate-btn"
-    type="button"
-    disabled
-   >
-    ✦ Generate AI Background
-   </button>
+      <button
+        class="generate-btn"
+        id="generateBtn"
+        type="button"
+        disabled
+      >
+        ✦ Generate AI Background
+      </button>
 
-   <p class="coming-note">
-    🔒 AI Background Generator – Coming Soon | শিগগিরই চালু হবে
-   </p>
+      <div
+        class="message-box"
+        id="messageBox"
+        role="status"
+        aria-live="polite"
+      ></div>
 
-  </section>
+      <p class="service-status" id="serviceStatus">
+        🔒 Admin access যাচাই করা হচ্ছে...
+      </p>
 
+    </section>
 
-  <section class="panel">
+    <section class="panel">
 
-   <h3>Design Preview</h3>
+      <h3>Design Preview</h3>
+      <p class="panel-subtitle">
+        আপনার নির্বাচিত ছবি এবং AI তৈরি করা ফলাফল এখানে দেখা যাবে।
+      </p>
 
-   <p class="panel-subtitle">
-    আপনার নির্বাচিত ছবির Preview এখানে দেখা যাবে।
-   </p>
+      <div class="preview-stage" id="previewStage">
+        <div class="stage-icon">🖼️</div>
+        <h4>Your Creative Workspace</h4>
+        <p>
+          আপনার ছবি Upload করলে এখানে Preview দেখতে পারবেন।
+          AI-generated image will appear here.
+        </p>
+        <div class="status-pill">● Admin AI Studio</div>
+      </div>
 
-   <div class="preview-stage" id="previewStage">
+      <div class="notice">
+        <strong>গুরুত্বপূর্ণ তথ্য | Important Notice</strong>
+        <br><br>
+        ছবি নির্বাচন করলে শুধু আপনার ব্রাউজারে Preview দেখানো হয়।
+        আপনি Generate বোতামে ক্লিক করলেই ছবিটি AI তৈরির জন্য
+        Cloudflare Worker-এর মাধ্যমে Cloudflare AI-তে পাঠানো হবে।
+        <br><br>
+        AI মডেল ছবির মুখ, পোশাক বা অন্যান্য বিবরণে পরিবর্তন আনতে পারে।
+        তাই ফলাফল আপনার মূল ছবির সঙ্গে পুরোপুরি একরকম থাকবে—এমন নিশ্চয়তা নেই।
+        <br><br>
+        Your photo is sent for AI processing only after you click Generate.
+      </div>
 
-    <div class="stage-icon">🖼️</div>
+    </section>
 
-    <h4>Your Creative Workspace</h4>
+  </div>
 
-    <p>
-     আপনার ছবি Upload করলে এখানে ছবির Preview দেখতে পারবেন।
-     AI Background Generation এখনো চালু হয়নি।
-    </p>
+  <section class="info-grid">
 
-    <div class="status-pill">
-     ● AI Service: Coming Soon
+    <div class="info-card">
+      <span>📷</span>
+      <h4>Photo Upload</h4>
+      <p>নিজের ডিভাইস থেকে ছবি নির্বাচন ও Preview করুন।</p>
     </div>
 
-   </div>
+    <div class="info-card">
+      <span>🎨</span>
+      <h4>Creative Backgrounds</h4>
+      <p>বিভিন্ন ধরনের ব্যাকগ্রাউন্ড ডিজাইনের ধারণা বেছে নিন।</p>
+    </div>
 
-
-   <div class="notice">
-    <strong>গুরুত্বপূর্ণ তথ্য | Important Notice</strong>
-    <br><br>
-    বর্তমানে এই পেজে শুধু ছবি নির্বাচন ও Preview করার সুবিধা চালু আছে।
-    AI দিয়ে ব্যাকগ্রাউন্ড তৈরি বা পরিবর্তনের সুবিধা এখনো সংযুক্ত করা হয়নি।
-    আপনার ছবি কোনো AI সার্ভারে পাঠানো হচ্ছে না।
-   </div>
+    <div class="info-card">
+      <span>🤖</span>
+      <h4>AI Background Design</h4>
+      <p>Admin পরীক্ষামূলকভাবে AI দিয়ে নতুন ব্যাকগ্রাউন্ড তৈরি করতে পারবেন।</p>
+    </div>
 
   </section>
-
- </div>
-
-
- <section class="info-grid">
-
-  <div class="info-card">
-   <span>📷</span>
-   <h4>Photo Upload</h4>
-   <p>নিজের ডিভাইস থেকে ছবি নির্বাচন ও Preview করুন।</p>
-  </div>
-
-  <div class="info-card">
-   <span>🎨</span>
-   <h4>Creative Backgrounds</h4>
-   <p>বিভিন্ন ধরনের ব্যাকগ্রাউন্ড ডিজাইনের ধারণা বেছে নিন।</p>
-  </div>
-
-  <div class="info-card">
-   <span>🤖</span>
-   <h4>AI Design – Coming Soon</h4>
-   <p>ভবিষ্যতে AI সংযোগের মাধ্যমে ব্যাকগ্রাউন্ড তৈরি করা হবে।</p>
-  </div>
-
- </section>
 
 </main>
 
-
 <footer>
- <strong>Rifat AI Photo Studio</strong>
- <br>
- Creative Digital Tools & Services
- <br><br>
- © 2026 Rifat Tools & Documents. All Rights Reserved.
+  <strong>Rifat AI Photo Studio</strong>
+  <br>
+  Creative Digital Tools & Services
+  <br><br>
+  © 2026 Rifat Tools & Documents. All Rights Reserved.
 </footer>
-
 
 <script>
 "use strict";
 
+/* Cloudflare Worker address */
+const API_URL =
+  "https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+
+/* Page elements */
 const photoInput = document.getElementById("photoInput");
 const photoPreview = document.getElementById("photoPreview");
 const previewWrap = document.getElementById("previewWrap");
 const previewStage = document.getElementById("previewStage");
 const removePhoto = document.getElementById("removePhoto");
+const backgroundType = document.getElementById("backgroundType");
+const promptInput = document.getElementById("prompt");
+const generateBtn = document.getElementById("generateBtn");
+const messageBox = document.getElementById("messageBox");
+const serviceStatus = document.getElementById("serviceStatus");
 
+/* Current page state */
+let selectedFile = null;
 let currentImageURL = null;
+let generatedImageURL = null;
+let adminVerified = false;
 
+/* Get login token */
+function getToken(){
+  return localStorage.getItem("rifat_ai_token") ||
+         sessionStorage.getItem("rifat_ai_token") ||
+         "";
+}
 
-/* Image upload and local preview */
+/* Show message */
+function showMessage(message, type="info"){
+  messageBox.textContent = message;
+  messageBox.className = "message-box " + type;
+}
 
+/* Clear message */
+function clearMessage(){
+  messageBox.textContent = "";
+  messageBox.className = "message-box";
+}
+
+/* Login link */
+function addLoginLink(){
+  const link = document.createElement("a");
+  link.href = "login.html";
+  link.textContent = " Login Page";
+  serviceStatus.appendChild(link);
+}
+
+/* Preview placeholder */
+function setPreviewPlaceholder(){
+  previewStage.innerHTML = `
+    <div class="stage-icon">🖼️</div>
+    <h4>Your Creative Workspace</h4>
+    <p>AI দিয়ে তৈরি করা ছবি এখানে দেখা যাবে। Generated image will appear here.</p>
+    <div class="status-pill">● Admin AI Studio</div>
+  `;
+}
+
+/* Update Generate button */
+function updateGenerateButton(){
+  generateBtn.disabled =
+    !(adminVerified && selectedFile) ||
+    generateBtn.dataset.busy === "true";
+}
+
+/* Verify Admin using Worker */
+async function verifyAdmin(){
+
+  const token = getToken();
+
+  adminVerified = false;
+  updateGenerateButton();
+
+  if(!token){
+    serviceStatus.textContent =
+      "🔒 প্রথমে Admin হিসেবে Login করুন | Please login as Admin.";
+
+    addLoginLink();
+
+    showMessage(
+      "এই AI টুলটি আপাতত শুধু Admin-এর পরীক্ষার জন্য। Login করার পর এই পেজে ফিরে আসুন।",
+      "error"
+    );
+
+    return;
+  }
+
+  try{
+
+    const response = await fetch(API_URL + "/api/admin/me", {
+      method:"GET",
+      headers:{
+        "Authorization":"Bearer " + token
+      }
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if(!response.ok || !data.success){
+
+      if(response.status === 401){
+
+        serviceStatus.textContent =
+          "🔒 Login session শেষ হয়েছে | Please login again.";
+
+        addLoginLink();
+
+        showMessage(
+          "আপনার Login session আর বৈধ নেই। আবার Login করুন।",
+          "error"
+        );
+
+      }else if(response.status === 403){
+
+        serviceStatus.textContent =
+          "⛔ Admin access required.";
+
+        showMessage(
+          "এই সুবিধাটি শুধু Admin ব্যবহার করতে পারবেন। সাধারণ User অ্যাকাউন্ট দিয়ে AI Generate করা যাবে না।",
+          "error"
+        );
+
+      }else{
+
+        serviceStatus.textContent =
+          "⚠️ Admin যাচাই করা যায়নি | Admin verification failed.";
+
+        showMessage(
+          data.message || "সার্ভারের সঙ্গে যোগাযোগ করা যায়নি। পরে আবার চেষ্টা করুন।",
+          "error"
+        );
+      }
+
+      return;
+    }
+
+    adminVerified = true;
+
+    serviceStatus.textContent =
+      "✓ Admin verified | AI service ready for controlled testing.";
+
+    showMessage(
+      "Admin access সফলভাবে যাচাই হয়েছে। ছবি নির্বাচন করে Generate করতে পারবেন।",
+      "success"
+    );
+
+    updateGenerateButton();
+
+  }catch(error){
+
+    console.error("Admin verification error:", error);
+
+    serviceStatus.textContent =
+      "⚠️ সংযোগ সমস্যা | Connection problem.";
+
+    showMessage(
+      "Worker-এর সঙ্গে সংযোগ করা যায়নি। ইন্টারনেট ও Worker URL পরীক্ষা করুন।",
+      "error"
+    );
+  }
+}
+
+/* Photo upload */
 photoInput.addEventListener("change", function(){
 
- const file = this.files && this.files[0];
+  const file = this.files && this.files[0];
 
- if(!file) return;
+  if(!file) return;
 
- const allowedTypes = [
-  "image/jpeg",
-  "image/png",
-  "image/webp"
- ];
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ];
 
- if(!allowedTypes.includes(file.type)){
-  alert("শুধু JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।");
-  this.value = "";
-  return;
- }
+  if(!allowedTypes.includes(file.type)){
 
- if(file.size > 8 * 1024 * 1024){
-  alert("ছবির সাইজ সর্বোচ্চ 8 MB হতে পারবে।");
-  this.value = "";
-  return;
- }
+    showMessage(
+      "শুধু JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।",
+      "error"
+    );
 
- if(currentImageURL){
-  URL.revokeObjectURL(currentImageURL);
- }
+    this.value = "";
+    selectedFile = null;
+    updateGenerateButton();
+    return;
+  }
 
- currentImageURL = URL.createObjectURL(file);
+  if(file.size > 8 * 1024 * 1024){
 
- photoPreview.src = currentImageURL;
- previewWrap.style.display = "block";
+    showMessage(
+      "ছবির সাইজ সর্বোচ্চ 8 MB হতে পারবে।",
+      "error"
+    );
 
- previewStage.innerHTML = "";
+    this.value = "";
+    selectedFile = null;
+    updateGenerateButton();
+    return;
+  }
 
- const image = document.createElement("img");
- image.src = currentImageURL;
- image.alt = "Selected photo";
- image.style.maxWidth = "100%";
- image.style.maxHeight = "260px";
- image.style.objectFit = "contain";
- image.style.borderRadius = "10px";
+  selectedFile = file;
 
- const title = document.createElement("h4");
- title.textContent = "Your Uploaded Photo";
- title.style.marginTop = "12px";
+  if(currentImageURL){
+    URL.revokeObjectURL(currentImageURL);
+  }
 
- const note = document.createElement("p");
- note.textContent =
-  "ছবিটি শুধু আপনার ব্রাউজারে Preview হচ্ছে।";
+  currentImageURL = URL.createObjectURL(file);
 
- previewStage.appendChild(image);
- previewStage.appendChild(title);
- previewStage.appendChild(note);
+  photoPreview.src = currentImageURL;
+  previewWrap.style.display = "block";
 
+  clearMessage();
+
+  previewStage.innerHTML = "";
+
+  const image = document.createElement("img");
+  image.src = currentImageURL;
+  image.alt = "Selected photo preview";
+  image.style.maxWidth = "100%";
+  image.style.maxHeight = "260px";
+  image.style.objectFit = "contain";
+  image.style.borderRadius = "10px";
+
+  const title = document.createElement("h4");
+  title.textContent = "Your Uploaded Photo";
+  title.style.marginTop = "12px";
+
+  const note = document.createElement("p");
+  note.textContent =
+    "এটি আপনার মূল ছবির Preview। Generate চাপার আগে ছবিটি AI সার্ভারে পাঠানো হবে না।";
+
+  previewStage.append(image, title, note);
+
+  updateGenerateButton();
 });
-
 
 /* Remove selected photo */
-
 removePhoto.addEventListener("click", function(){
 
- photoInput.value = "";
- photoPreview.removeAttribute("src");
- previewWrap.style.display = "none";
+  photoInput.value = "";
+  selectedFile = null;
 
- if(currentImageURL){
-  URL.revokeObjectURL(currentImageURL);
-  currentImageURL = null;
- }
+  photoPreview.removeAttribute("src");
+  previewWrap.style.display = "none";
 
- previewStage.innerHTML = `
-  <div class="stage-icon">🖼️</div>
-  <h4>Your Creative Workspace</h4>
-  <p>
-   আপনার ছবি Upload করলে এখানে ছবির Preview দেখতে পারবেন।
-   AI Background Generation এখনো চালু হয়নি।
-  </p>
-  <div class="status-pill">● AI Service: Coming Soon</div>
- `;
+  if(currentImageURL){
+    URL.revokeObjectURL(currentImageURL);
+    currentImageURL = null;
+  }
 
+  if(generatedImageURL){
+    URL.revokeObjectURL(generatedImageURL);
+    generatedImageURL = null;
+  }
+
+  setPreviewPlaceholder();
+  clearMessage();
+  updateGenerateButton();
 });
 
-
-/* Select background category */
-
-const backgroundType =
- document.getElementById("backgroundType");
-
+/* Quick category buttons */
 document.querySelectorAll(".category").forEach(button => {
 
- button.addEventListener("click", function(){
+  button.addEventListener("click", function(){
 
-  const value = this.dataset.value;
+    backgroundType.value = this.dataset.value;
 
-  backgroundType.value = value;
+    document.querySelectorAll(".category").forEach(item => {
+      item.classList.remove("active");
+    });
 
-  document.querySelectorAll(".category").forEach(item => {
-   item.classList.remove("active");
+    this.classList.add("active");
   });
 
-  this.classList.add("active");
-
- });
-
 });
 
-
+/* Category dropdown */
 backgroundType.addEventListener("change", function(){
 
- document.querySelectorAll(".category").forEach(item => {
+  document.querySelectorAll(".category").forEach(item => {
 
-  item.classList.toggle(
-   "active",
-   item.dataset.value === this.value
-  );
+    item.classList.toggle(
+      "active",
+      item.dataset.value === this.value
+    );
 
- });
+  });
 
 });
+
+/* Load image for resizing */
+function loadImageForResize(file){
+
+  if("createImageBitmap" in window){
+    return createImageBitmap(file);
+  }
+
+  return new Promise((resolve, reject) => {
+
+    const image = new Image();
+    const tempURL = URL.createObjectURL(file);
+
+    image.onload = () => {
+      URL.revokeObjectURL(tempURL);
+      resolve(image);
+    };
+
+    image.onerror = () => {
+      URL.revokeObjectURL(tempURL);
+      reject(new Error("ছবিটি পড়া যাচ্ছে না। অন্য ছবি নির্বাচন করুন।"));
+    };
+
+    image.src = tempURL;
+
+  });
+}
+
+/* Convert image to small JPEG for AI model */
+async function prepareSmallImage(file){
+
+  const image = await loadImageForResize(file);
+
+  const originalWidth = image.width || image.naturalWidth;
+  const originalHeight = image.height || image.naturalHeight;
+
+  if(!originalWidth || !originalHeight){
+    throw new Error("ছবির সঠিক মাপ পাওয়া যায়নি।");
+  }
+
+  /* AI input image must remain below 512 x 512 */
+  const maxSide = 480;
+
+  const scale = Math.min(
+    1,
+    maxSide / Math.max(originalWidth, originalHeight)
+  );
+
+  const width = Math.max(1, Math.round(originalWidth * scale));
+  const height = Math.max(1, Math.round(originalHeight * scale));
+
+  const canvas = document.createElement("canvas");
+
+  canvas.width = width;
+  canvas.height = height;
+
+  const context = canvas.getContext("2d");
+
+  if(!context){
+    throw new Error("ছবি প্রস্তুত করা যাচ্ছে না।");
+  }
+
+  context.drawImage(image, 0, 0, width, height);
+
+  if(typeof image.close === "function"){
+    image.close();
+  }
+
+  /* First attempt */
+  let blob = await new Promise((resolve, reject) => {
+
+    canvas.toBlob(result => {
+      if(result) resolve(result);
+      else reject(new Error("ছবি ছোট করে তৈরি করা যায়নি।"));
+    }, "image/jpeg", 0.85);
+
+  });
+
+  /* If still over 1 MB, reduce quality */
+  if(blob.size > 1024 * 1024){
+
+    blob = await new Promise((resolve, reject) => {
+
+      canvas.toBlob(result => {
+        if(result) resolve(result);
+        else reject(new Error("ছবি কমপ্রেস করা যায়নি।"));
+      }, "image/jpeg", 0.65);
+
+    });
+
+  }
+
+  if(width >= 512 || height >= 512){
+    throw new Error("ছবির মাপ 512 পিক্সেলের কম হতে হবে।");
+  }
+
+  if(blob.size > 1024 * 1024){
+    throw new Error(
+      "ছোট করার পরও ছবির ফাইল 1 MB-এর বেশি হয়েছে। অন্য ছবি ব্যবহার করুন।"
+    );
+  }
+
+  return blob;
+}
+
+/* Convert base64 result to Blob */
+function base64ToBlob(base64, mimeType){
+
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+
+  for(let i = 0; i < binary.length; i++){
+    bytes[i] = binary.charCodeAt(i);
+  }
+
+  return new Blob(
+    [bytes],
+    {type:mimeType || "image/png"}
+  );
+}
+
+/* Show generated AI image */
+function showGeneratedImage(base64, mimeType){
+
+  const blob = base64ToBlob(base64, mimeType);
+
+  if(generatedImageURL){
+    URL.revokeObjectURL(generatedImageURL);
+  }
+
+  generatedImageURL = URL.createObjectURL(blob);
+
+  previewStage.innerHTML = "";
+
+  const image = document.createElement("img");
+  image.className = "result-image";
+  image.src = generatedImageURL;
+  image.alt = "AI generated background result";
+
+  const title = document.createElement("h4");
+  title.textContent = "AI Generated Result";
+
+  const note = document.createElement("p");
+  note.textContent =
+    "ফলাফল পছন্দ হলে নিচের Download বোতামে ক্লিক করুন।";
+
+  const download = document.createElement("a");
+  download.className = "download-btn";
+  download.href = generatedImageURL;
+  download.download = "rifat-ai-background.png";
+  download.textContent = "⬇ Download Image";
+
+  previewStage.append(
+    image,
+    title,
+    note,
+    download
+  );
+}
+
+/* Generate AI background */
+generateBtn.addEventListener("click", async function(){
+
+  if(!adminVerified){
+
+    showMessage(
+      "প্রথমে Admin হিসেবে Login এবং যাচাই সম্পন্ন করুন।",
+      "error"
+    );
+
+    return;
+  }
+
+  if(!selectedFile){
+
+    showMessage(
+      "প্রথমে একটি ছবি আপলোড করুন।",
+      "error"
+    );
+
+    return;
+  }
+
+  if(!backgroundType.value){
+
+    showMessage(
+      "একটি Background Category নির্বাচন করুন।",
+      "error"
+    );
+
+    return;
+  }
+
+  if(promptInput.value.length > 500){
+
+    showMessage(
+      "Prompt সর্বোচ্চ 500 অক্ষরের হতে পারবে।",
+      "error"
+    );
+
+    return;
+  }
+
+  const token = getToken();
+
+  if(!token){
+
+    adminVerified = false;
+    updateGenerateButton();
+
+    showMessage(
+      "Login session পাওয়া যায়নি। আবার Login করুন।",
+      "error"
+    );
+
+    return;
+  }
+
+  generateBtn.dataset.busy = "true";
+  generateBtn.disabled = true;
+  generateBtn.textContent = "⏳ AI ছবি তৈরি করছে...";
+
+  showMessage(
+    "আপনার ছবি ছোট করে AI সার্ভারে পাঠানো হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।",
+    "info"
+  );
+
+  try{
+
+    /* Resize before sending */
+    const smallImage = await prepareSmallImage(selectedFile);
+
+    const formData = new FormData();
+
+    formData.append(
+      "image",
+      smallImage,
+      "input-photo.jpg"
+    );
+
+    formData.append(
+      "category",
+      backgroundType.value
+    );
+
+    formData.append(
+      "prompt",
+      promptInput.value.trim()
+    );
+
+    /* Send request to Cloudflare Worker */
+    const response = await fetch(
+      API_URL + "/api/edit-image",
+      {
+        method:"POST",
+
+        headers:{
+          "Authorization":"Bearer " + token
+        },
+
+        body:formData
+      }
+    );
+
+    const data = await response.json().catch(() => ({}));
+
+    if(!response.ok || !data.success){
+
+      if(response.status === 401 || response.status === 403){
+
+        adminVerified = false;
+
+        serviceStatus.textContent =
+          "🔒 Admin session/access যাচাই প্রয়োজন।";
+      }
+
+      throw new Error(
+        data.message || "AI ছবি তৈরি করা যায়নি। আবার চেষ্টা করুন।"
+      );
+    }
+
+    if(typeof data.image !== "string" || !data.image){
+
+      throw new Error(
+        "AI থেকে বৈধ ছবি পাওয়া যায়নি।"
+      );
+    }
+
+    showGeneratedImage(
+      data.image,
+      data.mimeType || "image/png"
+    );
+
+    showMessage(
+      "AI ছবি তৈরি হয়েছে। চাইলে Download Image বোতামে ক্লিক করুন।",
+      "success"
+    );
+
+  }catch(error){
+
+    console.error("AI generation error:", error);
+
+    showMessage(
+      error.message || "একটি সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।",
+      "error"
+    );
+
+  }finally{
+
+    generateBtn.dataset.busy = "false";
+    generateBtn.textContent = "✦ Generate AI Background";
+
+    updateGenerateButton();
+  }
+
+});
+
+/* Initial page setup */
+setPreviewPlaceholder();
+verifyAdmin();
 
 </script>
 
