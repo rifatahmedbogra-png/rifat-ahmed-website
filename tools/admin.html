@@ -6,97 +6,141 @@
 <title>Rifat AI Photo Studio - Admin Panel</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f1f5f9;
+  color:#172b4d;
 }
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f1f5f9;
-  color: #172b4d;
+header{
+  background:linear-gradient(135deg,#071d35,#1769aa);
+  color:white;
+  padding:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
 }
-
-header {
-  background: linear-gradient(135deg, #071d35, #1769aa);
-  color: white;
-  padding: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
+header h1{margin:0;font-size:23px}
+header p{margin:7px 0 0;color:#dbeafe}
+button{
+  border:0;
+  border-radius:7px;
+  padding:10px 15px;
+  cursor:pointer;
+  font-weight:bold;
 }
-
-header h1 {
-  margin: 0;
-  font-size: 23px;
+button:disabled{opacity:.5;cursor:not-allowed}
+.logout{background:#ef4444;color:white}
+main{max-width:1150px;margin:25px auto;padding:0 16px}
+.welcome,.card,.section{
+  background:white;
+  padding:22px;
+  border-radius:12px;
+  margin-bottom:18px;
+  box-shadow:0 3px 12px #0000000d;
 }
-
-header p {
-  margin: 7px 0 0;
-  color: #dbeafe;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
 }
-
-button {
-  border: 0;
-  border-radius: 7px;
-  padding: 11px 18px;
-  cursor: pointer;
-  font-weight: bold;
+.card h3{margin-top:0;color:#1769aa}
+.card p{color:#64748b;line-height:1.6}
+.section h2{margin-top:0;color:#102a43}
+.status{color:#15803d;font-weight:bold}
+.tool-link{
+  display:inline-block;
+  margin-top:5px;
+  color:#1769aa;
+  font-weight:bold;
 }
-
-.logout {
-  background: #ef4444;
-  color: white;
+.logout{background:#ef4444;color:white}
+.primary{background:#1769aa;color:white}
+.success{background:#15803d;color:white}
+.danger{background:#dc2626;color:white}
+.secondary{background:#e2e8f0;color:#172b4d}
+.small{padding:7px 10px;font-size:12px}
+.table-wrap{overflow-x:auto}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:650px;
 }
-
-main {
-  max-width: 1100px;
-  margin: 25px auto;
-  padding: 0 16px;
+th,td{
+  padding:12px;
+  text-align:left;
+  border-bottom:1px solid #e2e8f0;
+  font-size:14px;
 }
-
-.welcome, .card {
-  background: white;
-  padding: 22px;
-  border-radius: 12px;
-  margin-bottom: 18px;
-  box-shadow: 0 3px 12px #0000000d;
+th{background:#f1f5f9;color:#334155}
+input,select{
+  width:100%;
+  padding:10px;
+  border:1px solid #cbd5e1;
+  border-radius:7px;
+  margin:5px 0;
+  background:white;
 }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  align-items:end;
 }
-
-.card h3 {
-  margin-top: 0;
-  color: #1769aa;
+.service-card{
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  padding:16px;
+  margin:12px 0;
 }
-
-.card p {
-  color: #64748b;
-  line-height: 1.6;
+.service-card h3{margin:0 0 8px;color:#1769aa}
+.service-card label{font-size:13px;font-weight:bold}
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
 }
-
-.status {
-  color: #15803d;
-  font-weight: bold;
+.active{background:#dcfce7;color:#166534}
+.blocked{background:#fee2e2;color:#991b1b}
+.enabled{background:#dcfce7;color:#166534}
+.disabled{background:#e2e8f0;color:#475569}
+.notice{
+  background:#eff6ff;
+  border-left:4px solid #1769aa;
+  padding:13px;
+  border-radius:6px;
+  line-height:1.6;
+  color:#1e3a5f;
+  margin:12px 0;
 }
-
-#message {
-  text-align: center;
-  padding: 35px 15px;
-  font-weight: bold;
+.error{
+  background:#fee2e2;
+  color:#991b1b;
+  padding:12px;
+  border-radius:7px;
 }
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #64748b;
+.success-msg{
+  background:#dcfce7;
+  color:#166534;
+  padding:12px;
+  border-radius:7px;
 }
+#message{
+  text-align:center;
+  padding:35px 15px;
+  font-weight:bold;
+}
+footer{
+  text-align:center;
+  padding:25px;
+  color:#64748b;
+}
+[hidden]{display:none!important}
 </style>
 </head>
 
@@ -111,184 +155,635 @@ footer {
     <h1>Rifat AI Photo Studio</h1>
     <p>Secure Admin Dashboard</p>
   </div>
-  <button class="logout" onclick="logout()">Logout</button>
+  <button class="logout" id="logoutBtn">Logout</button>
 </header>
 
 <main>
 
-  <section class="welcome">
-    <h2>স্বাগতম, <span id="adminName">Admin</span></h2>
-    <p class="status">● Admin Access Verified</p>
-    <p>আপনি সফলভাবে Admin Panel-এ প্রবেশ করেছেন।</p>
-  </section>
 <section class="welcome">
-  <h2>My Tools – আমার ৯টি টুলস</h2>
-  <p>আপনার অনলাইন টুলসগুলো এখান থেকে সরাসরি খুলতে পারবেন।</p>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Photo Editor</h3>
-      <p>ছবি সম্পাদনা ও প্রয়োজনীয় কাজ</p>
-      <a href="photo-editor.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>Basic Editor</h3>
-      <p>সাধারণ ছবি সম্পাদনার টুলস</p>
-      <a href="basic-editor.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>Crop Tools</h3>
-      <p>ছবি কাটুন ও সঠিক মাপে আনুন</p>
-      <a href="crop-tools.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>Effects Tools</h3>
-      <p>ছবিতে সুন্দর ইফেক্ট ব্যবহার করুন</p>
-      <a href="effects-tools.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>Color & Light Tools</h3>
-      <p>রং ও আলোর পরিবর্তন করুন</p>
-      <a href="color-light-tools.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>Text Design Tools</h3>
-      <p>ছবিতে সুন্দর লেখা তৈরি করুন</p>
-      <a href="text-design-tools.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>Background Effects</h3>
-      <p>ব্যাকগ্রাউন্ড নিয়ে কাজ করুন</p>
-      <a href="background-effects-studio.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>Passport Photo Tools</h3>
-      <p>পাসপোর্ট ও প্রয়োজনীয় ছবি তৈরি</p>
-      <a href="passport-tools.html">Open Tool →</a>
-    </div>
-
-    <div class="card">
-      <h3>AI Tools</h3>
-      <p>কৃত্রিম বুদ্ধিমত্তাভিত্তিক টুলস</p>
-      <a href="ai-tools.html">Open Tool →</a>
-    </div>
-
-  </div>
+  <h2>স্বাগতম, <span id="adminName">Admin</span></h2>
+  <p class="status">● Admin Access Verified</p>
+  <p>আপনি সফলভাবে Admin Panel-এ প্রবেশ করেছেন।</p>
 </section>
-  <section class="grid">
 
-    <div class="card">
-      <h3>User Management</h3>
-      <p>ওয়েবসাইটের User অ্যাকাউন্ট পরিচালনার বিভাগ।</p>
-      <strong>পরবর্তী ধাপে তৈরি হবে</strong>
-    </div>
+<div id="noticeArea" aria-live="polite"></div>
 
-    <div class="card">
-      <h3>AI Services</h3>
-      <p>AI Photo Studio-এর সার্ভিস পরিচালনার বিভাগ।</p>
-      <strong>পরবর্তী ধাপে তৈরি হবে</strong>
-    </div>
+<!-- MY TOOLS -->
 
-    <div class="card">
-      <h3>Usage Limit</h3>
-      <p>User-দের ব্যবহারের সীমা নিয়ন্ত্রণের বিভাগ।</p>
-      <strong>পরবর্তী ধাপে তৈরি হবে</strong>
-    </div>
+<section class="welcome">
+<h2>My Tools – আমার ৯টি টুলস</h2>
+<p>আপনার অনলাইন টুলসগুলো এখান থেকে সরাসরি খুলতে পারবেন।</p>
 
-    <div class="card">
-      <h3>Admin Security</h3>
-      <p>Admin অ্যাকাউন্টের নিরাপত্তা ও প্রবেশাধিকার।</p>
-      <strong>Admin Access Protected</strong>
-    </div>
+<div class="grid">
 
-  </section>
+<div class="card">
+<h3>Photo Editor</h3>
+<p>ছবি সম্পাদনা ও প্রয়োজনীয় কাজ</p>
+<a class="tool-link" href="photo-editor.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>Basic Editor</h3>
+<p>সাধারণ ছবি সম্পাদনার টুলস</p>
+<a class="tool-link" href="basic-editor.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>Crop Tools</h3>
+<p>ছবি কাটুন ও সঠিক মাপে আনুন</p>
+<a class="tool-link" href="crop-tools.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>Effects Tools</h3>
+<p>ছবিতে সুন্দর ইফেক্ট ব্যবহার করুন</p>
+<a class="tool-link" href="effects-tools.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>Color & Light Tools</h3>
+<p>রং ও আলোর পরিবর্তন করুন</p>
+<a class="tool-link" href="color-light-tools.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>Text Design Tools</h3>
+<p>ছবিতে সুন্দর লেখা তৈরি করুন</p>
+<a class="tool-link" href="text-design-tools.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>Background Effects</h3>
+<p>ব্যাকগ্রাউন্ড নিয়ে কাজ করুন</p>
+<a class="tool-link" href="background-effects-studio.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>Passport Photo Tools</h3>
+<p>পাসপোর্ট ও প্রয়োজনীয় ছবি তৈরি</p>
+<a class="tool-link" href="passport-tools.html">Open Tool →</a>
+</div>
+
+<div class="card">
+<h3>AI Tools</h3>
+<p>কৃত্রিম বুদ্ধিমত্তাভিত্তিক টুলস</p>
+<a class="tool-link" href="ai-tools.html">Open Tool →</a>
+</div>
+
+</div>
+</section>
+
+<!-- USER MANAGEMENT -->
+
+<section class="section" id="usersSection">
+<h2>👥 User Management</h2>
+<p>ওয়েবসাইটের সদস্যদের অ্যাকাউন্ট দেখুন এবং Active বা Blocked করুন।</p>
+
+<button class="primary" id="refreshUsers">Refresh Users</button>
+
+<div class="table-wrap" style="margin-top:15px">
+<table>
+<thead>
+<tr>
+<th>নাম</th>
+<th>Email</th>
+<th>Role</th>
+<th>Status</th>
+<th>যোগদানের তারিখ</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="usersTable">
+<tr><td colspan="6">তথ্য লোড হচ্ছে...</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- AI SERVICES -->
+
+<section class="section" id="servicesSection">
+<h2>🤖 AI Services</h2>
+<p>আপনার AI Photo Studio-এর সার্ভিস চালু বা বন্ধ করুন।</p>
+
+<div class="notice">
+সার্ভিস Enable করলে সেটি চালু হিসেবে সংরক্ষিত হবে। সংশ্লিষ্ট AI API-তেও Enable যাচাই যুক্ত না হওয়া পর্যন্ত এটি একা সার্ভিস চালু বা বন্ধ করবে না।
+</div>
+
+<button class="primary" id="refreshServices">Refresh Services</button>
+<div id="servicesList">
+তথ্য লোড হচ্ছে...
+</div>
+</section>
+
+<!-- USAGE LIMIT -->
+
+<section class="section" id="limitsSection">
+<h2>⚙️ Usage Limit</h2>
+<p>প্রতিটি AI সার্ভিসের দৈনিক ও মাসিক সীমা নির্ধারণ করুন।</p>
+
+<div class="notice">
+ফাঁকা ঘর = Unlimited (সীমাহীন)। ০ = কোনো ব্যবহার অনুমোদিত নয়।
+এই সীমাগুলো বর্তমানে ডেটাবেজে সংরক্ষণ হবে; AI ব্যবহারের সময় প্রয়োগের জন্য Worker-এর অতিরিক্ত কোড প্রয়োজন।
+</div>
+
+<button class="primary" id="refreshLimits">Refresh Limits</button>
+<div id="limitsList">
+তথ্য লোড হচ্ছে...
+</div>
+</section>
+
+<!-- USAGE RECORDS -->
+
+<section class="section" id="recordsSection">
+<h2>📊 Usage Records</h2>
+<p>সিস্টেমে সংরক্ষিত AI ব্যবহারের রেকর্ড দেখুন।</p>
+
+<button class="primary" id="refreshRecords">Refresh Records</button>
+
+<div class="table-wrap" style="margin-top:15px">
+<table>
+<thead>
+<tr>
+<th>সদস্য</th>
+<th>Email</th>
+<th>সার্ভিস</th>
+<th>সময়</th>
+</tr>
+</thead>
+<tbody id="recordsTable">
+<tr><td colspan="4">রেকর্ড লোড হচ্ছে...</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ADMIN SECURITY -->
+
+<section class="section">
+<h2>🔐 Admin Security</h2>
+<p>Admin অ্যাকাউন্টের নিরাপত্তা ও প্রবেশাধিকার।</p>
+<p class="status">● Admin Access Protected</p>
+<div class="notice">
+Admin Panel-এ প্রবেশের আগে Cloudflare Worker-এর মাধ্যমে Login Session এবং Admin Role যাচাই করা হয়।
+সাধারণ সদস্যদের Admin API ব্যবহারের অনুমতি নেই।
+</div>
+</section>
 
 </main>
 
 <footer>
-  © 2026 Rifat AI Photo Studio | Admin Panel
+© 2026 Rifat AI Photo Studio | Admin Panel
 </footer>
 
 </div>
 
 <script>
+"use strict";
+
 const API_URL =
 "https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
 
-async function verifyAdmin() {
-  const token =
-    localStorage.getItem("rifat_ai_token") ||
-    sessionStorage.getItem("rifat_ai_token");
+const $ = id => document.getElementById(id);
 
-  if (!token) {
+let authToken = null;
+
+function getToken(){
+  return localStorage.getItem("rifat_ai_token") ||
+         sessionStorage.getItem("rifat_ai_token");
+}
+
+function escapeHTML(value){
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[char]);
+}
+
+function showNotice(message, type="success"){
+  const box = document.createElement("div");
+  box.className = type === "error" ? "error" : "success-msg";
+  box.textContent = message;
+  $("noticeArea").replaceChildren(box);
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+async function api(path, options={}){
+  const response = await fetch(API_URL + path, {
+    method: options.method || "GET",
+    headers: {
+      "Authorization":"Bearer " + authToken,
+      ...(options.body ? {"Content-Type":"application/json"} : {})
+    },
+    ...(options.body ? {body:JSON.stringify(options.body)} : {})
+  });
+
+  let result;
+
+  try{
+    result = await response.json();
+  }catch{
+    throw new Error("সার্ভার থেকে সঠিক উত্তর পাওয়া যায়নি।");
+  }
+
+  if(response.status === 401){
+    throw new Error("আপনার Login Session শেষ হয়েছে। আবার Login করুন।");
+  }
+
+  if(response.status === 403){
+    throw new Error("Admin অনুমতি পাওয়া যায়নি।");
+  }
+
+  if(!response.ok || !result.success){
+    throw new Error(result.message || "অনুরোধটি সম্পন্ন হয়নি।");
+  }
+
+  return result;
+}
+
+function formatDate(value){
+  if(!value) return "—";
+
+  const date = new Date(value);
+
+  if(Number.isNaN(date.getTime())){
+    return String(value);
+  }
+
+  return date.toLocaleString("bn-BD");
+}
+
+async function verifyAdmin(){
+  authToken = getToken();
+
+  if(!authToken){
     window.location.replace("login.html");
     return;
   }
 
-  try {
-    const response = await fetch(API_URL + "/api/admin/me", {
-      method: "GET",
-      headers: {
-        "Authorization": "Bearer " + token
-      }
-    });
+  try{
+    const result = await api("/api/admin/me");
 
-    const result = await response.json();
-
-    if (response.status === 401) {
-      document.getElementById("message").textContent =
-        "Login session শেষ হয়েছে। আবার Login করুন।";
+    if(!result.user || result.user.role !== "admin"){
+      $("message").textContent = "Admin Access Denied.";
       return;
     }
 
-    if (response.status === 403) {
-      document.getElementById("message").textContent =
-        "Admin Access Denied.";
-      return;
-    }
-
-    if (!response.ok || !result.success ||
-        result.user?.role !== "admin") {
-      document.getElementById("message").textContent =
-        "Admin অনুমতি যাচাই করা যায়নি।";
-      return;
-    }
-
-    document.getElementById("adminName").textContent =
+    $("adminName").textContent =
       result.user.name || "Admin";
 
-    document.getElementById("message").hidden = true;
-    document.getElementById("panel").hidden = false;
+    $("message").hidden = true;
+    $("panel").hidden = false;
 
-  } catch (error) {
-    document.getElementById("message").textContent =
-      "Server connection failed. আবার চেষ্টা করুন।";
+    await Promise.allSettled([
+      loadUsers(),
+      loadServices(),
+      loadLimits(),
+      loadRecords()
+    ]);
+
+  }catch(error){
+    $("message").textContent = error.message;
+
+    if(error.message.includes("Session শেষ")){
+      setTimeout(() => {
+        window.location.replace("login.html");
+      },1500);
+    }
   }
 }
 
-async function logout() {
-  const token =
-    localStorage.getItem("rifat_ai_token") ||
-    sessionStorage.getItem("rifat_ai_token");
+// ================================
+// USER MANAGEMENT
+// ================================
 
-  try {
-    if (token) {
-      await fetch(API_URL + "/api/logout", {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer " + token
+async function loadUsers(){
+  $("usersTable").innerHTML =
+    '<tr><td colspan="6">তথ্য লোড হচ্ছে...</td></tr>';
+
+  try{
+    const result = await api("/api/admin/users");
+    const users = result.users || [];
+
+    if(!users.length){
+      $("usersTable").innerHTML =
+        '<tr><td colspan="6">কোনো সদস্য পাওয়া যায়নি।</td></tr>';
+      return;
+    }
+
+    $("usersTable").innerHTML = users.map(user => {
+      const status = user.status === "active" ? "active" : "blocked";
+      const isNormalUser = user.role === "user";
+
+      return `
+      <tr>
+        <td>${escapeHTML(user.name)}</td>
+        <td>${escapeHTML(user.email)}</td>
+        <td>${escapeHTML(user.role)}</td>
+        <td>
+          <span class="badge ${status}">
+            ${escapeHTML(user.status)}
+          </span>
+        </td>
+        <td>${escapeHTML(formatDate(user.created_at))}</td>
+        <td>
+          ${
+            isNormalUser
+            ? `<button class="${status === "active" ? "danger" : "success"} small"
+                 data-user-id="${escapeHTML(user.id)}"
+                 data-user-status="${status === "active" ? "blocked" : "active"}">
+                 ${status === "active" ? "Block" : "Active"}
+               </button>`
+            : "Admin"
+          }
+        </td>
+      </tr>`;
+    }).join("");
+
+  }catch(error){
+    $("usersTable").innerHTML =
+      `<tr><td colspan="6">${escapeHTML(error.message)}</td></tr>`;
+  }
+}
+
+$("usersTable").addEventListener("click", async event => {
+  const button = event.target.closest("button[data-user-id]");
+  if(!button) return;
+
+  const userId = button.dataset.userId;
+  const newStatus = button.dataset.userStatus;
+
+  const confirmText = newStatus === "blocked"
+    ? "এই সদস্যকে Block করতে চান?"
+    : "এই সদস্যকে আবার Active করতে চান?";
+
+  if(!confirm(confirmText)) return;
+
+  button.disabled = true;
+
+  try{
+    const result = await api("/api/admin/users/status",{
+      method:"POST",
+      body:{
+        user_id:userId,
+        status:newStatus
+      }
+    });
+
+    showNotice(result.message || "User status updated.");
+    await loadUsers();
+
+  }catch(error){
+    showNotice(error.message,"error");
+    button.disabled = false;
+  }
+});
+
+$("refreshUsers").addEventListener("click",loadUsers);
+
+// ================================
+// AI SERVICES
+// ================================
+
+async function loadServices(){
+  $("servicesList").textContent = "তথ্য লোড হচ্ছে...";
+
+  try{
+    const result = await api("/api/admin/services");
+    const services = result.services || [];
+
+    if(!services.length){
+      $("servicesList").textContent =
+        "কোনো AI Service পাওয়া যায়নি।";
+      return;
+    }
+
+    $("servicesList").innerHTML = services.map(service => {
+      const isEnabled = Number(service.enabled) === 1;
+
+      return `
+      <div class="service-card">
+        <h3>${escapeHTML(service.service_name)}</h3>
+        <p>Service Key: ${escapeHTML(service.service_key)}</p>
+
+        <p>
+          অবস্থা:
+          <span class="badge ${isEnabled ? "enabled" : "disabled"}">
+            ${isEnabled ? "Enabled" : "Disabled"}
+          </span>
+        </p>
+
+        <button
+          class="${isEnabled ? "danger" : "success"}"
+          data-service-key="${escapeHTML(service.service_key)}"
+          data-service-enabled="${isEnabled ? "0" : "1"}">
+          ${isEnabled ? "Disable Service" : "Enable Service"}
+        </button>
+      </div>`;
+    }).join("");
+
+  }catch(error){
+    $("servicesList").textContent = error.message;
+  }
+}
+
+$("servicesList").addEventListener("click", async event => {
+  const button = event.target.closest("button[data-service-key]");
+  if(!button) return;
+
+  const serviceKey = button.dataset.serviceKey;
+  const enabled = Number(button.dataset.serviceEnabled);
+
+  button.disabled = true;
+
+  try{
+    const result = await api("/api/admin/services/update",{
+      method:"POST",
+      body:{
+        service_key:serviceKey,
+        enabled
+      }
+    });
+
+    showNotice(result.message || "AI Service updated.");
+    await loadServices();
+    await loadLimits();
+
+  }catch(error){
+    showNotice(error.message,"error");
+    button.disabled = false;
+  }
+});
+
+$("refreshServices").addEventListener("click",loadServices);
+
+// ================================
+// USAGE LIMITS
+// ================================
+
+async function loadLimits(){
+  $("limitsList").textContent = "তথ্য লোড হচ্ছে...";
+
+  try{
+    const result = await api("/api/admin/usage-limits");
+    const limits = result.limits || [];
+
+    if(!limits.length){
+      $("limitsList").textContent =
+        "কোনো AI Service পাওয়া যায়নি।";
+      return;
+    }
+
+    $("limitsList").innerHTML = limits.map(service => `
+      <div class="service-card">
+        <h3>${escapeHTML(service.service_name)}</h3>
+
+        <div class="form-grid">
+          <div>
+            <label>Daily Limit</label>
+            <input
+              type="number"
+              min="0"
+              step="1"
+              placeholder="ফাঁকা = Unlimited"
+              id="daily-${escapeHTML(service.service_key)}"
+              value="${service.daily_limit === null ? "" : escapeHTML(service.daily_limit)}">
+          </div>
+
+          <div>
+            <label>Monthly Limit</label>
+            <input
+              type="number"
+              min="0"
+              step="1"
+              placeholder="ফাঁকা = Unlimited"
+              id="monthly-${escapeHTML(service.service_key)}"
+              value="${service.monthly_limit === null ? "" : escapeHTML(service.monthly_limit)}">
+          </div>
+
+          <div>
+            <button
+              class="primary"
+              data-limit-key="${escapeHTML(service.service_key)}">
+              Save Limits
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+  }catch(error){
+    $("limitsList").textContent = error.message;
+  }
+}
+
+$("limitsList").addEventListener("click", async event => {
+  const button = event.target.closest("button[data-limit-key]");
+  if(!button) return;
+
+  const key = button.dataset.limitKey;
+
+  const dailyInput = $("daily-" + key);
+  const monthlyInput = $("monthly-" + key);
+
+  function readLimit(input){
+    if(input.value.trim() === "") return null;
+
+    const number = Number(input.value);
+
+    if(!Number.isSafeInteger(number) || number < 0){
+      throw new Error("Limit অবশ্যই শূন্য বা তার বেশি পূর্ণসংখ্যা হতে হবে।");
+    }
+
+    return number;
+  }
+
+  try{
+    const daily = readLimit(dailyInput);
+    const monthly = readLimit(monthlyInput);
+
+    button.disabled = true;
+
+    const result = await api("/api/admin/usage-limits",{
+      method:"POST",
+      body:{
+        service_key:key,
+        daily_limit:daily,
+        monthly_limit:monthly
+      }
+    });
+
+    showNotice(result.message || "Usage limits saved.");
+    await loadLimits();
+
+  }catch(error){
+    showNotice(error.message,"error");
+    button.disabled = false;
+  }
+});
+
+$("refreshLimits").addEventListener("click",loadLimits);
+
+// ================================
+// USAGE RECORDS
+// ================================
+
+async function loadRecords(){
+  $("recordsTable").innerHTML =
+    '<tr><td colspan="4">রেকর্ড লোড হচ্ছে...</td></tr>';
+
+  try{
+    const result = await api("/api/admin/usage-records?limit=100");
+    const records = result.records || [];
+
+    if(!records.length){
+      $("recordsTable").innerHTML =
+        '<tr><td colspan="4">এখনো কোনো Usage Record পাওয়া যায়নি।</td></tr>';
+      return;
+    }
+
+    $("recordsTable").innerHTML = records.map(record => `
+      <tr>
+        <td>${escapeHTML(record.user_name)}</td>
+        <td>${escapeHTML(record.user_email)}</td>
+        <td>${escapeHTML(record.service_name)}</td>
+        <td>${escapeHTML(formatDate(
+          Number(record.created_at) * 1000
+        ))}</td>
+      </tr>
+    `).join("");
+
+  }catch(error){
+    $("recordsTable").innerHTML =
+      `<tr><td colspan="4">${escapeHTML(error.message)}</td></tr>`;
+  }
+}
+
+$("refreshRecords").addEventListener("click",loadRecords);
+
+// ================================
+// LOGOUT
+// ================================
+
+async function logout(){
+  const token = getToken();
+
+  $("logoutBtn").disabled = true;
+
+  try{
+    if(token){
+      await fetch(API_URL + "/api/logout",{
+        method:"POST",
+        headers:{
+          "Authorization":"Bearer " + token
         }
       });
     }
-  } catch (error) {
+  }catch(error){
     console.error("Logout request failed.");
   }
 
@@ -300,7 +795,11 @@ async function logout() {
   window.location.replace("login.html");
 }
 
+$("logoutBtn").addEventListener("click",logout);
+
+// START
 verifyAdmin();
+
 </script>
 
 </body>
