@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Photo Enhancement & Restoration | Rifat AI Photo Studio</title>
+<title>AI Photo Enhancement | Rifat AI Photo Studio</title>
 
-<meta name="description" content="AI Photo Enhancement, blurry photo repair, old photo restoration, colorization and HD image improvement. Rifat AI Photo Studio.">
+<meta name="description" content="Explore 15 planned AI Photo Enhancement tools for photo restoration, face enhancement, HD upscaling, skin improvement and more. Rifat AI Photo Studio.">
+
+<meta name="theme-color" content="#071d35">
 
 <style>
 :root {
@@ -16,8 +18,10 @@
     --light-blue: #2196c8;
     --gold: #f0c040;
     --white: #ffffff;
-    --text: #e5edf5;
-    --muted: #b9c9d8;
+    --text: #24384d;
+    --muted: #65788b;
+    --border: #dce7f0;
+    --bg: #f3f7fb;
 }
 
 * {
@@ -26,43 +30,53 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, "Noto Sans Bengali", sans-serif;
-    background: #f2f6fa;
-    color: #172b40;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.7;
 }
 
 header {
     background: linear-gradient(120deg, #071d35, #1769aa);
     color: white;
-    padding: 20px;
     text-align: center;
+    padding: 23px 15px;
 }
 
 .brand {
     color: var(--gold);
-    font-size: 25px;
+    font-size: 27px;
     font-weight: bold;
 }
 
 header p {
-    color: #e2edf7;
-    margin-top: 5px;
+    color: #dceafa;
     font-size: 14px;
+    margin-top: 5px;
 }
 
 nav {
-    background: #102a43;
-    padding: 13px;
+    background: var(--blue);
+    padding: 13px 10px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(0,0,0,.12);
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 12px;
+    display: inline-block;
+    margin: 4px 12px;
     font-size: 14px;
+    transition: .2s;
 }
 
 nav a:hover {
@@ -70,124 +84,191 @@ nav a:hover {
 }
 
 .hero {
-    background: linear-gradient(135deg, #071d35, #1769aa);
+    background:
+        radial-gradient(circle at top right, rgba(33,150,200,.35), transparent 40%),
+        linear-gradient(135deg, #071d35, #1769aa);
     color: white;
     text-align: center;
-    padding: 65px 20px;
+    padding: 75px 20px 65px;
 }
 
 .hero-icon {
-    font-size: 58px;
+    font-size: 60px;
     margin-bottom: 12px;
 }
 
 .hero h1 {
     color: var(--gold);
-    font-size: 34px;
-    margin-bottom: 12px;
+    font-size: 36px;
+    margin-bottom: 14px;
 }
 
 .hero p {
-    max-width: 720px;
+    max-width: 760px;
     margin: auto;
-    color: #e3edf7;
+    color: #e4eef8;
+    font-size: 16px;
 }
 
-.coming-soon {
+.hero-badge {
     display: inline-block;
-    margin-top: 22px;
-    background: var(--gold);
-    color: #102a43;
-    padding: 9px 23px;
+    margin-top: 24px;
+    background: rgba(240,192,64,.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
     border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 13px;
     font-weight: bold;
 }
 
 .container {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
-    padding: 45px 20px;
+    padding: 50px 20px;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .section-title h2 {
-    color: #102a43;
-    font-size: 27px;
+    color: var(--blue);
+    font-size: 29px;
 }
 
 .section-title p {
-    color: #64778a;
+    color: var(--muted);
     margin-top: 7px;
+    font-size: 14px;
+}
+
+.intro {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 35px;
+    box-shadow: 0 5px 18px rgba(7,29,53,.04);
+}
+
+.intro h2 {
+    color: var(--blue);
+    font-size: 21px;
+    margin-bottom: 9px;
+}
+
+.intro p {
+    color: #5b7084;
+    font-size: 14px;
+}
+
+.feature-count {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0 35px;
+}
+
+.count-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 17px 25px;
+    text-align: center;
+    min-width: 145px;
+}
+
+.count-box strong {
+    display: block;
+    color: var(--primary);
+    font-size: 27px;
+}
+
+.count-box span {
+    color: var(--muted);
+    font-size: 12px;
 }
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
     gap: 20px;
 }
 
 .feature-card {
     background: white;
-    border: 1px solid #dce7f0;
-    border-radius: 15px;
-    padding: 25px 20px;
-    text-align: center;
-    box-shadow: 0 5px 18px rgba(7, 29, 53, 0.06);
-    transition: 0.3s;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: .25s;
+    box-shadow: 0 5px 17px rgba(7,29,53,.045);
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
     border-color: var(--light-blue);
-    box-shadow: 0 9px 25px rgba(7, 29, 53, 0.12);
+    box-shadow: 0 12px 26px rgba(7,29,53,.10);
+}
+
+.feature-number {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: #d9e7f2;
+    font-size: 29px;
+    font-weight: bold;
 }
 
 .feature-icon {
-    font-size: 39px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 12px;
 }
 
 .feature-card h3 {
-    color: #102a43;
+    color: var(--blue);
     font-size: 18px;
     margin-bottom: 9px;
 }
 
 .feature-card p {
-    color: #607386;
-    font-size: 14px;
+    color: var(--muted);
+    font-size: 13px;
+    min-height: 65px;
 }
 
 .status {
     display: inline-block;
-    margin-top: 13px;
-    color: #8a5b00;
-    background: #fff3cf;
+    margin-top: 15px;
+    background: #fff3d1;
+    color: #8a6100;
     padding: 5px 12px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
 }
 
 .notice {
     background: #eaf4fc;
-    border-left: 5px solid #1769aa;
-    padding: 22px;
-    border-radius: 10px;
-    margin-top: 35px;
+    border-left: 5px solid var(--primary);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 40px;
 }
 
 .notice h3 {
-    color: #102a43;
+    color: var(--blue);
     margin-bottom: 8px;
+    font-size: 19px;
 }
 
 .notice p {
-    color: #536a7f;
+    color: #536b80;
+    font-size: 14px;
 }
 
 .process {
@@ -199,83 +280,130 @@ nav a:hover {
 
 .step {
     background: white;
-    padding: 22px;
-    border-radius: 12px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 23px 15px;
     text-align: center;
-    border: 1px solid #dce7f0;
 }
 
 .step strong {
     display: block;
-    color: #1769aa;
-    font-size: 25px;
+    color: var(--primary);
+    font-size: 27px;
     margin-bottom: 8px;
 }
 
+.step h3 {
+    color: var(--blue);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
 .step p {
-    color: #607386;
-    font-size: 14px;
+    color: var(--muted);
+    font-size: 13px;
 }
 
 .cta {
     background: linear-gradient(120deg, #102a43, #1769aa);
     color: white;
-    padding: 35px 20px;
     text-align: center;
-    border-radius: 16px;
-    margin-top: 40px;
+    border-radius: 18px;
+    padding: 40px 20px;
+    margin-top: 45px;
 }
 
 .cta h2 {
     color: var(--gold);
+    font-size: 25px;
     margin-bottom: 10px;
 }
 
 .cta p {
     color: #e3edf7;
-    margin-bottom: 18px;
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
 .btn {
     display: inline-block;
     background: var(--gold);
-    color: #102a43;
+    color: var(--navy);
     text-decoration: none;
-    padding: 11px 23px;
+    padding: 11px 24px;
     border-radius: 25px;
     font-weight: bold;
+    font-size: 14px;
     margin: 5px;
+    transition: .2s;
 }
 
 .btn:hover {
     background: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--navy);
 }
 
 footer {
-    background: #071d35;
+    background: var(--navy);
     color: #d4e0eb;
     text-align: center;
-    padding: 25px 15px;
+    padding: 28px 15px;
     margin-top: 45px;
     font-size: 13px;
 }
 
 footer strong {
     color: var(--gold);
+    font-size: 17px;
+}
+
+footer p {
+    margin: 4px 0;
 }
 
 @media(max-width:600px) {
-    .hero h1 {
-        font-size: 27px;
+    .brand {
+        font-size: 22px;
     }
 
-    .brand {
-        font-size: 21px;
+    .hero {
+        padding: 55px 17px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .container {
+        padding: 35px 15px;
+    }
+
+    .feature-card p {
+        min-height: auto;
     }
 
     nav a {
-        display: inline-block;
-        margin: 5px 8px;
+        margin: 5px 7px;
+        font-size: 13px;
     }
 }
 </style>
@@ -302,85 +430,125 @@ footer strong {
     <h1>AI Photo Enhancement</h1>
 
     <p>
-        ঝাপসা, পুরোনো ও কম মানের ছবিকে আরও পরিষ্কার,
-        সুন্দর ও উন্নত করার আধুনিক AI প্রযুক্তি।
-        <br>
-        Improve blurry, damaged and low-quality photos
-        with intelligent AI technology.
+        আপনার সাধারণ, ঝাপসা ও পুরোনো ছবিকে আরও সুন্দর,
+        পরিষ্কার ও উন্নত করার জন্য এক জায়গায় ১৫টি
+        পরিকল্পিত AI Photo Enhancement সুবিধা।
+        <br><br>
+        Explore 15 planned AI-powered photo improvement
+        and restoration features in one platform.
     </p>
 
-    <span class="coming-soon">
-        Coming Soon | শিগগিরই
+    <span class="hero-badge">
+        15 AI Enhancement Features | ১৫টি সুবিধা
     </span>
 
 </section>
 
 <main class="container">
 
+    <section class="intro">
+        <h2>আপনার ছবির যত্নে আধুনিক প্রযুক্তি</h2>
+        <p>
+            Rifat AI Photo Studio-তে ছবি উন্নত করার বিভিন্ন
+            সুবিধা এক জায়গায় আনার পরিকল্পনা করা হয়েছে।
+            সাধারণ ব্যবহারকারী যেন সহজেই প্রয়োজনীয় সুবিধা
+            খুঁজে পান এবং ব্যবহার করতে পারেন, সেটিই আমাদের লক্ষ্য।
+            <br><br>
+            Our goal is to make professional-style photo
+            enhancement simple and accessible for everyone.
+        </p>
+    </section>
+
+    <div class="feature-count">
+
+        <div class="count-box">
+            <strong>15</strong>
+            <span>Planned Features</span>
+        </div>
+
+        <div class="count-box">
+            <strong>01</strong>
+            <span>Easy Platform</span>
+        </div>
+
+        <div class="count-box">
+            <strong>AI</strong>
+            <span>Smart Technology</span>
+        </div>
+
+    </div>
+
     <div class="section-title">
-        <h2>আমাদের সম্ভাব্য সুবিধাসমূহ</h2>
-        <p>Our Planned AI Photo Enhancement Features</p>
+        <h2>আমাদের ১৫টি AI সুবিধা</h2>
+        <p>Explore Our 15 Photo Enhancement Features</p>
     </div>
 
     <div class="features">
 
         <div class="feature-card">
+            <span class="feature-number">01</span>
             <div class="feature-icon">🔍</div>
             <h3>Blur Photo Fix</h3>
             <p>
-                ঝাপসা ছবি পরিষ্কার ও আরও স্পষ্ট করার সুবিধা।
+                ঝাপসা ছবির স্পষ্টতা ও দৃশ্যমান মান উন্নত করার
+                পরিকল্পিত সুবিধা।
                 <br>
-                Improve clarity in blurry photos.
+                Improve clarity in blurry photographs.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
         <div class="feature-card">
+            <span class="feature-number">02</span>
             <div class="feature-icon">🖼️</div>
             <h3>Old Photo Restoration</h3>
             <p>
-                পুরোনো ও বিবর্ণ ছবির মান উন্নত করার সুবিধা।
+                পুরোনো ও বিবর্ণ ছবির দৃশ্যমান মান উন্নত করা।
                 <br>
                 Restore old and faded photographs.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
         <div class="feature-card">
+            <span class="feature-number">03</span>
             <div class="feature-icon">🎨</div>
             <h3>Photo Colorization</h3>
             <p>
                 সাদা-কালো ছবিতে প্রাকৃতিক রং যোগ করার সুবিধা।
                 <br>
-                Add natural-looking colors to old photos.
+                Add natural-looking colors to photos.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
         <div class="feature-card">
+            <span class="feature-number">04</span>
             <div class="feature-icon">🩹</div>
             <h3>Scratch & Damage Repair</h3>
             <p>
                 পুরোনো ছবির দাগ, আঁচড় ও ক্ষতিগ্রস্ত অংশ
-                মেরামতের সুবিধা।
+                মেরামতের পরিকল্পিত সুবিধা।
                 <br>
-                Repair scratches and damaged areas.
+                Repair scratches and photo damage.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
         <div class="feature-card">
+            <span class="feature-number">05</span>
             <div class="feature-icon">👤</div>
             <h3>Face Enhancement</h3>
             <p>
-                ছবির মুখমণ্ডলের ডিটেইল ও স্পষ্টতা উন্নত করা।
+                মুখমণ্ডলের বিবরণ ও দৃশ্যমান স্পষ্টতা উন্নত করা।
                 <br>
                 Improve facial details and clarity.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
         <div class="feature-card">
+            <span class="feature-number">06</span>
             <div class="feature-icon">📸</div>
             <h3>HD Photo Upscaling</h3>
             <p>
@@ -388,10 +556,11 @@ footer strong {
                 <br>
                 Increase image resolution and quality.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
         <div class="feature-card">
+            <span class="feature-number">07</span>
             <div class="feature-icon">🌟</div>
             <h3>Noise Reduction</h3>
             <p>
@@ -399,10 +568,11 @@ footer strong {
                 <br>
                 Reduce image noise and grain.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
         <div class="feature-card">
+            <span class="feature-number">08</span>
             <div class="feature-icon">☀️</div>
             <h3>Light & Detail Improvement</h3>
             <p>
@@ -410,29 +580,113 @@ footer strong {
                 <br>
                 Improve lighting, colors and details.
             </p>
-            <span class="status">শিগগিরই আসছে</span>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-number">09</span>
+            <div class="feature-icon">✨</div>
+            <h3>Acne Removal</h3>
+            <p>
+                ছবিতে মুখের ব্রণ ও ছোটখাটো দাগ কমানোর সুবিধা।
+                <br>
+                Reduce visible acne and minor blemishes.
+            </p>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-number">10</span>
+            <div class="feature-icon">😊</div>
+            <h3>Wrinkle Reduction</h3>
+            <p>
+                মুখের বলিরেখার দৃশ্যমানতা কমানোর সুবিধা।
+                <br>
+                Reduce the appearance of facial wrinkles.
+            </p>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-number">11</span>
+            <div class="feature-icon">👁️</div>
+            <h3>Dark Circle Removal</h3>
+            <p>
+                চোখের নিচের কালো দাগের দৃশ্যমানতা কমানো।
+                <br>
+                Reduce the appearance of dark circles.
+            </p>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-number">12</span>
+            <div class="feature-icon">🎭</div>
+            <h3>Skin Tone Correction</h3>
+            <p>
+                ছবির ত্বকের রঙের ভারসাম্য ও স্বাভাবিকতা উন্নত করা।
+                <br>
+                Improve skin tone balance and appearance.
+            </p>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-number">13</span>
+            <div class="feature-icon">🌞</div>
+            <h3>Face Brightening</h3>
+            <p>
+                মুখের আলো ও উজ্জ্বলতার ভারসাম্য উন্নত করা।
+                <br>
+                Improve facial brightness and lighting.
+            </p>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-number">14</span>
+            <div class="feature-icon">😁</div>
+            <h3>Teeth Whitening</h3>
+            <p>
+                ছবিতে দাঁতের হলদে ভাব কমিয়ে সাদা দেখানোর সুবিধা।
+                <br>
+                Improve the appearance of teeth whiteness.
+            </p>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-number">15</span>
+            <div class="feature-icon">💇</div>
+            <h3>Eye, Lip, Hair & Background Blur</h3>
+            <p>
+                চোখ, ঠোঁট ও চুলের বিবরণ উন্নত করা এবং
+                ছবির পেছনের অংশ ঝাপসা করার পরিকল্পিত সুবিধা।
+                <br>
+                Improve eyes, lips and hair, with background blur.
+            </p>
+            <span class="status">প্রস্তুত করা হচ্ছে</span>
         </div>
 
     </div>
 
-    <div class="notice">
-        <h3>📢 গুরুত্বপূর্ণ ঘোষণা</h3>
+    <section class="notice">
+        <h3>📢 গুরুত্বপূর্ণ ঘোষণা | Important Notice</h3>
         <p>
-            এই AI Photo Enhancement সেবাটি বর্তমানে
-            প্রস্তুত করা হচ্ছে। সেবা চালু হলে সদস্যরা
-            Login করে অনুমোদিত সুবিধাগুলো বিনামূল্যে
-            ব্যবহার করতে পারবেন। আপাতত এখানে ছবি আপলোড
-            বা প্রক্রিয়াকরণের সুবিধা চালু নেই।
+            এই পেজে ১৫টি AI Photo Enhancement সুবিধার পরিচিতি
+            দেওয়া হয়েছে। প্রতিটি সুবিধার AI প্রযুক্তি আলাদাভাবে
+            তৈরি ও পরীক্ষা করে চালু করা হবে। বর্তমানে এই পেজে
+            ছবি আপলোড বা AI Processing চালু নেই।
             <br><br>
-            This service is currently under development.
-            Image processing will become available after
-            the AI system is implemented and launched.
+            The 15 features are currently planned.
+            Each AI processing function will be implemented
+            and tested before being made available to members.
         </p>
-    </div>
+    </section>
 
-    <div class="section-title" style="margin-top:50px;">
+    <div class="section-title" style="margin-top:55px;">
         <h2>যেভাবে কাজ করবে</h2>
-        <p>How the Service Will Work</p>
+        <p>How the Enhancement Service Will Work</p>
     </div>
 
     <div class="process">
@@ -445,39 +699,41 @@ footer strong {
 
         <div class="step">
             <strong>02</strong>
-            <h3>AI সুবিধা নির্বাচন</h3>
-            <p>Choose the required enhancement option.</p>
+            <h3>সুবিধা নির্বাচন</h3>
+            <p>Choose your required AI feature.</p>
         </div>
 
         <div class="step">
             <strong>03</strong>
             <h3>AI Processing</h3>
-            <p>AI will process the selected image.</p>
+            <p>Let the AI process your selected image.</p>
         </div>
 
         <div class="step">
             <strong>04</strong>
-            <h3>উন্নত ছবি সংগ্রহ</h3>
+            <h3>ছবি ডাউনলোড</h3>
             <p>Preview and download the improved photo.</p>
         </div>
 
     </div>
 
-    <div class="cta">
+    <section class="cta">
         <h2>আপনার ছবিকে দিন নতুন রূপ</h2>
         <p>
-            উন্নত AI Photo Enhancement সুবিধা নিয়ে
-            আমরা শিগগিরই হাজির হচ্ছি।
+            Rifat AI Photo Studio-এর সঙ্গে সহজ ও উন্নত
+            Photo Editing অভিজ্ঞতার পথে এগিয়ে চলুন।
+            <br>
+            Discover smarter photo editing with Rifat AI Photo Studio.
         </p>
-
-        <a href="services.html" class="btn">
-            অন্যান্য সার্ভিস দেখুন
-        </a>
 
         <a href="login.html?next=photo-enhancement.html" class="btn">
             Member Login
         </a>
-    </div>
+
+        <a href="services.html" class="btn btn-outline">
+            অন্যান্য সার্ভিস
+        </a>
+    </section>
 
 </main>
 
