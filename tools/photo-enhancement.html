@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Photo Enhancement | Rifat Tools</title>
+<meta name="description" content="AI দিয়ে ঝাপসা ছবি পরিষ্কার ও ছবির মান উন্নত করুন।">
+<meta name="robots" content="noindex,nofollow">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --navy:#071d35;--panel:#102a43;
+ --blue:#1769aa;--gold:#f0c040;
+ --text:#e8f1fb;--muted:#a9bfd5;
+}
+body{
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:var(--navy);color:var(--text);
+ line-height:1.65;min-height:100vh;
+}
+.topbar{
+ background:#06172b;padding:15px 5%;
+ display:flex;justify-content:space-between;
+ align-items:center;gap:12px;flex-wrap:wrap;
+ border-bottom:1px solid #ffffff20;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+ width:44px;height:44px;border-radius:12px;
+ background:linear-gradient(135deg,#f0c040,#d99a18);
+ display:grid;place-items:center;
+ color:#071d35;font-size:23px;font-weight:bold;
+}
+.brand h1{font-size:18px;color:white}
+.brand p{font-size:11px;color:var(--muted)}
+.home{
+ color:white;text-decoration:none;
+ border:1px solid #ffffff40;
+ padding:8px 13px;border-radius:8px;font-size:13px;
+}
+.hero{
+ text-align:center;padding:38px 16px 28px;
+ background:radial-gradient(ellipse at top,#1769aa55,transparent 65%);
+}
+.tag{
+ color:var(--gold);border:1px solid #f0c04070;
+ padding:5px 13px;border-radius:30px;font-size:12px;
+}
+.hero h2{font-size:clamp(26px,5vw,38px);margin-top:13px}
+.hero h2 span{color:var(--gold)}
+.hero p{color:#c0d3e7;font-size:14px;margin-top:8px}
+.container{width:min(1050px,94%);margin:25px auto 50px}
+.auth,.notice{
+ background:#f0c04012;border:1px solid #f0c04055;
+ color:#f3dfa0;border-radius:10px;
+ padding:13px 15px;margin-bottom:18px;font-size:13px;
+}
+.auth a{color:var(--gold);font-weight:bold}
+.studio{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:20px;align-items:start;
+}
+.panel{
+ background:var(--panel);border:1px solid #ffffff20;
+ border-radius:15px;padding:20px;
+ box-shadow:0 12px 35px #0003;
+}
+.panel h3{color:white;font-size:17px}
+.sub{color:var(--muted);font-size:12px;margin:5px 0 15px}
+.upload{
+ min-height:150px;border:2px dashed #4b83b5;
+ border-radius:12px;background:#071d35;
+ display:flex;flex-direction:column;
+ justify-content:center;align-items:center;
+ text-align:center;padding:18px;cursor:pointer;
+}
+.upload:hover{border-color:var(--gold)}
+.upload b{color:white}
+.upload small{color:var(--muted);font-size:11px}
+.upload input{display:none}
+.preview{text-align:center;margin-top:14px;display:none}
+.preview img{
+ max-width:100%;max-height:280px;
+ object-fit:contain;border-radius:9px;
+}
+.btn{
+ border:0;border-radius:9px;padding:11px 15px;
+ background:linear-gradient(120deg,#f0c040,#d99a18);
+ color:#071d35;font-weight:bold;cursor:pointer;
+ font-size:13px;
+}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.secondary{background:#1769aa;color:white}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+.stage{
+ min-height:300px;border:1px solid #ffffff20;
+ border-radius:12px;background:#071d35;
+ display:flex;flex-direction:column;
+ align-items:center;justify-content:center;
+ text-align:center;padding:16px;gap:10px;
+}
+.stage img{max-width:100%;max-height:430px;object-fit:contain}
+.stage p{font-size:12px;color:var(--muted)}
+.message{
+ display:none;margin-top:13px;padding:11px;
+ border-radius:8px;font-size:12px;white-space:pre-wrap;
+}
+.message.info{display:block;background:#1769aa22;border:1px solid #1769aa}
+.message.error{display:block;background:#ef444420;border:1px solid #ef7777;color:#ffc1c1}
+.message.success{display:block;background:#16a34a20;border:1px solid #4ade80;color:#bbf7d0}
+footer{
+ text-align:center;padding:25px;
+ background:#06172b;color:var(--muted);font-size:12px;
+}
+footer strong{color:var(--gold)}
+@media(max-width:760px){.studio{grid-template-columns:1fr}.panel{padding:16px}}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+ <div class="brand">
+  <div class="logo">R</div>
+  <div>
+   <h1>Rifat AI Photo Studio</h1>
+   <p>Creative Digital Photo Solutions</p>
+  </div>
+ </div>
+ <a class="home" href="index.html">← Back to Tools</a>
+</header>
+
+<section class="hero">
+ <span class="tag">✦ AI PHOTO ENHANCEMENT</span>
+ <h2>Photo <span>Enhancement</span></h2>
+ <p>ঝাপসা ছবি পরিষ্কার করুন এবং ছবির মান উন্নত করুন।</p>
+</section>
+
+<main class="container">
+
+ <div class="auth">
+  🔒 <strong>Member Login Required</strong><br>
+  এই সুবিধা ব্যবহার করতে আপনার অ্যাকাউন্টে Login করুন।
+  <br>
+  <a id="loginLink" href="login.html?next=photo-enhancement.html">
+   Login / লগইন করুন
+  </a>
+  <div id="authStatus" style="margin-top:7px">
+   Login session পরীক্ষা করা হচ্ছে...
+  </div>
+ </div>
+
+ <div class="studio">
+
+  <section class="panel">
+   <h3>01. Upload Your Photo</h3>
+   <p class="sub">JPG, PNG, WEBP | Maximum 8 MB</p>
+
+   <label class="upload" for="photoInput">
+    <b>⬆ ছবি নির্বাচন করুন</b>
+    <small>Click to browse your photo</small>
+    <input type="file" id="photoInput"
+     accept="image/jpeg,image/png,image/webp">
+   </label>
+
+   <div class="preview" id="previewWrap">
+    <img id="originalPreview" alt="Original photo">
+    <div class="actions">
+     <button class="btn secondary" id="removePhoto" type="button">
+      Remove Photo
+     </button>
+    </div>
+   </div>
+
+   <button class="btn" id="enhanceBtn"
+    type="button" disabled
+    style="width:100%;margin-top:17px">
+    ✨ AI দিয়ে ছবি পরিষ্কার করুন
+   </button>
+
+   <div class="message" id="message" role="status" aria-live="polite"></div>
+
+   <p class="sub" style="margin-top:15px">
+    AI প্রসেসিংয়ের জন্য ছবিটি নিরাপদ Worker API-তে পাঠানো হবে।
+   </p>
+  </section>
+
+  <section class="panel">
+   <h3>02. Enhanced Photo</h3>
+   <p class="sub">AI তৈরি করা পরিষ্কার ছবি এখানে দেখুন।</p>
+
+   <div class="stage" id="resultStage">
+    <div style="font-size:48px">✨</div>
+    <h3>Your Enhanced Photo</h3>
+    <p>প্রথমে ছবি আপলোড করুন।</p>
+   </div>
+
+   <div class="actions">
+    <button class="btn secondary" id="downloadBtn"
+     type="button" disabled>
+     ⬇ Download Enhanced Photo
+    </button>
+   </div>
+  </section>
+
+ </div>
+
+ <div class="notice" style="margin-top:20px">
+  <strong>Privacy Notice:</strong>
+  আপনার ছবি AI Enhancement-এর জন্য প্রসেস করা হবে।
+  ব্যক্তিগত বা সংবেদনশীল ছবি আপলোড করার আগে সতর্ক থাকুন।
+ </div>
+
+</main>
+
+<footer>
+ <strong>Rifat AI Photo Studio</strong><br>
+ Creative Digital Tools & Services<br><br>
+ © 2026 Rifat Tools & Documents. All Rights Reserved.
+</footer>
+
+<script>
+"use strict";
+
+const API_URL =
+ "https://rifat-ai-photo-editor.rifatahmedbogra.workers.dev";
+
+const $ = id => document.getElementById(id);
+
+let selectedFile = null;
+let originalURL = null;
+let resultURL = null;
+let loggedIn = false;
+let busy = false;
+
+function getToken(){
+ return localStorage.getItem("rifat_ai_token") ||
+        sessionStorage.getItem("rifat_ai_token") || "";
+}
+
+function setMessage(message,type="info"){
+ $("message").textContent = message;
+ $("message").className = "message " + type;
+}
+
+function clearMessage(){
+ $("message").textContent = "";
+ $("message").className = "message";
+}
+
+function updateButton(){
+ $("enhanceBtn").disabled =
+  !loggedIn || !selectedFile || busy;
+}
+
+function checkLogin(){
+ const token = getToken();
+
+ loggedIn = Boolean(token);
+
+ if(loggedIn){
+  $("authStatus").textContent =
+   "✓ Login token পাওয়া গেছে। সার্ভার ব্যবহারের সময় অ্যাকাউন্ট যাচাই করবে।";
+ }else{
+  $("authStatus").textContent =
+   "🔒 প্রথমে Login করুন।";
+ }
+
+ updateButton();
+}
+
+$("photoInput").addEventListener("change",()=>{
+ const file = $("photoInput").files[0];
+
+ if(!file)return;
+
+ if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
+  setMessage("JPG, PNG অথবা WEBP ছবি নির্বাচন করুন।","error");
+  $("photoInput").value="";
+  return;
+ }
+
+ if(file.size > 8*1024*1024){
+  setMessage("ছবির সাইজ সর্বোচ্চ 8 MB হতে পারবে।","error");
+  $("photoInput").value="";
+  return;
+ }
+
+ selectedFile = file;
+
+ if(originalURL)URL.revokeObjectURL(originalURL);
+
+ originalURL = URL.createObjectURL(file);
+ $("originalPreview").src = originalURL;
+ $("previewWrap").style.display = "block";
+
+ if(resultURL){
+  URL.revokeObjectURL(resultURL);
+  resultURL = null;
+ }
+
+ $("resultStage").innerHTML =
+  "<div style='font-size:48px'>✨</div><h3>Your Enhanced Photo</h3><p>AI প্রসেসিংয়ের জন্য প্রস্তুত।</p>";
+
+ $("downloadBtn").disabled = true;
+ clearMessage();
+ updateButton();
+});
+
+$("removePhoto").addEventListener("click",()=>{
+ selectedFile = null;
+ $("photoInput").value="";
+ $("previewWrap").style.display="none";
+
+ if(originalURL)URL.revokeObjectURL(originalURL);
+ if(resultURL)URL.revokeObjectURL(resultURL);
+
+ originalURL=null;
+ resultURL=null;
+
+ $("resultStage").innerHTML =
+  "<div style='font-size:48px'>✨</div><h3>Your Enhanced Photo</h3><p>প্রথমে ছবি আপলোড করুন।</p>";
+
+ $("downloadBtn").disabled=true;
+ clearMessage();
+ updateButton();
+});
+
+$("enhanceBtn").addEventListener("click",async()=>{
+ if(!selectedFile || !loggedIn || busy)return;
+
+ const token = getToken();
+
+ if(!token){
+  loggedIn=false;
+  checkLogin();
+  return;
+ }
+
+ busy=true;
+ updateButton();
+
+ $("enhanceBtn").textContent="⏳ AI কাজ করছে...";
+ setMessage("আপনার ছবি AI সার্ভারে পাঠানো হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।","info");
+
+ try{
+  const form = new FormData();
+  form.append("image",selectedFile,"photo-to-enhance.jpg");
+
+  const response = await fetch(API_URL+"/api/enhance-photo",{
+   method:"POST",
+   headers:{
+    "Authorization":"Bearer "+token
+   },
+   body:form
+  });
+
+  const contentType = response.headers.get("content-type") || "";
+
+  if(!response.ok){
+   let errorMessage="AI ছবি পরিষ্কার করতে পারেনি।";
+
+   if(contentType.includes("application/json")){
+    const data=await response.json();
+    errorMessage=data.message || errorMessage;
+   }
+
+   if(response.status===401 || response.status===403){
+    loggedIn=false;
+    $("authStatus").textContent="Login session বৈধ নয় অথবা অ্যাকাউন্ট অনুমোদিত নয়।";
+   }
+
+   throw new Error(errorMessage);
+  }
+
+  if(!contentType.startsWith("image/")){
+   throw new Error("সার্ভার থেকে বৈধ ছবি পাওয়া যায়নি।");
+  }
+
+  const blob=await response.blob();
+
+  if(!blob.size)throw new Error("AI থেকে খালি ছবি পাওয়া গেছে।");
+
+  if(resultURL)URL.revokeObjectURL(resultURL);
+
+  resultURL=URL.createObjectURL(blob);
+
+  $("resultStage").innerHTML="";
+
+  const image=document.createElement("img");
+  image.src=resultURL;
+  image.alt="AI enhanced photo";
+
+  const caption=document.createElement("p");
+  caption.textContent="AI দিয়ে ছবি উন্নত করা হয়েছে।";
+
+  $("resultStage").append(image,caption);
+
+  $("downloadBtn").disabled=false;
+
+  setMessage("সফল! আপনার AI Enhanced Photo তৈরি হয়েছে।","success");
+
+ }catch(error){
+  setMessage(error.message || "সমস্যা হয়েছে। আবার চেষ্টা করুন।","error");
+ }finally{
+  busy=false;
+  $("enhanceBtn").textContent="✨ AI দিয়ে ছবি পরিষ্কার করুন";
+  updateButton();
+ }
+});
+
+$("downloadBtn").addEventListener("click",()=>{
+ if(!resultURL)return;
+
+ const a=document.createElement("a");
+ a.href=resultURL;
+ a.download="rifat-ai-enhanced-photo.jpg";
+ a.click();
+});
+
+checkLogin();
+
+</script>
+</body>
+</html>
