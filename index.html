@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-	<!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCYZH26DTZ"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NCYZH26DTZ');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NCYZH26DTZ');
 </script>
-<title>Md Rifat Ahmed – Personal & Online Business</title>
-<meta name="description" content="Md Rifat Ahmed-এর ব্যক্তিগত ও অনলাইন ব্যবসার ওয়েবসাইট। এখানে অনলাইন আয়, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং, প্রযুক্তি ও ব্যবসা সম্পর্কে জানুন।">
-<meta name="google-site-verification" content="dH2GJsaZdDpywhkrzoowA76O6hGGoi2tMowRBpVQMlw" />
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Md Rifat Ahmed – Personal & Online Business</title>
+
+<meta name="description" content="Md Rifat Ahmed-এর ব্যক্তিগত ও অনলাইন ব্যবসার ওয়েবসাইট। এখানে অনলাইন আয়, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং, প্রযুক্তি, ওয়েবসাইট তৈরি, ব্লগিং ও ব্যবসা সম্পর্কে জানুন।">
+
+<meta name="google-site-verification" content="dH2GJsaZdDpywhkrzoowA76O6hGGoi2tMowRBpVQMlw">
+
+<meta name="author" content="Md Rifat Ahmed">
+
+<link rel="canonical" href="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/">
 
 <style>
 * {
@@ -29,10 +37,10 @@ body {
     color: #222;
 }
 
+/* HEADER */
+
 .site-header {
     width: 100%;
-    margin: 0;
-    padding: 0;
     background: #071d35;
     line-height: 0;
     border-bottom: 5px solid #f0c040;
@@ -43,58 +51,46 @@ body {
     display: block;
     width: 100%;
     height: auto;
-    margin: 0;
 }
 
-.logo-area {
+/* SEARCH */
+
+.search-box {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 20px;
-}
-
-.logo {
-    width: 75px;
-    height: 75px;
-    background: linear-gradient(135deg, #f0c040, #ffe08a);
-    color: #102a43;
-    border: 3px solid white;
-    border-radius: 50%;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    gap: 10px;
+    padding: 25px 15px;
+    background: #eaf2f8;
 }
 
-.logo-text h1 {
-    font-size: 34px;
-    margin: 0 0 8px;
-    letter-spacing: 2px;
-}
-
-.logo-text p {
+.search-box input {
+    width: 60%;
+    max-width: 500px;
+    padding: 14px 18px;
+    border: 2px solid #1769aa;
+    border-radius: 30px;
     font-size: 16px;
-    margin: 0;
-    color: #e0f2fe;
-    letter-spacing: 1px;
+    outline: none;
 }
 
-header h1 {
-    font-size: 38px;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
+.search-box button {
+    padding: 14px 25px;
+    background: #1769aa;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase;
+    cursor: pointer;
 }
 
-header p {
-    font-size: 19px;
-    letter-spacing: 1.5px;
-    color: #e0f2fe;
-    font-weight: 500;
+.search-box button:hover {
+    background: #f0c040;
+    color: #102a43;
 }
+
+/* NAVIGATION */
 
 nav {
     background: linear-gradient(90deg, #1769aa, #102a43);
@@ -122,7 +118,12 @@ nav a:hover {
     color: #102a43;
 }
 
-background: linear-gradient(135deg, #ffffff, #e0f2fe);
+/* HERO SECTION */
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #ffffff, #e0f2fe);
     border-bottom: 1px solid #dbeafe;
 }
 
@@ -137,7 +138,7 @@ background: linear-gradient(135deg, #ffffff, #e0f2fe);
     line-height: 1.8;
     color: #475569;
     max-width: 750px;
-    margin: 0 auto 25px;
+    margin: 0 auto 20px;
 }
 
 .hero-btn {
@@ -159,6 +160,48 @@ background: linear-gradient(135deg, #ffffff, #e0f2fe);
     color: #102a43;
     transform: translateY(-3px);
 }
+
+/* SECTION TITLE */
+
+.section-title {
+    text-align: center;
+    margin: 50px 15px 20px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    color: #102a43;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.section-title p {
+    font-size: 17px;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+/* MAIN CONTENT CARDS */
+
+.content {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border-bottom: 4px solid #1769aa;
+    box-shadow: 0 3px 12px #00000012;
+    transition: 0.3s ease;
+}
+
 .card:hover {
     transform: translateY(-7px);
     box-shadow: 0 8px 22px rgba(0,0,0,0.15);
@@ -167,8 +210,9 @@ background: linear-gradient(135deg, #ffffff, #e0f2fe);
 
 .card h3 {
     color: #102a43;
-    font-size: 21px;
+    font-size: 20px;
     margin-bottom: 15px;
+    line-height: 1.5;
 }
 
 .card p {
@@ -195,38 +239,111 @@ background: linear-gradient(135deg, #ffffff, #e0f2fe);
     color: #102a43;
     transform: translateY(-3px);
 }
-.hero h2 {
-    color: #1769aa;
-    font-size: 30px;
-    margin-bottom: 18px;
-}
 
-.hero p {
-    font-size: 18px;
-    line-height: 1.8;
-}
+/* SEARCH RESULTS */
 
-.content {
-    max-width: 1000px;
+#searchResults {
+    max-width: 1150px;
     margin: 30px auto;
+    padding: 25px;
+    background: #f0f7ff;
+    border-radius: 15px;
+    display: none;
+}
+
+#searchResults h3 {
+    background: linear-gradient(135deg, #071d35, #1769aa);
+    color: white;
     padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.search-result-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.card {
-    background: white;
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px #00000012;
+.search-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
 }
 
-.card h3 {
-    color: #1769aa;
-    margin-bottom: 12px;
+.search-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
 }
+
+.search-card-image {
+    height: 160px;
+    overflow: hidden;
+    background: #eaf2f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.search-card-content {
+    padding: 22px;
+}
+
+.search-card-content h4 {
+    color: #102a43;
+    font-size: 19px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.search-card-content p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 8px 0;
+    min-height: 55px;
+}
+
+.publish-date {
+    font-size: 12px !important;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border-left: 3px solid #1769aa;
+    min-height: auto !important;
+    display: inline-block;
+}
+
+.search-card .read-more {
+    display: inline-block;
+    background: linear-gradient(135deg, #1769aa, #071d35);
+    color: white;
+    padding: 11px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+.search-card .read-more:hover {
+    background: #f0c040;
+    color: #102a43;
+}
+
+/* FOOTER */
 
 footer {
     background: linear-gradient(135deg, #102a43, #1769aa);
@@ -274,25 +391,16 @@ footer .copyright {
     font-size: 14px;
 }
 
+/* RESPONSIVE DESIGN */
+
 @media screen and (max-width: 900px) {
-    .content {
+    .content,
+    .search-result-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 600px) {
-    header {
-        padding: 35px 10px;
-    }
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    header p {
-        font-size: 15px;
-    }
-
     nav {
         padding: 12px 5px;
     }
@@ -303,8 +411,25 @@ footer .copyright {
         font-size: 14px;
     }
 
-    .content {
+    .search-box {
+        flex-wrap: wrap;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .search-box button {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .content,
+    .search-result-grid {
         grid-template-columns: 1fr;
+    }
+
+    .content {
         padding: 15px;
         gap: 18px;
     }
@@ -314,100 +439,21 @@ footer .copyright {
     }
 
     .hero {
-        padding: 55px 15px;
+        padding: 50px 15px;
     }
 
     .hero h2 {
         font-size: 25px;
     }
 
-    .hero h3 {
-        font-size: 18px;
-    }
-
     .hero p {
         font-size: 16px;
     }
-}
-.section-title {
-    text-align: center;
-    margin: 50px 15px 20px;
-}
 
-.section-title h2 {
-    font-size: 30px;
-    color: #102a43;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
+    .section-title h2 {
+        font-size: 25px;
+    }
 
-.section-title p {
-    font-size: 17px;
-    color: #64748b;
-    letter-spacing: 1px;
-}
-.search-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 25px 15px;
-    background: #eaf2f8;
-}
-
-.search-box input {
-    width: 60%;
-    max-width: 500px;
-    padding: 14px 18px;
-    border: 2px solid #1769aa;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
-}
-
-.search-box button {
-    padding: 14px 25px;
-    background: #1769aa;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.search-box button:hover {
-    background: #f0c040;
-    color: #102a43;
-}
-/* Professional Search Results Design */
-
-#searchResults {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 20px;
-    background: #f0f7ff;
-    border-radius: 15px;
-}
-
-#searchResults h3 {
-    background: linear-gradient(135deg, #071d35, #1769aa);
-    color: white;
-    padding: 18px;
-    border-radius: 12px;
-    font-size: 22px;
-    margin-bottom: 18px;
-}
-
-
-#searchResults a:hover {
-    background: #e1f1ff;
-    border-left-color: #f0c040;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-}
-
-@media screen and (max-width: 600px) {
     #searchResults {
         margin: 15px 10px;
         padding: 12px;
@@ -416,147 +462,8 @@ footer .copyright {
     #searchResults h3 {
         font-size: 18px;
     }
-
-    #searchResults a {
-        font-size: 16px;
-        padding: 16px;
-    }
-}
-/* Search Results Card Layout */
-
-#searchResults {
-    max-width: 1150px;
-    margin: 30px auto;
-    padding: 25px;
-    background: #f0f7ff;
-    border-radius: 15px;
-}
-
-#searchResults h3 {
-    background: linear-gradient(135deg, #071d35, #1769aa);
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-}
-
-#searchResults .search-card {
-    display: inline-block;
-    vertical-align: top;
-    width: 30%;
-    margin: 1%;
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-}
-
-.search-card-image {
-    height: 160px;
-    overflow: hidden;
-    background: #eaf2f8;
-}
-
-.search-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.search-card-content {
-    padding: 22px;
-    background: #ffffff;
-}
-
-.search-card-content h4 {
-    color: #102a43;
-    font-size: 19px;
-    margin: 0 0 12px;
-    line-height: 1.5;
-}
-
-.search-card-content p {
-    color: #526579;
-    font-size: 14px;
-    line-height: 1.8;
-    margin: 8px 0;
-}
-
-.search-card-content h4 {
-    color: #102a43;
-    font-size: 19px;
-}
-
-.search-card-content p {
-    color: #64748b;
-    line-height: 1.7;
-    min-height: 75px;
-}
-
-.search-card .read-more {
-    display: inline-block;
-    background: linear-gradient(135deg, #1769aa, #071d35);
-    color: white;
-    padding: 11px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    margin-top: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(23,105,170,0.25);
-}
-
-.search-card .read-more:hover {
-    background: linear-gradient(135deg, #f0c040, #e09b00);
-    color: #071d35;
-    transform: translateY(-3px);
-    box-shadow: 0 7px 15px rgba(0,0,0,0.18);
-}
-.search-card .read-more:hover {
-    background: #f0c040;
-    color: #102a43;
-}
-.search-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.search-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
-}
-
-.search-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
-}
-
-@media screen and (max-width: 700px) {
-    #searchResults .search-card {
-        width: 100%;
-        margin: 12px 0;
-    }
-}
-
-.publish-date {
-    color: #64748b;
-    font-size: 12px;
-    margin: 12px 0 15px;
-    font-style: normal;
-    font-weight: 500;
-    display: inline-block;
-    background: #f1f5f9;
-    padding: 6px 12px;
-    border-radius: 20px;
-    border-left: 3px solid #1769aa;
 }
 </style>
-
 </head>
 
 <body>
@@ -569,23 +476,36 @@ footer .copyright {
 
 </header>
 
+<!-- SEARCH BOX -->
+
 <div class="search-box">
-    <input type="text" id="searchInput"
-           placeholder="আপনার পছন্দের বিষয় খুঁজুন...">
+
+    <input type="text"
+           id="searchInput"
+           placeholder="আপনার পছন্দের বিষয় খুঁজুন..."
+           onkeydown="if(event.key === 'Enter') searchWebsite()">
+
     <button onclick="searchWebsite()">Search</button>
+
 </div>
 
 <div id="searchResults"></div>
+
+<!-- NAVIGATION -->
 
 <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Me</a>
     <a href="services.html">Services</a>
-	<a href="photo-editing.html">Photo Editing</a>
-	<a href="contact.html">Contact</a>
+    <a href="photo-editing.html">Photo Editing</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
-<h3>Welcome to Rifat Ahmed's Website</h3>
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <h2>Welcome to Rifat Ahmed's Website</h2>
 
     <p>
         শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।
@@ -601,11 +521,16 @@ footer .copyright {
     <a href="services.html" class="hero-btn">
         Explore More | আরও জানুন
     </a>
+
 </section>
 
+<!-- TOPICS -->
+
 <section class="section-title">
+
     <h2>আমাদের বিষয়সমূহ</h2>
     <p>Explore Our Topics & Services</p>
+
 </section>
 
 <section class="content" id="services">
@@ -646,7 +571,22 @@ footer .copyright {
         <a href="education.html">বিস্তারিত পড়ুন | Read More →</a>
     </div>
 
+    <!-- SEVENTH TOPIC -->
+
+    <div class="card">
+        <h3>ওয়েবসাইট তৈরি ও ব্লগিং (Website Creation & Blogging)</h3>
+        <p>
+            নিজের ওয়েবসাইট তৈরি, ব্লগিং শুরু, HTML, CSS,
+            Blogger, GitHub Pages ও SEO সম্পর্কে শিখুন।
+        </p>
+        <a href="website-creation.html">
+            বিস্তারিত পড়ুন | Read More →
+        </a>
+    </div>
+
 </section>
+
+<!-- FOOTER -->
 
 <footer id="contact">
 
@@ -656,202 +596,268 @@ footer .copyright {
 
     <p>
         অনলাইন আয়, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং,
-        প্রযুক্তি ও ব্যবসা সম্পর্কে জানুন।
+        প্রযুক্তি, ওয়েবসাইট তৈরি ও ব্যবসা সম্পর্কে জানুন।
     </p>
 
     <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="terms-and-conditions.html">Terms & Conditions</a>
-</div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+    </div>
 
-<p>
-    Email: rifatahmedbogra@gmail.com
-</p>
+    <p>
+        Email: rifatahmedbogra@gmail.com
+    </p>
 
-<p class="copyright">
-    © 2026 Rifat Ahmed. All Rights Reserved.
-</p>
+    <p class="copyright">
+        © 2026 Rifat Ahmed. All Rights Reserved.
+    </p>
 
 </footer>
+
+<!-- WEBSITE SEARCH SYSTEM -->
+
 <script>
+
 function searchWebsite() {
 
-    let input = document.getElementById("searchInput").value.toLowerCase().trim();
-
-    let pages = [
-    {
-        title: "অনলাইন আয় | Online Income",
-        url: "online-income.html",
-        keywords: [
-            "অনলাইন আয়", "আয়", "income", "online income",
-            "ফ্রিল্যান্সিং", "freelancing", "ইউটিউব", "youtube",
-            "ফেসবুক", "facebook", "ব্লগিং", "blogging",
-            "ডাটা এন্ট্রি", "data entry", "গ্রাফিক ডিজাইন",
-            "graphic design", "অ্যাফিলিয়েট মার্কেটিং",
-            "affiliate marketing", "অনলাইন শিক্ষা", "online teaching",
-            "নতুনদের শুরু", "beginners", "প্রতারণা", "online scams"
-        ]
-    },
-   {
-    title: "ফ্রিল্যান্সিং | Freelancing",
-    url: "freelancing.html",
-    keywords: [
-        "ফ্রিল্যান্সিং", "freelancing", "ফ্রিল্যান্সার",
-        "freelancer", "ক্লায়েন্ট", "client",
-        "ডাটা এন্ট্রি", "data entry",
-        "গ্রাফিক ডিজাইন", "graphic design",
-        "ওয়েব ডিজাইন", "web design",
-        "লেখালেখি", "writing",
-        "অনলাইন কাজ", "online work",
-        "ফাইভার", "fiverr",
-        "আপওয়ার্ক", "upwork",
-        "দক্ষতা", "skill",
-        "আয়", "earning"
-    ]
-},
-    {
-    title: "ডিজিটাল মার্কেটিং | Digital Marketing",
-    url: "digital-marketing.html",
-    keywords: [
-        "ডিজিটাল মার্কেটিং", "digital marketing",
-        "marketing", "বিজ্ঞাপন", "advertising",
-        "ফেসবুক মার্কেটিং", "facebook marketing",
-        "গুগল বিজ্ঞাপন", "google ads",
-        "সোশ্যাল মিডিয়া", "social media",
-        "এসইও", "seo",
-        "কনটেন্ট মার্কেটিং", "content marketing",
-        "ইমেইল মার্কেটিং", "email marketing",
-        "অনলাইন প্রচার", "online promotion",
-        "ব্র্যান্ডিং", "branding"
-    ]
-},
-    {
-    title: "প্রযুক্তি বিষয়ক তথ্য | Technology Tips",
-    url: "technology.html",
-    keywords: [
-        "প্রযুক্তি", "technology", "মোবাইল", "mobile",
-        "কম্পিউটার", "computer", "টিপস", "tips",
-        "ইন্টারনেট", "internet",
-        "সফটওয়্যার", "software",
-        "হার্ডওয়্যার", "hardware",
-        "উইন্ডোজ", "windows",
-        "অ্যান্ড্রয়েড", "android",
-        "ওয়েবসাইট", "website",
-        "এআই", "ai", "কৃত্রিম বুদ্ধিমত্তা",
-        "নিরাপত্তা", "security"
-    ]
-},
-    {
-    title: "অনলাইন ব্যবসা | Online Business",
-    url: "online-business.html",
-    keywords: [
-        "অনলাইন ব্যবসা", "online business",
-        "ব্যবসা", "business", "পণ্য", "product",
-        "বিক্রি", "selling", "ক্রয়", "buying",
-        "ই-কমার্স", "e-commerce",
-        "অনলাইন শপ", "online shop",
-        "ই-কমার্স ওয়েবসাইট", "ecommerce website",
-        "ডিজিটাল পণ্য", "digital products",
-        "গ্রাহক", "customer",
-        "মার্কেটপ্লেস", "marketplace",
-        "উদ্যোক্তা", "entrepreneur"
-    ]
-},
-    {
-    title: "শিক্ষামূলক কনটেন্ট | Educational Content",
-    url: "education.html",
-    keywords: [
-        "শিক্ষা", "শিক্ষামূলক", "education",
-        "educational", "শেখা", "learning",
-        "অনলাইন শিক্ষা", "online education",
-        "প্রশিক্ষণ", "training",
-        "কোর্স", "course",
-        "দক্ষতা উন্নয়ন", "skill development",
-        "কম্পিউটার শিক্ষা", "computer learning",
-        "ইংরেজি শিক্ষা", "english learning",
-        "টিউটোরিয়াল", "tutorial",
-        "গাইড", "guide",
-        "জ্ঞান", "knowledge"
-    ]
-}
-];
-
-    let results = pages.filter(page =>
-        page.title.toLowerCase().includes(input) ||
-        page.keywords.some(word => word.toLowerCase().includes(input))
-    );
+    let input = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
 
     let output = document.getElementById("searchResults");
 
+    output.style.display = "block";
+
     if (!input) {
-        output.innerHTML = "অনুগ্রহ করে কিছু লিখুন।";
+        output.innerHTML = "<h3>অনুগ্রহ করে কিছু লিখুন।</h3>";
         return;
     }
+
+    const pages = [
+
+        {
+            title: "অনলাইন আয় | Online Income",
+            url: "online-income.html",
+            keywords: [
+                "অনলাইন আয়", "আয়", "income", "online income",
+                "ফ্রিল্যান্সিং", "freelancing", "ইউটিউব", "youtube",
+                "ফেসবুক", "facebook", "ব্লগিং", "blogging",
+                "ডাটা এন্ট্রি", "data entry", "গ্রাফিক ডিজাইন",
+                "graphic design", "অ্যাফিলিয়েট মার্কেটিং",
+                "affiliate marketing", "অনলাইন শিক্ষা", "online teaching",
+                "নতুনদের শুরু", "beginners", "প্রতারণা", "online scams"
+            ]
+        },
+
+        {
+            title: "ফ্রিল্যান্সিং | Freelancing",
+            url: "freelancing.html",
+            keywords: [
+                "ফ্রিল্যান্সিং", "freelancing", "ফ্রিল্যান্সার",
+                "freelancer", "ক্লায়েন্ট", "client",
+                "ডাটা এন্ট্রি", "data entry",
+                "গ্রাফিক ডিজাইন", "graphic design",
+                "ওয়েব ডিজাইন", "web design",
+                "লেখালেখি", "writing",
+                "অনলাইন কাজ", "online work",
+                "ফাইভার", "fiverr", "আপওয়ার্ক", "upwork",
+                "দক্ষতা", "skill", "আয়", "earning"
+            ]
+        },
+
+        {
+            title: "ডিজিটাল মার্কেটিং | Digital Marketing",
+            url: "digital-marketing.html",
+            keywords: [
+                "ডিজিটাল মার্কেটিং", "digital marketing",
+                "marketing", "বিজ্ঞাপন", "advertising",
+                "ফেসবুক মার্কেটিং", "facebook marketing",
+                "গুগল বিজ্ঞাপন", "google ads",
+                "সোশ্যাল মিডিয়া", "social media",
+                "এসইও", "seo", "কনটেন্ট মার্কেটিং",
+                "content marketing", "ইমেইল মার্কেটিং",
+                "email marketing", "অনলাইন প্রচার",
+                "online promotion", "ব্র্যান্ডিং", "branding"
+            ]
+        },
+
+        {
+            title: "প্রযুক্তি বিষয়ক তথ্য | Technology Tips",
+            url: "technology.html",
+            keywords: [
+                "প্রযুক্তি", "technology", "মোবাইল", "mobile",
+                "কম্পিউটার", "computer", "টিপস", "tips",
+                "ইন্টারনেট", "internet", "সফটওয়্যার", "software",
+                "হার্ডওয়্যার", "hardware", "উইন্ডোজ", "windows",
+                "অ্যান্ড্রয়েড", "android", "ওয়েবসাইট", "website",
+                "এআই", "ai", "কৃত্রিম বুদ্ধিমত্তা",
+                "নিরাপত্তা", "security"
+            ]
+        },
+
+        {
+            title: "অনলাইন ব্যবসা | Online Business",
+            url: "online-business.html",
+            keywords: [
+                "অনলাইন ব্যবসা", "online business",
+                "ব্যবসা", "business", "পণ্য", "product",
+                "বিক্রি", "selling", "ক্রয়", "buying",
+                "ই-কমার্স", "e-commerce", "অনলাইন শপ",
+                "online shop", "ই-কমার্স ওয়েবসাইট",
+                "ecommerce website", "ডিজিটাল পণ্য",
+                "digital products", "গ্রাহক", "customer",
+                "মার্কেটপ্লেস", "marketplace",
+                "উদ্যোক্তা", "entrepreneur"
+            ]
+        },
+
+        {
+            title: "শিক্ষামূলক কনটেন্ট | Educational Content",
+            url: "education.html",
+            keywords: [
+                "শিক্ষা", "শিক্ষামূলক", "education",
+                "educational", "শেখা", "learning",
+                "অনলাইন শিক্ষা", "online education",
+                "প্রশিক্ষণ", "training", "কোর্স", "course",
+                "দক্ষতা উন্নয়ন", "skill development",
+                "কম্পিউটার শিক্ষা", "computer learning",
+                "ইংরেজি শিক্ষা", "english learning",
+                "টিউটোরিয়াল", "tutorial", "গাইড", "guide",
+                "জ্ঞান", "knowledge"
+            ]
+        },
+
+        /* SEVENTH PAGE */
+
+        {
+            title: "ওয়েবসাইট তৈরি ও ব্লগিং | Website Creation & Blogging",
+            url: "website-creation.html",
+            keywords: [
+                "ওয়েবসাইট তৈরি", "website creation",
+                "ওয়েবসাইট", "website", "ব্লগিং", "blogging",
+                "ব্লগ", "blog", "ব্লগার", "blogger",
+                "গুগল ব্লগার", "google blogger",
+                "এইচটিএমএল", "html", "সিএসএস", "css",
+                "গিটহাব", "github", "গিটহাব পেজেস",
+                "github pages", "ওয়েব ডিজাইন", "web design",
+                "ওয়েব ডেভেলপমেন্ট", "web development",
+                "এসইও", "seo", "সার্চ কনসোল",
+                "search console", "ওয়েবসাইট প্রকাশ",
+                "publish website", "ডোমেইন", "domain",
+                "হোস্টিং", "hosting"
+            ]
+        }
+
+    ];
+
+    const publishDate = {
+        "online-income.html": "04 November 2026",
+        "freelancing.html": "04 November 2026",
+        "digital-marketing.html": "04 November 2026",
+        "technology.html": "04 November 2026",
+        "online-business.html": "04 November 2026",
+        "education.html": "04 November 2026",
+        "website-creation.html": "22 November 2026"
+    };
+
+    const descriptions = {
+        "online-income.html":
+            "ঘরে বসে অনলাইনে আয় করার বিভিন্ন পদ্ধতি ও সুযোগ সম্পর্কে জানুন।",
+
+        "freelancing.html":
+            "ফ্রিল্যান্সিং শিখুন, দক্ষতা বাড়ান এবং অনলাইনে কাজ শুরু করুন।",
+
+        "digital-marketing.html":
+            "ডিজিটাল মার্কেটিংয়ের কার্যকর কৌশল ও অনলাইন প্রচার সম্পর্কে জানুন।",
+
+        "technology.html":
+            "মোবাইল, কম্পিউটার, ইন্টারনেট ও প্রযুক্তির নতুন তথ্য জানুন।",
+
+        "online-business.html":
+            "অনলাইন ব্যবসা শুরু, পরিচালনা ও উন্নয়নের উপায় জানুন।",
+
+        "education.html":
+            "নতুন দক্ষতা, শিক্ষা ও প্রশিক্ষণ সম্পর্কে জানুন।",
+
+        "website-creation.html":
+            "ওয়েবসাইট তৈরি, ব্লগিং, Blogger, HTML, CSS, GitHub Pages ও SEO শিখুন।"
+    };
+
+    const icons = {
+        "online-income.html": "💰",
+        "freelancing.html": "💻",
+        "digital-marketing.html": "📢",
+        "technology.html": "⚙️",
+        "online-business.html": "🛒",
+        "education.html": "🎓",
+        "website-creation.html": "🌐"
+    };
+
+    let results = pages.filter(page =>
+        page.title.toLowerCase().includes(input) ||
+        page.keywords.some(word =>
+            word.toLowerCase().includes(input)
+        )
+    );
 
     if (results.length === 0) {
-        output.innerHTML = "দুঃখিত! কোনো বিষয় পাওয়া যায়নি।";
+        output.innerHTML = `
+            <h3>দুঃখিত! কোনো বিষয় পাওয়া যায়নি।</h3>
+        `;
         return;
     }
 
-    output.innerHTML = "<h3>সার্চের ফলাফল:</h3>";
-
-   output.innerHTML = `
-    <h3>সার্চের ফলাফল: ${results.length} টি বিষয় পাওয়া গেছে</h3>
-`;
-const publishDate = {
-    "online-income.html": "04 November 2026",
-    "freelancing.html": "04 November 2026",
-    "digital-marketing.html": "04 November 2026",
-    "technology.html": "04 November 2026",
-    "online-business.html": "04 November 2026",
-    "education.html": "04 November 2026"
-};
-const descriptions = {
-    "online-income.html": "ঘরে বসে অনলাইনে আয় করার বিভিন্ন পদ্ধতি ও সুযোগ সম্পর্কে জানুন।",
-    "freelancing.html": "ফ্রিল্যান্সিং শিখুন, দক্ষতা বাড়ান এবং অনলাইনে কাজ শুরু করুন।",
-    "digital-marketing.html": "ডিজিটাল মার্কেটিংয়ের কার্যকর কৌশল ও অনলাইন প্রচার সম্পর্কে জানুন।",
-    "technology.html": "মোবাইল, কম্পিউটার, ইন্টারনেট ও প্রযুক্তির নতুন তথ্য জানুন।",
-    "online-business.html": "অনলাইন ব্যবসা শুরু, পরিচালনা ও উন্নয়নের উপায় জানুন।",
-    "education.html": "নতুন দক্ষতা, শিক্ষা ও প্রশিক্ষণ সম্পর্কে জানুন।"
-};
-
-const icons = {
-    "online-income.html": "💰",
-    "freelancing.html": "💻",
-    "digital-marketing.html": "📢",
-    "technology.html": "⚙️",
-    "online-business.html": "🛒",
-    "education.html": "🎓"
-};
-
-results.forEach(page => {
-    let card = document.createElement("div");
-    card.className = "search-card";
-
-    card.innerHTML = `
-        <div class="search-card-image">
-    <img src="${page.url.replace('.html', '.jpg')}"
-         alt="${page.title}">
-</div>
-        <div class="search-card-content">
-            <h4>${page.title}</h4>
-            <p>${descriptions[page.url]}</p>
-			<p class="publish-date">📅 প্রকাশিত: ${publishDate[page.url]}</p>
-            <a href="${page.url}" class="read-more">
-                Read More →
-            </a>
-        </div>
+    output.innerHTML = `
+        <h3>সার্চের ফলাফল: ${results.length} টি বিষয় পাওয়া গেছে</h3>
+        <div class="search-result-grid" id="searchResultGrid"></div>
     `;
 
-    output.appendChild(card);
-});
-}
-</script>
+    const grid = document.getElementById("searchResultGrid");
 
+    results.forEach(page => {
+
+        let card = document.createElement("div");
+        card.className = "search-card";
+
+        let imageName = page.url.replace(".html", ".jpg");
+
+        card.innerHTML = `
+            <div class="search-card-image">
+                <img src="${imageName}"
+                     alt="${page.title}"
+                     onerror="this.style.display='none'">
+            </div>
+
+            <div class="search-card-content">
+                <h4>${icons[page.url]} ${page.title}</h4>
+
+                <p>${descriptions[page.url]}</p>
+
+                <p class="publish-date">
+                    📅 প্রকাশিত: ${publishDate[page.url]}
+                </p>
+
+                <a href="${page.url}" class="read-more">
+                    বিস্তারিত পড়ুন | Read More →
+                </a>
+            </div>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+    output.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+</script>
 
 </body>
 </html>
