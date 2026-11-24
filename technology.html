@@ -28,48 +28,62 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 20px;
+    scroll-padding-top: 85px;
 }
 
 body {
     font-family: Arial, "Noto Sans Bengali", sans-serif;
     background: #f3f6fa;
     color: #263445;
-    line-height: 1.8;
+    line-height: 1.85;
 }
+
+a {
+    transition: 0.2s ease;
+}
+
+/* HEADER */
 
 header {
     background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
     color: white;
     text-align: center;
-    padding: 55px 18px;
-}
-
-header h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-header p {
-    color: #e7f4ff;
-    font-size: 16px;
+    padding: 65px 18px;
 }
 
 .header-tag {
     display: inline-block;
     background: rgba(255,255,255,0.13);
     border: 1px solid rgba(255,255,255,0.3);
-    padding: 5px 15px;
+    padding: 6px 17px;
     border-radius: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 17px;
     font-size: 13px;
+    letter-spacing: 0.4px;
 }
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+header p {
+    color: #e7f4ff;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* NAVIGATION */
 
 nav {
     background: #102a43;
     text-align: center;
     padding: 13px 10px;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
 }
 
 nav a {
@@ -78,21 +92,24 @@ nav a {
     margin: 5px 8px;
     font-size: 14px;
     display: inline-block;
+    padding: 4px 0;
 }
 
 nav a:hover {
     color: #f0c040;
 }
 
+/* MAIN CONTAINER */
+
 .container {
-    max-width: 1080px;
-    margin: 30px auto;
+    max-width: 1100px;
+    margin: 32px auto;
     padding: 0 18px;
 }
 
 .breadcrumb {
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     color: #64748b;
 }
 
@@ -101,136 +118,101 @@ nav a:hover {
     text-decoration: none;
 }
 
+/* CONTENT SECTIONS */
+
 .section {
     background: white;
-    padding: 28px;
-    margin-bottom: 23px;
-    border-radius: 13px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.055);
-    border: 1px solid #edf1f5;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.045);
+    border: 1px solid #e9eef4;
 }
 
 .section h2 {
     color: #1769aa;
     font-size: 23px;
-    margin-bottom: 15px;
+    margin-bottom: 17px;
     border-bottom: 2px solid #e6eff8;
-    padding-bottom: 9px;
+    padding-bottom: 11px;
+    line-height: 1.5;
 }
 
 .section h3 {
     color: #102a43;
     font-size: 18px;
-    margin: 18px 0 8px;
+    margin: 20px 0 9px;
 }
 
 .section p {
-    margin-bottom: 12px;
+    margin-bottom: 13px;
 }
+
+.section ul,
+.section ol {
+    padding-left: 25px;
+    margin: 13px 0;
+}
+
+.section li {
+    margin-bottom: 9px;
+}
+
+.section a {
+    color: #1769aa;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.section a:hover {
+    text-decoration: underline;
+}
+
+/* ENGLISH TEXT */
 
 .english {
     color: #526477;
     background: #f5f8fc;
-    padding: 13px 15px;
-    border-left: 3px solid #2196c8;
-    border-radius: 5px;
-    margin: 12px 0 16px;
+    padding: 15px 17px;
+    border-left: 4px solid #2196c8;
+    border-radius: 7px;
+    margin: 14px 0 17px;
 }
+
+/* TOPIC CARDS */
 
 .topic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-    gap: 16px;
-    margin-top: 18px;
+    gap: 17px;
+    margin-top: 20px;
 }
 
 .topic-card {
     background: #f5f9fd;
-    padding: 19px;
-    border-radius: 10px;
+    padding: 21px;
+    border-radius: 11px;
     border: 1px solid #e1ebf5;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .topic-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 14px rgba(23,105,170,0.10);
+    transform: translateY(-4px);
+    box-shadow: 0 7px 18px rgba(23,105,170,0.10);
 }
 
 .topic-card h3 {
     color: #1769aa;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
 }
 
 .topic-card p {
     font-size: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
 }
 
-.section ul,
-.section ol {
-    padding-left: 24px;
-    margin: 12px 0;
-}
-
-.section li {
-    margin-bottom: 8px;
-}
-
-.notice {
-    background: #fff8e7;
-    border-left: 4px solid #e5a900;
-    padding: 17px;
-    border-radius: 7px;
-    margin: 16px 0;
-}
-
-.code-example {
-    background: #102a43;
-    color: #e7f4ff;
-    padding: 19px;
-    border-radius: 9px;
-    overflow-x: auto;
-    margin: 14px 0;
-    font-family: Consolas, monospace;
-    font-size: 14px;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-}
-
-.resource-list a,
-.section a {
-    color: #1769aa;
-    text-decoration: none;
-}
-
-.resource-list a:hover,
-.section a:hover {
-    text-decoration: underline;
-}
-
-.table-wrap {
-    overflow-x: auto;
-    margin: 15px 0;
-}
-
-table {
-    width: 100%;
-    min-width: 480px;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-th {
-    background: #1769aa;
-    color: white;
-}
-
-th, td {
-    padding: 11px;
-    border: 1px solid #dce5ed;
-}
+/* TABLE OF CONTENTS */
 
 .toc {
     background: #ffffff;
@@ -243,17 +225,19 @@ th, td {
 
 .toc ol {
     columns: 2;
-    column-gap: 35px;
+    column-gap: 40px;
+    padding-left: 25px;
 }
 
 .toc li {
     break-inside: avoid;
-    margin-bottom: 7px;
+    margin-bottom: 9px;
 }
 
 .toc a {
     color: #1769aa;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .toc a:hover {
@@ -261,18 +245,78 @@ th, td {
     text-decoration: underline;
 }
 
+/* NOTICE */
+
+.notice {
+    background: #fff8e7;
+    border-left: 4px solid #e5a900;
+    padding: 18px;
+    border-radius: 8px;
+    margin: 18px 0;
+}
+
+/* CODE EXAMPLES */
+
+.code-example {
+    background: #102a43;
+    color: #e7f4ff;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 15px 0;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.8;
+}
+
+/* TABLE */
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    text-align: center;
+    background: white;
+}
+
+th {
+    background: #1769aa;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #dce5ed;
+}
+
+tbody tr:nth-child(even) {
+    background: #f5f9fd;
+}
+
+/* LEARNING PLAN */
+
 .plan-number {
     display: inline-block;
     background: #1769aa;
     color: white;
-    padding: 3px 10px;
+    padding: 4px 12px;
     border-radius: 20px;
     font-size: 13px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
+/* FAQ */
+
 .faq-item {
-    padding: 15px 0;
+    padding: 17px 0;
     border-bottom: 1px solid #e5edf5;
 }
 
@@ -285,68 +329,86 @@ th, td {
     color: #1769aa;
 }
 
+.faq-item p {
+    margin-bottom: 0;
+}
+
+/* AUTHOR */
+
+.author-box {
+    background: #f5f9fd;
+    border: 1px solid #e1ebf5;
+    border-radius: 12px;
+    padding: 23px;
+    margin-bottom: 25px;
+}
+
+.author-box h3 {
+    color: #1769aa;
+    margin-bottom: 9px;
+}
+
+.author-box a {
+    color: #1769aa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* CALL TO ACTION */
+
 .cta {
     background: linear-gradient(135deg, #102a43, #1769aa);
     color: white;
     text-align: center;
-    padding: 35px 20px;
-    border-radius: 13px;
-    margin-bottom: 25px;
+    padding: 40px 22px;
+    border-radius: 14px;
+    margin-bottom: 28px;
 }
 
 .cta h2 {
-    margin-bottom: 10px;
-    font-size: 25px;
+    margin-bottom: 12px;
+    font-size: 26px;
 }
 
 .cta p {
     color: #e7f4ff;
+    margin-bottom: 8px;
 }
 
 .cta a {
     display: inline-block;
     background: #f0c040;
     color: #102a43;
-    padding: 11px 23px;
-    border-radius: 6px;
+    padding: 11px 24px;
+    border-radius: 7px;
     text-decoration: none;
     font-weight: bold;
-    margin: 10px 5px 0;
+    margin: 12px 5px 0;
 }
 
 .cta a:hover {
     background: #ffda69;
+    transform: translateY(-2px);
 }
 
-.author-box {
-    background: #f5f9fd;
-    border: 1px solid #e1ebf5;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 23px;
-}
-
-.author-box h3 {
-    color: #1769aa;
-    margin-bottom: 7px;
-}
+/* FOOTER */
 
 footer {
     background: #071d35;
     color: white;
     text-align: center;
-    padding: 30px 15px;
-    margin-top: 35px;
+    padding: 34px 15px;
+    margin-top: 38px;
 }
 
 .footer-links {
-    margin-bottom: 15px;
+    margin-bottom: 17px;
 }
 
 .footer-links a {
     color: #e7f4ff;
     text-decoration: none;
-    margin: 5px 8px;
+    margin: 5px 9px;
     display: inline-block;
     font-size: 14px;
 }
@@ -356,35 +418,79 @@ footer {
 }
 
 footer p {
-    margin: 7px 0;
+    margin: 8px 0;
 }
 
 .copyright {
     color: #b9c9d9;
     font-size: 14px;
-    margin-top: 13px;
+    margin-top: 15px;
 }
+
+/* BACK TO TOP */
+
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1769aa;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+
+.back-to-top:hover {
+    background: #102a43;
+}
+
+/* MOBILE RESPONSIVE */
 
 @media (max-width: 650px) {
     header {
-        padding: 40px 15px;
+        padding: 43px 15px;
     }
 
     header h1 {
-        font-size: 25px;
+        font-size: 27px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .container {
+        margin: 22px auto;
+        padding: 0 12px;
     }
 
     .section {
-        padding: 19px;
+        padding: 20px;
+        margin-bottom: 19px;
     }
 
     .section h2 {
         font-size: 20px;
     }
 
+    .section h3 {
+        font-size: 17px;
+    }
+
+    nav {
+        padding: 9px 5px;
+    }
+
     nav a {
-        margin: 5px 6px;
-        font-size: 13px;
+        margin: 4px 6px;
+        font-size: 12px;
     }
 
     .toc ol {
@@ -393,6 +499,24 @@ footer p {
 
     .topic-grid {
         grid-template-columns: 1fr;
+    }
+
+    .cta {
+        padding: 30px 16px;
+    }
+
+    .cta h2 {
+        font-size: 22px;
+    }
+
+    .code-example {
+        font-size: 12px;
+        padding: 15px;
+    }
+
+    .back-to-top {
+        right: 13px;
+        bottom: 13px;
     }
 }
 </style>
@@ -452,6 +576,7 @@ Technology is changing our daily lives, education, business, and work. This page
 <li><a href="#mistakes">সাধারণ ভুল</a></li>
 <li><a href="#plan">৩০ দিনের পরিকল্পনা</a></li>
 <li><a href="#faq">সাধারণ প্রশ্ন</a></li>
+<li><a href="#mission">আমাদের শিক্ষামূলক লক্ষ্য</a></li>
 </ol>
 </section>
 
@@ -563,12 +688,15 @@ Microsoft Excel ব্যবহার করে দোকানের পণ্�
 
 <div class="table-wrap">
 <table>
+<thead>
 <tr>
 <th>পণ্যের নাম</th>
 <th>পরিমাণ</th>
 <th>একক মূল্য</th>
 <th>মোট মূল্য</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>খাতা</td>
 <td>10</td>
@@ -581,6 +709,7 @@ Microsoft Excel ব্যবহার করে দোকানের পণ্�
 <td>10</td>
 <td>200</td>
 </tr>
+</tbody>
 </table>
 </div>
 
@@ -605,7 +734,7 @@ Use Microsoft Excel to manage product lists, sales, expenses, and accounts. If q
 
 <div class="notice">
 <strong>অনুশীলন:</strong> নিজের কম্পিউটারে Excel খুলে ৫টি পণ্যের নাম, পরিমাণ ও মূল্য লিখে মোট মূল্য বের করার চেষ্টা করুন।
-<br>
+<br><br>
 <strong>Practice:</strong> Open Excel and enter five products, their quantities, and unit prices. Calculate the total price.
 </div>
 </section>
@@ -699,7 +828,7 @@ AI can assist with education, writing, translation, data analysis, image creatio
 
 <div class="notice">
 <strong>সতর্কতা:</strong> AI-এর দেওয়া তথ্য সবসময় সঠিক বা হালনাগাদ নাও হতে পারে। গুরুত্বপূর্ণ তথ্য নির্ভরযোগ্য উৎস থেকে যাচাই করুন। পাসওয়ার্ড, OTP, ব্যাংক তথ্য বা ব্যক্তিগত গোপন তথ্য AI-তে দেবেন না।
-<br>
+<br><br>
 <strong>Safety:</strong> AI-generated information may not always be accurate or up to date. Verify important facts and never share passwords, OTPs, banking details, or confidential personal information.
 </div>
 </section>
@@ -736,7 +865,7 @@ Phishing is an attempt to steal passwords, banking information, or personal data
 
 <div class="notice">
 কোনো বার্তা সন্দেহজনক মনে হলে তাতে দেওয়া লিংকে না গিয়ে সংশ্লিষ্ট প্রতিষ্ঠানের পরিচিত অফিসিয়াল ওয়েবসাইট বা অ্যাপ নিজে খুলে যাচাই করুন।
-<br>
+<br><br>
 If a message looks suspicious, do not follow its link. Visit the organization's known official website or app directly.
 </div>
 </section>
@@ -804,7 +933,7 @@ HTML creates the structure of a web page, while CSS controls its appearance. Pra
 
 <p>নতুনরা বিভিন্ন শিক্ষামূলক প্ল্যাটফর্ম থেকে প্রযুক্তি সম্পর্কে শিখতে পারেন।</p>
 
-<ul class="resource-list">
+<ul>
 <li><a href="https://grow.google/" target="_blank" rel="noopener noreferrer">Google Learning Resources</a> – ডিজিটাল দক্ষতা শেখার রিসোর্স।</li>
 <li><a href="https://learn.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft Learn</a> – Microsoft প্রযুক্তি ও সফটওয়্যার শেখা।</li>
 <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a> – HTML, CSS, JavaScript ও ওয়েব ডেভেলপমেন্ট শেখা।</li>
@@ -877,7 +1006,7 @@ Avoid installing untrusted software, reusing passwords, neglecting backups, shar
 
 <div class="notice">
 <strong>শেখার পরামর্শ:</strong> প্রতিদিন অন্তত ৩০–৬০ মিনিট অনুশীলন করুন। শুধু পড়লেই হবে না, নিজে হাতে কাজ করার চেষ্টা করুন। আপনার শেখার গতি অনুযায়ী সময় বাড়ানো বা কমানো যেতে পারে।
-<br>
+<br><br>
 <strong>Learning Tip:</strong> Practice for at least 30–60 minutes each day. Do not just read; try to perform the tasks yourself. Adjust the schedule according to your learning pace.
 </div>
 </section>
@@ -911,7 +1040,7 @@ Avoid installing untrusted software, reusing passwords, neglecting backups, shar
 </div>
 </section>
 
-<section class="section">
+<section class="section" id="mission">
 <h2>১৪. আমাদের শিক্ষামূলক লক্ষ্য | Our Educational Mission</h2>
 
 <p>
@@ -985,6 +1114,8 @@ Technology-related information on this website is provided for educational purpo
 © 2026 Md Rifat Ahmed – Personal &amp; Online Business. All Rights Reserved.
 </p>
 </footer>
+
+<a href="#" class="back-to-top" aria-label="Back to top" title="উপরে যান">↑</a>
 
 </body>
 </html>
