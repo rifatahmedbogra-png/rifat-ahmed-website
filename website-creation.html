@@ -6,154 +6,442 @@
 
 <title>ওয়েবসাইট তৈরি ও ব্লগিং | Website Creation & Blogging - Rifat Ahmed</title>
 
-<meta name="description" content="ওয়েবসাইট তৈরি, ব্লগিং, Blogger, HTML, CSS, GitHub Pages, SEO এবং ওয়েবসাইট পরিচালনা সম্পর্কে বাংলা ও ইংরেজিতে সহজ নির্দেশনা শিখুন।">
+<meta name="description" content="ওয়েবসাইট তৈরি ও ব্লগিং শিখুন সহজ বাংলায়। Blogger, HTML, CSS, GitHub Pages, SEO, Google Search Console এবং ওয়েবসাইট পরিচালনার প্রাথমিক নির্দেশনা।">
 
-<meta name="keywords" content="ওয়েবসাইট তৈরি, ব্লগিং, Website Creation, Blogging, Blogger, HTML, CSS, GitHub Pages, SEO">
+<meta name="keywords" content="ওয়েবসাইট তৈরি, ব্লগিং, Website Creation, Blogging, Blogger, HTML, CSS, GitHub Pages, SEO, Web Design, Google Search Console">
 
 <meta name="author" content="Md Rifat Ahmed">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#071d35">
 
 <link rel="canonical" href="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/website-creation.html">
 
+<meta property="og:type" content="article">
+<meta property="og:title" content="ওয়েবসাইট তৈরি ও ব্লগিং | Rifat Ahmed">
+<meta property="og:description" content="নতুনদের জন্য ওয়েবসাইট তৈরি, ব্লগিং, HTML, CSS, Blogger এবং SEO শেখার সহজ নির্দেশনা।">
+<meta property="og:url" content="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/website-creation.html">
+
 <style>
+:root {
+    --navy: #071d35;
+    --dark: #102a43;
+    --blue: #1769aa;
+    --light-blue: #edf6ff;
+    --cyan: #2196c8;
+    --gold: #f0c040;
+    --text: #263445;
+    --muted: #64748b;
+    --background: #f4f7fb;
+    --white: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #263445;
-    line-height: 1.8;
+    font-family: Arial, "Noto Sans Bengali", sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.85;
+}
+
+a {
+    color: var(--blue);
 }
 
 header {
-    background: linear-gradient(135deg, #071d35, #1769aa);
-    color: white;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: var(--white);
     text-align: center;
-    padding: 45px 20px;
+    padding: 65px 20px 55px;
+}
+
+.header-label {
+    display: inline-block;
+    color: var(--gold);
+    border: 1px solid rgba(240,192,64,.5);
+    padding: 5px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 16px;
 }
 
 header h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 34px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+header h2 {
+    color: var(--gold);
+    font-size: 23px;
+    margin-bottom: 12px;
 }
 
 header p {
+    max-width: 760px;
+    margin: auto;
+    color: #e6f1fb;
     font-size: 16px;
 }
 
 nav {
-    background: #102a43;
-    padding: 13px;
+    background: var(--dark);
+    padding: 12px 15px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(0,0,0,.12);
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 7px 12px;
+    margin: 5px 12px;
     display: inline-block;
     font-weight: bold;
+    font-size: 14px;
+    transition: .2s;
 }
 
 nav a:hover {
-    color: #f0c040;
+    color: var(--gold);
 }
 
 .container {
-    max-width: 1050px;
-    margin: 30px auto;
-    padding: 20px;
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 0 18px;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
 }
 
 .section {
-    background: white;
-    padding: 25px;
-    margin-bottom: 22px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    background: var(--white);
+    padding: 30px;
+    margin-bottom: 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(15,40,70,.06);
+    border: 1px solid #e9eef5;
 }
 
-h2 {
-    color: #1769aa;
-    margin-bottom: 15px;
-    border-left: 5px solid #f0c040;
-    padding-left: 12px;
+.section h2 {
+    color: var(--blue);
+    font-size: 23px;
+    line-height: 1.5;
+    margin-bottom: 17px;
+    padding-left: 13px;
+    border-left: 5px solid var(--gold);
 }
 
-h3 {
-    color: #102a43;
-    margin: 15px 0 8px;
+.section h3 {
+    color: var(--dark);
+    font-size: 18px;
+    margin: 19px 0 9px;
 }
 
-ul {
+.section p {
+    margin-bottom: 13px;
+}
+
+.section ul,
+.section ol {
     padding-left: 25px;
+    margin: 12px 0;
 }
 
-li {
-    margin-bottom: 7px;
+.section li {
+    margin-bottom: 8px;
 }
 
 .highlight {
-    background: #edf6ff;
-    border-left: 4px solid #2196c8;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 6px;
+    background: var(--light-blue);
+    border-left: 4px solid var(--cyan);
+    padding: 17px 19px;
+    margin-top: 17px;
+    border-radius: 8px;
 }
 
-footer {
-    background: #071d35;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 35px;
+.highlight strong {
+    color: var(--dark);
 }
 
-footer a {
-    color: #f0c040;
+.notice {
+    background: #fff9e8;
+    border-left: 4px solid var(--gold);
+    padding: 17px 19px;
+    margin: 17px 0;
+    border-radius: 8px;
+}
+
+.code-example {
+    background: #102a43;
+    color: #e8f3ff;
+    padding: 18px;
+    border-radius: 9px;
+    overflow-x: auto;
+    margin: 15px 0;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre;
+}
+
+.toc {
+    background: #fff;
+    border: 1px solid #e3ebf4;
+    padding: 25px 30px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 18px rgba(15,40,70,.05);
+}
+
+.toc h2 {
+    color: var(--dark);
+    font-size: 21px;
+    margin-bottom: 13px;
+}
+
+.toc ol {
+    padding-left: 23px;
+    columns: 2;
+    column-gap: 35px;
+}
+
+.toc li {
+    margin-bottom: 8px;
+    break-inside: avoid;
+}
+
+.toc a {
+    color: var(--blue);
     text-decoration: none;
+}
+
+.toc a:hover {
+    color: #0b477d;
+    text-decoration: underline;
+}
+
+.resource-link {
+    display: inline-block;
+    background: var(--light-blue);
+    padding: 7px 13px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.resource-link:hover {
+    background: #dceeff;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 17px;
+}
+
+.info-card {
+    background: #f5f9fd;
+    border: 1px solid #e5edf5;
+    padding: 17px;
+    border-radius: 10px;
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: var(--blue);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 17px 0;
+}
+
+th, td {
+    border: 1px solid #dce5ee;
+    padding: 11px;
+    text-align: left;
+}
+
+th {
+    background: var(--dark);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f5f9fd;
 }
 
 .back-link {
     display: inline-block;
-    background: #1769aa;
+    background: var(--blue);
     color: white;
-    padding: 11px 20px;
+    padding: 11px 21px;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 7px;
+    font-weight: bold;
     margin-top: 15px;
+    transition: .2s;
 }
 
 .back-link:hover {
-    background: #102a43;
+    background: var(--dark);
 }
 
-@media (max-width: 600px) {
+.author-box {
+    background: linear-gradient(135deg, #edf6ff, #f7fbff);
+    border: 1px solid #dceafa;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 18px;
+}
+
+.author-box h3 {
+    color: var(--dark);
+    margin-top: 0;
+}
+
+.cta {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.cta h2 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.cta p {
+    margin-bottom: 10px;
+}
+
+.cta a {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 32px 18px;
+    margin-top: 35px;
+}
+
+footer p {
+    margin: 6px 0;
+}
+
+footer a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.back-top {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    background: var(--blue);
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.2);
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 45px 16px;
+    }
+
     header h1 {
-        font-size: 23px;
+        font-size: 26px;
+    }
+
+    header h2 {
+        font-size: 19px;
+    }
+
+    nav a {
+        margin: 5px 7px;
+        font-size: 13px;
     }
 
     .container {
-        padding: 12px;
+        padding: 0 12px;
     }
 
     .section {
-        padding: 18px;
+        padding: 20px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    .toc {
+        padding: 20px;
+    }
+
+    .toc ol {
+        columns: 1;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .back-top {
+        bottom: 12px;
+        right: 12px;
     }
 }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
+    <div class="header-label">LEARN • CREATE • PUBLISH</div>
     <h1>ওয়েবসাইট তৈরি ও ব্লগিং</h1>
-    <h2 style="color:#f0c040; border:0; padding:0;">
-        Website Creation & Blogging
-    </h2>
+    <h2>Website Creation & Blogging</h2>
     <p>শিখুন, নিজের ওয়েবসাইট তৈরি করুন এবং অনলাইনে নিজের পরিচিতি গড়ে তুলুন।</p>
 </header>
 
@@ -165,7 +453,11 @@ footer a {
 
 <main class="container">
 
-    <section class="section">
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt; Website Creation & Blogging
+    </div>
+
+    <section class="section" id="introduction">
         <h2>ওয়েবসাইট তৈরি ও ব্লগিং কী?</h2>
 
         <p>
@@ -188,14 +480,37 @@ footer a {
         </div>
     </section>
 
-    <section class="section">
+    <div class="toc">
+        <h2>📚 এই পেজে যা শিখবেন | Table of Contents</h2>
+        <ol>
+            <li><a href="#why-website">ওয়েবসাইট কেন তৈরি করবেন?</a></li>
+            <li><a href="#blogger">Blogger দিয়ে ওয়েবসাইট তৈরি</a></li>
+            <li><a href="#html-css">HTML ও CSS-এর প্রাথমিক ধারণা</a></li>
+            <li><a href="#github">GitHub Pages দিয়ে প্রকাশ</a></li>
+            <li><a href="#content">ভালো কনটেন্ট লেখা</a></li>
+            <li><a href="#seo">SEO ও Google Search Console</a></li>
+            <li><a href="#domain">ডোমেইন ও হোস্টিং</a></li>
+            <li><a href="#security">নিরাপত্তা ও রক্ষণাবেক্ষণ</a></li>
+            <li><a href="#income">ব্লগিং থেকে বৈধ আয়</a></li>
+            <li><a href="#mistakes">নতুনদের সাধারণ ভুল</a></li>
+            <li><a href="#practice">৩০ দিনের শেখার পরিকল্পনা</a></li>
+            <li><a href="#resources">প্রয়োজনীয় শেখার রিসোর্স</a></li>
+            <li><a href="#faq">সাধারণ প্রশ্ন ও উত্তর</a></li>
+            <li><a href="#mission">আমাদের লক্ষ্য</a></li>
+        </ol>
+    </div>
+
+    <section class="section" id="why-website">
         <h2>১. ওয়েবসাইট কেন তৈরি করবেন?</h2>
+
+        <p>একটি ওয়েবসাইট আপনার কাজ, দক্ষতা এবং পরিচিতি অনলাইনে তুলে ধরার একটি কার্যকর মাধ্যম।</p>
 
         <ul>
             <li>নিজের পরিচিতি ও ব্যক্তিগত ব্র্যান্ড তৈরি করতে।</li>
             <li>শিক্ষামূলক তথ্য মানুষের কাছে পৌঁছে দিতে।</li>
             <li>নিজের ব্যবসা ও সেবা অনলাইনে পরিচিত করতে।</li>
             <li>নিজের লেখা, ছবি ও কাজ সংরক্ষণ করতে।</li>
+            <li>নিজের কাজের Portfolio তৈরি করতে।</li>
             <li>ভবিষ্যতে বৈধ অনলাইন আয়ের সুযোগ তৈরি করতে।</li>
         </ul>
 
@@ -207,29 +522,28 @@ footer a {
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="blogger">
         <h2>২. Blogger দিয়ে ওয়েবসাইট তৈরি</h2>
 
         <p>
             Blogger হলো Google-এর একটি ব্লগিং প্ল্যাটফর্ম।
-            নতুনদের জন্য এটি দিয়ে বিনামূল্যে ব্লগ তৈরি শেখা সহজ।
+            নতুনদের জন্য এটি দিয়ে বিনামূল্যে ব্লগ তৈরি ও লেখা প্রকাশ শেখা সহজ।
         </p>
 
         <h3>শুরু করার নিয়ম:</h3>
-
-        <ul>
+        <ol>
             <li>একটি Google Account তৈরি বা ব্যবহার করুন।</li>
             <li>Blogger ওয়েবসাইটে প্রবেশ করুন।</li>
             <li>নতুন ব্লগ তৈরি করুন।</li>
             <li>ব্লগের নাম ও ঠিকানা নির্বাচন করুন।</li>
             <li>পছন্দমতো Theme নির্বাচন করুন।</li>
+            <li>প্রয়োজনীয় Pages তৈরি করুন।</li>
             <li>নিজের প্রথম শিক্ষামূলক পোস্ট প্রকাশ করুন।</li>
-        </ul>
+        </ol>
 
         <p>
-            Blogger: 
-            <a href="https://www.blogger.com/" target="_blank" rel="noopener">
-                Blogger Official Website
+            <a class="resource-link" href="https://www.blogger.com/" target="_blank" rel="noopener noreferrer">
+                Blogger Official Website ↗
             </a>
         </p>
 
@@ -238,9 +552,13 @@ footer a {
             Blogger is a Google blogging platform that allows beginners
             to create and publish a blog without paying for hosting.
         </div>
+
+        <div class="notice">
+            <strong>পরামর্শ:</strong> ব্লগের নাম, ঠিকানা এবং বিষয় নির্বাচন করার আগে ভেবে নিন। এমন বিষয় বেছে নিন, যেটি নিয়ে নিয়মিত উপকারী লেখা প্রকাশ করতে পারবেন।
+        </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="html-css">
         <h2>৩. HTML ও CSS-এর প্রাথমিক ধারণা</h2>
 
         <h3>HTML কী?</h3>
@@ -255,42 +573,77 @@ footer a {
             এবং বিভিন্ন অংশের সৌন্দর্য নিয়ন্ত্রণ করা হয়।
         </p>
 
+        <h3>একটি সাধারণ HTML উদাহরণ:</h3>
+
+        <pre class="code-example">&lt;!DOCTYPE html&gt;
+&lt;html lang="bn"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;আমার ওয়েবসাইট&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;স্বাগতম&lt;/h1&gt;
+    &lt;p&gt;এটি আমার প্রথম ওয়েবপেজ।&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+        <h3>CSS-এর একটি সাধারণ উদাহরণ:</h3>
+
+        <pre class="code-example">body {
+    background: #f4f7fb;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #1769aa;
+}</pre>
+
         <div class="highlight">
             <strong>English:</strong>
             HTML creates the structure of a webpage, while CSS controls
             its appearance, colors, layout and visual design.
         </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>HTML</h3>
+                <p>ওয়েবপেজের কাঠামো তৈরি করে।</p>
+            </div>
+            <div class="info-card">
+                <h3>CSS</h3>
+                <p>ওয়েবপেজের ডিজাইন ও সৌন্দর্য নিয়ন্ত্রণ করে।</p>
+            </div>
+        </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="github">
         <h2>৪. GitHub Pages দিয়ে ওয়েবসাইট প্রকাশ</h2>
 
         <p>
             GitHub Pages ব্যবহার করে HTML, CSS এবং JavaScript দিয়ে তৈরি
-            Static Website ইন্টারনেটে বিনামূল্যে প্রকাশ করা যায়।
+            Static Website ইন্টারনেটে প্রকাশ করা যায়।
+            এটি Portfolio, Personal Website এবং Educational Project-এর জন্য উপযোগী।
         </p>
 
         <h3>প্রাথমিক ধাপ:</h3>
-
-        <ul>
+        <ol>
             <li>GitHub Account তৈরি করুন।</li>
             <li>একটি Repository তৈরি করুন।</li>
             <li>ওয়েবসাইটের HTML ও অন্যান্য প্রয়োজনীয় ফাইল আপলোড করুন।</li>
             <li>GitHub Pages চালু করুন।</li>
-            <li>ওয়েবসাইটের প্রকাশিত লিংক পরীক্ষা করুন।</li>
-        </ul>
+            <li>প্রকাশিত ওয়েবসাইটের লিংক পরীক্ষা করুন।</li>
+            <li>পরিবর্তন করলে নতুন Commit করে আপডেট প্রকাশ করুন।</li>
+        </ol>
 
         <p>
-            GitHub:
-            <a href="https://github.com/" target="_blank" rel="noopener">
-                GitHub Official Website
+            <a class="resource-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                GitHub Official Website ↗
             </a>
         </p>
 
         <p>
-            GitHub Pages:
-            <a href="https://pages.github.com/" target="_blank" rel="noopener">
-                GitHub Pages Guide
+            <a class="resource-link" href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">
+                GitHub Pages Guide ↗
             </a>
         </p>
 
@@ -300,24 +653,40 @@ footer a {
             HTML, CSS and JavaScript. It is useful for portfolios,
             personal websites and educational projects.
         </div>
+
+        <div class="notice">
+            <strong>মনে রাখবেন:</strong> GitHub Pages সাধারণ Static Website প্রকাশের জন্য। এটি নিজে থেকে Database, PHP বা Server-side Application চালানোর পূর্ণাঙ্গ Hosting নয়।
+        </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="content">
         <h2>৫. ওয়েবসাইটের জন্য ভালো কনটেন্ট লেখা</h2>
 
         <p>
             একটি ভালো ওয়েবসাইটের সবচেয়ে গুরুত্বপূর্ণ সম্পদ হলো
             মানসম্মত ও উপকারী কনটেন্ট।
+            পাঠক যেন সহজে প্রয়োজনীয় তথ্য বুঝতে পারেন, সেদিকে খেয়াল রাখতে হবে।
         </p>
 
+        <h3>ভালো কনটেন্ট লেখার নিয়ম:</h3>
         <ul>
             <li>সহজ ও পরিষ্কার ভাষায় লিখুন।</li>
             <li>পাঠকের প্রয়োজন অনুযায়ী তথ্য দিন।</li>
             <li>নিজের অভিজ্ঞতা ও জ্ঞান ব্যবহার করুন।</li>
             <li>ভুল ও বিভ্রান্তিকর তথ্য প্রকাশ করবেন না।</li>
             <li>প্রয়োজন অনুযায়ী ছবি ও উদাহরণ ব্যবহার করুন।</li>
+            <li>লেখার মধ্যে উপযুক্ত Heading ব্যবহার করুন।</li>
             <li>নিয়মিত পুরোনো তথ্য যাচাই ও আপডেট করুন।</li>
         </ul>
+
+        <h3>একটি ভালো ব্লগ পোস্টের কাঠামো:</h3>
+        <ol>
+            <li>আকর্ষণীয় ও পরিষ্কার শিরোনাম।</li>
+            <li>বিষয়ের সংক্ষিপ্ত পরিচিতি।</li>
+            <li>মূল আলোচনা ও প্রয়োজনীয় ধাপ।</li>
+            <li>বাস্তব উদাহরণ বা প্রয়োজনীয় ছবি।</li>
+            <li>শেষে সংক্ষিপ্ত উপসংহার।</li>
+        </ol>
 
         <div class="highlight">
             <strong>English:</strong>
@@ -326,7 +695,7 @@ footer a {
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="seo">
         <h2>৬. SEO ও Google Search Console</h2>
 
         <p>
@@ -336,7 +705,6 @@ footer a {
         </p>
 
         <h3>SEO-এর কিছু গুরুত্বপূর্ণ বিষয়:</h3>
-
         <ul>
             <li>প্রাসঙ্গিক ও পরিষ্কার পেজের শিরোনাম লিখুন।</li>
             <li>প্রতিটি পেজের জন্য ভালো Description লিখুন।</li>
@@ -344,13 +712,20 @@ footer a {
             <li>ছবিতে উপযুক্ত Alt Text দিন।</li>
             <li>ওয়েবসাইটের পেজগুলোর মধ্যে প্রয়োজনীয় লিংক দিন।</li>
             <li>মোবাইল উপযোগী ডিজাইন তৈরি করুন।</li>
+            <li>XML Sitemap তৈরি ও জমা দিন।</li>
+            <li>মানসম্মত ও মৌলিক কনটেন্ট প্রকাশ করুন।</li>
         </ul>
 
+        <h3>Google Search Console কী কাজে লাগে?</h3>
         <p>
-            Google Search Console:
-            <a href="https://search.google.com/search-console/"
-               target="_blank" rel="noopener">
-                Official Website
+            Google Search Console দিয়ে ওয়েবসাইটের Indexing,
+            Search Performance এবং Google Search-এ পেজের উপস্থিতি
+            সম্পর্কে তথ্য দেখা যায়।
+        </p>
+
+        <p>
+            <a class="resource-link" href="https://search.google.com/search-console/" target="_blank" rel="noopener noreferrer">
+                Google Search Console ↗
             </a>
         </p>
 
@@ -360,10 +735,57 @@ footer a {
             Google Search Console helps website owners monitor
             indexing and search performance.
         </div>
+
+        <div class="notice">
+            <strong>গুরুত্বপূর্ণ:</strong> SEO করলেই Google-এ প্রথম অবস্থানে আসার নিশ্চয়তা নেই। ভালো কনটেন্ট, ব্যবহারকারীর অভিজ্ঞতা এবং সময়ের সঙ্গে ধারাবাহিক উন্নতি গুরুত্বপূর্ণ।
+        </div>
     </section>
 
-    <section class="section">
-        <h2>৭. ওয়েবসাইটের নিরাপত্তা ও রক্ষণাবেক্ষণ</h2>
+    <section class="section" id="domain">
+        <h2>৭. ডোমেইন ও হোস্টিং কী?</h2>
+
+        <h3>ডোমেইন (Domain)</h3>
+        <p>
+            ডোমেইন হলো ওয়েবসাইটের ইন্টারনেট ঠিকানা।
+            যেমন: example.com।
+            মানুষ এই ঠিকানা ব্যবহার করে ওয়েবসাইটে প্রবেশ করে।
+        </p>
+
+        <h3>হোস্টিং (Hosting)</h3>
+        <p>
+            হোস্টিং হলো এমন একটি অনলাইন সেবা, যেখানে ওয়েবসাইটের ফাইল
+            সংরক্ষণ করা হয়, যাতে ইন্টারনেটের মাধ্যমে মানুষ সেগুলো দেখতে পারে।
+        </p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Domain</h3>
+                <p>ওয়েবসাইটের ঠিকানা।</p>
+                <p><strong>Example:</strong> example.com</p>
+            </div>
+            <div class="info-card">
+                <h3>Hosting</h3>
+                <p>ওয়েবসাইটের ফাইল রাখার অনলাইন স্থান।</p>
+                <p><strong>Example:</strong> Web Hosting Service</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <strong>English:</strong>
+            A domain is the address of a website, while hosting is the
+            service that stores the website's files and makes them
+            accessible online.
+        </div>
+
+        <div class="notice">
+            নতুনদের জন্য প্রথমে Blogger বা GitHub Pages-এর মতো সহজ প্ল্যাটফর্ম দিয়ে শেখা যেতে পারে। পরে প্রয়োজন অনুযায়ী নিজস্ব ডোমেইন ও Hosting নেওয়া যায়।
+        </div>
+    </section>
+
+    <section class="section" id="security">
+        <h2>৮. ওয়েবসাইটের নিরাপত্তা ও রক্ষণাবেক্ষণ</h2>
+
+        <p>ওয়েবসাইট তৈরি করার পর সেটির নিরাপত্তা এবং নিয়মিত রক্ষণাবেক্ষণ করাও জরুরি।</p>
 
         <ul>
             <li>শক্তিশালী ও আলাদা পাসওয়ার্ড ব্যবহার করুন।</li>
@@ -372,6 +794,7 @@ footer a {
             <li>অজানা বা সন্দেহজনক কোড ব্যবহার করবেন না।</li>
             <li>নিয়মিত ওয়েবসাইটের লিংক পরীক্ষা করুন।</li>
             <li>ব্যবহারকারীর ব্যক্তিগত তথ্যের গোপনীয়তা রক্ষা করুন।</li>
+            <li>প্রয়োজনীয় সফটওয়্যার ও প্ল্যাটফর্ম আপডেট রাখুন।</li>
         </ul>
 
         <div class="highlight">
@@ -382,8 +805,8 @@ footer a {
         </div>
     </section>
 
-    <section class="section">
-        <h2>৮. ব্লগিং থেকে বৈধভাবে আয়ের সম্ভাবনা</h2>
+    <section class="section" id="income">
+        <h2>৯. ব্লগিং থেকে বৈধভাবে আয়ের সম্ভাবনা</h2>
 
         <p>
             মানসম্মত কনটেন্ট, নিয়মিত কাজ এবং পাঠকের আস্থা তৈরি করতে পারলে
@@ -398,42 +821,143 @@ footer a {
             <li>নিজস্ব ডিজিটাল শিক্ষামূলক কনটেন্ট বিক্রি।</li>
         </ul>
 
+        <h3>আয়ের আগে যা তৈরি করতে হবে:</h3>
+        <ul>
+            <li>উপকারী ও মৌলিক কনটেন্ট।</li>
+            <li>পরিষ্কার ওয়েবসাইট ডিজাইন ও নেভিগেশন।</li>
+            <li>প্রয়োজনীয় About, Contact ও Privacy Policy পেজ।</li>
+            <li>প্রযোজ্য বিজ্ঞাপন ও পার্টনারশিপ নীতিমালা মেনে চলা।</li>
+        </ul>
+
         <div class="highlight">
             <strong>English:</strong>
             Blogging may create legitimate income opportunities through
             approved advertising, affiliate marketing, sponsorships
             and your own products or services. Income is not guaranteed.
         </div>
-    </section>
 
-    <section class="section">
-        <h2>নতুনদের জন্য আমাদের পরামর্শ</h2>
-
-        <p>
-            শুরুতেই বড় ওয়েবসাইট তৈরি করার প্রয়োজন নেই।
-            প্রথমে HTML, CSS, কনটেন্ট লেখা এবং ওয়েবসাইট প্রকাশের
-            মৌলিক বিষয়গুলো শিখুন। এরপর ধীরে ধীরে নিজের দক্ষতা বাড়ান।
-        </p>
-
-        <p>
-            নিয়মিত অনুশীলন, ধৈর্য এবং সঠিক তথ্যের মাধ্যমে
-            আপনিও নিজের ওয়েবসাইট তৈরি ও পরিচালনা করতে পারবেন।
-        </p>
-
-        <div class="highlight">
-            <strong>English:</strong>
-            Start small, learn the fundamentals and practise regularly.
-            With patience and consistent effort, you can build and
-            manage your own website.
+        <div class="notice">
+            <strong>সতর্কতা:</strong> ব্লগিং থেকে আয় নিশ্চিত নয়। AdSense বা অন্য কোনো প্ল্যাটফর্মের অনুমোদন তাদের নিজস্ব নীতিমালা ও পর্যালোচনার ওপর নির্ভর করে।
         </div>
     </section>
 
-    <section class="section">
-        <h2>আমাদের লক্ষ্য | Our Goal</h2>
+    <section class="section" id="mistakes">
+        <h2>১০. নতুনদের সাধারণ ভুল</h2>
+
+        <ul>
+            <li>পরিকল্পনা ছাড়া ওয়েবসাইট তৈরি শুরু করা।</li>
+            <li>অন্যের লেখা কপি করে নিজের নামে প্রকাশ করা।</li>
+            <li>পাঠকের প্রয়োজন না বুঝে কনটেন্ট লেখা।</li>
+            <li>মোবাইলে ওয়েবসাইট ঠিকমতো দেখা যাচ্ছে কি না পরীক্ষা না করা।</li>
+            <li>SEO ও ওয়েবসাইটের মৌলিক নিরাপত্তা উপেক্ষা করা।</li>
+            <li>অল্প সময়েই অনেক আয় হবে এমন প্রত্যাশা করা।</li>
+            <li>ব্যাকআপ না রাখা।</li>
+        </ul>
+
+        <div class="highlight">
+            **মনে রাখবেন:** ভুল থেকে শিখুন, নিয়মিত অনুশীলন করুন এবং ধাপে ধাপে ওয়েবসাইট উন্নত করুন।
+        </div>
+    </section>
+
+    <section class="section" id="practice">
+        <h2>১১. নতুনদের জন্য ৩০ দিনের শেখার পরিকল্পনা</h2>
+
+        <p>প্রতিদিন অল্প সময় অনুশীলন করেও ধীরে ধীরে ওয়েবসাইট তৈরি ও ব্লগিংয়ের দক্ষতা বাড়ানো সম্ভব।</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>সময়</th>
+                    <th>যা শিখবেন</th>
+                    <th>অনুশীলন</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>১–৫ দিন</td>
+                    <td>ওয়েবসাইট ও ব্লগিংয়ের ধারণা</td>
+                    <td>একটি ওয়েবসাইটের পরিকল্পনা লিখুন</td>
+                </tr>
+                <tr>
+                    <td>৬–১০ দিন</td>
+                    <td>Blogger ও ব্লগ পোস্ট</td>
+                    <td>একটি অনুশীলনী ব্লগ তৈরি করুন</td>
+                </tr>
+                <tr>
+                    <td>১১–১৫ দিন</td>
+                    <td>HTML-এর প্রাথমিক বিষয়</td>
+                    <td>একটি সাধারণ HTML পেজ তৈরি করুন</td>
+                </tr>
+                <tr>
+                    <td>১৬–২০ দিন</td>
+                    <td>CSS ও ওয়েব ডিজাইন</td>
+                    <td>পেজে রং ও ডিজাইন যোগ করুন</td>
+                </tr>
+                <tr>
+                    <td>২১–২৫ দিন</td>
+                    <td>GitHub Pages</td>
+                    <td>একটি Static Website প্রকাশ করুন</td>
+                </tr>
+                <tr>
+                    <td>২৬–৩০ দিন</td>
+                    <td>SEO ও কনটেন্ট উন্নয়ন</td>
+                    <td>একটি পেজের SEO পরীক্ষা করুন</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight">
+            **লক্ষ্য:** ৩০ দিনের শেষে একটি সাধারণ ওয়েবসাইট তৈরি, সম্পাদনা এবং প্রকাশ করার প্রাথমিক দক্ষতা অর্জনের চেষ্টা করুন।
+        </div>
+    </section>
+
+    <section class="section" id="resources">
+        <h2>১২. প্রয়োজনীয় শেখার রিসোর্স</h2>
+
+        <p>ওয়েবসাইট তৈরি ও ব্লগিং শেখার জন্য নিচের অফিসিয়াল এবং শিক্ষামূলক রিসোর্সগুলো ব্যবহার করতে পারেন।</p>
+
+        <ul>
+            <li><a href="https://www.blogger.com/" target="_blank" rel="noopener noreferrer">Blogger</a> — ব্লগ তৈরি ও প্রকাশ।</li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank" rel="noopener noreferrer">MDN Web Docs</a> — HTML, CSS ও Web Development শেখা।</li>
+            <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a> — নতুনদের জন্য Web Tutorial।</li>
+            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> — কোড সংরক্ষণ ও পরিচালনা।</li>
+            <li><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> — Static Website প্রকাশ।</li>
+            <li><a href="https://search.google.com/search-console/" target="_blank" rel="noopener noreferrer">Google Search Console</a> — Search Performance ও Indexing পর্যবেক্ষণ।</li>
+            <li><a href="https://developers.google.com/search/docs" target="_blank" rel="noopener noreferrer">Google Search Central</a> — Google SEO নির্দেশনা।</li>
+        </ul>
+
+        <div class="notice">
+            শেখার সময় কোনো একটি বিষয় বুঝতে অসুবিধা হলে সেটি ছোট ছোট অংশে ভাগ করে অনুশীলন করুন। প্রয়োজন হলে অফিসিয়াল ডকুমেন্টেশন দেখুন।
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <h2>১৩. সাধারণ প্রশ্ন ও উত্তর | FAQ</h2>
+
+        <h3>প্রশ্ন ১: ওয়েবসাইট তৈরি করতে কি প্রোগ্রামিং জানতে হবে?</h3>
+        <p>সব ক্ষেত্রে নয়। Blogger-এর মতো প্ল্যাটফর্মে কোডিং ছাড়াও ব্লগ তৈরি করা যায়। তবে HTML ও CSS শিখলে নিজের ওয়েবসাইট আরও ভালোভাবে সাজাতে পারবেন।</p>
+
+        <h3>প্রশ্ন ২: বিনামূল্যে ওয়েবসাইট তৈরি করা যায়?</h3>
+        <p>হ্যাঁ। Blogger এবং GitHub Pages-এর মতো প্ল্যাটফর্মে নির্দিষ্ট সীমাবদ্ধতার মধ্যে বিনামূল্যে ওয়েবসাইট প্রকাশ করা যায়।</p>
+
+        <h3>প্রশ্ন ৩: ওয়েবসাইট Google-এ দেখাতে কী করতে হবে?</h3>
+        <p>উপকারী কনটেন্ট প্রকাশ করুন, ওয়েবসাইটের SEO উন্নত করুন এবং Google Search Console ব্যবহার করে Indexing পর্যবেক্ষণ করুন। Google-এ প্রদর্শনের নিশ্চয়তা বা নির্দিষ্ট সময়সীমা নেই।</p>
+
+        <h3>প্রশ্ন ৪: ব্লগিং করে কি আয় করা সম্ভব?</h3>
+        <p>হ্যাঁ, সম্ভব। তবে আয় নির্ভর করে কনটেন্টের মান, পাঠকের আগ্রহ, ট্রাফিক এবং সংশ্লিষ্ট প্ল্যাটফর্মের নীতিমালার ওপর।</p>
+
+        <h3>প্রশ্ন ৫: নতুনদের কোন বিষয় দিয়ে শুরু করা উচিত?</h3>
+        <p>প্রথমে ওয়েবসাইটের ধারণা, Blogger, HTML এবং CSS-এর মৌলিক বিষয় শিখুন। তারপর ধীরে ধীরে SEO ও ওয়েবসাইট পরিচালনা শিখুন।</p>
+    </section>
+
+    <section class="section" id="mission">
+        <h2>১৪. আমাদের লক্ষ্য | Our Goal</h2>
 
         <p>
             আমাদের লক্ষ্য হলো নতুনদের জন্য ওয়েবসাইট তৈরি ও ব্লগিং
             শেখার সহজ, নির্ভরযোগ্য এবং শিক্ষামূলক তথ্য তুলে ধরা।
+            প্রত্যেকে যেন নিজের দক্ষতা কাজে লাগিয়ে একটি ওয়েবসাইট তৈরি
+            ও পরিচালনা করতে পারেন, সেটিই আমাদের প্রত্যাশা।
         </p>
 
         <p>
@@ -442,10 +966,48 @@ footer a {
             and blogging.
         </p>
 
-        <a class="back-link" href="index.html">
-            মূল পেজে ফিরে যান | Back to Home
-        </a>
+        <div class="highlight">
+            <strong>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</strong><br>
+            Learn, Explore, Improve Skills & Earn.
+        </div>
     </section>
+
+    <section class="section">
+        <h2>গুরুত্বপূর্ণ ঘোষণা | Disclaimer</h2>
+        <p>
+            এই পেজের তথ্য শিক্ষামূলক উদ্দেশ্যে প্রকাশ করা হয়েছে।
+            বিভিন্ন ওয়েবসাইট ও অনলাইন প্ল্যাটফর্মের নিয়ম, সুবিধা এবং
+            নীতিমালা সময়ের সঙ্গে পরিবর্তিত হতে পারে।
+            কোনো অনলাইন আয়ের নিশ্চয়তা দেওয়া হচ্ছে না।
+            কাজ শুরু করার আগে সংশ্লিষ্ট প্ল্যাটফর্মের বর্তমান নিয়ম যাচাই করুন।
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>লেখক পরিচিতি | About the Author</h2>
+
+        <div class="author-box">
+            <h3>Md Rifat Ahmed</h3>
+            <p>
+                আমি অনলাইন ব্যবসা, ওয়েবসাইট তৈরি, ব্লগিং,
+                প্রযুক্তি এবং ডিজিটাল দক্ষতা বিষয়ে শেখা ও
+                শিক্ষামূলক তথ্য ভাগ করে নেওয়ার চেষ্টা করি।
+            </p>
+            <p>
+                আমার উদ্দেশ্য হলো নতুনদের জন্য সহজ ভাষায়
+                প্রয়োজনীয় তথ্য তুলে ধরা, যাতে তাঁরা নিজেরাও
+                শিখতে পারেন এবং নিজেদের দক্ষতা উন্নত করতে পারেন।
+            </p>
+            <p><strong>Tagline:</strong> শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
+        </div>
+    </section>
+
+    <div class="cta">
+        <h2>শেখা শুরু করুন আজই!</h2>
+        <p>ছোট ছোট ধাপে শিখুন, অনুশীলন করুন এবং নিজের ওয়েবসাইট তৈরি করুন।</p>
+        <p>Start learning today and build your own digital presence.</p>
+        <a href="index.html">মূল পেজে ফিরে যান | Back to Home</a>
+    </div>
 
 </main>
 
@@ -463,6 +1025,8 @@ footer a {
 
     <p>© 2026 Md Rifat Ahmed. All Rights Reserved.</p>
 </footer>
+
+<a class="back-top" href="#top">↑ উপরে যান</a>
 
 </body>
 </html>
