@@ -10,6 +10,8 @@
 <meta name="keywords" content="শিক্ষা, Education, Online Education, Digital Skills, Computer Learning, English Learning, Personal Development">
 <meta name="author" content="Md Rifat Ahmed">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#071d35">
+
 <link rel="canonical" href="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/education.html">
 
 <meta property="og:title" content="শিক্ষা | Education - Md Rifat Ahmed">
@@ -20,64 +22,92 @@
 <style>
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, "Noto Sans Bengali", sans-serif;
     background: #f3f6fa;
     color: #263445;
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
 header {
     background: linear-gradient(135deg, #071d35, #1769aa, #2196c8);
     color: white;
     text-align: center;
-    padding: 55px 20px;
+    padding: 65px 20px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 34px;
+    font-size: 36px;
 }
 
 header p {
-    max-width: 800px;
+    max-width: 850px;
     margin: 12px auto 0;
     font-size: 17px;
 }
 
+.header-tag {
+    display: inline-block;
+    padding: 6px 17px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 30px;
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
 nav {
     background: #102a43;
-    padding: 14px 10px;
+    padding: 13px 10px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(0,0,0,.12);
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 7px 10px;
+    margin: 5px 9px;
     font-size: 14px;
     display: inline-block;
+    transition: .3s;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     color: #f0c040;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1120px;
     margin: 30px auto;
     padding: 0 18px;
 }
 
+.breadcrumb {
+    font-size: 14px;
+    margin: 0 0 20px;
+    color: #65758a;
+}
+
+.breadcrumb a {
+    color: #1769aa;
+    text-decoration: none;
+}
+
 .section {
     background: white;
-    padding: 25px;
-    margin-bottom: 22px;
-    border-radius: 12px;
-    box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+    padding: 28px;
+    margin-bottom: 23px;
+    border-radius: 13px;
+    box-shadow: 0 4px 17px rgba(0,0,0,.055);
+    border: 1px solid #edf1f6;
 }
 
 h2 {
@@ -85,18 +115,54 @@ h2 {
     font-size: 24px;
     margin-top: 0;
     border-bottom: 2px solid #e6edf5;
-    padding-bottom: 10px;
+    padding-bottom: 11px;
 }
 
 h3 {
     color: #102a43;
 }
 
+p {
+    margin-top: 8px;
+}
+
+.toc {
+    background: linear-gradient(135deg, #ffffff, #eef5fb);
+    border: 1px solid #dce8f3;
+}
+
+.toc h2 {
+    border: none;
+}
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 10px;
+}
+
+.toc a {
+    background: white;
+    color: #1769aa;
+    padding: 10px 13px;
+    border-radius: 7px;
+    border: 1px solid #e0e9f2;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.toc a:hover {
+    background: #1769aa;
+    color: white;
+    transform: translateY(-2px);
+}
+
 .english {
     background: #eef5fb;
     border-left: 4px solid #2196c8;
-    padding: 15px;
-    margin-top: 15px;
+    padding: 15px 17px;
+    margin-top: 16px;
     border-radius: 6px;
 }
 
@@ -107,7 +173,7 @@ h3 {
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+    gap: 17px;
     margin-top: 18px;
 }
 
@@ -115,7 +181,13 @@ h3 {
     background: #f5f8fc;
     border: 1px solid #e2eaf2;
     border-radius: 10px;
-    padding: 18px;
+    padding: 19px;
+    transition: .25s;
+}
+
+.topic:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(23,105,170,.10);
 }
 
 .topic h3 {
@@ -123,27 +195,22 @@ h3 {
     color: #1769aa;
 }
 
-.resource-list a {
-    color: #1769aa;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.resource-list a:hover {
-    text-decoration: underline;
+.topic p {
+    margin-bottom: 5px;
 }
 
 .example {
     background: #f5f8fc;
     border: 1px solid #dce7f1;
-    padding: 18px;
-    border-radius: 8px;
-    margin-top: 15px;
+    padding: 19px;
+    border-radius: 9px;
+    margin-top: 16px;
     overflow-x: auto;
 }
 
 .example table {
     width: 100%;
+    min-width: 450px;
     border-collapse: collapse;
     background: white;
     margin-top: 12px;
@@ -152,7 +219,7 @@ h3 {
 .example th,
 .example td {
     border: 1px solid #dce4ed;
-    padding: 10px;
+    padding: 11px;
     text-align: center;
 }
 
@@ -165,27 +232,42 @@ h3 {
     display: block;
     background: #102a43;
     color: #f0c040;
-    padding: 12px;
-    border-radius: 6px;
+    padding: 13px;
+    border-radius: 7px;
     overflow-x: auto;
     margin-top: 10px;
+    font-size: 15px;
+}
+
+.resource-list li {
+    margin-bottom: 12px;
+}
+
+.resource-list a {
+    color: #1769aa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.resource-list a:hover {
+    text-decoration: underline;
 }
 
 .notice {
     background: #fff8e6;
     border-left: 4px solid #e4aa24;
     padding: 17px;
-    border-radius: 6px;
-    margin-top: 15px;
+    border-radius: 7px;
+    margin-top: 16px;
 }
 
 .cta {
     background: linear-gradient(135deg, #102a43, #1769aa);
     color: white;
-    padding: 35px 22px;
+    padding: 38px 22px;
     text-align: center;
-    border-radius: 12px;
-    margin-bottom: 25px;
+    border-radius: 13px;
+    margin-bottom: 28px;
 }
 
 .cta h2 {
@@ -197,26 +279,49 @@ h3 {
     display: inline-block;
     background: #f0c040;
     color: #102a43;
-    padding: 11px 25px;
-    border-radius: 6px;
+    padding: 12px 26px;
+    border-radius: 7px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 12px;
+    transition: .25s;
 }
 
 .cta a:hover {
     background: white;
+    transform: translateY(-2px);
+}
+
+.author-box {
+    background: #eef5fb;
+    border: 1px solid #dce8f3;
+    padding: 22px;
+    border-radius: 11px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.author-box h3 {
+    color: #1769aa;
+    margin-top: 0;
+}
+
+.author-box a {
+    color: #1769aa;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 footer {
     background: #071d35;
     color: white;
     text-align: center;
-    padding: 30px 15px;
+    padding: 32px 15px;
 }
 
 .footer-links {
-    margin-bottom: 15px;
+    max-width: 1000px;
+    margin: 0 auto 17px;
 }
 
 .footer-links a {
@@ -224,6 +329,7 @@ footer {
     text-decoration: none;
     margin: 5px 9px;
     display: inline-block;
+    font-size: 14px;
 }
 
 .footer-links a:hover {
@@ -232,32 +338,72 @@ footer {
 
 footer p {
     margin: 8px 0;
+    font-size: 14px;
+}
+
+.back-top {
+    position: fixed;
+    bottom: 20px;
+    right: 18px;
+    background: #1769aa;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-size: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.2);
+}
+
+.back-top:hover {
+    background: #102a43;
 }
 
 @media (max-width: 600px) {
+    header {
+        padding: 45px 15px;
+    }
+
     header h1 {
-        font-size: 27px;
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    nav a {
+        margin: 5px 6px;
+        font-size: 13px;
     }
 
     .section {
-        padding: 18px;
+        padding: 19px;
     }
 
     h2 {
         font-size: 21px;
     }
 
-    nav a {
-        margin: 5px 7px;
-        font-size: 13px;
+    .toc-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .back-top {
+        bottom: 12px;
+        right: 10px;
     }
 }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
+    <div class="header-tag">LEARNING • KNOWLEDGE • SKILLS</div>
     <h1>শিক্ষা | Education</h1>
     <p>শিখুন, জানুন, দক্ষতা বাড়ান, আয় করুন।</p>
     <p>Learn, Explore, Improve Your Skills, and Grow.</p>
@@ -267,33 +413,66 @@ footer p {
     <a href="index.html">হোম | Home</a>
     <a href="about.html">আমার সম্পর্কে | About</a>
     <a href="services.html">সার্ভিস | Services</a>
-    <a href="online-income.html">অনলাইন আয় | Online Income</a>
-    <a href="freelancing.html">ফ্রিল্যান্সিং | Freelancing</a>
-    <a href="digital-marketing.html">ডিজিটাল মার্কেটিং | Digital Marketing</a>
-    <a href="technology.html">প্রযুক্তি | Technology</a>
-    <a href="online-business.html">অনলাইন ব্যবসা | Online Business</a>
-    <a href="education.html">শিক্ষা | Education</a>
-    <a href="contact.html">যোগাযোগ | Contact</a>
+    <a href="online-income.html">অনলাইন আয়</a>
+    <a href="freelancing.html">ফ্রিল্যান্সিং</a>
+    <a href="digital-marketing.html">ডিজিটাল মার্কেটিং</a>
+    <a href="technology.html">প্রযুক্তি</a>
+    <a href="online-business.html">অনলাইন ব্যবসা</a>
+    <a href="education.html" class="active">শিক্ষা</a>
+    <a href="contact.html">যোগাযোগ</a>
 </nav>
 
 <main class="container">
 
-<section class="section">
-    <h2>১. শিক্ষা কী? | What Is Education?</h2>
+<div class="breadcrumb">
+    <a href="index.html">হোম</a> / শিক্ষা | Education
+</div>
 
+<section class="section">
+    <h2>শিক্ষা ও দক্ষতা উন্নয়ন</h2>
+    <p>
+        শিক্ষা শুধু বইয়ের মধ্যে সীমাবদ্ধ নয়। নতুন কিছু শেখা, বাস্তব অভিজ্ঞতা অর্জন, প্রযুক্তি ব্যবহার এবং নিজের দক্ষতা উন্নত করার মাধ্যমেও মানুষ প্রতিনিয়ত শিখতে পারে।
+    </p>
+    <div class="english">
+        <strong>English:</strong>
+        Education is not limited to books. People continue learning through new experiences, practical knowledge, technology, and skill development.
+    </div>
+</section>
+
+<section class="section toc">
+    <h2>📚 বিষয়বস্তু | Table of Contents</h2>
+    <p>আপনার পছন্দের বিষয় নির্বাচন করে সরাসরি পড়তে পারেন।</p>
+    <div class="toc-grid">
+        <a href="#education">১. শিক্ষা কী?</a>
+        <a href="#importance">২. শিক্ষার গুরুত্ব</a>
+        <a href="#areas">৩. শিক্ষার বিভিন্ন ক্ষেত্র</a>
+        <a href="#digital">৪. কম্পিউটার ও ডিজিটাল দক্ষতা</a>
+        <a href="#excel">৫. Excel শেখার উদাহরণ</a>
+        <a href="#english">৬. ইংরেজি ভাষা শিক্ষা</a>
+        <a href="#online">৭. অনলাইন শিক্ষা</a>
+        <a href="#study">৮. পড়াশোনার কার্যকর পদ্ধতি</a>
+        <a href="#skills">৯. প্রয়োজনীয় দক্ষতা</a>
+        <a href="#safety">১০. অনলাইন নিরাপত্তা</a>
+        <a href="#plan">১১. ৩০ দিনের পরিকল্পনা</a>
+        <a href="#progress">১২. শেখার অগ্রগতি যাচাই</a>
+        <a href="#goal">১৩. আমাদের শিক্ষামূলক লক্ষ্য</a>
+        <a href="#notice">১৪. গুরুত্বপূর্ণ ঘোষণা</a>
+    </div>
+</section>
+
+<section class="section" id="education">
+    <h2>১. শিক্ষা কী? | What Is Education?</h2>
     <p>
         শিক্ষা হলো জ্ঞান অর্জন, চিন্তাশক্তি বৃদ্ধি, দক্ষতা তৈরি এবং ভালো সিদ্ধান্ত নেওয়ার একটি ধারাবাহিক প্রক্রিয়া। শিক্ষা মানুষকে নিজের জীবন উন্নত করতে এবং সমাজের জন্য ইতিবাচক ভূমিকা রাখতে সাহায্য করে।
     </p>
-
     <div class="english">
         <strong>English:</strong>
         Education is a continuous process of gaining knowledge, developing critical thinking, building skills, and making better decisions. It helps people improve their lives and contribute positively to society.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="importance">
     <h2>২. শিক্ষার গুরুত্ব | Importance of Education</h2>
-
     <ul>
         <li>জ্ঞান ও চিন্তাশক্তি বৃদ্ধি করে।</li>
         <li>আত্মবিশ্বাস ও সমস্যা সমাধানের দক্ষতা তৈরি করে।</li>
@@ -302,73 +481,48 @@ footer p {
         <li>দায়িত্বশীল নাগরিক হিসেবে গড়ে উঠতে সাহায্য করে।</li>
         <li>নিজের লক্ষ্য নির্ধারণ ও সিদ্ধান্ত নিতে সহায়তা করে।</li>
     </ul>
-
     <div class="english">
         <strong>English:</strong>
         Education improves knowledge, critical thinking, confidence, and problem-solving skills. It prepares people for careers, helps them adapt to technology, and encourages responsible citizenship.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="areas">
     <h2>৩. শিক্ষার বিভিন্ন ক্ষেত্র | Different Areas of Learning</h2>
-
     <div class="grid">
-
         <div class="topic">
             <h3>একাডেমিক শিক্ষা</h3>
             <p>স্কুল, কলেজ ও বিশ্ববিদ্যালয়ের পাঠ্যবিষয়, বিজ্ঞান, গণিত, ভাষা, ইতিহাস ও অন্যান্য বিষয় সম্পর্কে শেখা।</p>
-            <div class="english">
-                <strong>Academic Education:</strong>
-                Learning school, college, and university subjects, including science, mathematics, languages, and history.
-            </div>
+            <div class="english"><strong>Academic Education:</strong> Learning academic subjects, including science, mathematics, languages, and history.</div>
         </div>
-
         <div class="topic">
             <h3>প্রযুক্তিগত শিক্ষা</h3>
             <p>কম্পিউটার, ইন্টারনেট, সফটওয়্যার, কৃত্রিম বুদ্ধিমত্তা এবং ডিজিটাল প্রযুক্তি সম্পর্কে জ্ঞান অর্জন।</p>
-            <div class="english">
-                <strong>Technology Education:</strong>
-                Learning about computers, the internet, software, artificial intelligence, and digital technologies.
-            </div>
+            <div class="english"><strong>Technology Education:</strong> Learning about computers, the internet, software, AI, and digital technologies.</div>
         </div>
-
         <div class="topic">
             <h3>কারিগরি শিক্ষা</h3>
             <p>ইলেকট্রিক্যাল, মেকানিক্যাল, কম্পিউটার অপারেশন, ডিজাইন এবং বিভিন্ন ব্যবহারিক দক্ষতা শেখা।</p>
-            <div class="english">
-                <strong>Technical and Vocational Education:</strong>
-                Developing practical skills in electrical work, mechanical work, computer operations, and design.
-            </div>
+            <div class="english"><strong>Technical Education:</strong> Developing practical skills in electrical work, mechanics, computer operations, and design.</div>
         </div>
-
         <div class="topic">
             <h3>অনলাইন শিক্ষা</h3>
             <p>ইন্টারনেটের মাধ্যমে কোর্স, ভিডিও টিউটোরিয়াল, ই-বুক এবং অনলাইন প্রশিক্ষণ থেকে শেখা।</p>
-            <div class="english">
-                <strong>Online Education:</strong>
-                Learning through online courses, video tutorials, e-books, and internet-based training.
-            </div>
+            <div class="english"><strong>Online Education:</strong> Learning through online courses, video tutorials, e-books, and internet-based training.</div>
         </div>
-
         <div class="topic">
             <h3>ব্যক্তিগত উন্নয়ন</h3>
             <p>যোগাযোগ, সময় ব্যবস্থাপনা, নেতৃত্ব, আত্মবিশ্বাস এবং সমস্যা সমাধানের দক্ষতা বৃদ্ধি করা।</p>
-            <div class="english">
-                <strong>Personal Development:</strong>
-                Improving communication, time management, leadership, confidence, and problem-solving abilities.
-            </div>
+            <div class="english"><strong>Personal Development:</strong> Improving communication, time management, leadership, and confidence.</div>
         </div>
-
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="digital">
     <h2>৪. কম্পিউটার ও ডিজিটাল দক্ষতা | Computer and Digital Skills</h2>
-
     <p>
         বর্তমান সময়ে শিক্ষা ও কর্মজীবনে কম্পিউটার দক্ষতা অত্যন্ত গুরুত্বপূর্ণ। ধীরে ধীরে প্রয়োজনীয় ডিজিটাল দক্ষতা অর্জন করলে পড়াশোনা ও কাজের ক্ষেত্রে সুবিধা পাওয়া যায়।
     </p>
-
     <ul>
         <li>কম্পিউটারের প্রাথমিক ব্যবহার।</li>
         <li>বাংলা ও ইংরেজি টাইপিং।</li>
@@ -378,23 +532,19 @@ footer p {
         <li>ফাইল তৈরি ও সংরক্ষণ।</li>
         <li>অনলাইন নিরাপত্তা।</li>
     </ul>
-
     <div class="english">
         <strong>English:</strong>
-        Computer skills are essential in modern education and professional life. Learn basic computer operations, Bangla and English typing, Microsoft Word and Excel, internet and email usage, online research, file management, and digital safety.
+        Computer skills are essential in modern education and professional life. Learn basic computer operations, typing, Microsoft Word and Excel, internet and email usage, online research, file management, and digital safety.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="excel">
     <h2>৫. Excel শেখার ব্যবহারিক উদাহরণ | Practical Excel Learning</h2>
-
     <p>
-        Microsoft Excel ব্যবহার করে পণ্যের হিসাব, দৈনিক বিক্রয়, খরচ এবং মোট মূল্য সহজে হিসাব করা যায়। নিচে একটি সাধারণ উদাহরণ দেওয়া হলো।
+        Microsoft Excel ব্যবহার করে পণ্যের হিসাব, দৈনিক বিক্রয়, খরচ এবং মোট মূল্য সহজে হিসাব করা যায়।
     </p>
-
     <div class="example">
         <strong>পণ্যের হিসাব | Product Calculation</strong>
-
         <table>
             <tr>
                 <th>পণ্যের নাম</th>
@@ -415,69 +565,49 @@ footer p {
                 <td>100</td>
             </tr>
         </table>
-
         <p><strong>Excel Formula:</strong></p>
         <code class="code-example">=B2*C2</code>
-
-        <p>
-            এখানে B2 হলো পরিমাণ এবং C2 হলো একক মূল্য। সূত্রটি ব্যবহার করলে মোট মূল্য পাওয়া যাবে।
-        </p>
-
+        <p>এখানে B2 হলো পরিমাণ এবং C2 হলো একক মূল্য। সূত্রটি ব্যবহার করলে মোট মূল্য পাওয়া যাবে।</p>
         <div class="english">
             <strong>English:</strong>
-            In this example, column B contains quantity and column C contains unit price. The formula =B2*C2 calculates the total price.
+            Column B contains quantity and column C contains unit price. The formula =B2*C2 calculates the total price.
         </div>
     </div>
-
-    <p>
-        <strong>অনুশীলন:</strong> নিজের মতো করে পাঁচটি পণ্যের নাম, পরিমাণ ও মূল্য লিখে Excel-এ মোট হিসাব তৈরি করুন।
-    </p>
+    <p><strong>অনুশীলন:</strong> নিজের মতো করে পাঁচটি পণ্যের নাম, পরিমাণ ও মূল্য লিখে Excel-এ মোট হিসাব তৈরি করুন।</p>
 </section>
 
-<section class="section">
+<section class="section" id="english">
     <h2>৬. ইংরেজি ভাষা শিক্ষা | English Language Learning</h2>
-
-    <p>
-        ইংরেজি ভাষা শেখা যোগাযোগ, উচ্চশিক্ষা, চাকরি এবং আন্তর্জাতিক পর্যায়ে কাজের সুযোগ তৈরিতে সহায়তা করতে পারে।
-    </p>
-
+    <p>ইংরেজি ভাষা শেখা যোগাযোগ, উচ্চশিক্ষা, চাকরি এবং আন্তর্জাতিক পর্যায়ে কাজের সুযোগ তৈরিতে সহায়তা করতে পারে।</p>
     <div class="grid">
-
         <div class="topic">
             <h3>English Grammar</h3>
             <p>ইংরেজি ব্যাকরণের নিয়ম ও বাক্য গঠন শিখুন।</p>
             <div class="english">Learn grammar rules and sentence structure.</div>
         </div>
-
         <div class="topic">
             <h3>Vocabulary</h3>
             <p>নতুন ইংরেজি শব্দ ও তাদের অর্থ শিখুন।</p>
             <div class="english">Learn new English words and their meanings.</div>
         </div>
-
         <div class="topic">
             <h3>Reading & Writing</h3>
             <p>ইংরেজি পড়া ও লেখার অনুশীলন করুন।</p>
             <div class="english">Practise reading and writing in English.</div>
         </div>
-
         <div class="topic">
             <h3>Listening & Speaking</h3>
             <p>ইংরেজি শুনে বোঝা ও কথা বলার দক্ষতা বাড়ান।</p>
             <div class="english">Improve listening comprehension and speaking skills.</div>
         </div>
-
         <div class="topic">
             <h3>Daily Conversation</h3>
             <p>দৈনন্দিন জীবনের প্রয়োজনীয় ইংরেজি কথোপকথন শিখুন।</p>
             <div class="english">Learn useful English conversations for everyday life.</div>
         </div>
-
     </div>
-
     <div class="example">
         <h3>প্রতিদিনের ইংরেজি অনুশীলন | Daily English Practice</h3>
-
         <ul>
             <li>Hello. How are you? — হ্যালো। আপনি কেমন আছেন?</li>
             <li>I am fine. — আমি ভালো আছি।</li>
@@ -485,70 +615,34 @@ footer p {
             <li>I am learning English. — আমি ইংরেজি শিখছি।</li>
             <li>Thank you very much. — আপনাকে অনেক ধন্যবাদ।</li>
         </ul>
-
         <p>প্রতিদিন কয়েকটি নতুন বাক্য পড়ুন, লিখুন এবং উচ্চারণের অনুশীলন করুন।</p>
-
-        <div class="english">
-            <strong>English:</strong>
-            Practise a few new sentences every day. Read them, write them, and say them aloud to improve your English.
-        </div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="online">
     <h2>৭. অনলাইন থেকে শেখার সুযোগ | Online Learning Opportunities</h2>
-
     <p>
         নতুন দক্ষতা অর্জনের জন্য বিভিন্ন শিক্ষামূলক প্ল্যাটফর্ম ব্যবহার করতে পারেন। কিছু প্ল্যাটফর্মে বিনামূল্যে শেখার সুযোগ রয়েছে, আবার কিছু কোর্সের জন্য অর্থ দিতে হতে পারে।
     </p>
-
     <ul class="resource-list">
-
-        <li>
-            <a href="https://www.khanacademy.org/" target="_blank" rel="noopener noreferrer">Khan Academy</a>
-            — গণিত, বিজ্ঞান ও বিভিন্ন একাডেমিক বিষয়।
-        </li>
-
-        <li>
-            <a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">Coursera</a>
-            — বিভিন্ন বিষয়ের অনলাইন কোর্স।
-        </li>
-
-        <li>
-            <a href="https://www.edx.org/" target="_blank" rel="noopener noreferrer">edX</a>
-            — বিশ্ববিদ্যালয়ভিত্তিক বিভিন্ন কোর্স।
-        </li>
-
-        <li>
-            <a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a>
-            — HTML, CSS, JavaScript ও ওয়েব ডেভেলপমেন্ট।
-        </li>
-
-        <li>
-            <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">freeCodeCamp</a>
-            — প্রোগ্রামিং ও ওয়েব ডেভেলপমেন্ট।
-        </li>
-
-        <li>
-            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
-            — বিভিন্ন বিষয়ের শিক্ষামূলক ভিডিও।
-        </li>
-
+        <li><a href="https://www.khanacademy.org/" target="_blank" rel="noopener noreferrer">Khan Academy</a> — গণিত, বিজ্ঞান ও বিভিন্ন একাডেমিক বিষয়।</li>
+        <li><a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">Coursera</a> — বিভিন্ন বিষয়ের অনলাইন কোর্স।</li>
+        <li><a href="https://www.edx.org/" target="_blank" rel="noopener noreferrer">edX</a> — বিশ্ববিদ্যালয়ভিত্তিক বিভিন্ন কোর্স।</li>
+        <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a> — HTML, CSS, JavaScript ও ওয়েব ডেভেলপমেন্ট।</li>
+        <li><a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">freeCodeCamp</a> — প্রোগ্রামিং ও ওয়েব ডেভেলপমেন্ট।</li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a> — বিভিন্ন বিষয়ের শিক্ষামূলক ভিডিও।</li>
     </ul>
-
     <div class="notice">
         কোনো কোর্সে ভর্তি হওয়ার আগে কোর্সের মূল্য, বিষয়বস্তু, প্রশিক্ষকের পরিচয়, সার্টিফিকেটের শর্ত এবং প্রতিষ্ঠানের নির্ভরযোগ্যতা যাচাই করুন। সব কোর্স বিনামূল্যে নয়।
     </div>
-
     <div class="english">
         <strong>English:</strong>
         These platforms provide learning opportunities in academic subjects, programming, technology, and professional skills. Some resources are free, while others require payment. Check course details, fees, instructors, and certificate conditions before enrolling.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="study">
     <h2>৮. পড়াশোনার কার্যকর পদ্ধতি | Effective Study Methods</h2>
-
     <ul>
         <li>প্রতিদিন নির্দিষ্ট সময় পড়াশোনা করুন।</li>
         <li>ছোট ছোট লক্ষ্য নির্ধারণ করুন।</li>
@@ -559,64 +653,51 @@ footer p {
         <li>পর্যাপ্ত বিশ্রাম নিন।</li>
         <li>সপ্তাহ শেষে নিজের অগ্রগতি যাচাই করুন।</li>
     </ul>
-
     <div class="english">
         <strong>English:</strong>
         Set a regular study schedule, create small learning goals, take notes, practise consistently, explain concepts in your own words, apply what you learn, take adequate rest, and review your progress every week.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="skills">
     <h2>৯. শিক্ষার্থীদের প্রয়োজনীয় দক্ষতা | Essential Skills for Students</h2>
-
     <div class="grid">
-
         <div class="topic">
             <h3>যোগাযোগ দক্ষতা</h3>
             <p>নিজের কথা স্পষ্টভাবে প্রকাশ করতে শেখা।</p>
-            <div class="english">Communication: Learning to express ideas clearly.</div>
+            <div class="english">Communication: Expressing ideas clearly.</div>
         </div>
-
         <div class="topic">
             <h3>সমস্যা সমাধান</h3>
             <p>সমস্যা বিশ্লেষণ করে সমাধান খুঁজে বের করা।</p>
             <div class="english">Problem Solving: Analysing problems and finding solutions.</div>
         </div>
-
         <div class="topic">
             <h3>সৃজনশীল চিন্তাভাবনা</h3>
             <p>নতুন ধারণা তৈরি ও ভিন্নভাবে চিন্তা করা।</p>
             <div class="english">Creative Thinking: Developing new ideas and perspectives.</div>
         </div>
-
         <div class="topic">
             <h3>দলগত কাজ</h3>
             <p>অন্যদের সঙ্গে সহযোগিতার মাধ্যমে কাজ করা।</p>
             <div class="english">Teamwork: Working collaboratively with others.</div>
         </div>
-
         <div class="topic">
             <h3>সময় ব্যবস্থাপনা</h3>
             <p>সময় অনুযায়ী কাজের পরিকল্পনা ও বাস্তবায়ন করা।</p>
             <div class="english">Time Management: Planning and completing tasks effectively.</div>
         </div>
-
         <div class="topic">
             <h3>ডিজিটাল সচেতনতা</h3>
             <p>অনলাইনে নিরাপদ থাকা ও তথ্য যাচাই করা।</p>
             <div class="english">Digital Awareness: Staying safe online and verifying information.</div>
         </div>
-
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="safety">
     <h2>১০. নিরাপদে অনলাইনে শেখা | Safe Online Learning</h2>
-
-    <p>
-        ইন্টারনেটে শেখার অনেক সুযোগ থাকলেও ভুল তথ্য, ভুয়া কোর্স ও প্রতারণার ঝুঁকি রয়েছে।
-    </p>
-
+    <p>ইন্টারনেটে শেখার অনেক সুযোগ থাকলেও ভুল তথ্য, ভুয়া কোর্স ও প্রতারণার ঝুঁকি রয়েছে।</p>
     <ul>
         <li>নির্ভরযোগ্য শিক্ষামূলক ওয়েবসাইট ব্যবহার করুন।</li>
         <li>কোনো কোর্স কেনার আগে যাচাই করুন।</li>
@@ -625,56 +706,46 @@ footer p {
         <li>একাধিক নির্ভরযোগ্য উৎস থেকে তথ্য যাচাই করুন।</li>
         <li>কাউকে পাসওয়ার্ড বা OTP দেবেন না।</li>
     </ul>
-
     <div class="english">
         <strong>English:</strong>
         The internet offers many learning opportunities, but it also contains misinformation, fake courses, and scams. Use trusted educational websites, verify courses before purchasing, protect personal information, avoid suspicious links, and never share passwords or OTPs.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="plan">
     <h2>১১. ৩০ দিনের শেখার পরিকল্পনা | 30-Day Learning Plan</h2>
-
     <div class="grid">
-
         <div class="topic">
             <h3>দিন ১–৭</h3>
             <p>নিজের আগ্রহের বিষয় নির্বাচন ও প্রাথমিক জ্ঞান অর্জন।</p>
             <div class="english">Days 1–7: Explore your interests and learn the basics.</div>
         </div>
-
         <div class="topic">
             <h3>দিন ৮–১৪</h3>
             <p>কম্পিউটার ও ডিজিটাল দক্ষতা অর্জন।</p>
             <div class="english">Days 8–14: Develop computer and digital skills.</div>
         </div>
-
         <div class="topic">
             <h3>দিন ১৫–২১</h3>
             <p>ইংরেজি ও যোগাযোগ দক্ষতা বৃদ্ধি।</p>
             <div class="english">Days 15–21: Improve English and communication skills.</div>
         </div>
-
         <div class="topic">
             <h3>দিন ২২–২৬</h3>
             <p>ব্যবহারিক অনুশীলন ও নতুন দক্ষতা অর্জন।</p>
             <div class="english">Days 22–26: Practise and develop new skills.</div>
         </div>
-
         <div class="topic">
             <h3>দিন ২৭–৩০</h3>
             <p>শেখা বিষয় পর্যালোচনা ও নিজের অগ্রগতি মূল্যায়ন।</p>
             <div class="english">Days 27–30: Review what you have learned and evaluate your progress.</div>
         </div>
-
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="progress">
     <h2>১২. নিজের শেখার অগ্রগতি যাচাই | Review Your Learning Progress</h2>
-
     <p>প্রতিটি সপ্তাহ শেষে নিজেকে কয়েকটি প্রশ্ন করুন:</p>
-
     <ul>
         <li>এই সপ্তাহে আমি কী নতুন শিখেছি?</li>
         <li>কোন বিষয়টি বুঝতে আমার সমস্যা হয়েছে?</li>
@@ -682,54 +753,52 @@ footer p {
         <li>শেখা বিষয় বাস্তবে প্রয়োগ করতে পেরেছি?</li>
         <li>পরের সপ্তাহে আমার লক্ষ্য কী?</li>
     </ul>
-
     <div class="english">
         <strong>English:</strong>
         At the end of each week, ask yourself what you learned, which topics were difficult, whether you practised regularly, how you applied your knowledge, and what you want to achieve next week.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="goal">
     <h2>১৩. আমাদের শিক্ষামূলক লক্ষ্য | Our Educational Goal</h2>
-
     <p>
         আমাদের লক্ষ্য হলো সকল বয়সের মানুষের জন্য সহজ ভাষায় প্রয়োজনীয় শিক্ষা, তথ্য ও দক্ষতাভিত্তিক জ্ঞান তুলে ধরা। আমরা চাই, প্রত্যেক দর্শক নিজের আগ্রহ অনুযায়ী নতুন কিছু শিখুন, দক্ষতা বাড়ান এবং বাস্তব জীবনে সেই জ্ঞান কাজে লাগান।
     </p>
-
     <div class="english">
         <strong>English:</strong>
         Our goal is to provide accessible education, useful information, and practical knowledge for people of all ages. We encourage every visitor to explore new subjects, improve their skills, and apply their knowledge in real life.
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="notice">
     <h2>১৪. গুরুত্বপূর্ণ ঘোষণা | Important Notice</h2>
-
     <div class="notice">
         এই ওয়েবসাইটের শিক্ষামূলক বিষয়গুলো সাধারণ জ্ঞান ও দক্ষতা উন্নয়নের উদ্দেশ্যে প্রকাশ করা হয়। কোনো পরীক্ষার ফলাফল, চাকরি, সার্টিফিকেট বা আর্থিক সাফল্যের নিশ্চয়তা দেওয়া হয় না। কোনো কোর্স বা প্রশিক্ষণে অংশ নেওয়ার আগে সংশ্লিষ্ট প্রতিষ্ঠানের তথ্য যাচাই করুন।
     </div>
-
     <div class="english">
         <strong>English:</strong>
         The educational content on this website is provided for general knowledge and skill development. We do not guarantee examination results, employment, certificates, or financial success. Verify the details of any institution or training programme before enrolling.
     </div>
 </section>
 
+<section class="author-box">
+    <h3>লেখক | About the Author</h3>
+    <p><strong>Md Rifat Ahmed</strong></p>
+    <p>শিক্ষা, প্রযুক্তি, অনলাইন আয়, ফ্রিল্যান্সিং ও ব্যক্তিগত দক্ষতা উন্নয়ন বিষয়ে সহজভাবে তথ্য ও অভিজ্ঞতা শেয়ার করার চেষ্টা করি।</p>
+    <p><a href="about.html">আমার সম্পর্কে আরও জানুন | Learn More About Me</a></p>
+    <p><a href="contact.html">যোগাযোগ করুন | Contact Me</a></p>
+</section>
+
 <section class="cta">
     <h2>জ্ঞান অর্জন করুন, দক্ষতা বাড়ান</h2>
     <p>প্রতিদিন নতুন কিছু শিখুন এবং নিজের ভবিষ্যৎ গড়ে তুলুন।</p>
-
-    <div class="english">
-        Gain knowledge, improve your skills, and build your future by learning something new every day.
-    </div>
-
+    <p>Gain knowledge, improve your skills, and build your future by learning something new every day.</p>
     <a href="services.html">আরও শিখুন | Explore More</a>
 </section>
 
 </main>
 
 <footer>
-
     <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
@@ -739,18 +808,19 @@ footer p {
         <a href="digital-marketing.html">Digital Marketing</a>
         <a href="technology.html">Technology</a>
         <a href="online-business.html">Online Business</a>
+        <a href="education.html">Education</a>
         <a href="website-creation.html">Website Creation</a>
         <a href="photo-editing.html">Photo Editing</a>
         <a href="contact.html">Contact</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-and-conditions.html">Terms & Conditions</a>
     </div>
-
     <p>Email: rifatahmedbogra@gmail.com</p>
     <p>© 2026 Md Rifat Ahmed. All Rights Reserved.</p>
     <p>Learn, Explore, Improve Your Skills, and Grow.</p>
-
 </footer>
+
+<a href="#top" class="back-top">↑ উপরে যান</a>
 
 </body>
 </html>
