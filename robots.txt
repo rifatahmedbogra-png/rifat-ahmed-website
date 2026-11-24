@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rifatahmedbogra-png.github.io/rifat-ahmed-website/sitemap.xml
