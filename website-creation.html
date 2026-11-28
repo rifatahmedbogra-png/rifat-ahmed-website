@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ওয়েবসাইট তৈরি ও ব্লগিং | Website Creation & Blogging - Rifat Ahmed</title>
+<title>ওয়েবসাইট তৈরি ও ব্লগিং | Website Creation & Blogging - Md Rifat Ahmed</title>
 
-<meta name="description" content="ওয়েবসাইট তৈরি ও ব্লগিং শিখুন সহজ বাংলায়। Blogger, HTML, CSS, GitHub Pages, SEO, Google Search Console এবং ওয়েবসাইট পরিচালনার প্রাথমিক নির্দেশনা।">
+<meta name="description" content="নতুনদের জন্য ওয়েবসাইট তৈরি ও ব্লগিং শিখুন। HTML, CSS, JavaScript, Blogger, GitHub Pages, SEO এবং Google Search Console সম্পর্কে সহজ বাংলা নির্দেশনা।">
 
-<meta name="keywords" content="ওয়েবসাইট তৈরি, ব্লগিং, Website Creation, Blogging, Blogger, HTML, CSS, GitHub Pages, SEO, Web Design, Google Search Console">
+<meta name="keywords" content="ওয়েবসাইট তৈরি, ব্লগিং, Website Creation, Blogging, HTML, CSS, JavaScript, Blogger, GitHub Pages, SEO, Web Design">
 
 <meta name="author" content="Md Rifat Ahmed">
 <meta name="robots" content="index, follow">
@@ -17,8 +17,8 @@
 <link rel="canonical" href="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/website-creation.html">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="ওয়েবসাইট তৈরি ও ব্লগিং | Rifat Ahmed">
-<meta property="og:description" content="নতুনদের জন্য ওয়েবসাইট তৈরি, ব্লগিং, HTML, CSS, Blogger এবং SEO শেখার সহজ নির্দেশনা।">
+<meta property="og:title" content="ওয়েবসাইট তৈরি ও ব্লগিং | Md Rifat Ahmed">
+<meta property="og:description" content="নতুনদের জন্য ওয়েবসাইট তৈরি, HTML, CSS, Blogger, GitHub Pages এবং SEO শেখার সহজ নির্দেশনা।">
 <meta property="og:url" content="https://rifatahmedbogra-png.github.io/rifat-ahmed-website/website-creation.html">
 
 <style>
@@ -102,7 +102,7 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    margin: 5px 12px;
+    margin: 5px 10px;
     display: inline-block;
     font-weight: bold;
     font-size: 14px;
@@ -136,6 +136,7 @@ nav a:hover {
     border-radius: 14px;
     box-shadow: 0 4px 18px rgba(15,40,70,.06);
     border: 1px solid #e9eef5;
+    scroll-margin-top: 85px;
 }
 
 .section h2 {
@@ -345,7 +346,26 @@ tr:nth-child(even) {
     border-radius: 7px;
     font-weight: bold;
     text-decoration: none;
-    margin-top: 10px;
+    margin: 10px 5px 0;
+}
+
+.checklist {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+.checklist li {
+    background: #f5f9fd;
+    padding: 10px 13px;
+    border-radius: 7px;
+    margin-bottom: 9px;
+    border: 1px solid #e5edf5;
+}
+
+.checklist li::before {
+    content: "✓ ";
+    color: #16834a;
+    font-weight: bold;
 }
 
 footer {
@@ -421,6 +441,9 @@ footer a {
     }
 
     table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
         font-size: 13px;
     }
 
@@ -449,6 +472,9 @@ footer a {
     <a href="index.html">হোম | Home</a>
     <a href="about.html">আমার সম্পর্কে | About</a>
     <a href="services.html">সার্ভিস | Services</a>
+    <a href="education.html">শিক্ষা | Education</a>
+    <a href="technology.html">প্রযুক্তি | Technology</a>
+    <a href="contact.html">যোগাযোগ | Contact</a>
 </nav>
 
 <main class="container">
@@ -484,15 +510,22 @@ footer a {
         <h2>📚 এই পেজে যা শিখবেন | Table of Contents</h2>
         <ol>
             <li><a href="#why-website">ওয়েবসাইট কেন তৈরি করবেন?</a></li>
+            <li><a href="#website-types">ওয়েবসাইটের ধরন</a></li>
+            <li><a href="#planning">ওয়েবসাইট তৈরির পরিকল্পনা</a></li>
             <li><a href="#blogger">Blogger দিয়ে ওয়েবসাইট তৈরি</a></li>
-            <li><a href="#html-css">HTML ও CSS-এর প্রাথমিক ধারণা</a></li>
+            <li><a href="#html-css">HTML ও CSS-এর ধারণা</a></li>
+            <li><a href="#javascript">JavaScript কী?</a></li>
+            <li><a href="#practice-html">নিজে হাতে HTML অনুশীলন</a></li>
             <li><a href="#github">GitHub Pages দিয়ে প্রকাশ</a></li>
             <li><a href="#content">ভালো কনটেন্ট লেখা</a></li>
+            <li><a href="#design">ওয়েবসাইট ডিজাইন ও মোবাইল উপযোগিতা</a></li>
             <li><a href="#seo">SEO ও Google Search Console</a></li>
+            <li><a href="#analytics">ওয়েবসাইটের ফলাফল পর্যবেক্ষণ</a></li>
             <li><a href="#domain">ডোমেইন ও হোস্টিং</a></li>
             <li><a href="#security">নিরাপত্তা ও রক্ষণাবেক্ষণ</a></li>
             <li><a href="#income">ব্লগিং থেকে বৈধ আয়</a></li>
             <li><a href="#mistakes">নতুনদের সাধারণ ভুল</a></li>
+            <li><a href="#project">বাস্তব ওয়েবসাইট প্রজেক্ট</a></li>
             <li><a href="#practice">৩০ দিনের শেখার পরিকল্পনা</a></li>
             <li><a href="#resources">প্রয়োজনীয় শেখার রিসোর্স</a></li>
             <li><a href="#faq">সাধারণ প্রশ্ন ও উত্তর</a></li>
@@ -522,8 +555,104 @@ footer a {
         </div>
     </section>
 
+    <section class="section" id="website-types">
+        <h2>২. ওয়েবসাইটের বিভিন্ন ধরন</h2>
+
+        <p>কাজের উদ্দেশ্য অনুযায়ী ওয়েবসাইট বিভিন্ন ধরনের হতে পারে।</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Personal Website</h3>
+                <p>নিজের পরিচিতি, অভিজ্ঞতা, দক্ষতা ও কাজ তুলে ধরার ওয়েবসাইট।</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Educational Website</h3>
+                <p>শিক্ষামূলক লেখা, গাইড, টিউটোরিয়াল ও শেখার উপকরণ প্রকাশের ওয়েবসাইট।</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Business Website</h3>
+                <p>ব্যবসা, পণ্য, সেবা ও যোগাযোগের তথ্য প্রকাশের ওয়েবসাইট।</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Blog Website</h3>
+                <p>নিয়মিত নতুন নিবন্ধ, অভিজ্ঞতা ও তথ্য প্রকাশের ওয়েবসাইট।</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Portfolio Website</h3>
+                <p>নিজের তৈরি ডিজাইন, ওয়েবসাইট, ছবি ও কাজের নমুনা দেখানোর ওয়েবসাইট।</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Online Store</h3>
+                <p>পণ্য প্রদর্শন, অর্ডার গ্রহণ এবং অনলাইন বিক্রির জন্য তৈরি ওয়েবসাইট।</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <strong>পরামর্শ:</strong> শুরুতে একটি নির্দিষ্ট উদ্দেশ্য বেছে নিন। সব ধরনের কাজ একসঙ্গে শুরু না করে ধাপে ধাপে শিখুন।
+        </div>
+    </section>
+
+    <section class="section" id="planning">
+        <h2>৩. ওয়েবসাইট তৈরির আগে পরিকল্পনা</h2>
+
+        <p>কোড লেখা শুরু করার আগে ওয়েবসাইটের উদ্দেশ্য ও কাঠামো ঠিক করা ভালো।</p>
+
+        <h3>প্রথমে যে বিষয়গুলো ঠিক করবেন:</h3>
+
+        <ol>
+            <li>ওয়েবসাইটটি কেন তৈরি করছেন?</li>
+            <li>কারা ওয়েবসাইটটি ব্যবহার করবেন?</li>
+            <li>কোন বিষয় নিয়ে তথ্য প্রকাশ করবেন?</li>
+            <li>ওয়েবসাইটের নাম কী হবে?</li>
+            <li>কোন কোন পেজ প্রয়োজন হবে?</li>
+            <li>কীভাবে নিয়মিত কনটেন্ট প্রকাশ করবেন?</li>
+        </ol>
+
+        <h3>একটি সাধারণ ওয়েবসাইটের পেজ:</h3>
+
+        <table>
+            <tr>
+                <th>পেজ</th>
+                <th>কাজ</th>
+            </tr>
+            <tr>
+                <td>Home</td>
+                <td>ওয়েবসাইটের মূল পরিচিতি</td>
+            </tr>
+            <tr>
+                <td>About</td>
+                <td>লেখক বা প্রতিষ্ঠানের পরিচয়</td>
+            </tr>
+            <tr>
+                <td>Services</td>
+                <td>সেবা ও কাজের বিবরণ</td>
+            </tr>
+            <tr>
+                <td>Education / Blog</td>
+                <td>শিক্ষামূলক লেখা ও নিবন্ধ</td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td>যোগাযোগের তথ্য</td>
+            </tr>
+            <tr>
+                <td>Privacy Policy</td>
+                <td>গোপনীয়তা নীতি</td>
+            </tr>
+        </table>
+
+        <div class="notice">
+            সব ওয়েবসাইটে একই ধরনের পেজ প্রয়োজন হয় না। ওয়েবসাইটের উদ্দেশ্য ও ব্যবহারকারীর প্রয়োজন অনুযায়ী পেজ নির্বাচন করুন।
+        </div>
+    </section>
+
     <section class="section" id="blogger">
-        <h2>২. Blogger দিয়ে ওয়েবসাইট তৈরি</h2>
+        <h2>৪. Blogger দিয়ে ওয়েবসাইট তৈরি</h2>
 
         <p>
             Blogger হলো Google-এর একটি ব্লগিং প্ল্যাটফর্ম।
@@ -554,12 +683,12 @@ footer a {
         </div>
 
         <div class="notice">
-            <strong>পরামর্শ:</strong> ব্লগের নাম, ঠিকানা এবং বিষয় নির্বাচন করার আগে ভেবে নিন। এমন বিষয় বেছে নিন, যেটি নিয়ে নিয়মিত উপকারী লেখা প্রকাশ করতে পারবেন।
+            ব্লগের নাম, ঠিকানা এবং বিষয় নির্বাচন করার আগে ভেবে নিন। এমন বিষয় বেছে নিন, যেটি নিয়ে নিয়মিত উপকারী লেখা প্রকাশ করতে পারবেন।
         </div>
     </section>
 
     <section class="section" id="html-css">
-        <h2>৩. HTML ও CSS-এর প্রাথমিক ধারণা</h2>
+        <h2>৫. HTML ও CSS-এর প্রাথমিক ধারণা</h2>
 
         <h3>HTML কী?</h3>
         <p>
@@ -598,12 +727,6 @@ h1 {
     color: #1769aa;
 }</pre>
 
-        <div class="highlight">
-            <strong>English:</strong>
-            HTML creates the structure of a webpage, while CSS controls
-            its appearance, colors, layout and visual design.
-        </div>
-
         <div class="info-grid">
             <div class="info-card">
                 <h3>HTML</h3>
@@ -614,10 +737,136 @@ h1 {
                 <p>ওয়েবপেজের ডিজাইন ও সৌন্দর্য নিয়ন্ত্রণ করে।</p>
             </div>
         </div>
+
+        <div class="highlight">
+            <strong>English:</strong>
+            HTML creates the structure of a webpage, while CSS controls
+            its appearance, colors, layout and visual design.
+        </div>
+    </section>
+
+    <section class="section" id="javascript">
+        <h2>৬. JavaScript কী?</h2>
+
+        <p>
+            JavaScript হলো একটি Programming Language, যা ওয়েবসাইটে
+            বিভিন্ন ইন্টারঅ্যাকটিভ বা ব্যবহারকারীর সঙ্গে কাজ করে এমন
+            সুবিধা তৈরি করতে সাহায্য করে।
+        </p>
+
+        <h3>JavaScript দিয়ে কী করা যায়?</h3>
+
+        <ul>
+            <li>বাটনে ক্লিক করলে কোনো কাজ করানো।</li>
+            <li>ফর্মের তথ্য পরীক্ষা করা।</li>
+            <li>ছবি বা কনটেন্ট পরিবর্তন করা।</li>
+            <li>ক্যালকুলেটর ও ছোট অনলাইন টুল তৈরি করা।</li>
+            <li>ওয়েবসাইটে বিভিন্ন ইন্টারঅ্যাকটিভ সুবিধা যোগ করা।</li>
+        </ul>
+
+        <h3>একটি সহজ JavaScript উদাহরণ:</h3>
+
+        <pre class="code-example">&lt;button onclick="showMessage()"&gt;
+    এখানে ক্লিক করুন
+&lt;/button&gt;
+
+&lt;p id="message"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+function showMessage() {
+    document.getElementById("message").innerText =
+    "আপনাকে স্বাগতম!";
+}
+&lt;/script&gt;</pre>
+
+        <div class="highlight">
+            <strong>মনে রাখবেন:</strong> HTML দিয়ে কাঠামো, CSS দিয়ে ডিজাইন এবং JavaScript দিয়ে ওয়েবসাইটের বিভিন্ন কার্যক্রম তৈরি করা যায়।
+        </div>
+    </section>
+
+    <section class="section" id="practice-html">
+        <h2>৭. নিজে হাতে HTML অনুশীলন</h2>
+
+        <p>
+            ওয়েবসাইট তৈরি শেখার সবচেয়ে ভালো উপায় হলো নিজে একটি ছোট
+            ওয়েবপেজ তৈরি করা। নিচের ধাপগুলো অনুসরণ করুন।
+        </p>
+
+        <h3>ধাপ ১: Notepad++ খুলুন</h3>
+
+        <ol>
+            <li>কম্পিউটারে Notepad++ চালু করুন।</li>
+            <li>File মেনু থেকে New নির্বাচন করুন।</li>
+            <li>নিচের HTML কোডটি লিখুন বা কপি করুন।</li>
+            <li>ফাইলটি <strong>my-first-website.html</strong> নামে Save করুন।</li>
+        </ol>
+
+        <h3>ধাপ ২: নিজের প্রথম ওয়েবপেজ তৈরি করুন</h3>
+
+        <pre class="code-example">&lt;!DOCTYPE html&gt;
+&lt;html lang="bn"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+    content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;আমার প্রথম ওয়েবসাইট&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            background: #edf6ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #1769aa;
+        }
+
+        p {
+            color: #263445;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;আমার প্রথম ওয়েবসাইট&lt;/h1&gt;
+
+    &lt;p&gt;আমি ওয়েবসাইট তৈরি শিখছি।&lt;/p&gt;
+
+    &lt;p&gt;Welcome to my website!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+        <h3>ধাপ ৩: ব্রাউজারে পরীক্ষা করুন</h3>
+
+        <ol>
+            <li>ফাইলটি Save করুন।</li>
+            <li>কম্পিউটারে ফাইলটি খুঁজে বের করুন।</li>
+            <li>ফাইলটির ওপর ডাবল ক্লিক করুন।</li>
+            <li>Firefox বা অন্য ব্রাউজারে ওয়েবপেজটি খুলবে।</li>
+        </ol>
+
+        <h3>ধাপ ৪: নিজের মতো পরিবর্তন করুন</h3>
+
+        <ul>
+            <li>শিরোনামের লেখা পরিবর্তন করুন।</li>
+            <li>ব্যাকগ্রাউন্ডের রং পরিবর্তন করুন।</li>
+            <li>নিজের পরিচিতি যোগ করুন।</li>
+            <li>একটি নতুন Paragraph যোগ করুন।</li>
+        </ul>
+
+        <div class="highlight">
+            **অনুশীলনের লক্ষ্য:** নিজের কম্পিউটারে একটি HTML ফাইল তৈরি, Save, Open এবং Edit করতে শেখা।
+        </div>
+
+        <div class="notice">
+            কোনো পরিবর্তন ব্রাউজারে দেখতে হলে ফাইলে পরিবর্তন করে আবার Save করুন এবং ব্রাউজার Refresh করুন।
+        </div>
     </section>
 
     <section class="section" id="github">
-        <h2>৪. GitHub Pages দিয়ে ওয়েবসাইট প্রকাশ</h2>
+        <h2>৮. GitHub Pages দিয়ে ওয়েবসাইট প্রকাশ</h2>
 
         <p>
             GitHub Pages ব্যবহার করে HTML, CSS এবং JavaScript দিয়ে তৈরি
@@ -647,6 +896,24 @@ h1 {
             </a>
         </p>
 
+        <h3>GitHub-এ একটি সাধারণ ফাইল কাঠামো:</h3>
+
+        <pre class="code-example">my-website/
+│
+├── index.html
+├── about.html
+├── services.html
+├── contact.html
+│
+├── css/
+│   └── style.css
+│
+├── images/
+│   └── cover.png
+│
+└── js/
+    └── script.js</pre>
+
         <div class="highlight">
             <strong>English:</strong>
             GitHub Pages allows you to publish static websites using
@@ -655,12 +922,12 @@ h1 {
         </div>
 
         <div class="notice">
-            <strong>মনে রাখবেন:</strong> GitHub Pages সাধারণ Static Website প্রকাশের জন্য। এটি নিজে থেকে Database, PHP বা Server-side Application চালানোর পূর্ণাঙ্গ Hosting নয়।
+            GitHub Pages সাধারণ Static Website প্রকাশের জন্য। এটি নিজে থেকে Database, PHP বা Server-side Application চালানোর পূর্ণাঙ্গ Hosting নয়।
         </div>
     </section>
 
     <section class="section" id="content">
-        <h2>৫. ওয়েবসাইটের জন্য ভালো কনটেন্ট লেখা</h2>
+        <h2>৯. ওয়েবসাইটের জন্য ভালো কনটেন্ট লেখা</h2>
 
         <p>
             একটি ভালো ওয়েবসাইটের সবচেয়ে গুরুত্বপূর্ণ সম্পদ হলো
@@ -695,8 +962,52 @@ h1 {
         </div>
     </section>
 
+    <section class="section" id="design">
+        <h2>১০. ওয়েবসাইট ডিজাইন ও মোবাইল উপযোগিতা</h2>
+
+        <p>
+            ভালো ওয়েবসাইট শুধু দেখতে সুন্দর হলেই হবে না।
+            ব্যবহারকারীরা যেন সহজে তথ্য খুঁজে পান এবং মোবাইল ও কম্পিউটার
+            থেকে ব্যবহার করতে পারেন, সেটিও জরুরি।
+        </p>
+
+        <h3>ভালো ডিজাইনের কিছু নিয়ম:</h3>
+
+        <ul>
+            <li>পরিষ্কার ও সহজ Navigation রাখুন।</li>
+            <li>সহজে পড়া যায় এমন ফন্ট ব্যবহার করুন।</li>
+            <li>লেখা ও ব্যাকগ্রাউন্ডের মধ্যে যথেষ্ট Contrast রাখুন।</li>
+            <li>অপ্রয়োজনীয় Animation ও অতিরিক্ত উপাদান এড়িয়ে চলুন।</li>
+            <li>ছবি প্রয়োজন অনুযায়ী ছোট ও অপটিমাইজ করুন।</li>
+            <li>মোবাইল স্ক্রিনে পেজ পরীক্ষা করুন।</li>
+            <li>গুরুত্বপূর্ণ লিংক ও বাটন সহজে খুঁজে পাওয়ার ব্যবস্থা রাখুন।</li>
+        </ul>
+
+        <h3>Responsive Design কী?</h3>
+
+        <p>
+            Responsive Design হলো এমন ডিজাইন, যা বিভিন্ন স্ক্রিনের
+            আকার অনুযায়ী নিজের বিন্যাস পরিবর্তন করতে পারে।
+            যেমন: মোবাইল, ট্যাবলেট ও কম্পিউটার।
+        </p>
+
+        <pre class="code-example">@media (max-width: 700px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}</pre>
+
+        <div class="highlight">
+            **মনে রাখবেন:** ওয়েবসাইট প্রকাশের আগে কম্পিউটার এবং মোবাইল—দুই জায়গাতেই পরীক্ষা করুন।
+        </div>
+    </section>
+
     <section class="section" id="seo">
-        <h2>৬. SEO ও Google Search Console</h2>
+        <h2>১১. SEO ও Google Search Console</h2>
 
         <p>
             SEO বা Search Engine Optimization হলো ওয়েবসাইটের
@@ -717,15 +1028,31 @@ h1 {
         </ul>
 
         <h3>Google Search Console কী কাজে লাগে?</h3>
+
         <p>
             Google Search Console দিয়ে ওয়েবসাইটের Indexing,
             Search Performance এবং Google Search-এ পেজের উপস্থিতি
             সম্পর্কে তথ্য দেখা যায়।
         </p>
 
+        <ol>
+            <li>Google Search Console-এ প্রবেশ করুন।</li>
+            <li>আপনার ওয়েবসাইটের Property যুক্ত করুন।</li>
+            <li>প্রয়োজনীয় Verification সম্পন্ন করুন।</li>
+            <li>Sitemap জমা দিন।</li>
+            <li>URL Inspection দিয়ে নির্দিষ্ট পেজ পরীক্ষা করুন।</li>
+            <li>Indexing ও Performance রিপোর্ট পর্যবেক্ষণ করুন।</li>
+        </ol>
+
         <p>
             <a class="resource-link" href="https://search.google.com/search-console/" target="_blank" rel="noopener noreferrer">
                 Google Search Console ↗
+            </a>
+        </p>
+
+        <p>
+            <a class="resource-link" href="https://developers.google.com/search/docs" target="_blank" rel="noopener noreferrer">
+                Google Search Central ↗
             </a>
         </p>
 
@@ -737,12 +1064,42 @@ h1 {
         </div>
 
         <div class="notice">
-            <strong>গুরুত্বপূর্ণ:</strong> SEO করলেই Google-এ প্রথম অবস্থানে আসার নিশ্চয়তা নেই। ভালো কনটেন্ট, ব্যবহারকারীর অভিজ্ঞতা এবং সময়ের সঙ্গে ধারাবাহিক উন্নতি গুরুত্বপূর্ণ।
+            SEO করলেই Google-এ প্রথম অবস্থানে আসার নিশ্চয়তা নেই। ভালো কনটেন্ট, ব্যবহারকারীর অভিজ্ঞতা এবং সময়ের সঙ্গে ধারাবাহিক উন্নতি গুরুত্বপূর্ণ।
+        </div>
+    </section>
+
+    <section class="section" id="analytics">
+        <h2>১২. ওয়েবসাইটের ফলাফল পর্যবেক্ষণ</h2>
+
+        <p>
+            ওয়েবসাইট প্রকাশের পর মানুষ কীভাবে সেটি ব্যবহার করছেন,
+            কোন পেজ বেশি পড়ছেন এবং কোন উৎস থেকে আসছেন—এসব তথ্য
+            বুঝতে Analytics ব্যবহার করা যায়।
+        </p>
+
+        <h3>Google Analytics দিয়ে কী জানা যায়?</h3>
+
+        <ul>
+            <li>ওয়েবসাইটে কতজন ব্যবহারকারী আসছেন।</li>
+            <li>কোন পেজ বেশি দেখা হচ্ছে।</li>
+            <li>কোন উৎস থেকে ভিজিটর আসছেন।</li>
+            <li>ব্যবহারকারীরা কোন ধরনের ডিভাইস ব্যবহার করছেন।</li>
+            <li>কোন কনটেন্ট উন্নত করা প্রয়োজন।</li>
+        </ul>
+
+        <p>
+            <a class="resource-link" href="https://analytics.google.com/" target="_blank" rel="noopener noreferrer">
+                Google Analytics ↗
+            </a>
+        </p>
+
+        <div class="notice">
+            Analytics ব্যবহার করলে প্রয়োজন অনুযায়ী গোপনীয়তা নীতি ও প্রযোজ্য তথ্য সংগ্রহের নিয়ম মেনে চলুন। ব্যবহারকারীর তথ্য দায়িত্বশীলভাবে পরিচালনা করুন।
         </div>
     </section>
 
     <section class="section" id="domain">
-        <h2>৭. ডোমেইন ও হোস্টিং কী?</h2>
+        <h2>১৩. ডোমেইন ও হোস্টিং কী?</h2>
 
         <h3>ডোমেইন (Domain)</h3>
         <p>
@@ -783,7 +1140,7 @@ h1 {
     </section>
 
     <section class="section" id="security">
-        <h2>৮. ওয়েবসাইটের নিরাপত্তা ও রক্ষণাবেক্ষণ</h2>
+        <h2>১৪. ওয়েবসাইটের নিরাপত্তা ও রক্ষণাবেক্ষণ</h2>
 
         <p>ওয়েবসাইট তৈরি করার পর সেটির নিরাপত্তা এবং নিয়মিত রক্ষণাবেক্ষণ করাও জরুরি।</p>
 
@@ -806,7 +1163,7 @@ h1 {
     </section>
 
     <section class="section" id="income">
-        <h2>৯. ব্লগিং থেকে বৈধভাবে আয়ের সম্ভাবনা</h2>
+        <h2>১৫. ব্লগিং থেকে বৈধভাবে আয়ের সম্ভাবনা</h2>
 
         <p>
             মানসম্মত কনটেন্ট, নিয়মিত কাজ এবং পাঠকের আস্থা তৈরি করতে পারলে
@@ -822,6 +1179,7 @@ h1 {
         </ul>
 
         <h3>আয়ের আগে যা তৈরি করতে হবে:</h3>
+
         <ul>
             <li>উপকারী ও মৌলিক কনটেন্ট।</li>
             <li>পরিষ্কার ওয়েবসাইট ডিজাইন ও নেভিগেশন।</li>
@@ -837,12 +1195,12 @@ h1 {
         </div>
 
         <div class="notice">
-            <strong>সতর্কতা:</strong> ব্লগিং থেকে আয় নিশ্চিত নয়। AdSense বা অন্য কোনো প্ল্যাটফর্মের অনুমোদন তাদের নিজস্ব নীতিমালা ও পর্যালোচনার ওপর নির্ভর করে।
+            ব্লগিং থেকে আয় নিশ্চিত নয়। AdSense বা অন্য কোনো প্ল্যাটফর্মের অনুমোদন তাদের নিজস্ব নীতিমালা ও পর্যালোচনার ওপর নির্ভর করে।
         </div>
     </section>
 
     <section class="section" id="mistakes">
-        <h2>১০. নতুনদের সাধারণ ভুল</h2>
+        <h2>১৬. নতুনদের সাধারণ ভুল</h2>
 
         <ul>
             <li>পরিকল্পনা ছাড়া ওয়েবসাইট তৈরি শুরু করা।</li>
@@ -852,6 +1210,7 @@ h1 {
             <li>SEO ও ওয়েবসাইটের মৌলিক নিরাপত্তা উপেক্ষা করা।</li>
             <li>অল্প সময়েই অনেক আয় হবে এমন প্রত্যাশা করা।</li>
             <li>ব্যাকআপ না রাখা।</li>
+            <li>ভাঙা লিংক ও ভুল তথ্য ঠিক না করা।</li>
         </ul>
 
         <div class="highlight">
@@ -859,8 +1218,78 @@ h1 {
         </div>
     </section>
 
+    <section class="section" id="project">
+        <h2>১৭. বাস্তব ওয়েবসাইট প্রজেক্ট</h2>
+
+        <p>
+            এবার শেখা বিষয়গুলো কাজে লাগিয়ে একটি ছোট Personal
+            Educational Website তৈরি করার পরিকল্পনা করুন।
+        </p>
+
+        <h3>প্রজেক্টের নাম:</h3>
+        <p><strong>My Learning Website</strong></p>
+
+        <h3>যে পেজগুলো তৈরি করবেন:</h3>
+
+        <table>
+            <tr>
+                <th>ফাইলের নাম</th>
+                <th>কাজ</th>
+            </tr>
+            <tr>
+                <td>index.html</td>
+                <td>মূল পেজ</td>
+            </tr>
+            <tr>
+                <td>about.html</td>
+                <td>নিজের পরিচিতি</td>
+            </tr>
+            <tr>
+                <td>education.html</td>
+                <td>শিক্ষামূলক বিষয়</td>
+            </tr>
+            <tr>
+                <td>services.html</td>
+                <td>নিজের সেবা</td>
+            </tr>
+            <tr>
+                <td>contact.html</td>
+                <td>যোগাযোগের তথ্য</td>
+            </tr>
+        </table>
+
+        <h3>প্রজেক্ট সম্পন্ন করার ধাপ:</h3>
+
+        <ol>
+            <li>Notepad++ দিয়ে index.html তৈরি করুন।</li>
+            <li>পেজে একটি Header ও Navigation যোগ করুন।</li>
+            <li>নিজের পরিচিতি ও শিক্ষামূলক লেখা যোগ করুন।</li>
+            <li>CSS দিয়ে পেজের ডিজাইন তৈরি করুন।</li>
+            <li>প্রয়োজনীয় অন্যান্য HTML পেজ তৈরি করুন।</li>
+            <li>পেজগুলোর মধ্যে সঠিক লিংক যুক্ত করুন।</li>
+            <li>ব্রাউজারে সব পেজ পরীক্ষা করুন।</li>
+            <li>GitHub Repository-তে ফাইল আপলোড করুন।</li>
+            <li>GitHub Pages দিয়ে ওয়েবসাইট প্রকাশ করুন।</li>
+        </ol>
+
+        <h3>প্রজেক্ট যাচাইয়ের তালিকা:</h3>
+
+        <ul class="checklist">
+            <li>মূল পেজ ঠিকমতো খুলছে।</li>
+            <li>সব Navigation Link কাজ করছে।</li>
+            <li>HTML ও CSS ঠিকমতো কাজ করছে।</li>
+            <li>মোবাইল ও কম্পিউটারে ডিজাইন দেখা যাচ্ছে।</li>
+            <li>সব পেজের শিরোনাম ও বিষয়বস্তু সঠিক।</li>
+            <li>প্রয়োজনীয় ব্যাকআপ রাখা হয়েছে।</li>
+        </ul>
+
+        <div class="highlight">
+            **প্রজেক্টের লক্ষ্য:** নিজের হাতে একটি ছোট ওয়েবসাইট তৈরি, পরীক্ষা এবং অনলাইনে প্রকাশ করার অভিজ্ঞতা অর্জন করা।
+        </div>
+    </section>
+
     <section class="section" id="practice">
-        <h2>১১. নতুনদের জন্য ৩০ দিনের শেখার পরিকল্পনা</h2>
+        <h2>১৮. নতুনদের জন্য ৩০ দিনের শেখার পরিকল্পনা</h2>
 
         <p>প্রতিদিন অল্প সময় অনুশীলন করেও ধীরে ধীরে ওয়েবসাইট তৈরি ও ব্লগিংয়ের দক্ষতা বাড়ানো সম্ভব।</p>
 
@@ -912,7 +1341,7 @@ h1 {
     </section>
 
     <section class="section" id="resources">
-        <h2>১২. প্রয়োজনীয় শেখার রিসোর্স</h2>
+        <h2>১৯. প্রয়োজনীয় শেখার রিসোর্স</h2>
 
         <p>ওয়েবসাইট তৈরি ও ব্লগিং শেখার জন্য নিচের অফিসিয়াল এবং শিক্ষামূলক রিসোর্সগুলো ব্যবহার করতে পারেন।</p>
 
@@ -924,6 +1353,7 @@ h1 {
             <li><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> — Static Website প্রকাশ।</li>
             <li><a href="https://search.google.com/search-console/" target="_blank" rel="noopener noreferrer">Google Search Console</a> — Search Performance ও Indexing পর্যবেক্ষণ।</li>
             <li><a href="https://developers.google.com/search/docs" target="_blank" rel="noopener noreferrer">Google Search Central</a> — Google SEO নির্দেশনা।</li>
+            <li><a href="https://analytics.google.com/" target="_blank" rel="noopener noreferrer">Google Analytics</a> — ওয়েবসাইটের ফলাফল পর্যবেক্ষণ।</li>
         </ul>
 
         <div class="notice">
@@ -932,7 +1362,7 @@ h1 {
     </section>
 
     <section class="section" id="faq">
-        <h2>১৩. সাধারণ প্রশ্ন ও উত্তর | FAQ</h2>
+        <h2>২০. সাধারণ প্রশ্ন ও উত্তর | FAQ</h2>
 
         <h3>প্রশ্ন ১: ওয়েবসাইট তৈরি করতে কি প্রোগ্রামিং জানতে হবে?</h3>
         <p>সব ক্ষেত্রে নয়। Blogger-এর মতো প্ল্যাটফর্মে কোডিং ছাড়াও ব্লগ তৈরি করা যায়। তবে HTML ও CSS শিখলে নিজের ওয়েবসাইট আরও ভালোভাবে সাজাতে পারবেন।</p>
@@ -948,10 +1378,19 @@ h1 {
 
         <h3>প্রশ্ন ৫: নতুনদের কোন বিষয় দিয়ে শুরু করা উচিত?</h3>
         <p>প্রথমে ওয়েবসাইটের ধারণা, Blogger, HTML এবং CSS-এর মৌলিক বিষয় শিখুন। তারপর ধীরে ধীরে SEO ও ওয়েবসাইট পরিচালনা শিখুন।</p>
+
+        <h3>প্রশ্ন ৬: HTML ফাইল কীভাবে খুলব?</h3>
+        <p>ফাইলটি .html নামে Save করুন। তারপর ফাইলের ওপর ডাবল ক্লিক করলে ব্রাউজারে খুলবে।</p>
+
+        <h3>প্রশ্ন ৭: GitHub Pages কি বিনামূল্যে ব্যবহার করা যায়?</h3>
+        <p>GitHub Pages-এ উপযুক্ত Repository ও ব্যবহার নীতিমালার শর্ত মেনে Static Website প্রকাশ করা যায়।</p>
+
+        <h3>প্রশ্ন ৮: ওয়েবসাইট তৈরি শিখতে কত দিন লাগে?</h3>
+        <p>এটি শেখার সময়, অনুশীলন এবং কাজের জটিলতার ওপর নির্ভর করে। ৩০ দিনের পরিকল্পনা দিয়ে প্রাথমিক অনুশীলন শুরু করতে পারেন।</p>
     </section>
 
     <section class="section" id="mission">
-        <h2>১৪. আমাদের লক্ষ্য | Our Goal</h2>
+        <h2>২১. আমাদের লক্ষ্য | Our Goal</h2>
 
         <p>
             আমাদের লক্ষ্য হলো নতুনদের জন্য ওয়েবসাইট তৈরি ও ব্লগিং
@@ -967,8 +1406,8 @@ h1 {
         </p>
 
         <div class="highlight">
-            <strong>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</strong><br>
-            Learn, Explore, Improve Skills & Earn.
+            <strong>শিখুন • জানুন • দক্ষতা বাড়ান • কাজ সম্পন্ন করুন</strong><br>
+            Learn, Explore, Improve Your Skills, and Grow.
         </div>
     </section>
 
@@ -998,7 +1437,7 @@ h1 {
                 প্রয়োজনীয় তথ্য তুলে ধরা, যাতে তাঁরা নিজেরাও
                 শিখতে পারেন এবং নিজেদের দক্ষতা উন্নত করতে পারেন।
             </p>
-            <p><strong>Tagline:</strong> শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
+            <p><strong>Tagline:</strong> শিখুন • জানুন • দক্ষতা বাড়ান • কাজ সম্পন্ন করুন</p>
         </div>
     </section>
 
@@ -1007,14 +1446,23 @@ h1 {
         <p>ছোট ছোট ধাপে শিখুন, অনুশীলন করুন এবং নিজের ওয়েবসাইট তৈরি করুন।</p>
         <p>Start learning today and build your own digital presence.</p>
         <a href="index.html">মূল পেজে ফিরে যান | Back to Home</a>
+        <a href="education.html">শিক্ষা পেজ দেখুন | Education</a>
     </div>
 
 </main>
 
 <footer>
     <p><strong>Md Rifat Ahmed – Personal & Online Business</strong></p>
-    <p>শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
-    <p>Learn, Explore, Improve Skills & Earn</p>
+    <p>শিখুন • জানুন • দক্ষতা বাড়ান • কাজ সম্পন্ন করুন</p>
+    <p>Learn, Explore, Improve Your Skills, and Grow</p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="education.html">Education</a> |
+        <a href="technology.html">Technology</a> |
+        <a href="freelancing.html">Freelancing</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
     <p>
         যোগাযোগ:
