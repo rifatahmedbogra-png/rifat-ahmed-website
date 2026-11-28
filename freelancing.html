@@ -115,6 +115,39 @@ li {
     margin-bottom: 8px;
 }
 
+.contents-box {
+    background: #edf7ff;
+    border: 1px solid #d4e7f7;
+    padding: 22px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.contents-box h2 {
+    margin-bottom: 12px;
+}
+
+.contents-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 18px;
+}
+
+.contents-grid a {
+    color: #145b91;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contents-grid a:hover {
+    color: #a87900;
+    text-decoration: underline;
+}
+
+.practice-list li {
+    margin-bottom: 10px;
+}
+
 .topic-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -291,7 +324,8 @@ footer p {
         font-size: 14px;
     }
 
-    .topic-grid {
+    .topic-grid,
+    .contents-grid {
         grid-template-columns: 1fr;
     }
 
@@ -319,13 +353,37 @@ footer p {
     <a href="about.html">আমার সম্পর্কে | About</a>
     <a href="services.html">সেবাসমূহ | Services</a>
     <a href="online-income.html">অনলাইন আয় | Online Income</a>
+    <a href="education.html">শিক্ষা | Education</a>
+    <a href="technology.html">প্রযুক্তি | Technology</a>
     <a href="freelancing.html">ফ্রিল্যান্সিং</a>
     <a href="contact.html">যোগাযোগ | Contact</a>
 </nav>
 
 <main class="container">
 
-<section class="section">
+<section class="contents-box" aria-label="পেজের বিষয়সূচি">
+    <h2>এই গাইডে যা শিখবেন | What You Will Learn</h2>
+    <div class="contents-grid">
+        <a href="#section-1">১. ফ্রিল্যান্সিং কী?</a>
+        <a href="#section-2">২. জনপ্রিয় কাজ ও দক্ষতা</a>
+        <a href="#section-3">৩. নতুনদের জন্য কাজ নির্বাচন</a>
+        <a href="#section-4">৪. Data Entry ও Excel অনুশীলন</a>
+        <a href="#section-5">৫. শুরু করার ধাপ</a>
+        <a href="#section-6">৬. ফ্রিল্যান্সিং মার্কেটপ্লেস</a>
+        <a href="#section-7">৭. Proposal লেখা</a>
+        <a href="#section-8">৮. Portfolio তৈরি</a>
+        <a href="#section-9">৯. প্রয়োজনীয় সফটওয়্যার</a>
+        <a href="#section-10">১০. ক্লায়েন্ট যোগাযোগ</a>
+        <a href="#section-11">১১. অনলাইন নিরাপত্তা</a>
+        <a href="#section-12">১২. নতুনদের সাধারণ ভুল</a>
+        <a href="#section-13">১৩. ৩০ দিনের পরিকল্পনা</a>
+        <a href="#section-14">১৪. সাধারণ প্রশ্ন</a>
+        <a href="#section-15">১৫. আমাদের লক্ষ্য</a>
+        <a href="#practice">১৬. নিজে হাতে অনুশীলন</a>
+    </div>
+</section>
+
+<section class="section" id="section-1">
     <h2>১. ফ্রিল্যান্সিং কী? | What Is Freelancing?</h2>
 
     <p>
@@ -350,7 +408,7 @@ footer p {
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-2">
     <h2>২. ফ্রিল্যান্সিংয়ের জনপ্রিয় কাজ | Popular Freelancing Skills</h2>
 
     <div class="topic-grid">
@@ -457,7 +515,7 @@ footer p {
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="section-3">
     <h2>৩. নতুনদের জন্য কোন কাজ দিয়ে শুরু করবেন? | Best Starting Skills</h2>
 
     <ul>
@@ -483,7 +541,7 @@ footer p {
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-4">
     <h2>৪. Data Entry ও Excel ব্যবহারিক অনুশীলন | Practical Exercise</h2>
 
     <p>
@@ -581,7 +639,7 @@ footer p {
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-5">
     <h2>৫. ফ্রিল্যান্সিং শুরু করার ধাপ | Steps to Start Freelancing</h2>
 
     <ol>
@@ -605,7 +663,7 @@ footer p {
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-6">
     <h2>৬. ফ্রিল্যান্সিং মার্কেটপ্লেস | Freelancing Marketplaces</h2>
 
     <h3>Fiverr</h3>
@@ -650,7 +708,7 @@ footer p {
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="section-7">
     <h2>৭. Proposal কী এবং কীভাবে লিখবেন? | Proposal Writing</h2>
 
     <p>
@@ -703,7 +761,7 @@ Thank you for considering my proposal.</div>
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-8">
     <h2>৮. Portfolio কী এবং কেন প্রয়োজন? | What Is a Portfolio?</h2>
 
     <p>
@@ -749,7 +807,7 @@ Thank you for considering my proposal.</div>
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-9">
     <h2>৯. প্রয়োজনীয় সফটওয়্যার ও টুলস | Useful Software and Tools</h2>
 
     <div class="topic-grid">
@@ -793,7 +851,7 @@ Thank you for considering my proposal.</div>
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-10">
     <h2>১০. ক্লায়েন্টের সঙ্গে যোগাযোগ | Client Communication</h2>
 
     <ul>
@@ -813,7 +871,7 @@ Thank you for considering my proposal.</div>
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-11">
     <h2>১১. অনলাইন নিরাপত্তা ও প্রতারণা থেকে সতর্কতা | Online Safety</h2>
 
     <ul>
@@ -841,7 +899,7 @@ Thank you for considering my proposal.</div>
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-12">
     <h2>১২. নতুনদের সাধারণ ভুল | Common Beginner Mistakes</h2>
 
     <ul>
@@ -861,7 +919,7 @@ Thank you for considering my proposal.</div>
     </p>
 </section>
 
-<section class="section">
+<section class="section" id="section-13">
     <h2>১৩. ৩০ দিনের শেখার পরিকল্পনা | 30-Day Learning Plan</h2>
 
     <h3>প্রথম সপ্তাহ | Week 1</h3>
@@ -887,7 +945,7 @@ Thank you for considering my proposal.</div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="section-14">
     <h2>১৪. নতুনদের সাধারণ প্রশ্ন | Frequently Asked Questions</h2>
 
     <div class="faq-item">
@@ -945,7 +1003,7 @@ Thank you for considering my proposal.</div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="section-15">
     <h2>১৫. আমাদের লক্ষ্য | Our Mission</h2>
 
     <p>
@@ -966,7 +1024,79 @@ Thank you for considering my proposal.</div>
     <p class="english">Learn, Explore, Improve Your Skills, and Grow.</p>
 </section>
 
-<section class="section">
+<section class="section" id="practice">
+    <h2>১৬. নিজে হাতে অনুশীলন | Your First Practice Projects</h2>
+
+    <p>
+        শুধু পড়লেই হবে না—নিজে কাজ তৈরি করে অনুশীলন করতে হবে।
+        নিচের কাজগুলো নিজের কম্পিউটারে করে দেখুন।
+    </p>
+
+    <div class="topic-grid">
+
+        <div class="topic-card">
+            <h3>Data Entry ও Excel</h3>
+            <ol class="practice-list">
+                <li>১০টি কাল্পনিক পণ্যের নাম লিখুন।</li>
+                <li>Quantity, Unit Price ও Total Price কলাম তৈরি করুন।</li>
+                <li><code>=B2*C2</code> ফর্মুলা দিয়ে মোট মূল্য বের করুন।</li>
+                <li>সব পণ্যের মোট হিসাব করে ফাইল সংরক্ষণ করুন।</li>
+            </ol>
+        </div>
+
+        <div class="topic-card">
+            <h3>Graphic Design</h3>
+            <ol class="practice-list">
+                <li>একটি কাল্পনিক দোকানের নাম ঠিক করুন।</li>
+                <li>নিজের ধারণা দিয়ে একটি প্রচারমূলক পোস্টার বানান।</li>
+                <li>লেখা, রং ও ছবির অবস্থান সুন্দরভাবে সাজান।</li>
+                <li>নিজের তৈরি নমুনা হিসেবে সংরক্ষণ করুন।</li>
+            </ol>
+        </div>
+
+        <div class="topic-card">
+            <h3>Web Design</h3>
+            <ol class="practice-list">
+                <li>একটি সাধারণ HTML পেজ তৈরি করুন।</li>
+                <li>পেজে শিরোনাম, পরিচিতি ও যোগাযোগের অংশ রাখুন।</li>
+                <li>CSS দিয়ে রং, ফাঁকা জায়গা ও লেখা সাজান।</li>
+                <li>ব্রাউজারে খুলে ছোট পর্দাতেও পরীক্ষা করুন।</li>
+            </ol>
+        </div>
+
+        <div class="topic-card">
+            <h3>Video Editing</h3>
+            <ol class="practice-list">
+                <li>নিজের ধারণ করা ছোট ভিডিও ব্যবহার করুন।</li>
+                <li>অপ্রয়োজনীয় অংশ কেটে সাজান।</li>
+                <li>শিরোনাম বা সাবটাইটেল যোগ করুন।</li>
+                <li>অডিও ও ভিডিও পরীক্ষা করে রপ্তানি করুন।</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <div class="info-box">
+        <h3>আপনার প্রথম Portfolio তৈরির চেকলিস্ট</h3>
+
+        <ul>
+            <li>একটি নির্দিষ্ট দক্ষতা নির্বাচন করেছি।</li>
+            <li>নিজে তৈরি করা অন্তত ৩টি কাজের নমুনা রেখেছি।</li>
+            <li>প্রতিটি নমুনার কাজ ও উদ্দেশ্য সংক্ষেপে লিখেছি।</li>
+            <li>Practice Project হলে সেটি স্পষ্টভাবে উল্লেখ করেছি।</li>
+            <li>অন্যের কাজ বা অনুমতি ছাড়া ক্লায়েন্টের কাজ ব্যবহার করিনি।</li>
+            <li>ফাইলগুলো পরিষ্কার নামে সাজিয়ে রেখেছি।</li>
+        </ul>
+    </div>
+
+    <p class="english">
+        Build original practice projects, review your work,
+        and organize your best samples into a clear portfolio.
+        Start small and improve step by step.
+    </p>
+</section>
+
+<section class="section" id="disclaimer">
     <h2>গুরুত্বপূর্ণ ঘোষণা | Important Disclaimer</h2>
 
     <div class="notice">
@@ -988,17 +1118,19 @@ Thank you for considering my proposal.</div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="author">
     <h2>লেখক সম্পর্কে | About the Author</h2>
 
     <div class="author-box">
         <h3>Md Rifat Ahmed</h3>
         <p>Personal & Online Business</p>
+
         <p>
             শিক্ষামূলক তথ্য, প্রযুক্তি, অনলাইন আয়,
             ফ্রিল্যান্সিং ও ব্যবসা বিষয়ে শেখা এবং
             ব্যবহারিক জ্ঞান ভাগ করে নেওয়াই এই ওয়েবসাইটের উদ্দেশ্য।
         </p>
+
         <p>Email: rifatahmedbogra@gmail.com</p>
     </div>
 </section>
@@ -1021,6 +1153,8 @@ Thank you for considering my proposal.</div>
         <a href="about.html">About Me</a>
         <a href="services.html">Services</a>
         <a href="online-income.html">Online Income</a>
+        <a href="education.html">Education</a>
+        <a href="technology.html">Technology</a>
         <a href="freelancing.html">Freelancing</a>
         <a href="contact.html">Contact</a>
         <a href="privacy-policy.html">Privacy Policy</a>
