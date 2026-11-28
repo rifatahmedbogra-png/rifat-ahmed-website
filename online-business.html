@@ -189,6 +189,8 @@ tr:nth-child(even){background:#f5f8fc}
     font-weight:bold;
 }
 .author p{margin:4px 0}
+.checklist li{list-style:none;margin:10px 0}
+.checklist li::before{content:"✓ ";color:#26966c;font-weight:bold}
 footer{
     background:#071d35;
     color:white;
@@ -230,7 +232,7 @@ footer p{margin:8px 0}
 
 <header>
     <h1>অনলাইন ব্যবসা | Online Business</h1>
-    <p class="tagline">শিখুন জানুন দক্ষতা বাড়ান আয় করুন</p>
+    <p class="tagline">শিখুন • জানুন • দক্ষতা বাড়ান • কাজ সম্পন্ন করুন</p>
     <p>অনলাইন ব্যবসা, ই-কমার্স ও উদ্যোক্তা হওয়ার ব্যবহারিক শিক্ষা।</p>
     <p>Learn, Explore, Improve Your Skills, and Grow.</p>
 </header>
@@ -273,6 +275,9 @@ footer p{margin:8px 0}
         <li><a href="#mistakes">নতুনদের সাধারণ ভুল</a></li>
         <li><a href="#learning">৩০ দিনের শেখার পরিকল্পনা</a></li>
         <li><a href="#resources">বিনামূল্যে শেখার রিসোর্স</a></li>
+        <li><a href="#practical">বাস্তব ব্যবসা প্রজেক্ট</a></li>
+        <li><a href="#website">নিজস্ব ওয়েবসাইটের ব্যবসা</a></li>
+        <li><a href="#records">অর্ডার ও গ্রাহকের রেকর্ড</a></li>
         <li><a href="#mission">আমাদের উদ্দেশ্য</a></li>
         <li><a href="#disclaimer">গুরুত্বপূর্ণ সতর্কতা</a></li>
     </ol>
@@ -405,6 +410,10 @@ footer p{margin:8px 0}
         </table>
         <p>এই উদাহরণে অন্যান্য সব খরচ অন্তর্ভুক্ত আছে ধরে নেওয়া হয়েছে। বাস্তবে কর, পেমেন্ট চার্জ, ফেরত, ক্ষতি বা অতিরিক্ত ডেলিভারি খরচ থাকলে সেগুলোও হিসাব করতে হবে।</p>
     </div>
+    <div class="notice">
+        <strong>মূল্য নির্ধারণের নিয়ম:</strong>
+        <p>বিক্রয়মূল্য নির্ধারণের আগে সব খরচ যোগ করুন। তারপর বাজারের মূল্য, পণ্যের মান এবং ক্রেতার সামর্থ্য বিবেচনা করুন। শুধু প্রতিযোগী কম দামে বিক্রি করছে বলে নিজের খরচের নিচে বিক্রি করবেন না।</p>
+    </div>
     <div class="english"><strong>English:</strong> Product pricing should consider purchase cost, packaging, delivery, advertising, and other operating expenses. The figures above are illustrative only.</div>
 </section>
 
@@ -449,6 +458,9 @@ footer p{margin:8px 0}
         <div class="topic"><h3>ইমেইল মার্কেটিং</h3><p>অনুমতিপ্রাপ্ত গ্রাহকদের কাছে ব্যবসায়িক তথ্য পাঠানো।</p><div class="english">Sending updates to customers who agreed to receive them.</div></div>
         <div class="topic"><h3>পেইড বিজ্ঞাপন</h3><p>বাজেট অনুযায়ী অনলাইনে বিজ্ঞাপন প্রচার।</p><div class="english">Promoting products through paid campaigns.</div></div>
     </div>
+    <div class="notice">
+        <strong>শুরুর পরামর্শ:</strong> প্রথমে বিনামূল্যের উপকারী কনটেন্ট তৈরি করুন। ক্রেতাদের প্রশ্নের উত্তর দিন এবং তাদের প্রয়োজন বুঝুন। ফলাফল না বুঝে বিজ্ঞাপনে বড় বাজেট খরচ করবেন না।
+    </div>
 </section>
 
 <section class="section" id="accounts">
@@ -466,6 +478,17 @@ footer p{margin:8px 0}
     </table>
     <p>Excel-এ লাভের হিসাবের জন্য সূত্র লিখতে পারেন:</p>
     <p><span class="formula">=B2-C2</span></p>
+    <div class="example">
+        <h3>Excel অনুশীলন | Excel Practice</h3>
+        <ol>
+            <li>Excel খুলে একটি নতুন Workbook তৈরি করুন।</li>
+            <li>A1 ঘরে লিখুন Date, B1 ঘরে Sales, C1 ঘরে Expenses এবং D1 ঘরে Profit।</li>
+            <li>দ্বিতীয় সারিতে একটি নমুনা বিক্রি ও খরচ লিখুন।</li>
+            <li>D2 ঘরে লিখুন <strong>=B2-C2</strong>।</li>
+            <li>Enter চাপুন এবং ফলাফল দেখুন।</li>
+            <li>আরও কয়েক দিনের তথ্য লিখে হিসাব অনুশীলন করুন।</li>
+        </ol>
+    </div>
     <div class="english"><strong>English:</strong> Maintain accurate financial records. Use Excel to record daily sales and expenses. A simple profit calculation is Total Sales minus Total Expenses.</div>
 </section>
 
@@ -535,14 +558,149 @@ footer p{margin:8px 0}
     <div class="english"><strong>English:</strong> These resources can help learners understand digital marketing, social media business tools, e-commerce, and practical business strategies. Some platforms may offer both free and paid learning materials.</div>
 </section>
 
+<section class="section" id="practical">
+    <h2>১৭. বাস্তব ব্যবসা প্রস্তুতি প্রজেক্ট | Practical Business Project</h2>
+    <p>এবার একটি কাল্পনিক ছোট অনলাইন ব্যবসার পরিকল্পনা তৈরি করে অনুশীলন করুন। এখানে কোনো টাকা বিনিয়োগ করতে হবে না। প্রথমে শুধু কাগজে বা Excel-এ পরিকল্পনা তৈরি করুন।</p>
+
+    <div class="example">
+        <h3>নমুনা ব্যবসা: অনলাইনে নোটবুক বিক্রি</h3>
+        <p><strong>ব্যবসার ধরন:</strong> ছোট পরিসরে স্টেশনারি পণ্য বিক্রি।</p>
+        <p><strong>সম্ভাব্য ক্রেতা:</strong> শিক্ষার্থী, শিক্ষক ও অফিসে কাজ করেন এমন মানুষ।</p>
+        <p><strong>পণ্য:</strong> নোটবুক, কলম ও খাতা।</p>
+        <p><strong>বিক্রির মাধ্যম:</strong> একটি সামাজিক যোগাযোগমাধ্যমের পেজ ও নিজস্ব ওয়েবসাইট।</p>
+        <p><strong>প্রচার:</strong> পণ্যের ছবি, ব্যবহারিক তথ্য ও মূল্য প্রকাশ।</p>
+        <p><strong>গ্রাহকসেবা:</strong> অর্ডার নিশ্চিতকরণ, ডেলিভারি তথ্য ও অভিযোগের সমাধান।</p>
+    </div>
+
+    <h3>আপনার ব্যবসার পরিকল্পনা তৈরির ধাপ</h3>
+    <ol>
+        <li>একটি ব্যবসার নাম নির্বাচন করুন।</li>
+        <li>একটি পণ্য বা সেবা নির্বাচন করুন।</li>
+        <li>কমপক্ষে কয়েকজন সম্ভাব্য ক্রেতার মতামত সংগ্রহ করুন।</li>
+        <li>প্রতিযোগীদের মূল্য ও পণ্যের মান তুলনা করুন।</li>
+        <li>সম্ভাব্য খরচের তালিকা তৈরি করুন।</li>
+        <li>পণ্যের সম্ভাব্য বিক্রয়মূল্য নির্ধারণ করুন।</li>
+        <li>একটি নমুনা বিজ্ঞাপন বা পণ্যের বিবরণ লিখুন।</li>
+        <li>অর্ডার ও ডেলিভারি পরিচালনার পদ্ধতি লিখুন।</li>
+        <li>সম্ভাব্য ঝুঁকি এবং তার সমাধান লিখুন।</li>
+        <li>সবকিছু পর্যালোচনা করে পরিকল্পনা সংশোধন করুন।</li>
+    </ol>
+
+    <h3>প্রজেক্ট সম্পন্ন করার তালিকা</h3>
+    <ul class="checklist">
+        <li>ব্যবসার নাম ও উদ্দেশ্য লিখেছি।</li>
+        <li>পণ্য বা সেবা নির্বাচন করেছি।</li>
+        <li>সম্ভাব্য ক্রেতা নির্ধারণ করেছি।</li>
+        <li>বাজার ও প্রতিযোগী যাচাই করেছি।</li>
+        <li>খরচ ও বিক্রয়মূল্যের হিসাব করেছি।</li>
+        <li>একটি নমুনা বিজ্ঞাপন তৈরি করেছি।</li>
+        <li>অর্ডার ও গ্রাহকসেবা পরিকল্পনা করেছি।</li>
+        <li>সম্ভাব্য ঝুঁকি লিখেছি।</li>
+    </ul>
+
+    <div class="notice">
+        <strong>গুরুত্বপূর্ণ:</strong> এটি শেখার জন্য একটি কাল্পনিক অনুশীলন। বাজার যাচাই ও প্রয়োজনীয় প্রস্তুতি ছাড়া বাস্তবে বিনিয়োগ করবেন না।
+    </div>
+    <div class="english"><strong>English:</strong> Create a sample business plan, research customers and competitors, calculate costs, prepare a product description, and plan order management. This exercise does not require any financial investment.</div>
+</section>
+
+<section class="section" id="website">
+    <h2>১৮. নিজস্ব ওয়েবসাইট দিয়ে অনলাইন ব্যবসা | Business Through Your Own Website</h2>
+    <p>নিজস্ব ওয়েবসাইট ব্যবসার পণ্য, সেবা, যোগাযোগের তথ্য এবং প্রয়োজনীয় নির্দেশনা এক জায়গায় উপস্থাপন করতে সাহায্য করে। এটি ব্যবসার পরিচিতি ও গ্রাহকের আস্থা তৈরিতে সহায়ক হতে পারে।</p>
+
+    <div class="grid">
+        <div class="topic">
+            <h3>ব্যবসার পরিচিতি</h3>
+            <p>ওয়েবসাইটে ব্যবসার উদ্দেশ্য, পরিচিতি ও যোগাযোগের তথ্য প্রকাশ করুন।</p>
+        </div>
+        <div class="topic">
+            <h3>পণ্য বা সেবা</h3>
+            <p>পণ্যের ছবি, বৈশিষ্ট্য, মূল্য ও বিস্তারিত বিবরণ লিখুন।</p>
+        </div>
+        <div class="topic">
+            <h3>শিক্ষামূলক কনটেন্ট</h3>
+            <p>ক্রেতাদের কাজে লাগে এমন নির্দেশনা, গাইড ও তথ্য প্রকাশ করুন।</p>
+        </div>
+        <div class="topic">
+            <h3>যোগাযোগ</h3>
+            <p>ইমেইল, যোগাযোগের পেজ ও প্রয়োজনীয় ব্যবসায়িক তথ্য দিন।</p>
+        </div>
+        <div class="topic">
+            <h3>গ্রাহকসেবা</h3>
+            <p>সাধারণ প্রশ্ন, ডেলিভারি, রিটার্ন ও সহায়তার তথ্য রাখুন।</p>
+        </div>
+        <div class="topic">
+            <h3>নিরাপত্তা ও নীতিমালা</h3>
+            <p>গোপনীয়তা, শর্তাবলি এবং গ্রাহকের তথ্য সুরক্ষার ব্যবস্থা রাখুন।</p>
+        </div>
+    </div>
+
+    <h3>একটি সাধারণ ব্যবসায়িক ওয়েবসাইটের পেজ</h3>
+    <ol>
+        <li>Home — ব্যবসার মূল পরিচিতি।</li>
+        <li>About — ব্যবসা সম্পর্কে তথ্য।</li>
+        <li>Products / Services — পণ্য ও সেবা।</li>
+        <li>Contact — যোগাযোগের তথ্য।</li>
+        <li>Privacy Policy — গোপনীয়তা নীতি।</li>
+        <li>Terms & Conditions — ব্যবহারের শর্তাবলি।</li>
+    </ol>
+
+    <div class="notice">
+        **মনে রাখবেন:** ওয়েবসাইট তৈরি করলেই বিক্রি নিশ্চিত হয় না। ভালো পণ্য, সঠিক তথ্য, গ্রাহকসেবা, প্রচার এবং বিশ্বাসযোগ্য ব্যবসায়িক পদ্ধতি প্রয়োজন।
+    </div>
+    <div class="english"><strong>English:</strong> A business website can introduce your business, display products or services, provide useful information, and support customer communication. A website alone does not guarantee sales.</div>
+</section>
+
+<section class="section" id="records">
+    <h2>১৯. অর্ডার ও গ্রাহকের রেকর্ড রাখা | Order and Customer Records</h2>
+    <p>ব্যবসার প্রতিটি অর্ডারের তথ্য সুশৃঙ্খলভাবে সংরক্ষণ করলে অর্ডারের অবস্থা, বিক্রি ও খরচ বুঝতে সুবিধা হয়।</p>
+
+    <table>
+        <tr>
+            <th>অর্ডার নম্বর</th>
+            <th>পণ্য</th>
+            <th>পরিমাণ</th>
+            <th>অবস্থা</th>
+        </tr>
+        <tr>
+            <td>ORD-001</td>
+            <td>নোটবুক</td>
+            <td>২</td>
+            <td>প্রস্তুত</td>
+        </tr>
+        <tr>
+            <td>ORD-002</td>
+            <td>কলম</td>
+            <td>৫</td>
+            <td>পাঠানো হয়েছে</td>
+        </tr>
+    </table>
+
+    <p>আপনার Excel ফাইলে এই কলামগুলো রাখতে পারেন:</p>
+    <ul>
+        <li>Order ID — অর্ডারের নম্বর।</li>
+        <li>Date — অর্ডারের তারিখ।</li>
+        <li>Product — পণ্যের নাম।</li>
+        <li>Quantity — পরিমাণ।</li>
+        <li>Amount — মোট মূল্য।</li>
+        <li>Payment Status — পেমেন্টের অবস্থা।</li>
+        <li>Delivery Status — ডেলিভারির অবস্থা।</li>
+    </ul>
+
+    <div class="notice">
+        <strong>গ্রাহকের তথ্য সুরক্ষা:</strong> প্রয়োজনের অতিরিক্ত ব্যক্তিগত তথ্য সংগ্রহ করবেন না। গ্রাহকের ঠিকানা, ফোন নম্বর ও পেমেন্ট-সংক্রান্ত তথ্য অননুমোদিত ব্যক্তির সঙ্গে শেয়ার করবেন না।
+    </div>
+    <div class="english"><strong>English:</strong> Keep organized order records using an order ID, date, product, quantity, amount, payment status, and delivery status. Collect only necessary customer information and protect it carefully.</div>
+</section>
+
 <section class="section" id="mission">
-    <h2>১৭. আমাদের উদ্দেশ্য | Our Mission</h2>
+    <h2>২০. আমাদের উদ্দেশ্য | Our Mission</h2>
     <p>আমাদের লক্ষ্য হলো নতুন উদ্যোক্তাদের অনলাইন ব্যবসা সম্পর্কে সঠিক ধারণা দেওয়া, প্রয়োজনীয় দক্ষতা শেখানো এবং দায়িত্বশীলভাবে ব্যবসা শুরু করার জন্য প্রস্তুত করা। আমরা চাই, দর্শকরা শুধু তথ্য পড়বেন না—বাস্তব জীবনে কাজে লাগানোর মতো জ্ঞান অর্জন করবেন।</p>
     <div class="english"><strong>English:</strong> Our mission is to help aspiring entrepreneurs understand online business, develop practical skills, and prepare to start and manage businesses responsibly.</div>
 </section>
 
 <section class="section" id="disclaimer">
-    <h2>১৮. গুরুত্বপূর্ণ সতর্কতা | Important Disclaimer</h2>
+    <h2>২১. গুরুত্বপূর্ণ সতর্কতা | Important Disclaimer</h2>
     <p>অনলাইন ব্যবসায় লাভের নিশ্চয়তা নেই। ব্যবসা শুরু করার আগে নিজের সামর্থ্য, বাজারের চাহিদা, সম্ভাব্য ঝুঁকি এবং প্রয়োজনীয় আইনগত ও করসংক্রান্ত নিয়ম যাচাই করুন। কোনো সিদ্ধান্ত নেওয়ার আগে যথাযথ গবেষণা করুন।</p>
     <div class="english"><strong>English:</strong> Online business does not guarantee profit. Before starting, assess your resources, market demand, and potential risks. Check applicable legal, tax, payment, and platform requirements, and conduct proper research before making business decisions.</div>
 </section>
