@@ -1,633 +1,920 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Photo Editing Tools & Resources | Rifat Ahmed</title>
+<title>ফটো এডিটিং শিখুন | Photo Editing Tools & Resources - Rifat Ahmed</title>
 
-    <meta name="description" content="ছবি এডিটিং, ব্যাকগ্রাউন্ড রিমুভ, ছবি রিসাইজ, ক্রপ ও গ্রাফিক ডিজাইনের জন্য পরিচিত অনলাইন সেবার নির্দেশিকা। Md Rifat Ahmed-এর শিক্ষামূলক ওয়েবসাইট।">
+<meta name="description" content="সহজ বাংলায় Photo Editing, Background Remove, Image Crop, Resize, Passport Photo, Color Adjustment ও Graphic Design শিখুন। Rifat Ahmed-এর শিক্ষামূলক গাইড ও নিজস্ব অনলাইন টুলস।">
 
-    <meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Md Rifat Ahmed">
+<meta name="theme-color" content="#102a43">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #102a43;
-        }
-
-        header.photo-header {
-            padding: 0;
-            background: none;
-            border-bottom: 5px solid #f0c040;
-        }
-
-        .photo-header img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        nav {
-            background: #ffffff;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        nav a {
-            display: inline-block;
-            color: #1769aa;
-            text-decoration: none;
-            margin: 7px 12px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #f0a900;
-        }
-
-        .welcome-section {
-            background: white;
-            text-align: center;
-            padding: 35px 25px;
-            margin: 30px auto;
-            border-radius: 16px;
-            max-width: 1100px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .welcome-section h2,
-        .why-section h2,
-        .how-to-use h2 {
-            color: #1769aa;
-        }
-
-        .welcome-section h3 {
-            color: #102a43;
-        }
-
-        .welcome-section p {
-            color: #526579;
-            line-height: 1.8;
-            max-width: 850px;
-            margin: 12px auto;
-        }
-
-        .why-section {
-            background: #eaf4fc;
-            padding: 35px 25px;
-            margin: 35px auto;
-            border-radius: 16px;
-            max-width: 1100px;
-            text-align: center;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .why-card {
-            background: white;
-            padding: 25px 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-            transition: 0.3s;
-        }
-
-        .why-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .why-card h3 {
-            color: #1769aa;
-        }
-
-        .why-card p {
-            color: #526579;
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 35px auto;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .container > p {
-            color: #526579;
-            line-height: 1.8;
-        }
-
-        .tools {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 22px;
-            margin-top: 30px;
-        }
-
-        .tool-card {
-            background: white;
-            padding: 25px 20px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 22px rgba(0,0,0,0.14);
-        }
-
-        .tool-image {
-            width: 100%;
-            height: 160px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 65px;
-            margin-bottom: 18px;
-            background: linear-gradient(135deg, #eaf4fc, #c9e5fa);
-        }
-
-        .tool-card h3 {
-            color: #1769aa;
-        }
-
-        .tool-card p {
-            color: #526579;
-            line-height: 1.7;
-        }
-
-        .provider {
-            font-size: 13px;
-            color: #718096;
-            margin: 12px 0;
-        }
-
-        .tool-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #1769aa, #071d35);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: 0.3s;
-            margin-top: 8px;
-        }
-
-        .tool-btn:hover {
-            background: #f0c040;
-            color: #071d35;
-            transform: translateY(-3px);
-        }
-
-        .how-to-use {
-            background: white;
-            padding: 35px 25px;
-            margin: 40px auto;
-            max-width: 1100px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .steps div {
-            background: #f1f5f9;
-            padding: 22px 15px;
-            border-radius: 12px;
-            border-bottom: 4px solid #1769aa;
-        }
-
-        .steps h3 {
-            color: #1769aa;
-        }
-
-        .steps p {
-            color: #526579;
-            line-height: 1.7;
-        }
-
-        .privacy-notice {
-            background: #fff8e6;
-            border-left: 5px solid #f0c040;
-            padding: 25px;
-            margin: 35px auto;
-            max-width: 1100px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-
-        .privacy-notice h2 {
-            color: #102a43;
-            text-align: center;
-        }
-
-        .privacy-notice > p {
-            text-align: center;
-            color: #526579;
-            line-height: 1.7;
-        }
-
-        .privacy-notice ul {
-            line-height: 2;
-            color: #334e68;
-            padding-left: 25px;
-        }
-
-        .privacy-message {
-            font-weight: bold;
-            color: #1769aa !important;
-            margin-top: 20px;
-        }
-
-        .disclaimer {
-            background: #eaf4fc;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 35px auto;
-            max-width: 1100px;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .disclaimer h2 {
-            color: #1769aa;
-        }
-
-        .disclaimer p {
-            color: #334e68;
-        }
-
-        footer {
-            background: #102a43;
-            color: white;
-            text-align: center;
-            padding: 22px;
-            margin-top: 40px;
-        }
-
-        footer p {
-            line-height: 1.7;
-        }
-
-        @media (max-width: 600px) {
-            nav a {
-                margin: 7px;
-            }
-
-            .welcome-section,
-            .why-section,
-            .how-to-use,
-            .privacy-notice,
-            .disclaimer {
-                margin: 20px 10px;
-                padding: 25px 15px;
-            }
-        }
-    </style>
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f1f5f9;
+    color:#102a43;
+    line-height:1.7
+}
+header img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-bottom:5px solid #f0c040
+}
+nav{
+    background:#fff;
+    padding:13px 10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    position:sticky;
+    top:0;
+    z-index:10
+}
+nav a{
+    display:inline-block;
+    color:#1769aa;
+    text-decoration:none;
+    margin:6px 10px;
+    font-weight:bold;
+    font-size:14px
+}
+nav a:hover{color:#d49b00}
+.container{
+    max-width:1100px;
+    margin:30px auto;
+    padding:15px
+}
+.panel{
+    background:#fff;
+    padding:30px 25px;
+    margin:25px auto;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.07)
+}
+.hero{
+    text-align:center;
+    border-top:5px solid #f0c040
+}
+h1,h2,h3{line-height:1.4}
+h1,h2{color:#1769aa}
+.hero h1{font-size:30px}
+.hero p{
+    max-width:850px;
+    margin:12px auto;
+    color:#526579
+}
+.tagline{
+    color:#d49b00;
+    font-weight:bold;
+    font-size:17px
+}
+.btn{
+    display:inline-block;
+    background:linear-gradient(135deg,#1769aa,#071d35);
+    color:#fff;
+    padding:11px 22px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:7px 5px
+}
+.btn:hover{background:#f0c040;color:#102a43}
+.btn-gold{background:#e6ad18;color:#102a43}
+.toc{
+    background:#eaf4fc;
+    border-left:5px solid #1769aa
+}
+.toc ul{
+    columns:2;
+    padding-left:25px
+}
+.toc li{margin:7px 0}
+.toc a{
+    color:#1769aa;
+    text-decoration:none
+}
+.toc a:hover{text-decoration:underline}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:20px
+}
+.card{
+    background:#f8fafc;
+    border:1px solid #e1e9f0;
+    padding:22px;
+    border-radius:13px;
+    transition:.25s
+}
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 7px 17px rgba(0,0,0,.09)
+}
+.card h3{color:#1769aa;margin-top:5px}
+.card p{color:#526579}
+.icon{font-size:38px}
+.card .btn{font-size:13px}
+.info{
+    background:#eaf4fc;
+    border-left:5px solid #1769aa;
+    padding:20px;
+    border-radius:10px;
+    margin:18px 0
+}
+.warning{
+    background:#fff8e6;
+    border-left:5px solid #e6ad18;
+    padding:20px;
+    border-radius:10px;
+    margin:18px 0
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0;
+    background:#fff
+}
+th,td{
+    border:1px solid #dce5ed;
+    padding:12px;
+    text-align:left
+}
+th{background:#eaf4fc;color:#1769aa}
+ul,ol{padding-left:25px}
+li{margin:7px 0}
+.step{
+    background:#f1f5f9;
+    border-bottom:4px solid #1769aa;
+    border-radius:10px;
+    padding:18px
+}
+.step h3{color:#1769aa}
+.small{font-size:14px;color:#718096}
+footer{
+    background:#102a43;
+    color:#fff;
+    text-align:center;
+    padding:30px 15px;
+    margin-top:40px
+}
+footer a{color:#f0c040;text-decoration:none}
+footer p{line-height:1.8}
+section[id]{scroll-margin-top:75px}
+@media(max-width:650px){
+    .hero h1{font-size:24px}
+    .panel{padding:23px 16px;margin:18px 10px}
+    .toc ul{columns:1}
+    nav a{margin:5px;font-size:13px}
+    table{font-size:13px}
+    th,td{padding:8px}
+}
+</style>
 </head>
 
 <body>
 
-<header class="photo-header">
+<header>
     <img src="photo-editing-banner.png"
-         alt="Photo Editing Tools and Resources">
+         alt="Photo Editing Tools and Learning Resources">
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="photo-editing.html">Photo Editing</a>
+    <a href="index.html">হোম</a>
+    <a href="about.html">আমাদের সম্পর্কে</a>
+    <a href="services.html">সেবাসমূহ</a>
+    <a href="education.html">শিক্ষা</a>
+    <a href="technology.html">প্রযুক্তি</a>
+    <a href="photo-editing.html">ফটো এডিটিং</a>
+    <a href="contact.html">যোগাযোগ</a>
 </nav>
 
-<section class="welcome-section">
+<main class="container">
 
-    <h2>Welcome to Photo Editing Tools & Resources</h2>
+<section class="panel hero">
+    <h1>Photo Editing Tools & Learning Guide</h1>
+    <h2>ফটো এডিটিং শিখুন সহজ বাংলায়</h2>
 
-    <h3>ফটো এডিটিং টুলস ও রিসোর্স পেজে আপনাকে স্বাগতম</h3>
-
-    <p>
-        Welcome to our educational photo editing resource page.
-        Here you can discover useful online photo editing services
-        provided by independent third-party companies.
+    <p class="tagline">
+        শিখুন • জানুন • দক্ষতা বাড়ান • কাজ সম্পন্ন করুন
     </p>
 
     <p>
-        আমাদের এই পেজে আপনি বিভিন্ন প্রতিষ্ঠানের অনলাইন ফটো
-        এডিটিং সেবার পরিচিতি ও ব্যবহার নির্দেশনা পাবেন।
-        সহজেই ব্যাকগ্রাউন্ড রিমুভ, ছবি রিসাইজ, ক্রপ এবং
-        গ্রাফিক ডিজাইনের কাজ শিখতে পারবেন।
+        ছবি সম্পাদনা এখন ডিজিটাল জগতের একটি গুরুত্বপূর্ণ দক্ষতা।
+        ব্যক্তিগত ছবি সুন্দর করা, পাসপোর্ট সাইজ ছবি তৈরি,
+        সামাজিক যোগাযোগমাধ্যমের পোস্ট ডিজাইন কিংবা অনলাইন
+        ব্যবসার পণ্যের ছবি প্রস্তুত—বিভিন্ন কাজে ফটো এডিটিং
+        ব্যবহার করা হয়।
     </p>
-
-</section>
-
-<section class="why-section">
-
-    <h2>Why Explore These Photo Editing Resources?</h2>
-
-    <h3>এই ফটো এডিটিং রিসোর্সগুলো কেন ব্যবহার করবেন?</h3>
-
-    <div class="why-grid">
-
-        <div class="why-card">
-            <h3>⚡ Easy to Use</h3>
-            <p>সহজভাবে অনলাইন ছবি সম্পাদনার কাজ শিখুন।</p>
-        </div>
-
-        <div class="why-card">
-            <h3>🌐 Online Services</h3>
-            <p>বিভিন্ন প্রতিষ্ঠানের অনলাইন সেবা সম্পর্কে জানুন।</p>
-        </div>
-
-        <div class="why-card">
-            <h3>🎨 Creative Design</h3>
-            <p>ছবি, পোস্টার ও ডিজাইনের নতুন ধারণা তৈরি করুন।</p>
-        </div>
-
-    </div>
-
-</section>
-
-<div class="container">
-
-    <h2>Online Photo Editing Tools</h2>
-
-    <h3>অনলাইন ফটো এডিটিং টুলস</h3>
 
     <p>
-        নিচের টুলগুলো স্বাধীন তৃতীয় পক্ষের প্রতিষ্ঠানের সেবা।
-        প্রতিটি বাটনে ক্লিক করলে সংশ্লিষ্ট প্রতিষ্ঠানের
-        ওয়েবসাইটে চলে যাবেন।
+        এই পেজে আপনি ছবি সম্পাদনার প্রাথমিক ধারণা, প্রয়োজনীয়
+        টুলস, ব্যবহারিক অনুশীলন এবং নিরাপদে কাজ করার নিয়ম
+        শিখতে পারবেন।
     </p>
 
-    <div class="tools">
-
-        <div class="tool-card">
-
-            <div class="tool-image">🖼️</div>
-
-            <h3>Remove Background</h3>
-
-            <p>
-                Remove.bg ব্যবহার করে ছবির ব্যাকগ্রাউন্ড
-                সরানোর সুবিধা সম্পর্কে জানুন।
-            </p>
-
-            <p class="provider">
-                Service provider: remove.bg
-            </p>
-
-            <a class="tool-btn"
-               href="https://www.remove.bg/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Visit remove.bg
-            </a>
-
-        </div>
-
-        <div class="tool-card">
-
-            <div class="tool-image">🎨</div>
-
-            <h3>Photo Editing</h3>
-
-            <p>
-                Photopea ব্যবহার করে অনলাইনে ছবি এডিট,
-                লেয়ার ও ডিজাইনের কাজ করতে পারেন।
-            </p>
-
-            <p class="provider">
-                Service provider: Photopea
-            </p>
-
-            <a class="tool-btn"
-               href="https://www.photopea.com/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Visit Photopea
-            </a>
-
-        </div>
-
-        <div class="tool-card">
-
-            <div class="tool-image">✂️</div>
-
-            <h3>Image Resize & Crop</h3>
-
-            <p>
-                iLoveIMG-এর মাধ্যমে ছবির সাইজ পরিবর্তন,
-                ক্রপ এবং অন্যান্য ইমেজ কাজ শিখুন।
-            </p>
-
-            <p class="provider">
-                Service provider: iLoveIMG
-            </p>
-
-            <a class="tool-btn"
-               href="https://www.iloveimg.com/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Visit iLoveIMG
-            </a>
-
-        </div>
-
-        <div class="tool-card">
-
-            <div class="tool-image">🖌️</div>
-
-            <h3>Graphic Design</h3>
-
-            <p>
-                Canva ব্যবহার করে পোস্টার, সামাজিক যোগাযোগমাধ্যমের
-                ডিজাইন এবং অন্যান্য সৃজনশীল কাজ শিখুন।
-            </p>
-
-            <p class="provider">
-                Service provider: Canva
-            </p>
-
-            <a class="tool-btn"
-               href="https://www.canva.com/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Visit Canva
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-<section class="how-to-use">
-
-    <h2>How to Use These Tools</h2>
-
-    <h3>এই টুলগুলো কীভাবে ব্যবহার করবেন?</h3>
-
-    <div class="steps">
-
-        <div>
-            <h3>Step 1</h3>
-            <p>
-                Select the tool you need.
-                <br>
-                আপনার প্রয়োজনীয় টুল নির্বাচন করুন।
-            </p>
-        </div>
-
-        <div>
-            <h3>Step 2</h3>
-            <p>
-                Visit the provider's website.
-                <br>
-                সংশ্লিষ্ট প্রতিষ্ঠানের ওয়েবসাইটে যান।
-            </p>
-        </div>
-
-        <div>
-            <h3>Step 3</h3>
-            <p>
-                Follow the instructions on that website.
-                <br>
-                সেই ওয়েবসাইটের নির্দেশনা অনুসরণ করুন।
-            </p>
-        </div>
-
-        <div>
-            <h3>Step 4</h3>
-            <p>
-                Save your edited image safely.
-                <br>
-                সম্পাদিত ছবিটি নিরাপদে সংরক্ষণ করুন।
-            </p>
-        </div>
-
-    </div>
-
+    <a class="btn" href="#learning">শেখা শুরু করুন</a>
+    <a class="btn btn-gold" href="#my-tools">আমাদের নিজস্ব টুলস</a>
 </section>
 
-<section class="privacy-notice">
+<section class="panel toc">
+    <h2>বিষয়সূচি | Table of Contents</h2>
+    <ul>
+        <li><a href="#intro">ফটো এডিটিং কী?</a></li>
+        <li><a href="#importance">ফটো এডিটিংয়ের প্রয়োজনীয়তা</a></li>
+        <li><a href="#my-tools">আমাদের নিজস্ব টুলস</a></li>
+        <li><a href="#online-tools">অনলাইন এডিটিং রিসোর্স</a></li>
+        <li><a href="#background">Background Remove</a></li>
+        <li><a href="#crop-resize">Crop ও Resize</a></li>
+        <li><a href="#passport">Passport Photo</a></li>
+        <li><a href="#color">Color ও Lighting</a></li>
+        <li><a href="#formats">ছবির ফাইল ফরম্যাট</a></li>
+        <li><a href="#workflow">এডিটিংয়ের ধাপ</a></li>
+        <li><a href="#learning">ব্যবহারিক অনুশীলন</a></li>
+        <li><a href="#skills">প্রয়োজনীয় দক্ষতা</a></li>
+        <li><a href="#portfolio">Portfolio তৈরি</a></li>
+        <li><a href="#income">কাজের সুযোগ</a></li>
+        <li><a href="#safety">নিরাপত্তা ও কপিরাইট</a></li>
+        <li><a href="#plan">৭ দিনের শেখার পরিকল্পনা</a></li>
+        <li><a href="#faq">প্রশ্ন ও উত্তর</a></li>
+        <li><a href="#disclaimer">দায়বদ্ধতা</a></li>
+    </ul>
+</section>
 
-    <h2>Privacy & Safety Notice</h2>
+<section class="panel" id="intro">
+    <h2>১. ফটো এডিটিং কী? | What is Photo Editing?</h2>
 
-    <h3>গোপনীয়তা ও নিরাপত্তা সতর্কতা</h3>
+    <p>
+        ফটো এডিটিং হলো কোনো ছবির রং, আলো, আকার, ব্যাকগ্রাউন্ড,
+        উজ্জ্বলতা এবং অন্যান্য বৈশিষ্ট্য পরিবর্তন বা উন্নত করার
+        প্রক্রিয়া।
+    </p>
+
+    <p>
+        উদাহরণ: একটি ছবির অপ্রয়োজনীয় অংশ কেটে ফেলা, ছবির
+        আলো বাড়ানো, ব্যাকগ্রাউন্ড সরানো অথবা ছবিকে নির্দিষ্ট
+        মাপ অনুযায়ী তৈরি করা।
+    </p>
+
+    <div class="info">
+        **সহজ উদাহরণ:** আপনার একটি ছবি আছে। আপনি ছবির
+        ব্যাকগ্রাউন্ড পরিবর্তন করে সুন্দর একটি নতুন ব্যাকগ্রাউন্ড
+        যুক্ত করলেন। এটিও ফটো এডিটিংয়ের একটি কাজ।
+    </div>
+</section>
+
+<section class="panel" id="importance">
+    <h2>২. ফটো এডিটিং কেন শিখবেন?</h2>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">📸</div>
+            <h3>ব্যক্তিগত ছবি</h3>
+            <p>নিজের ও পরিবারের ছবির আলো, রং এবং মান উন্নত করতে পারবেন।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛍️</div>
+            <h3>অনলাইন ব্যবসা</h3>
+            <p>পণ্যের ছবি সুন্দরভাবে প্রস্তুত করে ক্রেতার সামনে উপস্থাপন করতে পারবেন।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💼</div>
+            <h3>পেশাগত দক্ষতা</h3>
+            <p>গ্রাফিক ডিজাইন ও ফটো এডিটিংয়ের কাজের জন্য প্রয়োজনীয় দক্ষতা তৈরি করতে পারবেন।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>সৃজনশীলতা</h3>
+            <p>নিজের চিন্তা ও কল্পনা ব্যবহার করে নতুন ডিজাইন তৈরি করতে পারবেন।</p>
+        </div>
+    </div>
+</section>
+
+<section class="panel" id="my-tools">
+    <h2>৩. Rifat Photo Editing Tools</h2>
+    <h3>আমাদের নিজস্ব ফটো এডিটিং টুলস</h3>
+
+    <p>
+        Rifat Tools & Documents প্রকল্পের অধীনে তৈরি
+        নিজস্ব অনলাইন টুলস ব্যবহার করে ছবি সম্পাদনার
+        বিভিন্ন কাজ অনুশীলন করতে পারেন।
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🖼️</div>
+            <h3>Photo Editor</h3>
+            <p>ছবি সম্পাদনা, বিভিন্ন পরিবর্তন এবং সৃজনশীল কাজ অনুশীলন করুন।</p>
+            <a class="btn" href="tools/photo-editor.html">টুলটি ব্যবহার করুন</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">✂️</div>
+            <h3>Crop Tools</h3>
+            <p>ছবির প্রয়োজনীয় অংশ নির্বাচন ও কাটছাঁট করার অনুশীলন করুন।</p>
+            <a class="btn" href="tools/crop-tools.html">টুলটি ব্যবহার করুন</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌈</div>
+            <h3>Color & Light Tools</h3>
+            <p>ছবির রং, উজ্জ্বলতা ও আলোর পরিবর্তন শিখুন।</p>
+            <a class="btn" href="tools/color-light-tools.html">টুলটি ব্যবহার করুন</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">✨</div>
+            <h3>Effects Tools</h3>
+            <p>ছবিতে বিভিন্ন ইফেক্ট প্রয়োগ করে সৃজনশীল ডিজাইন তৈরি করুন।</p>
+            <a class="btn" href="tools/effects-tools.html">টুলটি ব্যবহার করুন</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🪪</div>
+            <h3>Passport Photo Tools</h3>
+            <p>পাসপোর্ট ও প্রয়োজনীয় পরিচয়পত্রের ছবির মাপ তৈরি করতে অনুশীলন করুন।</p>
+            <a class="btn" href="tools/passport-tools.html">টুলটি ব্যবহার করুন</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📝</div>
+            <h3>Text Design Tools</h3>
+            <p>ছবির ওপর লেখা যুক্ত করে ডিজাইন ও পোস্টার তৈরি করুন।</p>
+            <a class="btn" href="tools/text-design-tools.html">টুলটি ব্যবহার করুন</a>
+        </div>
+    </div>
+
+    <div class="info">
+        <strong>মনে রাখবেন:</strong> কিছু নিজস্ব টুল ব্যবহারের জন্য
+        লগইন প্রয়োজন হতে পারে। টুলের সুবিধা ও ব্যবহারবিধি
+        সংশ্লিষ্ট পেজে দেখে নিন।
+    </div>
+
+    <p>
+        <a class="btn btn-gold" href="tools/index.html">
+            সব অনলাইন টুলস দেখুন
+        </a>
+    </p>
+</section>
+
+<section class="panel" id="online-tools">
+    <h2>৪. অনলাইন ফটো এডিটিং রিসোর্স</h2>
+
+    <p>
+        নিচের কয়েকটি পরিচিত তৃতীয় পক্ষের ওয়েবসাইটের মাধ্যমে
+        অনলাইনে ছবি সম্পাদনার বিভিন্ন কাজ করা যায়।
+        এগুলো Rifat Ahmed-এর নিজস্ব সেবা নয়।
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🖼️</div>
+            <h3>Remove.bg</h3>
+            <p>ছবির ব্যাকগ্রাউন্ড স্বয়ংক্রিয়ভাবে সরানোর সেবা সম্পর্কে জানুন।</p>
+            <p class="small">Service provider: remove.bg</p>
+            <a class="btn" href="https://www.remove.bg/" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>Photopea</h3>
+            <p>অনলাইনে লেয়ার, ছবি ও বিভিন্ন গ্রাফিক ডিজাইনের কাজ অনুশীলন করুন।</p>
+            <p class="small">Service provider: Photopea</p>
+            <a class="btn" href="https://www.photopea.com/" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">✂️</div>
+            <h3>iLoveIMG</h3>
+            <p>ছবি Resize, Crop, Compress এবং অন্যান্য কাজ সম্পর্কে জানুন।</p>
+            <p class="small">Service provider: iLoveIMG</p>
+            <a class="btn" href="https://www.iloveimg.com/" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖌️</div>
+            <h3>Canva</h3>
+            <p>সামাজিক যোগাযোগমাধ্যমের পোস্ট, ব্যানার ও বিভিন্ন ডিজাইন তৈরি করুন।</p>
+            <p class="small">Service provider: Canva</p>
+            <a class="btn" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+    </div>
+
+    <p class="small">
+        তৃতীয় পক্ষের ওয়েবসাইটের ফিচার, মূল্য ও ব্যবহারবিধি
+        পরিবর্তিত হতে পারে। ব্যবহারের আগে তাদের শর্তাবলি যাচাই করুন।
+    </p>
+</section>
+
+<section class="panel" id="background">
+    <h2>৫. Background Remove কীভাবে করবেন?</h2>
+
+    <p>
+        Background Remove হলো ছবির মূল বিষয়বস্তু রেখে
+        পেছনের অংশ সরিয়ে ফেলার প্রক্রিয়া। যেমন কোনো ব্যক্তির
+        ছবির পেছনের দেয়াল বা দৃশ্য সরিয়ে স্বচ্ছ ব্যাকগ্রাউন্ড তৈরি করা।
+    </p>
+
+    <ol>
+        <li>যে ছবির ব্যাকগ্রাউন্ড সরাতে চান সেটি নির্বাচন করুন।</li>
+        <li>বিশ্বস্ত Background Remover টুল খুলুন।</li>
+        <li>ছবিটি আপলোড করুন।</li>
+        <li>টুলের নির্দেশনা অনুযায়ী ব্যাকগ্রাউন্ড সরান।</li>
+        <li>ফলাফল পরীক্ষা করুন।</li>
+        <li>প্রয়োজন অনুযায়ী PNG বা অন্য উপযুক্ত ফরম্যাটে সংরক্ষণ করুন।</li>
+    </ol>
+
+    <div class="warning">
+        **সতর্কতা:** চুল, পোশাক বা শরীরের প্রান্তের অংশ
+        ঠিকভাবে কাটা হয়েছে কি না ভালোভাবে পরীক্ষা করুন।
+        গুরুত্বপূর্ণ ব্যক্তিগত ছবি অপরিচিত ওয়েবসাইটে আপলোড করবেন না।
+    </div>
+</section>
+
+<section class="panel" id="crop-resize">
+    <h2>৬. Image Crop ও Resize</h2>
+
+    <h3>Crop কী?</h3>
+    <p>
+        ছবির অপ্রয়োজনীয় অংশ বাদ দিয়ে প্রয়োজনীয় অংশ রেখে
+        দেওয়াকে Crop বলা হয়।
+    </p>
+
+    <h3>Resize কী?</h3>
+    <p>
+        ছবির Width ও Height পরিবর্তন করে ছবির আকার
+        ছোট বা বড় করাকে Resize বলা হয়।
+    </p>
+
+    <table>
+        <tr>
+            <th>কাজ</th>
+            <th>ব্যবহার</th>
+        </tr>
+        <tr>
+            <td>Crop</td>
+            <td>অপ্রয়োজনীয় অংশ বাদ দেওয়া</td>
+        </tr>
+        <tr>
+            <td>Resize</td>
+            <td>ছবির Width ও Height পরিবর্তন</td>
+        </tr>
+        <tr>
+            <td>Compress</td>
+            <td>ফাইলের সাইজ কমানো</td>
+        </tr>
+        <tr>
+            <td>Rotate</td>
+            <td>ছবির অবস্থান ঘোরানো</td>
+        </tr>
+    </table>
+
+    <div class="info">
+        **অনুশীলন:** একটি ছবির অপ্রয়োজনীয় পাশের অংশ Crop
+        করুন। তারপর ছবির একটি ছোট সংস্করণ তৈরি করুন।
+        মূল ছবিটি আলাদাভাবে সংরক্ষণ করুন।
+    </div>
+</section>
+
+<section class="panel" id="passport">
+    <h2>৭. Passport Photo ও নির্দিষ্ট মাপের ছবি</h2>
+
+    <p>
+        বিভিন্ন আবেদন, পরিচয়পত্র ও অন্যান্য কাজে নির্দিষ্ট
+        মাপের ছবি প্রয়োজন হতে পারে। ছবি তৈরি করার আগে
+        সংশ্লিষ্ট কর্তৃপক্ষের সর্বশেষ নির্দেশনা দেখে নিন।
+    </p>
+
+    <p>ছবি তৈরির সময় সাধারণত যেসব বিষয় খেয়াল রাখতে হয়:</p>
 
     <ul>
-
-        <li>
-            Be careful before uploading personal or private photos.
-            <br>
-            ব্যক্তিগত বা গোপনীয় ছবি আপলোড করার আগে সতর্ক থাকুন।
-        </li>
-
-        <li>
-            Do not share personal information on unknown websites.
-            <br>
-            অপরিচিত ওয়েবসাইটে ব্যক্তিগত তথ্য শেয়ার করবেন না।
-        </li>
-
-        <li>
-            Read the Privacy Policy and Terms of Service of each provider.
-            <br>
-            প্রতিটি প্রতিষ্ঠানের Privacy Policy ও Terms of Service পড়ে নিন।
-        </li>
-
-        <li>
-            Check whether the service is free or paid before using it.
-            <br>
-            ব্যবহারের আগে সেবাটি বিনামূল্যে নাকি অর্থের বিনিময়ে
-            পাওয়া যায় তা যাচাই করুন।
-        </li>
-
-        <li>
-            Delete uploaded photos when possible and appropriate.
-            <br>
-            সম্ভব হলে এবং প্রয়োজন অনুযায়ী আপলোড করা ছবি মুছে ফেলুন।
-        </li>
-
+        <li>প্রয়োজনীয় Width ও Height ঠিক রাখা।</li>
+        <li>ছবির অনুপাত (Aspect Ratio) ঠিক রাখা।</li>
+        <li>মুখ স্পষ্ট ও স্বাভাবিক রাখা।</li>
+        <li>আলো ও ব্যাকগ্রাউন্ড পরিষ্কার রাখা।</li>
+        <li>প্রয়োজন অনুযায়ী JPG বা PNG ফরম্যাট ব্যবহার করা।</li>
+        <li>সংশ্লিষ্ট প্রতিষ্ঠানের নির্ধারিত নিয়ম অনুসরণ করা।</li>
     </ul>
 
-    <p class="privacy-message">
-        Protect your personal information and photos.
-        <br>
-        আপনার ব্যক্তিগত তথ্য ও ছবির নিরাপত্তাকে গুরুত্ব দিন।
-    </p>
-
+    <div class="warning">
+        সব আবেদন বা দেশের জন্য একই ছবির মাপ প্রযোজ্য নয়।
+        জমা দেওয়ার আগে সংশ্লিষ্ট কর্তৃপক্ষের নির্দেশনা যাচাই করুন।
+    </div>
 </section>
 
-<section class="disclaimer">
-
-    <h2>Important Information</h2>
-
-    <h3>গুরুত্বপূর্ণ তথ্য</h3>
+<section class="panel" id="color">
+    <h2>৮. Color ও Lighting Adjustment</h2>
 
     <p>
-        This page is an independent educational resource.
-        The photo editing services linked here are operated
-        by their respective third-party providers.
-        We do not own, operate, or claim ownership of those services.
+        একটি ছবির সৌন্দর্য অনেকাংশে নির্ভর করে রং ও আলোর
+        সঠিক ব্যবহারের ওপর।
     </p>
 
-    <p>
-        এই পেজটি একটি স্বাধীন শিক্ষামূলক রিসোর্স।
-        এখানে দেওয়া ফটো এডিটিং সেবাগুলো সংশ্লিষ্ট
-        তৃতীয় পক্ষের প্রতিষ্ঠান পরিচালনা করে।
-        আমরা ওই সেবাগুলোর মালিকানা বা পরিচালনার দাবি করি না।
-    </p>
+    <div class="grid">
+        <div class="card">
+            <h3>Brightness</h3>
+            <p>ছবির উজ্জ্বলতা বাড়ানো বা কমানো।</p>
+        </div>
+        <div class="card">
+            <h3>Contrast</h3>
+            <p>ছবির আলো ও অন্ধকার অংশের পার্থক্য পরিবর্তন।</p>
+        </div>
+        <div class="card">
+            <h3>Saturation</h3>
+            <p>ছবির রঙের তীব্রতা পরিবর্তন।</p>
+        </div>
+        <div class="card">
+            <h3>Sharpness</h3>
+            <p>ছবির দৃশ্যমান বিবরণ আরও স্পষ্ট করার চেষ্টা।</p>
+        </div>
+    </div>
 
-    <p>
-        Availability, features, pricing and privacy policies
-        are controlled by the respective service providers
-        and may change at any time.
-    </p>
-
-    <p>
-        এসব সেবার সুবিধা, মূল্য, ব্যবহারবিধি ও গোপনীয়তা নীতি
-        সংশ্লিষ্ট প্রতিষ্ঠান নিয়ন্ত্রণ করে এবং যেকোনো সময়
-        পরিবর্তন হতে পারে।
-    </p>
-
+    <div class="info">
+        অতিরিক্ত Brightness, Contrast বা Saturation ব্যবহার
+        করলে ছবি অস্বাভাবিক দেখাতে পারে। তাই অল্প অল্প করে
+        পরিবর্তন করুন এবং মূল ছবির সঙ্গে তুলনা করুন।
+    </div>
 </section>
+
+<section class="panel" id="formats">
+    <h2>৯. ছবির ফাইল ফরম্যাট সম্পর্কে জানুন</h2>
+
+    <table>
+        <tr>
+            <th>ফরম্যাট</th>
+            <th>ব্যবহার</th>
+            <th>বিশেষ বৈশিষ্ট্য</th>
+        </tr>
+        <tr>
+            <td>JPG / JPEG</td>
+            <td>সাধারণ ছবি ও ফটোগ্রাফ</td>
+            <td>সাধারণত ছোট ফাইল সাইজ</td>
+        </tr>
+        <tr>
+            <td>PNG</td>
+            <td>লোগো ও স্বচ্ছ ব্যাকগ্রাউন্ড</td>
+            <td>Transparency সমর্থন করে</td>
+        </tr>
+        <tr>
+            <td>WEBP</td>
+            <td>ওয়েবসাইটের ছবি</td>
+            <td>ভালো কম্প্রেশন সুবিধা</td>
+        </tr>
+    </table>
+
+    <p>
+        **মনে রাখবেন:** ফাইল ফরম্যাট নির্বাচন করার সময়
+        ছবির ব্যবহার, মান এবং প্রয়োজনীয় স্বচ্ছতা বিবেচনা করুন।
+    </p>
+</section>
+
+<section class="panel" id="workflow">
+    <h2>১০. একটি ছবি এডিট করার সাধারণ ধাপ</h2>
+
+    <div class="grid">
+        <div class="step">
+            <h3>ধাপ ১: ছবি নির্বাচন</h3>
+            <p>ভালো মানের ও প্রয়োজন অনুযায়ী ছবি নির্বাচন করুন।</p>
+        </div>
+        <div class="step">
+            <h3>ধাপ ২: Crop</h3>
+            <p>ছবির অপ্রয়োজনীয় অংশ বাদ দিন।</p>
+        </div>
+        <div class="step">
+            <h3>ধাপ ৩: আলো ও রং</h3>
+            <p>Brightness, Contrast ও Color ঠিক করুন।</p>
+        </div>
+        <div class="step">
+            <h3>ধাপ ৪: Background</h3>
+            <p>প্রয়োজন অনুযায়ী ব্যাকগ্রাউন্ড পরিবর্তন করুন।</p>
+        </div>
+        <div class="step">
+            <h3>ধাপ ৫: পরীক্ষা</h3>
+            <p>ছবির প্রান্ত, রং ও মান পরীক্ষা করুন।</p>
+        </div>
+        <div class="step">
+            <h3>ধাপ ৬: Export</h3>
+            <p>সঠিক ফরম্যাটে ছবি সংরক্ষণ করুন।</p>
+        </div>
+    </div>
+</section>
+
+<section class="panel" id="learning">
+    <h2>১১. ব্যবহারিক ফটো এডিটিং অনুশীলন</h2>
+
+    <p>
+        শুধু পড়লেই হবে না। নিজের কম্পিউটার বা মোবাইলে
+        অনুশীলন করলে ফটো এডিটিং দ্রুত শিখতে পারবেন।
+    </p>
+
+    <h3>অনুশীলন ১: ছবি Crop করুন</h3>
+    <ol>
+        <li>একটি সাধারণ ছবি নির্বাচন করুন।</li>
+        <li>Photo Editor অথবা Crop Tools খুলুন।</li>
+        <li>ছবির প্রয়োজনীয় অংশ নির্বাচন করুন।</li>
+        <li>Crop করে নতুন ছবিটি সংরক্ষণ করুন।</li>
+    </ol>
+
+    <h3>অনুশীলন ২: ছবির আলো পরিবর্তন করুন</h3>
+    <ol>
+        <li>একটি ছবি এডিটরে খুলুন।</li>
+        <li>Brightness সামান্য বাড়ান বা কমান।</li>
+        <li>Contrast পরিবর্তন করে দেখুন।</li>
+        <li>মূল ছবির সঙ্গে ফলাফল তুলনা করুন।</li>
+    </ol>
+
+    <h3>অনুশীলন ৩: ব্যাকগ্রাউন্ড পরিবর্তন করুন</h3>
+    <ol>
+        <li>অনুশীলনের জন্য একটি উপযুক্ত ছবি নিন।</li>
+        <li>Background Remove সুবিধা ব্যবহার করুন।</li>
+        <li>নতুন ব্যাকগ্রাউন্ড যুক্ত করুন।</li>
+        <li>ফলাফল পরীক্ষা করে সংরক্ষণ করুন।</li>
+    </ol>
+
+    <h3>অনুশীলন ৪: একটি পোস্টার তৈরি করুন</h3>
+    <ol>
+        <li>একটি নতুন ডিজাইন ক্যানভাস খুলুন।</li>
+        <li>একটি ছবি যুক্ত করুন।</li>
+        <li>একটি শিরোনাম ও প্রয়োজনীয় লেখা যোগ করুন।</li>
+        <li>রং ও অবস্থান ঠিক করুন।</li>
+        <li>JPG বা PNG হিসেবে Export করুন।</li>
+    </ol>
+
+    <div class="warning">
+        অনুশীলনের সময় সবসময় নিজের বা ব্যবহারের অনুমতি
+        রয়েছে এমন ছবি ব্যবহার করুন।
+    </div>
+</section>
+
+<section class="panel" id="skills">
+    <h2>১২. ফটো এডিটিংয়ের জন্য প্রয়োজনীয় দক্ষতা</h2>
+
+    <ul>
+        <li>কম্পিউটার ও ফাইল ব্যবস্থাপনার প্রাথমিক জ্ঞান।</li>
+        <li>ছবি নির্বাচন ও সংরক্ষণ করতে পারা।</li>
+        <li>Crop, Resize ও Compress বোঝা।</li>
+        <li>Brightness ও Color Adjustment জানা।</li>
+        <li>Background Remove ও Layer সম্পর্কে ধারণা।</li>
+        <li>লেখা, ফন্ট ও রং ব্যবহার করতে পারা।</li>
+        <li>ডিজাইনের ভারসাম্য ও সৌন্দর্য বোঝা।</li>
+        <li>কপিরাইট ও ব্যক্তিগত গোপনীয়তা সম্পর্কে সচেতন থাকা।</li>
+    </ul>
+</section>
+
+<section class="panel" id="portfolio">
+    <h2>১৩. নিজের Photo Editing Portfolio তৈরি করুন</h2>
+
+    <p>
+        Portfolio হলো আপনার তৈরি কাজের নমুনা সংগ্রহ।
+        ভবিষ্যতে ক্লায়েন্ট বা কাজের সুযোগ খুঁজতে এটি
+        সহায়ক হতে পারে।
+    </p>
+
+    <p>শুরুতে নিচের কাজগুলো তৈরি করে রাখতে পারেন:</p>
+
+    <ul>
+        <li>৩টি Crop ও Resize করা ছবি।</li>
+        <li>৩টি Background Remove করা ছবি।</li>
+        <li>৩টি Color ও Lighting Adjustment-এর উদাহরণ।</li>
+        <li>২টি পোস্টার বা সামাজিক যোগাযোগমাধ্যমের ডিজাইন।</li>
+        <li>২টি পণ্যের ছবি সম্পাদনার নমুনা।</li>
+    </ul>
+
+    <div class="info">
+        প্রতিটি কাজের মূল ছবি ও সম্পাদিত ছবি আলাদা করে
+        সংরক্ষণ করুন। অন্যের কাজ নিজের নামে প্রকাশ করবেন না।
+    </div>
+</section>
+
+<section class="panel" id="income">
+    <h2>১৪. ফটো এডিটিং শিখে কাজের সুযোগ</h2>
+
+    <p>
+        দক্ষতা, অভিজ্ঞতা এবং কাজের মান অনুযায়ী ফটো এডিটিং
+        সম্পর্কিত বিভিন্ন কাজের সুযোগ তৈরি হতে পারে।
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Product Photo Editing</h3>
+            <p>অনলাইন দোকানের পণ্যের ছবি প্রস্তুত করা।</p>
+        </div>
+        <div class="card">
+            <h3>Social Media Design</h3>
+            <p>সামাজিক যোগাযোগমাধ্যমের পোস্ট ও ব্যানার তৈরি।</p>
+        </div>
+        <div class="card">
+            <h3>Photo Retouching</h3>
+            <p>ছবির আলো, রং ও প্রয়োজনীয় অংশ ঠিক করা।</p>
+        </div>
+        <div class="card">
+            <h3>Basic Graphic Design</h3>
+            <p>পোস্টার, বিজ্ঞাপন ও সাধারণ ডিজাইন তৈরি।</p>
+        </div>
+    </div>
+
+    <p>
+        এসব কাজ শেখার পর নিজের Portfolio তৈরি করে
+        উপযুক্ত ক্লায়েন্ট বা কাজের সুযোগ খুঁজতে পারেন।
+    </p>
+
+    <div class="warning">
+        **গুরুত্বপূর্ণ:** ফটো এডিটিং শিখলেই আয় নিশ্চিত হয় না।
+        দক্ষতা, অনুশীলন, কাজের মান, যোগাযোগ এবং বাজারের
+        চাহিদার ওপর কাজ পাওয়ার সম্ভাবনা নির্ভর করে।
+    </div>
+</section>
+
+<section class="panel" id="safety">
+    <h2>১৫. Privacy, Safety & Copyright</h2>
+    <h3>গোপনীয়তা, নিরাপত্তা ও কপিরাইট</h3>
+
+    <ul>
+        <li>ব্যক্তিগত ছবি অপরিচিত ওয়েবসাইটে আপলোড করার আগে সতর্ক থাকুন।</li>
+        <li>ওয়েবসাইটের Privacy Policy ও Terms of Service পড়ে নিন।</li>
+        <li>সেবা বিনামূল্যে নাকি অর্থের বিনিময়ে পাওয়া যায় যাচাই করুন।</li>
+        <li>প্রয়োজন ছাড়া ব্যক্তিগত তথ্য শেয়ার করবেন না।</li>
+        <li>অন্যের ছবি বা ডিজাইন অনুমতি ছাড়া বাণিজ্যিক কাজে ব্যবহার করবেন না।</li>
+        <li>কোনো ছবি ব্যবহারের আগে তার লাইসেন্স ও ব্যবহারের শর্ত যাচাই করুন।</li>
+        <li>মূল ছবি আলাদা করে সংরক্ষণ করুন।</li>
+        <li>অপ্রয়োজনীয় আপলোড করা ছবি মুছে ফেলার সুযোগ থাকলে তা ব্যবহার করুন।</li>
+    </ul>
+
+    <div class="warning">
+        আপনার ব্যক্তিগত ছবি ও তথ্যের নিরাপত্তাকে সবসময়
+        গুরুত্ব দিন। কোনো অনলাইন সেবায় ছবি আপলোড করার
+        আগে সেই সেবার গোপনীয়তা নীতি যাচাই করুন।
+    </div>
+</section>
+
+<section class="panel" id="plan">
+    <h2>১৬. নতুনদের জন্য ৭ দিনের শেখার পরিকল্পনা</h2>
+
+    <table>
+        <tr>
+            <th>দিন</th>
+            <th>শেখার বিষয়</th>
+            <th>অনুশীলন</th>
+        </tr>
+        <tr>
+            <td>১ম দিন</td>
+            <td>Photo Editing পরিচিতি</td>
+            <td>একটি ছবি খুলে দেখুন</td>
+        </tr>
+        <tr>
+            <td>২য় দিন</td>
+            <td>Crop ও Resize</td>
+            <td>৩টি ছবি Crop করুন</td>
+        </tr>
+        <tr>
+            <td>৩য় দিন</td>
+            <td>Brightness ও Contrast</td>
+            <td>২টি ছবির আলো ঠিক করুন</td>
+        </tr>
+        <tr>
+            <td>৪র্থ দিন</td>
+            <td>Background Remove</td>
+            <td>একটি ছবির ব্যাকগ্রাউন্ড সরান</td>
+        </tr>
+        <tr>
+            <td>৫ম দিন</td>
+            <td>Text ও Graphic Design</td>
+            <td>একটি পোস্টার তৈরি করুন</td>
+        </tr>
+        <tr>
+            <td>৬ষ্ঠ দিন</td>
+            <td>Export ও File Formats</td>
+            <td>JPG ও PNG সংরক্ষণ করুন</td>
+        </tr>
+        <tr>
+            <td>৭ম দিন</td>
+            <td>ছোট প্রজেক্ট</td>
+            <td>নিজের একটি ডিজাইন তৈরি করুন</td>
+        </tr>
+    </table>
+
+    <p>
+        প্রতিদিন অন্তত ৩০ মিনিট অনুশীলন করার চেষ্টা করুন।
+        নিজের কাজ সংরক্ষণ করুন এবং আগের কাজের সঙ্গে
+        নতুন কাজের তুলনা করুন।
+    </p>
+</section>
+
+<section class="panel" id="faq">
+    <h2>১৭. সাধারণ প্রশ্ন ও উত্তর | FAQ</h2>
+
+    <h3>প্রশ্ন: ফটো এডিটিং শিখতে কি টাকা লাগে?</h3>
+    <p>
+        উত্তর: শুরুতে বিনামূল্যের সফটওয়্যার ও অনলাইন রিসোর্স
+        দিয়ে অনেক কাজ শেখা যায়। কিছু উন্নত সুবিধার জন্য
+        অর্থ দিতে হতে পারে।
+    </p>
+
+    <h3>প্রশ্ন: মোবাইল দিয়ে কি ফটো এডিটিং করা যায়?</h3>
+    <p>
+        উত্তর: হ্যাঁ। অনেক মোবাইল অ্যাপ ও ওয়েবসাইট দিয়ে
+        সাধারণ ছবি সম্পাদনার কাজ করা যায়।
+    </p>
+
+    <h3>প্রশ্ন: ফটো এডিটিংয়ের জন্য কি কম্পিউটার প্রয়োজন?</h3>
+    <p>
+        উত্তর: সব কাজের জন্য নয়। তবে বড় বা জটিল ডিজাইনের
+        কাজে কম্পিউটার সুবিধাজনক হতে পারে।
+    </p>
+
+    <h3>প্রশ্ন: কোন ফরম্যাটে ছবি সংরক্ষণ করব?</h3>
+    <p>
+        উত্তর: সাধারণ ছবির জন্য JPG এবং স্বচ্ছ ব্যাকগ্রাউন্ডের
+        প্রয়োজন হলে PNG ব্যবহার করতে পারেন। ব্যবহারের
+        উদ্দেশ্য অনুযায়ী ফরম্যাট নির্বাচন করুন।
+    </p>
+
+    <h3>প্রশ্ন: ফটো এডিটিং শিখে কি আয় করা সম্ভব?</h3>
+    <p>
+        উত্তর: দক্ষতা ও কাজের মান তৈরি হলে বিভিন্ন কাজের
+        সুযোগ পাওয়া সম্ভব। তবে আয় নিশ্চিত নয়।
+    </p>
+
+    <h3>প্রশ্ন: Rifat-এর নিজস্ব টুলস ব্যবহার করতে পারব?</h3>
+    <p>
+        উত্তর: হ্যাঁ। আমাদের টুলস পেজে গিয়ে উপলভ্য
+        ফটো এডিটিং টুলগুলো ব্যবহার করতে পারেন।
+        কিছু টুলে লগইন প্রয়োজন হতে পারে।
+    </p>
+</section>
+
+<section class="panel" id="disclaimer">
+    <h2>১৮. গুরুত্বপূর্ণ তথ্য ও দায়বদ্ধতা</h2>
+
+    <p>
+        এই পেজটি ফটো এডিটিং শেখার জন্য একটি স্বাধীন
+        শিক্ষামূলক রিসোর্স। এখানে উল্লেখ করা Remove.bg,
+        Photopea, iLoveIMG এবং Canva নিজ নিজ প্রতিষ্ঠানের
+        পরিচালিত সেবা।
+    </p>
+
+    <p>
+        আমরা এসব তৃতীয় পক্ষের সেবার মালিকানা বা পরিচালনার
+        দাবি করি না। তাদের ফিচার, মূল্য, ব্যবহারবিধি ও
+        গোপনীয়তা নীতি যেকোনো সময় পরিবর্তিত হতে পারে।
+    </p>
+
+    <p>
+        কোনো তৃতীয় পক্ষের সেবা ব্যবহারের আগে তাদের
+        নিজস্ব শর্তাবলি ও নীতিমালা যাচাই করুন।
+    </p>
+
+    <p>
+        এই পেজের তথ্য শিক্ষামূলক উদ্দেশ্যে দেওয়া হয়েছে।
+        এটি কোনো নির্দিষ্ট সফটওয়্যার বা সেবার ফলাফলের
+        নিশ্চয়তা প্রদান করে না।
+    </p>
+</section>
+
+<section class="panel hero">
+    <h2>আপনার শেখার যাত্রা শুরু হোক আজ থেকেই!</h2>
+
+    <p>
+        নিয়মিত অনুশীলন করুন, নিজের কাজ সংরক্ষণ করুন
+        এবং ধীরে ধীরে নতুন দক্ষতা অর্জন করুন।
+    </p>
+
+    <p class="tagline">
+        Learn • Explore • Improve Your Skills • Grow
+    </p>
+
+    <a class="btn" href="education.html">শিক্ষা পেজ দেখুন</a>
+    <a class="btn" href="technology.html">প্রযুক্তি শিখুন</a>
+    <a class="btn btn-gold" href="contact.html">যোগাযোগ করুন</a>
+</section>
+
+</main>
 
 <footer>
-
-    <h3>RIFAT AHMED</h3>
-
+    <h3>MD RIFAT AHMED</h3>
     <p>Personal & Online Business</p>
+    <p>শিখুন • জানুন • দক্ষতা বাড়ান • কাজ সম্পন্ন করুন</p>
 
     <p>
-        Educational Resources for Learning and Growth
-        <br>
-        শেখা, জানা ও দক্ষতা বৃদ্ধির শিক্ষামূলক উদ্যোগ
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="services.html">Services</a> |
+        <a href="education.html">Education</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
     </p>
 
-    <p>© 2026 All Rights Reserved</p>
-
+    <p>© 2026 Md Rifat Ahmed. All Rights Reserved.</p>
 </footer>
 
 </body>
